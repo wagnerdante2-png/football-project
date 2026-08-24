@@ -2,13 +2,14 @@ import type { World } from './engine';
 
 export type WorldEventType =
   | 'DayAdvanced' | 'MatchDayStarted' | 'MatchCompleted' | 'TrainingCompleted'
-  | 'PlayerInjured' | 'MedicalPhaseChanged' | 'PlayerRecovered' | 'PlayerRetired' | 'YouthPlayerGenerated'
+  | 'PlayerInjured' | 'PlayerRecovered' | 'PlayerRetired' | 'YouthPlayerGenerated'
   | 'TransferRequested' | 'RecruitmentApproved' | 'RecruitmentRejected'
   | 'NegotiationStarted' | 'NegotiationUpdated' | 'NegotiationLeaked' | 'NegotiationEnded'
   | 'ContractExpiring' | 'ContractRenewed' | 'PlayerReleased'
   | 'PromiseMade' | 'PromiseBroken' | 'PromiseKept'
   | 'ManagerRelationshipChanged' | 'BoardPressureChanged'
   | 'SupporterMoodChanged' | 'MediaStoryPublished'
+  | 'PersonalLifeEvent' | 'PersonalDecisionMade' | 'RelationshipChanged'
   | 'SeasonEnded' | 'SeasonStarted';
 
 export type WorldEvent = {
