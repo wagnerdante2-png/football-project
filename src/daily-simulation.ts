@@ -1,6 +1,6 @@
 import type { Club, Player, World } from './engine';
-import { playCurrentRoundWithRoles } from './roles';
-import { simulateMedicalAfterRound, tickMedicalRecoveryOnly } from './medical-simulation';
+import { playCurrentRoundWithMedical } from './medical-simulation';
+import { tickRecovery } from './injuries';
 import { tickScoutingRound } from './scouting';
 import { emitWorldEvent } from './event-bus';
 
@@ -46,48 +46,29 @@ function trainPlayer(player:Player,plan:DailyClubPlan):void{
   const chance=.025*intensity*ageFactor;
   if(Math.random()>chance)return;
   const attrs=player.attributes;
-  const keys:Record<TrainingFocus,(keyof typeof attrs)[]>={
-    recovery:[],physical:['pace','stamina'],technical:['passing','technique','finishing'],tactical:['positioning','decisions','passing'],attacking:['finishing','technique','pace'],defending:['tackling','positioning','stamina']
-  };
+  const keys:Record<TrainingFocus,(keyof typeof attrs)[]>={recovery:[],physical:['pace','stamina'],technical:['passing','technique','finishing'],tactical:['positioning','decisions','passing'],attacking:['finishing','technique','pace'],defending:['tackling','positioning','stamina']};
   const list=keys[plan.focus];if(!list.length)return;const key=list[Math.floor(Math.random()*list.length)];attrs[key]=Math.round(clamp(attrs[key]+1,20,99));
 }
 
 function processTrainingDay(world:World,date:string):void{
   const state=dailyCalendar(world);const dow=weekday(date);
   for(const club of world.clubs){
-    const configured=state.clubPlans.get(club.id)??defaultPlan(club);
-    const restDay=configured.restDay||dow===0||dow===3;
-    const plan={...configured,restDay};
+    const configured=state.clubPlans.get(club.id)??defaultPlan(club);const restDay=configured.restDay||dow===0||dow===3;const plan={...configured,restDay};
     for(const player of club.players)trainPlayer(player,plan);
     emitWorldEvent(world,{type:'TrainingCompleted',date,clubIds:[club.id],importance:1,tags:['training',plan.focus,plan.intensity],summary:`${club.name} concluiu sessão de ${plan.focus}.`,payload:{focus:plan.focus,intensity:plan.intensity,restDay}});
   }
-  tickMedicalRecoveryOnly(world);
-}
-
-function participantsFromLatestRound(world:World,playedRound:number):Map<string,Set<string>>{
-  const map=new Map<string,Set<string>>();
-  for(const fixture of world.fixtures.filter(f=>f.round===playedRound&&f.played)){
-    for(const clubId of [fixture.home,fixture.away])if(!map.has(clubId))map.set(clubId,new Set());
-    for(const event of fixture.events??[]){if(event.playerId&&event.clubId)map.get(event.clubId)?.add(event.playerId);if(event.secondaryPlayerId&&event.clubId)map.get(event.clubId)?.add(event.secondaryPlayerId);}
-  }
-  return map;
+  tickRecovery(world);
 }
 
 export function advanceOneDay(world:World):{date:string;matchDay:boolean;playedRound?:number}{
-  const state=dailyCalendar(world);const date=state.date;const matchDate=state.matchDates.get(world.round);const matchDay=matchDate===date&&world.fixtures.some(f=>f.round===world.round&&!f.played);
-  let playedRound: number|undefined;
+  const state=dailyCalendar(world);const date=state.date;const matchDate=state.matchDates.get(world.round);const matchDay=matchDate===date&&world.fixtures.some(f=>f.round===world.round&&!f.played);let playedRound:number|undefined;
   emitWorldEvent(world,{type:'DayAdvanced',date,importance:1,summary:`Calendário avançou para ${date}.`,payload:{}});
   if(matchDay){
-    playedRound=world.round;
-    emitWorldEvent(world,{type:'MatchDayStarted',date,importance:2,summary:`Início da rodada ${playedRound}.`,payload:{round:playedRound}});
-    playCurrentRoundWithRoles(world);
-    const participants=participantsFromLatestRound(world,playedRound);
-    simulateMedicalAfterRound(world,participants);
-    tickScoutingRound(world);
+    playedRound=world.round;emitWorldEvent(world,{type:'MatchDayStarted',date,importance:2,summary:`Início da rodada ${playedRound}.`,payload:{round:playedRound}});
+    playCurrentRoundWithMedical(world);tickScoutingRound(world);
     for(const fixture of world.fixtures.filter(f=>f.round===playedRound&&f.played))emitWorldEvent(world,{type:'MatchCompleted',date,clubIds:[fixture.home,fixture.away],importance:2,summary:`${fixture.home} ${fixture.homeGoals}–${fixture.awayGoals} ${fixture.away}.`,payload:{round:playedRound,homeGoals:fixture.homeGoals,awayGoals:fixture.awayGoals,homeXg:fixture.homeXg,awayXg:fixture.awayXg}});
   }else processTrainingDay(world,date);
-  state.date=addDays(date,1);state.daysAdvanced++;
-  return{date,matchDay,playedRound};
+  state.date=addDays(date,1);state.daysAdvanced++;return{date,matchDay,playedRound};
 }
 
 export function advanceDays(world:World,days:number):void{for(let i=0;i<Math.max(0,Math.floor(days));i++)advanceOneDay(world);}
