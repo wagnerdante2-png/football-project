@@ -129,3 +129,9 @@ th { color: #72808d; font-size: 11px; text-transform: uppercase; letter-spacing:
 .role-rule b { color: #dce3ea; }
 .role-rule span { color: #72808d; text-align: right; }
 .role-note { margin: 16px 0 0 !important; color: #64727f !important; font-size: 10px !important; }
+.analytics-table { margin-top:14px; }
+.analytics-table th:nth-child(2), .analytics-table td:nth-child(2), .analytics-table th:nth-child(3), .analytics-table td:nth-child(3) { text-align:left; }
+.analytics-table tbody tr:hover { background:#14212a; }
+.analytics-table td b { color:#36d081; }
+.empty-state { padding:34px; text-align:center; color:#71808d; }
+.match-players { margin-bottom:14px; }
