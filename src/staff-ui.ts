@@ -1,3 +1,4 @@
+import './staff.css';
 import type { Club, World } from './engine';
 import { activeAssignments } from './scouting';
 import { clubScouts, regionalKnowledge, scoutingRegions } from './staff';
