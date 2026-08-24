@@ -3,6 +3,7 @@ import { selectStartingEleven } from './engine';
 import { playCurrentRoundWithRoles } from './roles';
 import { effectiveAttributes, prepareAvailableSquads, restoreSquads, simulateMedicalAfterRound } from './injuries';
 import { personalAvailability, personalPerformanceFactor } from './human-life';
+import { dressingRoomPerformanceFactor } from './dressing-room';
 
 type RemovedPersonal={clubId:string;players:Player[]};
 const clamp=(v:number,min:number,max:number)=>Math.max(min,Math.min(max,v));
@@ -13,7 +14,7 @@ function removePersonallyUnavailable(world:World):RemovedPersonal[]{
   return removed;
 }
 function restorePersonallyUnavailable(world:World,removed:RemovedPersonal[]):void{for(const row of removed){const club=world.clubs.find(c=>c.id===row.clubId);if(club)club.players.push(...row.players);}}
-function applyPersonalFactor(attributes:PlayerAttributes,factor:number):PlayerAttributes{
+function applyContextFactor(attributes:PlayerAttributes,factor:number):PlayerAttributes{
   const out={...attributes};for(const key of Object.keys(out) as (keyof PlayerAttributes)[])out[key]=Math.round(clamp(out[key]*factor,20,99));return out;
 }
 
@@ -29,7 +30,8 @@ export function playCurrentRoundWithMedical(world:World):void {
       for(const player of club.players){
         snapshots.set(player,{...player.attributes});
         const medical=effectiveAttributes(world,player);
-        player.attributes=applyPersonalFactor(medical,personalPerformanceFactor(world,player.id));
+        const factor=personalPerformanceFactor(world,player.id)*dressingRoomPerformanceFactor(world,player.id);
+        player.attributes=applyContextFactor(medical,factor);
       }
     }
     playCurrentRoundWithRoles(world);
