@@ -10,6 +10,7 @@ export type WorldEventType =
   | 'ManagerRelationshipChanged' | 'BoardPressureChanged'
   | 'SupporterMoodChanged' | 'MediaStoryPublished'
   | 'PersonalLifeEvent' | 'PersonalDecisionMade' | 'RelationshipChanged'
+  | 'CaptaincyChanged' | 'MentorshipStarted' | 'SquadTurnover' | 'DressingRoomConcern' | 'DressingRoomCrisis'
   | 'SeasonEnded' | 'SeasonStarted';
 
 export type WorldEvent = {
