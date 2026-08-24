@@ -1,0 +1,9 @@
+.world-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
+.world-grid .card { min-height: 220px; }
+.world-grid table td:first-child, .world-grid table th:first-child { text-align: left; width: auto; }
+.career-list { display: grid; }
+.career-list > div { display: grid; grid-template-columns: 1fr 180px 150px; gap: 14px; align-items: center; padding: 12px 16px; border-bottom: 1px solid #1d2933; }
+.career-list b { font-size: 12px; }
+.career-list span { color: #73818d; font-size: 11px; }
+.career-list strong { text-align: right; color: #36d081; font-size: 12px; }
+.empty-state { padding: 22px 18px; color: #73818d; font-size: 12px; line-height: 1.5; }
