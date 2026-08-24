@@ -1,4 +1,5 @@
 import type { Club, Fixture, Player, PlayerAttributes, Position, Standing, World } from './engine';
+import { processOffseasonMarket } from './economy';
 
 export type RetiredPlayer = {
   id: string;
@@ -289,6 +290,7 @@ export function advanceToNextSeason(world: World): void {
   ageAndDevelop(world);
   retirePlayers(world);
   youthIntake(world);
+  processOffseasonMarket(world, world.season + 1);
   trimSquads(world);
   world.season += 1;
   world.round = 1;
