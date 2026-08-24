@@ -15,7 +15,8 @@ export type WorldEventType =
   | 'ManagerEducationStarted' | 'ManagerEducationCompleted' | 'ManagerLicenceUpgraded'
   | 'ManagerIdentityShift' | 'ManagerSpecialisationUnlocked'
   | 'ManagerSacked' | 'ManagerResigned' | 'ManagerHired' | 'ManagerJobOffer' | 'ManagerJobOfferRejected' | 'ManagerJobOfferWithdrawn' | 'ManagerContractRenewed'
-  | 'ManagerJobApplication' | 'ManagerSabbaticalStarted' | 'ManagerSabbaticalEnded' | 'ManagerRetired'
+  | 'ManagerJobApplication' | 'ManagerApplicationSubmitted' | 'ManagerSabbaticalStarted' | 'ManagerSabbaticalEnded' | 'ManagerRetired'
+  | 'ManagerVacancyOpened' | 'ManagerShortlistCreated' | 'ManagerInterviewLeaked' | 'ManagerVacancyFilled'
   | 'SeasonEnded' | 'SeasonStarted';
 
 export type WorldEvent={id:string;sequence:number;type:WorldEventType;date:string;season:number;round:number;actorIds:string[];clubIds:string[];playerIds:string[];importance:1|2|3|4|5;tags:string[];summary:string;payload:Record<string,unknown>};
