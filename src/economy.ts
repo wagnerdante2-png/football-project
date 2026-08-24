@@ -1,5 +1,6 @@
 import type { Club, Player, Position, World } from './engine';
 import { assignScout, scoutingCandidates } from './scouting';
+import { evaluateRecruitmentProposal } from './recruitment-workflow';
 
 export type Contract = { playerId:string; clubId:string; startSeason:number; endSeason:number; weeklyWage:number; squadStatus:'star'|'starter'|'rotation'|'prospect'|'backup'; };
 export type ClubFinance = { clubId:string; balance:number; transferBudget:number; wageBudget:number; wageSpend:number; };
@@ -62,7 +63,17 @@ function handleContracts(world:World,state:EconomyState,season:number):void{
   }
 }
 function signFreeAgents(world:World,state:EconomyState,season:number):void{
-  for(const club of [...world.clubs].sort(()=>rnd()-.5)){const finance=state.finances.get(club.id)!;for(const position of positions){if(positionalNeed(club,position)<12)continue;const candidates=state.freeAgents.filter(p=>p.position===position).sort((a,b)=>(b.currentAbility+(b.potentialAbility-b.currentAbility)*.25)-(a.currentAbility+(a.potentialAbility-a.currentAbility)*.25));const pick=candidates[0];if(!pick)continue;const wage=suggestedWage(pick,club);if(finance.wageSpend+wage>finance.wageBudget*1.05)continue;movePlayer(state,pick,undefined,club,season,0,'free');recalcWages(world,state);}}
+  for(const club of [...world.clubs].sort(()=>rnd()-.5)){
+    const finance=state.finances.get(club.id)!;
+    for(const position of positions){
+      const need=positionalNeed(club,position); if(need<12)continue;
+      const candidates=state.freeAgents.filter(p=>p.position===position).sort((a,b)=>(b.currentAbility+(b.potentialAbility-b.currentAbility)*.25)-(a.currentAbility+(a.potentialAbility-a.currentAbility)*.25));
+      const pick=candidates[0];if(!pick)continue;const wage=suggestedWage(pick,club);if(finance.wageSpend+wage>finance.wageBudget*1.05)continue;
+      const proposal=evaluateRecruitmentProposal(world,club,pick,{fee:0,expectedWage:wage,needScore:Math.min(100,need*3.2),transferBudget:finance.transferBudget,wageBudget:finance.wageBudget,wageSpend:finance.wageSpend,initiatedBy:'footballDirector',urgency:need>=30?'emergency':'high'});
+      if(proposal.status!=='approved')continue;
+      movePlayer(state,pick,undefined,club,season,0,'free');recalcWages(world,state);
+    }
+  }
 }
 
 function findPlayerAndSeller(world:World,playerId:string):{player:Player;seller:Club}|undefined{
@@ -91,10 +102,18 @@ function runTransferAI(world:World,state:EconomyState,season:number):void{
         if(fee>finance.transferBudget||estimatedValue>finance.transferBudget*.9)continue;
         candidates.push({player:found.player,seller:found.seller,score:perceivedScore+rnd()*4,fee,confidence:report.confidence});
       }
-      candidates.sort((a,b)=>b.score-a.score||b.confidence-a.confidence);const deal=candidates[0];if(!deal)continue;
-      const wage=suggestedWage(deal.player,buyer);if(finance.wageSpend+wage>finance.wageBudget*1.08)continue;
-      const sellerFinance=state.finances.get(deal.seller.id)!;finance.transferBudget-=deal.fee;finance.balance-=deal.fee;sellerFinance.balance+=deal.fee;sellerFinance.transferBudget+=Math.round(deal.fee*.55);
-      movePlayer(state,deal.player,deal.seller,buyer,season,deal.fee,'transfer');recalcWages(world,state);
+      candidates.sort((a,b)=>b.score-a.score||b.confidence-a.confidence);
+      let completed=false;
+      for(const deal of candidates.slice(0,4)){
+        const wage=suggestedWage(deal.player,buyer);if(finance.wageSpend+wage>finance.wageBudget*1.08)continue;
+        const urgency=need>=28?'emergency':need>=18?'high':'normal';
+        const proposal=evaluateRecruitmentProposal(world,buyer,deal.player,{fee:deal.fee,expectedWage:wage,needScore:Math.min(100,need*3.2),transferBudget:finance.transferBudget,wageBudget:finance.wageBudget,wageSpend:finance.wageSpend,sellerClubId:deal.seller.id,initiatedBy:rnd()<.58?'coach':rnd()<.72?'footballDirector':'scoutingDepartment',urgency});
+        if(proposal.status==='deferred'){assignScout(world,buyer.id,deal.player.id);continue;}
+        if(proposal.status!=='approved')continue;
+        const sellerFinance=state.finances.get(deal.seller.id)!;finance.transferBudget-=deal.fee;finance.balance-=deal.fee;sellerFinance.balance+=deal.fee;sellerFinance.transferBudget+=Math.round(deal.fee*.55);
+        movePlayer(state,deal.player,deal.seller,buyer,season,deal.fee,'transfer');recalcWages(world,state);completed=true;break;
+      }
+      if(completed)continue;
     }
   }
 }
