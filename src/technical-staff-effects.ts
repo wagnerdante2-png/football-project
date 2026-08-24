@@ -1,15 +1,7 @@
 import type { World } from './engine';
 import { clubTraining } from './training-engine';
-import { staffDepartmentEffects } from './technical-staff';
-
+import { staffDepartmentEffects, technicalStaffMember } from './technical-staff';
+import { staffCareerState, type StaffResponsibility } from './staff-career';
 const clamp=(v:number,min=0,max=100)=>Math.max(min,Math.min(max,v));
-
-export function syncTechnicalStaffEffects(world:World):void{
-  for(const club of world.clubs){
-    const training=clubTraining(world,club.id);if(!training)continue;
-    const effects=staffDepartmentEffects(world,club.id);
-    training.sportsScience=clamp(training.sportsScience*.7+effects.physicalPreparation*.3);
-    training.medicalCoordination=clamp(training.medicalCoordination*.65+effects.medicalQuality*.35);
-    training.academyIntegration=clamp(training.academyIntegration*.7+effects.youthQuality*.3);
-  }
-}
+function delegatedQuality(world:World,clubId:string,r:StaffResponsibility){const st=staffCareerState(world),p=[...st.profiles.values()].find(x=>x.delegatedResponsibilities.includes(r)&&technicalStaffMember(world,x.staffId)?.clubId===clubId),s=p?technicalStaffMember(world,p.staffId):undefined;if(!s)return 50;const map:Record<StaffResponsibility,number>={training:Math.max(s.skills.coaching,s.skills.tactics),individualDevelopment:Math.max(s.skills.coaching,s.skills.youth,s.skills.manManagement),setPieces:s.skills.setPieces,opposition:Math.max(s.skills.analysis,s.skills.tactics,s.skills.data),fitness:s.skills.physical,recovery:Math.max(s.skills.rehab,s.skills.medical),medical:s.skills.medical,nutrition:s.skills.nutrition,psychology:Math.max(s.skills.psychology,s.skills.manManagement),youthIntegration:Math.max(s.skills.youth,s.skills.coaching),loans:Math.max(s.skills.youth,s.skills.coordination),recruitment:Math.max(s.skills.recruitment,s.skills.analysis),squadLiaison:Math.max(s.skills.communication,s.skills.manManagement),pressSupport:s.skills.communication};return clamp(map[r]*.62+s.jobSatisfaction*.12+s.staffHarmony*.1+s.squadAffinity*.08+s.clubPhilosophyFit*.08)}
+export function syncTechnicalStaffEffects(world:World){for(const club of world.clubs){const training=clubTraining(world,club.id);if(!training)continue;const e=staffDepartmentEffects(world,club.id),fitness=delegatedQuality(world,club.id,'fitness'),recovery=delegatedQuality(world,club.id,'recovery'),medical=delegatedQuality(world,club.id,'medical'),youth=delegatedQuality(world,club.id,'youthIntegration'),psych=delegatedQuality(world,club.id,'psychology'),nutrition=delegatedQuality(world,club.id,'nutrition');training.sportsScience=clamp(training.sportsScience*.62+e.physicalPreparation*.23+fitness*.1+nutrition*.05);training.medicalCoordination=clamp(training.medicalCoordination*.58+e.medicalQuality*.22+medical*.12+recovery*.08);training.academyIntegration=clamp(training.academyIntegration*.62+e.youthQuality*.23+youth*.15);const anyTraining=training as any;anyTraining.psychologicalSupport=clamp((anyTraining.psychologicalSupport??50)*.65+e.psychologicalSupport*.2+psych*.15);anyTraining.nutritionSupport=clamp((anyTraining.nutritionSupport??50)*.65+e.nutritionQuality*.2+nutrition*.15)}}
