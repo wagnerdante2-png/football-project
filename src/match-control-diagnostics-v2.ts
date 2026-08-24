@@ -1,0 +1,5 @@
+import type { MatchCoreState } from './match-core-v2';
+import { receptionLog } from './match-first-touch-v2';
+import { aerialDuelLog } from './match-aerial-duel-v2';
+import { matchInjuries } from './match-contact-injury-v2';
+export function matchControlDiagnostics(state:MatchCoreState){const receptions=receptionLog(state),aerial=aerialDuelLog(state),injuries=matchInjuries(state),failed=receptions.filter((r:any)=>!r.success),loose=receptions.filter((r:any)=>r.looseBall),aerialSecond=aerial.filter((r:any)=>r.secondBall);return{receptions:receptions.length,receptionSuccessPct:receptions.length?Math.round((receptions.length-failed.length)/receptions.length*1000)/10:0,looseTouches:loose.length,aerialDuels:aerial.length,aerialSecondBalls:aerialSecond.length,contactInjuries:injuries.length,concussions:injuries.filter(i=>i.concussion).length,forcedOff:injuries.filter(i=>i.forcedOff).length,byReceptionType:Object.fromEntries([...new Set(receptions.map((r:any)=>r.type))].map(t=>[t,receptions.filter((r:any)=>r.type===t).length])),byAerialIntent:Object.fromEntries([...new Set(aerial.map((r:any)=>r.intent))].map(t=>[t,aerial.filter((r:any)=>r.intent===t).length]))}}
