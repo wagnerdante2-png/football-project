@@ -1,6 +1,5 @@
 import type { Club, Player, World } from './engine';
 import { playCurrentRoundWithMedical } from './medical-simulation';
-import { tickRecovery } from './injuries';
 import { tickScoutingRound } from './scouting';
 import { emitWorldEvent } from './event-bus';
 import { institutionalState, tickPromises } from './institutional-memory';
@@ -59,7 +58,6 @@ function processTrainingDay(world:World,date:string):void{
     for(const player of club.players)trainPlayer(player,plan);
     emitWorldEvent(world,{type:'TrainingCompleted',date,clubIds:[club.id],importance:1,tags:['training',plan.focus,plan.intensity],summary:`${club.name} concluiu sessão de ${plan.focus}.`,payload:{focus:plan.focus,intensity:plan.intensity,restDay}});
   }
-  tickRecovery(world);
 }
 
 export function advanceOneDay(world:World):{date:string;matchDay:boolean;playedRound?:number}{
