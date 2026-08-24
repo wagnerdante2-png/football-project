@@ -29,6 +29,7 @@ export type WorldEvent = {
 
 export type EventListener = (event: WorldEvent, world: World) => void;
 export type EventBusState = { events: WorldEvent[]; nextSequence:number; listeners: Map<WorldEventType|'*', Set<EventListener>> };
+export type EventBusSnapshot = { events:WorldEvent[]; nextSequence:number };
 
 const states = new WeakMap<World, EventBusState>();
 
@@ -55,4 +56,12 @@ export function emitWorldEvent(world:World,input:{type:WorldEventType;date?:stri
 
 export function recentWorldEvents(world:World,limit=100,filter?:{clubId?:string;playerId?:string;types?:WorldEventType[]}):WorldEvent[]{
   return [...eventBusState(world).events].reverse().filter(e=>(!filter?.clubId||e.clubIds.includes(filter.clubId))&&(!filter?.playerId||e.playerIds.includes(filter.playerId))&&(!filter?.types||filter.types.includes(e.type))).slice(0,limit);
+}
+
+export function snapshotEventBus(world:World):EventBusSnapshot{
+  const state=eventBusState(world);return{events:state.events.map(e=>({...e,actorIds:[...e.actorIds],clubIds:[...e.clubIds],playerIds:[...e.playerIds],tags:[...e.tags],payload:{...e.payload}})),nextSequence:state.nextSequence};
+}
+
+export function restoreEventBus(world:World,snapshot:EventBusSnapshot):void{
+  const state=eventBusState(world);state.events=snapshot.events.map(e=>({...e,actorIds:[...e.actorIds],clubIds:[...e.clubIds],playerIds:[...e.playerIds],tags:[...e.tags],payload:{...e.payload}}));state.nextSequence=Math.max(snapshot.nextSequence,(state.events.at(-1)?.sequence??0)+1);
 }
