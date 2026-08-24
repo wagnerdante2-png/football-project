@@ -33,10 +33,15 @@ O projeto já possui:
 - registro histórico de transferências e movimentações financeiras;
 - motor de scouting com conhecimento incompleto por clube;
 - CA, PA, valor e atributos externos apresentados como intervalos estimados;
-- qualidade de scout para julgar habilidade, potencial e adaptação;
-- evolução de confiança conforme o jogador é observado;
-- limite simultâneo de observações conforme estrutura de recrutamento;
-- lista de interesse e recomendações de contratação baseadas apenas no que o clube conhece.
+- scouts individuais, regiões de conhecimento e capacidade limitada de observação;
+- IA de transferências orientada pelo próprio scouting, sem consultar diretamente CA/PA reais;
+- motor médico com seis níveis de gravidade, anatomia, lateralidade e tecido lesionado;
+- histórico físico persistente por jogador;
+- vulnerabilidades anatômicas e risco de recorrência por região/lado;
+- déficits funcionais pós-lesão que afetam temporariamente os atributos usados no match engine;
+- lesões gravíssimas capazes de deixar sequelas permanentes;
+- recuperação em fases: aguda, imobilização, reabilitação, retorno ao treino e retorno ao jogo;
+- influência de idade, fadiga, intensidade tática, predisposição, durabilidade e histórico no risco de lesão.
 
 ## Mundo vivo
 
@@ -58,7 +63,15 @@ Um jogador pouco conhecido pode aparecer, por exemplo, como `CA 61–79` e `PA 7
 
 A qualidade da equipe de recrutamento interfere na precisão. Scouts melhores reduzem erro na leitura de habilidade atual e potencial, enquanto a adaptabilidade acelera o ganho de conhecimento. O clube também possui capacidade máxima de observações simultâneas.
 
-O componente visual do Centro de Scouting já está separado em `src/scouting-ui.ts`, preparado para ser acoplado à navegação principal sem misturar as regras do motor com a interface.
+## Motor médico
+
+Lesões não são apenas um contador de dias fora. Cada ocorrência registra anatomia, lateralidade, tecido, gravidade, contexto e possíveis consequências funcionais.
+
+Uma fratura grave na perna dominante, por exemplo, pode reduzir temporariamente finalização, técnica ou passe após o retorno. O déficit recupera-se em treinamento, mas a região lesionada pode permanecer mais suscetível a recorrências. Lesões críticas ou de ameaça à carreira podem deixar um piso permanente de sequela.
+
+O histórico físico continua existindo após a recuperação e passa a interferir no risco futuro, na disponibilidade e no perfil de carreira do atleta.
+
+Veja `docs/MEDICAL_ENGINE.md` para o modelo completo.
 
 ## Rodar
 
@@ -69,10 +82,10 @@ npm run dev
 
 ## Direção do projeto
 
-A prioridade continua sendo aprofundar o motor antes da interface avançada. Próximas camadas previstas incluem persistência completa de save, staff detalhado, múltiplas competições, estrutura de base mais detalhada, lesões, moral/relacionamentos e decisões de carreira do manager.
+A prioridade continua sendo aprofundar o motor antes da interface avançada. Próximas camadas previstas incluem persistência completa de save, integração completa do Centro Médico à navegação, múltiplas competições, estrutura de base mais detalhada, moral/relacionamentos e decisões de carreira do manager.
 
 ## Princípio técnico
 
 O código deste repositório é implementação própria. Projetos open-source são usados como referência arquitetural e conceitual. Evitamos copiar código GPL diretamente para manter independência de licença.
 
-Veja `docs/ARCHITECTURE.md` e `docs/RESEARCH.md`.
+Veja `docs/ARCHITECTURE.md`, `docs/RESEARCH.md`, `docs/SCOUTING.md` e `docs/MEDICAL_ENGINE.md`.
