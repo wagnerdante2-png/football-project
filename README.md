@@ -24,17 +24,25 @@ O projeto já possui:
 - controle de necessidades por posição para impedir que os clubes fiquem sem elenco;
 - jovens raros com potencial de elite;
 - histórico de campeões, artilheiros, evolução, novas gerações e aposentadorias;
-- simulação contínua de múltiplas temporadas.
+- simulação contínua de múltiplas temporadas;
+- contratos com duração, salário semanal e status no elenco;
+- valor de mercado dinâmico por CA, PA e idade;
+- finanças por clube com saldo, orçamento de transferências e folha salarial;
+- renovações, dispensas e jogadores livres;
+- IA de mercado que identifica carências por posição, compra, vende e contrata autonomamente;
+- registro histórico de transferências e movimentações financeiras.
 
 ## Mundo vivo
 
 A virada de cada temporada executa um ciclo completo:
 
-`fim do campeonato → registro histórico → envelhecimento → desenvolvimento/declínio → aposentadorias → nova fornada da base → ajuste dos elencos → novo calendário`
+`fim do campeonato → registro histórico → envelhecimento → desenvolvimento/declínio → aposentadorias → nova fornada da base → contratos/mercado → ajuste dos elencos → novo calendário`
 
 O objetivo é que o universo possa continuar indefinidamente. Jogadores envelhecem e deixam o futebol, enquanto novas gerações surgem para substituí-los e alterar gradualmente a força dos clubes.
 
 A qualidade da base é influenciada pela reputação do clube e existe uma pequena chance de surgirem talentos excepcionais. O motor também verifica carências por posição antes de gerar a fornada anual, garantindo goleiros, defensores, meio-campistas e atacantes suficientes para manter a competição funcional.
+
+O mercado também é contínuo: contratos expiram, clubes decidem renovar ou liberar jogadores, agentes livres podem ser contratados e a IA procura reforços de acordo com necessidade esportiva, orçamento disponível e valor de mercado. Clubes vendedores levam em conta profundidade do elenco, idade, importância do atleta e potencial antes de aceitar uma saída.
 
 ## Rodar
 
@@ -45,7 +53,7 @@ npm run dev
 
 ## Direção do projeto
 
-A prioridade continua sendo aprofundar o motor antes da interface avançada. Próximas camadas previstas incluem persistência completa de save, contratos, mercado de transferências, IA dos clubes, staff, scouting, múltiplas competições e uma estrutura de base mais detalhada.
+A prioridade continua sendo aprofundar o motor antes da interface avançada. Próximas camadas previstas incluem persistência completa de save, scouting, staff, múltiplas competições, estrutura de base mais detalhada, lesões, moral/relacionamentos e decisões de carreira do manager.
 
 ## Princípio técnico
 
