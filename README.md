@@ -30,7 +30,13 @@ O projeto já possui:
 - finanças por clube com saldo, orçamento de transferências e folha salarial;
 - renovações, dispensas e jogadores livres;
 - IA de mercado que identifica carências por posição, compra, vende e contrata autonomamente;
-- registro histórico de transferências e movimentações financeiras.
+- registro histórico de transferências e movimentações financeiras;
+- motor de scouting com conhecimento incompleto por clube;
+- CA, PA, valor e atributos externos apresentados como intervalos estimados;
+- qualidade de scout para julgar habilidade, potencial e adaptação;
+- evolução de confiança conforme o jogador é observado;
+- limite simultâneo de observações conforme estrutura de recrutamento;
+- lista de interesse e recomendações de contratação baseadas apenas no que o clube conhece.
 
 ## Mundo vivo
 
@@ -44,6 +50,16 @@ A qualidade da base é influenciada pela reputação do clube e existe uma peque
 
 O mercado também é contínuo: contratos expiram, clubes decidem renovar ou liberar jogadores, agentes livres podem ser contratados e a IA procura reforços de acordo com necessidade esportiva, orçamento disponível e valor de mercado. Clubes vendedores levam em conta profundidade do elenco, idade, importância do atleta e potencial antes de aceitar uma saída.
 
+## Scouting e informação imperfeita
+
+Jogadores de outros clubes não devem aparecer para o manager com CA, PA e atributos exatos. O sistema de scouting mantém um nível de conhecimento independente para cada clube observador.
+
+Um jogador pouco conhecido pode aparecer, por exemplo, como `CA 61–79` e `PA 70–91`. Conforme o scout acompanha o atleta, a confiança sobe e os intervalos diminuem. Com conhecimento completo, a estimativa converge para os valores reais usados internamente pelo motor.
+
+A qualidade da equipe de recrutamento interfere na precisão. Scouts melhores reduzem erro na leitura de habilidade atual e potencial, enquanto a adaptabilidade acelera o ganho de conhecimento. O clube também possui capacidade máxima de observações simultâneas.
+
+O componente visual do Centro de Scouting já está separado em `src/scouting-ui.ts`, preparado para ser acoplado à navegação principal sem misturar as regras do motor com a interface.
+
 ## Rodar
 
 ```bash
@@ -53,7 +69,7 @@ npm run dev
 
 ## Direção do projeto
 
-A prioridade continua sendo aprofundar o motor antes da interface avançada. Próximas camadas previstas incluem persistência completa de save, scouting, staff, múltiplas competições, estrutura de base mais detalhada, lesões, moral/relacionamentos e decisões de carreira do manager.
+A prioridade continua sendo aprofundar o motor antes da interface avançada. Próximas camadas previstas incluem persistência completa de save, staff detalhado, múltiplas competições, estrutura de base mais detalhada, lesões, moral/relacionamentos e decisões de carreira do manager.
 
 ## Princípio técnico
 
