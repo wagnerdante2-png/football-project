@@ -3,6 +3,7 @@ import { playCurrentRoundWithMedical } from './medical-simulation';
 import { tickScoutingRound } from './scouting';
 import { emitWorldEvent } from './event-bus';
 import { institutionalState, tickPromises } from './institutional-memory';
+import { tickTemporalProcesses } from './temporal-processes';
 
 export type TrainingFocus='recovery'|'physical'|'technical'|'tactical'|'attacking'|'defending';
 export type TrainingIntensity='low'|'medium'|'high';
@@ -61,12 +62,12 @@ function processTrainingDay(world:World,date:string):void{
 }
 
 export function advanceOneDay(world:World):{date:string;matchDay:boolean;playedRound?:number}{
-  const state=dailyCalendar(world);const date=state.date;institutionalState(world);tickPromises(world,date);
+  const state=dailyCalendar(world);const date=state.date;institutionalState(world);tickPromises(world,date);tickTemporalProcesses(world,date);
   const matchDate=state.matchDates.get(world.round);const matchDay=matchDate===date&&world.fixtures.some(f=>f.round===world.round&&!f.played);let playedRound:number|undefined;
   emitWorldEvent(world,{type:'DayAdvanced',date,importance:1,summary:`Calendário avançou para ${date}.`,payload:{}});
   if(matchDay){
     playedRound=world.round;emitWorldEvent(world,{type:'MatchDayStarted',date,importance:2,summary:`Início da rodada ${playedRound}.`,payload:{round:playedRound}});
-    playCurrentRoundWithMedical(world);tickScoutingRound(world);
+    playCurrentRoundWithMedical(world);tickScoutingRound(world);tickTemporalProcesses(world,date);
     for(const fixture of world.fixtures.filter(f=>f.round===playedRound&&f.played))emitWorldEvent(world,{type:'MatchCompleted',date,clubIds:[fixture.home,fixture.away],importance:2,summary:`${fixture.home} ${fixture.homeGoals}–${fixture.awayGoals} ${fixture.away}.`,payload:{round:playedRound,homeGoals:fixture.homeGoals,awayGoals:fixture.awayGoals,homeXg:fixture.homeXg,awayXg:fixture.awayXg}});
   }else processTrainingDay(world,date);
   state.date=addDays(date,1);state.daysAdvanced++;return{date,matchDay,playedRound};
