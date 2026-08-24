@@ -10,17 +10,18 @@ import { regionalKnowledge, improveRegionalKnowledge, type ScoutingRegion } from
 const clamp=(v:number,min=0,max=100)=>Math.max(min,Math.min(max,v));
 const regionByCountry=(country:string):ScoutingRegion=>{
   const c=country.toLowerCase();
-  if(['brasil','brazil','argentina','uruguai','uruguay','paraguai','paraguay','chile','colombia','colômbia','peru','bolivia','bolívia','ecuador','venezuela'].some(x=>c.includes(x)))return c.includes('brasil')||c.includes('brazil')?'Brazil':'SouthAmerica';
-  if(['portugal','espanha','spain','italia','itália','italy','france','frança','germany','alemanha','england','inglaterra','netherlands','holanda','belgium','bélgica'].some(x=>c.includes(x)))return 'Europe';
-  if(['usa','estados unidos','canada','canadá','mexico','méxico'].some(x=>c.includes(x)))return 'NorthAmerica';
-  return 'Africa';
+  if(c.includes('brasil')||c.includes('brazil'))return 'Brasil';
+  if(['argentina','uruguai','uruguay','paraguai','paraguay','chile','colombia','colômbia','peru','bolivia','bolívia','ecuador','venezuela'].some(x=>c.includes(x)))return 'América do Sul';
+  if(['portugal','espanha','spain','italia','itália','italy','france','frança','germany','alemanha','england','inglaterra','netherlands','holanda','belgium','bélgica'].some(x=>c.includes(x)))return 'Europa';
+  if(['usa','estados unidos','canada','canadá','mexico','méxico'].some(x=>c.includes(x)))return 'América do Norte';
+  return 'África';
 };
 
 function tacticalFit(world:World,clubId:string):number{
   const m=managerByClub(world,clubId),club=world.clubs.find(c=>c.id===clubId);if(!m||!club)return 1;
   const t=club.tactics,p=m.tactical;
   const diff=Math.abs(t.tempo-p.tempoPreference)+Math.abs(t.pressing-p.pressingPreference)+Math.abs(t.defensiveLine-p.defensiveLinePreference)+Math.abs(t.width-p.widthPreference);
-  const style=(t.passingStyle==='short'?p.possessionPreference:t.passingStyle==='direct'?p.directness:55);
+  const style=t.passingStyle==='short'?p.possessionPreference:t.passingStyle==='direct'?p.directness:55;
   return clamp(1.08-diff/1800+(style-50)/700,.9,1.12);
 }
 
@@ -60,7 +61,7 @@ function applyNetwork(world:World,clubId:string):void{
   for(const e of m.playingCareer)regions.add(regionByCountry(e.country));
   for(const e of m.staffCareer)regions.add(regionByCountry(e.country));
   for(const c of m.ambition.preferredCountries)regions.add(regionByCountry(c));
-  for(const region of regions){const current=regionalKnowledge(world,clubId,region);if(current<92)improveRegionalKnowledge(world,clubId,region,.015+(m.knowledge.networking/10000));}
+  for(const region of regions){const current=regionalKnowledge(world,clubId,region);if(current<92)improveRegionalKnowledge(world,clubId,region,.015+m.knowledge.networking/10000);}
   const scout=scoutingState(world);for(const a of scout.assignments.filter(x=>x.observerClubId===clubId&&x.active)){
     if(!regions.has(a.region))continue;const k=scout.knowledge.get(`${clubId}::${a.playerId}`);if(!k)continue;
     k.progress=clamp(k.progress+.025+(m.knowledge.scouting+m.knowledge.networking-100)/8000);
