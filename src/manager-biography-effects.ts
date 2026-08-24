@@ -17,7 +17,7 @@ function positionAffinity(manager:ManagerCharacter,position:Position):number{
 
 export function managerInitialAuthority(world:World,clubId:string):number{
   const m=managerByClub(world,clubId);if(!m)return 58;
-  const rep=(m.reputation.domestic*.32+m.reputation.continental*.18+m.reputation.formerPlayerPrestige*.28+m.reputation.coachingPrestige*.22);
+  const rep=m.reputation.domestic*.32+m.reputation.continental*.18+m.reputation.formerPlayerPrestige*.28+m.reputation.coachingPrestige*.22;
   const elite=m.playingLevel==='elite'?12:m.playingLevel==='professional'?7:m.playingLevel==='semiPro'?3:0;
   const trophies=Math.min(10,titleCount(m)*1.5+awardCount(m)*2);
   const experience=Math.min(8,m.experienceYears*.28);
