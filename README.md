@@ -41,7 +41,15 @@ O projeto já possui:
 - déficits funcionais pós-lesão que afetam temporariamente os atributos usados no match engine;
 - lesões gravíssimas capazes de deixar sequelas permanentes;
 - recuperação em fases: aguda, imobilização, reabilitação, retorno ao treino e retorno ao jogo;
-- influência de idade, fadiga, intensidade tática, predisposição, durabilidade e histórico no risco de lesão.
+- influência de idade, fadiga, intensidade tática, predisposição, durabilidade e histórico no risco de lesão;
+- governança de contratação com treinador, diretor de futebol, scouting, medicina, finanças, diretoria, torcida e imprensa;
+- negociações em múltiplas rodadas com propostas, contrapropostas, desistências e ultimatos;
+- agentes individuais com ganância, paciência, reputação e tendência a usar a imprensa;
+- preferências pessoais dos atletas por salário, tempo de jogo, ambição, clima, mudança de país, idioma, estabilidade familiar e pressão;
+- status de ídolo, vínculo com o clube atual e desejo de sair influenciando negociações;
+- rumores, vazamentos e exposição pública alterando pressão de torcida e imprensa;
+- empréstimos simples, com opção ou obrigação de compra, contribuição salarial e recall;
+- cláusulas de venda futura, bônus, rescisão, compra e obrigações futuras.
 
 ## Mundo vivo
 
@@ -71,7 +79,17 @@ Uma fratura grave na perna dominante, por exemplo, pode reduzir temporariamente 
 
 O histórico físico continua existindo após a recuperação e passa a interferir no risco futuro, na disponibilidade e no perfil de carreira do atleta.
 
-Veja `docs/MEDICAL_ENGINE.md` para o modelo completo.
+## Mercado e negociação
+
+Contratações não são decisões unilaterais do treinador. Primeiro existe um processo de governança interna; depois, se aprovado, começa uma negociação entre clube comprador, vendedor, atleta e agente.
+
+O atleta possui preferências persistentes sobre ambição, dinheiro, papel no elenco, clima, mudança de cidade ou país, adaptação linguística, estabilidade familiar, status e tolerância à pressão. O vendedor considera necessidade esportiva, importância simbólica e desejo do jogador. Torcida e imprensa ganham peso quando o negócio deixa de ser sigiloso.
+
+Uma negociação pode evoluir de `privada` para `rumor`, `noticiada` e `pública`. O vazamento pode ajudar um agente, aumentar a pressão por uma venda, tornar a saída de um ídolo politicamente difícil ou levar uma diretoria a desistir.
+
+Empréstimos possuem retorno, opção ou obrigação de compra, contribuição salarial e possibilidade de recall. Negociações podem terminar em acordo, recusa, retirada do comprador ou colapso após várias rodadas.
+
+Veja `docs/RECRUITMENT_GOVERNANCE.md` e `docs/TRANSFER_NEGOTIATION.md`.
 
 ## Rodar
 
@@ -82,10 +100,10 @@ npm run dev
 
 ## Direção do projeto
 
-A prioridade continua sendo aprofundar o motor antes da interface avançada. Próximas camadas previstas incluem persistência completa de save, integração completa do Centro Médico à navegação, múltiplas competições, estrutura de base mais detalhada, moral/relacionamentos e decisões de carreira do manager.
+A prioridade continua sendo aprofundar o motor antes da interface avançada. Próximas camadas previstas incluem persistência completa de save, integração dos centros Médico/Scouting/Negociações à navegação principal, múltiplas competições, estrutura de base mais detalhada, moral/relacionamentos e decisões de carreira do manager.
 
 ## Princípio técnico
 
 O código deste repositório é implementação própria. Projetos open-source são usados como referência arquitetural e conceitual. Evitamos copiar código GPL diretamente para manter independência de licença.
 
-Veja `docs/ARCHITECTURE.md`, `docs/RESEARCH.md`, `docs/SCOUTING.md` e `docs/MEDICAL_ENGINE.md`.
+Veja `docs/ARCHITECTURE.md`, `docs/RESEARCH.md`, `docs/SCOUTING.md`, `docs/MEDICAL_ENGINE.md`, `docs/RECRUITMENT_GOVERNANCE.md` e `docs/TRANSFER_NEGOTIATION.md`.
