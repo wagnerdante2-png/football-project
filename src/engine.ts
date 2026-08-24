@@ -25,7 +25,21 @@ export type Player = {
   attributes: PlayerAttributes;
 };
 
-export type Club = { id: string; name: string; reputation: number; players: Player[] };
+export type Mentality = 'defensive' | 'balanced' | 'positive' | 'attacking';
+export type PassingStyle = 'short' | 'mixed' | 'direct';
+export type TransitionStyle = 'hold' | 'balanced' | 'counter';
+
+export type Tactics = {
+  mentality: Mentality;
+  tempo: number;
+  pressing: number;
+  defensiveLine: number;
+  width: number;
+  passingStyle: PassingStyle;
+  transition: TransitionStyle;
+};
+
+export type Club = { id: string; name: string; reputation: number; players: Player[]; tactics: Tactics };
 
 export type MatchEventType = 'kickoff' | 'chance' | 'shot' | 'save' | 'goal' | 'yellow' | 'substitution' | 'fulltime';
 export type MatchEvent = {
@@ -84,6 +98,14 @@ const lastNames = ['Almeida','Barbosa','Cardoso','Duarte','Ferreira','Gomes','He
 const squadTemplate: Position[] = ['GK','GK','RB','RB','CB','CB','CB','CB','LB','LB','DM','DM','CM','CM','CM','AM','AM','RW','RW','LW','LW','ST','ST','ST'];
 const formation: Position[] = ['GK','RB','CB','CB','LB','DM','CM','AM','RW','LW','ST'];
 
+export const tacticPresets: Record<string, Tactics> = {
+  equilibrado: { mentality:'balanced', tempo:50, pressing:50, defensiveLine:50, width:50, passingStyle:'mixed', transition:'balanced' },
+  gegenpress: { mentality:'positive', tempo:78, pressing:88, defensiveLine:76, width:58, passingStyle:'short', transition:'counter' },
+  posse: { mentality:'positive', tempo:44, pressing:68, defensiveLine:66, width:70, passingStyle:'short', transition:'hold' },
+  contraAtaque: { mentality:'balanced', tempo:72, pressing:38, defensiveLine:34, width:62, passingStyle:'direct', transition:'counter' },
+  blocoBaixo: { mentality:'defensive', tempo:35, pressing:28, defensiveLine:22, width:42, passingStyle:'direct', transition:'counter' },
+};
+
 function attribute(base: number, bias: number, seed: number, offset: number): number {
   return Math.round(clamp(base + bias + (pseudo(seed, offset) - 0.5) * 18, 25, 95));
 }
@@ -116,8 +138,8 @@ function createPlayer(clubId: string, clubBase: number, position: Position, inde
   };
 }
 
-function createClub(id: string, name: string, base: number, reputation: number): Club {
-  return { id, name, reputation, players: squadTemplate.map((position, index) => createPlayer(id, base, position, index)) };
+function createClub(id: string, name: string, base: number, reputation: number, preset: keyof typeof tacticPresets = 'equilibrado'): Club {
+  return { id, name, reputation, players: squadTemplate.map((position, index) => createPlayer(id, base, position, index)), tactics: { ...tacticPresets[preset] } };
 }
 
 function roleScore(player: Player, role: Position): number {
@@ -141,16 +163,35 @@ export function selectStartingEleven(club: Club): Player[] {
   return selected;
 }
 
+function mentalityAttack(t: Tactics) { return t.mentality === 'attacking' ? 8 : t.mentality === 'positive' ? 4 : t.mentality === 'defensive' ? -7 : 0; }
+function mentalityDefense(t: Tactics) { return t.mentality === 'defensive' ? 6 : t.mentality === 'attacking' ? -6 : t.mentality === 'positive' ? -2 : 0; }
+
 export function teamStrength(club: Club): TeamStrength {
   const xi = selectStartingEleven(club);
   const by = (ps: Position[]) => xi.filter(p => ps.includes(p.position));
   const attackers = by(['AM','RW','LW','ST']); const mids = by(['DM','CM','AM']); const defs = by(['RB','CB','LB','DM']);
   const gk = xi.find(p => p.position === 'GK') ?? xi[0];
-  const attack = avg(attackers.map(p => p.attributes.finishing*.4 + p.attributes.technique*.25 + p.attributes.pace*.2 + p.attributes.decisions*.15));
-  const midfield = avg(mids.map(p => p.attributes.passing*.38 + p.attributes.decisions*.24 + p.attributes.stamina*.18 + p.attributes.technique*.2));
-  const defense = avg(defs.map(p => p.attributes.tackling*.4 + p.attributes.positioning*.33 + p.attributes.stamina*.15 + p.attributes.decisions*.12));
+  const rawAttack = avg(attackers.map(p => p.attributes.finishing*.4 + p.attributes.technique*.25 + p.attributes.pace*.2 + p.attributes.decisions*.15));
+  const rawMidfield = avg(mids.map(p => p.attributes.passing*.38 + p.attributes.decisions*.24 + p.attributes.stamina*.18 + p.attributes.technique*.2));
+  const rawDefense = avg(defs.map(p => p.attributes.tackling*.4 + p.attributes.positioning*.33 + p.attributes.stamina*.15 + p.attributes.decisions*.12));
   const goalkeeper = gk.attributes.goalkeeping*.65 + gk.attributes.positioning*.2 + gk.attributes.decisions*.15;
+  const t = club.tactics;
+  const attack = clamp(rawAttack + mentalityAttack(t) + (t.tempo-50)*.07 + (t.width-50)*.025, 35, 99);
+  const midfield = clamp(rawMidfield + (t.pressing-50)*.045 + (t.passingStyle==='short' ? 2.5 : t.passingStyle==='direct' ? -1.5 : 0), 35, 99);
+  const defense = clamp(rawDefense + mentalityDefense(t) + (50-t.defensiveLine)*.025 + (t.pressing-50)*.02, 35, 99);
   return { attack, midfield, defense, goalkeeper, overall: attack*.28 + midfield*.27 + defense*.28 + goalkeeper*.17 };
+}
+
+export function updateClubTactics(club: Club, patch: Partial<Tactics>): void {
+  club.tactics = { ...club.tactics, ...patch };
+  club.tactics.tempo = clamp(Math.round(club.tactics.tempo), 0, 100);
+  club.tactics.pressing = clamp(Math.round(club.tactics.pressing), 0, 100);
+  club.tactics.defensiveLine = clamp(Math.round(club.tactics.defensiveLine), 0, 100);
+  club.tactics.width = clamp(Math.round(club.tactics.width), 0, 100);
+}
+
+export function applyTacticPreset(club: Club, preset: keyof typeof tacticPresets): void {
+  club.tactics = { ...tacticPresets[preset] };
 }
 
 function weightedPlayer(players: Player[], weight: (p: Player) => number): Player {
@@ -163,14 +204,17 @@ function weightedPlayer(players: Player[], weight: (p: Player) => number): Playe
 function simulateEventMatch(home: Club, away: Club) {
   const homeXI = selectStartingEleven(home); const awayXI = selectStartingEleven(away);
   const hs = teamStrength(home); const as = teamStrength(away);
-  const homeControl = clamp(.5 + (hs.midfield-as.midfield)/160 + .035, .36, .64);
+  const possessionStyleHome = home.tactics.passingStyle === 'short' ? .035 : home.tactics.passingStyle === 'direct' ? -.025 : 0;
+  const possessionStyleAway = away.tactics.passingStyle === 'short' ? .035 : away.tactics.passingStyle === 'direct' ? -.025 : 0;
+  const homeControl = clamp(.5 + (hs.midfield-as.midfield)/160 + .035 + possessionStyleHome - possessionStyleAway, .31, .69);
   const stats: MatchStats = { possessionHome: Math.round(homeControl*100), possessionAway: 0, shotsHome:0, shotsAway:0, shotsOnTargetHome:0, shotsOnTargetAway:0, passesHome:0, passesAway:0, yellowHome:0, yellowAway:0 };
   stats.possessionAway = 100 - stats.possessionHome;
-  stats.passesHome = Math.round(300 + stats.possessionHome*4.4 + rnd()*65);
-  stats.passesAway = Math.round(300 + stats.possessionAway*4.4 + rnd()*65);
+  stats.passesHome = Math.round(250 + stats.possessionHome*(home.tactics.passingStyle==='short' ? 5.7 : home.tactics.passingStyle==='direct' ? 3.2 : 4.4) + rnd()*55);
+  stats.passesAway = Math.round(250 + stats.possessionAway*(away.tactics.passingStyle==='short' ? 5.7 : away.tactics.passingStyle==='direct' ? 3.2 : 4.4) + rnd()*55);
   const events: MatchEvent[] = [{ minute:0, type:'kickoff', text:'A partida começou.' }];
   let hg=0, ag=0, hxg=0, axg=0;
-  const totalAttacks = 22 + Math.floor(rnd()*12);
+  const intensity = (home.tactics.tempo + away.tactics.tempo + home.tactics.pressing + away.tactics.pressing) / 400;
+  const totalAttacks = 18 + Math.floor(rnd()*10) + Math.round(intensity*13);
 
   for (let i=0;i<totalAttacks;i+=1) {
     const minute = 2 + Math.floor(rnd()*88);
@@ -179,26 +223,32 @@ function simulateEventMatch(home: Club, away: Club) {
     const xi = isHome ? homeXI : awayXI; const oppStrength = isHome ? as : hs; const ownStrength = isHome ? hs : as;
     const attackers = xi.filter(p => ['ST','RW','LW','AM','CM'].includes(p.position));
     const shooter = weightedPlayer(attackers, p => p.attributes.finishing*.45 + p.attributes.positioning*.25 + p.attributes.decisions*.2 + p.attributes.pace*.1);
-    const creation = ownStrength.midfield*.45 + ownStrength.attack*.35 + shooter.attributes.decisions*.2;
-    if (rnd() > clamp(.31 + (creation-oppStrength.defense)/180, .18, .48)) continue;
-    const chanceXg = clamp(.03 + rnd()*.22 + (shooter.attributes.finishing-oppStrength.goalkeeper)/500, .02, .42);
+    const t = club.tactics; const ot = opp.tactics;
+    const transitionBonus = t.transition === 'counter' && ot.defensiveLine > 55 ? 7 : t.transition === 'hold' ? -2 : 0;
+    const widthBonus = Math.abs(t.width - ot.width) > 25 ? 2 : 0;
+    const creation = ownStrength.midfield*.42 + ownStrength.attack*.35 + shooter.attributes.decisions*.18 + transitionBonus + widthBonus + t.tempo*.05;
+    const pressDisruption = (ot.pressing-50)*.055;
+    if (rnd() > clamp(.28 + (creation-oppStrength.defense-pressDisruption)/175, .15, .54)) continue;
+    const directBonus = t.passingStyle === 'direct' ? .018 : 0;
+    const chanceXg = clamp(.025 + rnd()*.22 + (shooter.attributes.finishing-oppStrength.goalkeeper)/500 + transitionBonus/420 + directBonus, .015, .48);
     const onTarget = rnd() < clamp(.28 + shooter.attributes.finishing/180 + shooter.attributes.technique/300, .3, .72);
     if (isHome) { stats.shotsHome++; hxg += chanceXg; if (onTarget) stats.shotsOnTargetHome++; }
     else { stats.shotsAway++; axg += chanceXg; if (onTarget) stats.shotsOnTargetAway++; }
     events.push({ minute, type:'shot', clubId:club.id, playerId:shooter.id, text:`${shooter.name} finaliza.`, xg:Number(chanceXg.toFixed(2)) });
     if (!onTarget) continue;
-    const goalChance = clamp(chanceXg * (1.2 + shooter.attributes.finishing/130) * (1.1 - oppStrength.goalkeeper/180), .025, .58);
+    const goalChance = clamp(chanceXg * (1.2 + shooter.attributes.finishing/130) * (1.1 - oppStrength.goalkeeper/180), .025, .62);
     if (rnd() < goalChance) {
       isHome ? hg++ : ag++;
       events.push({ minute, type:'goal', clubId:club.id, playerId:shooter.id, text:`GOL! ${shooter.name} marca para ${club.name}.`, xg:Number(chanceXg.toFixed(2)) });
     } else {
-      const keeper = selectStartingEleven(opp).find(p => p.position === 'GK');
+      const keeper = (isHome ? awayXI : homeXI).find(p => p.position === 'GK');
       events.push({ minute, type:'save', clubId:opp.id, playerId:keeper?.id, text:`Defesa do goleiro de ${opp.name}.` });
     }
   }
 
   for (const [club, xi, isHome] of [[home,homeXI,true],[away,awayXI,false]] as const) {
-    const cards = rnd() < .75 ? 1 + Math.floor(rnd()*2) : 0;
+    const aggression = club.tactics.pressing / 100;
+    const cards = rnd() < (.45 + aggression*.45) ? 1 + Math.floor(rnd()*(aggression>.75 ? 3 : 2)) : 0;
     for (let i=0;i<cards;i+=1) {
       const tacklers = xi.filter(p => ['CB','RB','LB','DM','CM'].includes(p.position));
       const p = tacklers[Math.floor(rnd()*tacklers.length)]; const minute=10+Math.floor(rnd()*78);
@@ -229,7 +279,16 @@ function roundRobin(clubs: Club[]): Fixture[] {
 }
 
 export function createWorld(): World {
-  const clubs=[createClub('aurora','Aurora FC',78,82),createClub('imperial','Imperial',77,79),createClub('ferroviario','Ferroviário',71,68),createClub('atletico-mar','Atlético do Mar',74,73),createClub('uniao','União Central',68,66),createClub('metropole','Metrópole SC',79,80),createClub('nacional','Nacional Verde',67,64),createClub('portuario','Portuário',72,70)];
+  const clubs=[
+    createClub('aurora','Aurora FC',78,82,'posse'),
+    createClub('imperial','Imperial',77,79,'gegenpress'),
+    createClub('ferroviario','Ferroviário',71,68,'blocoBaixo'),
+    createClub('atletico-mar','Atlético do Mar',74,73,'contraAtaque'),
+    createClub('uniao','União Central',68,66,'equilibrado'),
+    createClub('metropole','Metrópole SC',79,80,'posse'),
+    createClub('nacional','Nacional Verde',67,64,'blocoBaixo'),
+    createClub('portuario','Portuário',72,70,'contraAtaque')
+  ];
   return { season:2026, round:1, clubs, fixtures:roundRobin(clubs), standings:createStandings(clubs) };
 }
 
@@ -241,7 +300,8 @@ function applyResult(world: World, fixture: Fixture): void {
 
 function applyFatigue(club: Club, starters: Player[]): void {
   const starterIds=new Set(starters.map(p=>p.id));
-  club.players.forEach(p=>{ p.condition=Math.round(clamp(p.condition + (starterIds.has(p.id) ? -(6+rnd()*7) : 2+rnd()*4), 45,100)); });
+  const tacticalLoad = (club.tactics.tempo + club.tactics.pressing) / 200;
+  club.players.forEach(p=>{ p.condition=Math.round(clamp(p.condition + (starterIds.has(p.id) ? -(5+rnd()*6+tacticalLoad*4) : 2+rnd()*4), 45,100)); });
 }
 
 export function playCurrentRound(world: World): void {
