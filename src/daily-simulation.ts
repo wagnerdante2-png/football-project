@@ -4,6 +4,7 @@ import { tickScoutingRound } from './scouting';
 import { emitWorldEvent } from './event-bus';
 import { institutionalState, tickPromises } from './institutional-memory';
 import { tickTemporalProcesses } from './temporal-processes';
+import { tickHumanLife } from './human-life';
 
 export type TrainingFocus='recovery'|'physical'|'technical'|'tactical'|'attacking'|'defending';
 export type TrainingIntensity='low'|'medium'|'high';
@@ -62,7 +63,7 @@ function processTrainingDay(world:World,date:string):void{
 }
 
 export function advanceOneDay(world:World):{date:string;matchDay:boolean;playedRound?:number}{
-  const state=dailyCalendar(world);const date=state.date;institutionalState(world);tickPromises(world,date);tickTemporalProcesses(world,date);
+  const state=dailyCalendar(world);const date=state.date;institutionalState(world);tickPromises(world,date);tickTemporalProcesses(world,date);tickHumanLife(world,date);
   const matchDate=state.matchDates.get(world.round);const matchDay=matchDate===date&&world.fixtures.some(f=>f.round===world.round&&!f.played);let playedRound:number|undefined;
   emitWorldEvent(world,{type:'DayAdvanced',date,importance:1,summary:`Calendário avançou para ${date}.`,payload:{}});
   if(matchDay){
