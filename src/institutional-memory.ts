@@ -17,68 +17,38 @@ const clamp=(v:number,min=0,max=100)=>Math.max(min,Math.min(max,v));
 
 export function institutionalState(world:World):InstitutionalState{
   let s=states.get(world);if(!s){s={promises:[],relationships:new Map(),pressure:new Map(),news:[],wired:false};states.set(world,s);}
-  for(const club of world.clubs){
-    if(!s.relationships.has(club.id))s.relationships.set(club.id,{clubId:club.id,managerId:`manager-${club.id}`,trust:62,respect:60,alignment:58,communication:60,credibility:62,history:[]});
-    if(!s.pressure.has(club.id))s.pressure.set(club.id,{clubId:club.id,supporters:35,media:30,dressingRoom:25,financial:25,board:30,updatedDate:`${world.season}-07-25`});
-  }
-  if(!s.wired){wireInstitutionalReactions(world);s.wired=true;}
-  return s;
+  for(const club of world.clubs){if(!s.relationships.has(club.id))s.relationships.set(club.id,{clubId:club.id,managerId:`manager-${club.id}`,trust:62,respect:60,alignment:58,communication:60,credibility:62,history:[]});if(!s.pressure.has(club.id))s.pressure.set(club.id,{clubId:club.id,supporters:35,media:30,dressingRoom:25,financial:25,board:30,updatedDate:`${world.season}-07-25`});}
+  if(!s.wired){wireInstitutionalReactions(world);s.wired=true;}return s;
 }
 
-export function makePromise(world:World,input:Omit<ClubPromise,'id'|'status'>):ClubPromise{
-  const p:ClubPromise={...input,id:`promise-${world.season}-${Math.floor(Math.random()*1e9)}`,status:'active'};institutionalState(world).promises.push(p);
-  emitWorldEvent(world,{type:'PromiseMade',date:p.createdDate,clubIds:[p.clubId],playerIds:p.relatedPlayerId?[p.relatedPlayerId]:[],importance:Math.min(5,Math.max(1,Math.round(p.importance/20))) as 1|2|3|4|5,summary:p.description,payload:{promiseId:p.id,type:p.type,deadline:p.deadlineDate}});return p;
-}
+export function makePromise(world:World,input:Omit<ClubPromise,'id'|'status'>):ClubPromise{const p:ClubPromise={...input,id:`promise-${world.season}-${Math.floor(Math.random()*1e9)}`,status:'active'};institutionalState(world).promises.push(p);emitWorldEvent(world,{type:'PromiseMade',date:p.createdDate,clubIds:[p.clubId],playerIds:p.relatedPlayerId?[p.relatedPlayerId]:[],importance:Math.min(5,Math.max(1,Math.round(p.importance/20))) as 1|2|3|4|5,summary:p.description,payload:{promiseId:p.id,type:p.type,deadline:p.deadlineDate}});return p;}
+export function resolvePromise(world:World,promiseId:string,kept:boolean,date:string,reason:string):void{const p=institutionalState(world).promises.find(x=>x.id===promiseId);if(!p||p.status!=='active')return;p.status=kept?'kept':'broken';adjustRelationship(world,p.clubId,'credibility',kept?Math.max(1,p.trustImpact):-Math.abs(p.trustImpact),date,reason);emitWorldEvent(world,{type:kept?'PromiseKept':'PromiseBroken',date,clubIds:[p.clubId],playerIds:p.relatedPlayerId?[p.relatedPlayerId]:[],importance:kept?2:4,summary:reason,payload:{promiseId:p.id}});}
+export function adjustRelationship(world:World,clubId:string,facet:RelationshipFacet,delta:number,date:string,reason:string):void{const r=institutionalState(world).relationships.get(clubId);if(!r)return;r[facet]=Math.round(clamp(r[facet]+delta));r.history.push({date,facet,delta,reason});if(r.history.length>200)r.history.shift();emitWorldEvent(world,{type:'ManagerRelationshipChanged',date,clubIds:[clubId],importance:Math.abs(delta)>=8?3:1,summary:reason,payload:{facet,delta,value:r[facet]}});}
 
-export function resolvePromise(world:World,promiseId:string,kept:boolean,date:string,reason:string):void{
-  const p=institutionalState(world).promises.find(x=>x.id===promiseId);if(!p||p.status!=='active')return;p.status=kept?'kept':'broken';
-  adjustRelationship(world,p.clubId,'credibility',kept?Math.max(1,p.trustImpact):-Math.abs(p.trustImpact),date,reason);
-  emitWorldEvent(world,{type:kept?'PromiseKept':'PromiseBroken',date,clubIds:[p.clubId],playerIds:p.relatedPlayerId?[p.relatedPlayerId]:[],importance:kept?2:4,summary:reason,payload:{promiseId:p.id}});
-}
+function pressureDelta(world:World,clubId:string,date:string,d:{supporters?:number;media?:number;dressingRoom?:number;financial?:number;board?:number},reason:string):void{const p=institutionalState(world).pressure.get(clubId);if(!p)return;for(const [k,v] of Object.entries(d) as [keyof Omit<PressureState,'clubId'|'updatedDate'>,number][])p[k]=Math.round(clamp(p[k]+v));p.updatedDate=date;emitWorldEvent(world,{type:'BoardPressureChanged',date,clubIds:[clubId],importance:2,summary:reason,payload:{...d,pressure:{...p}}});}
+function publish(world:World,event:WorldEvent,headline:string,body:string,tone:NewsTone,source:string):void{const s=institutionalState(world);const item:NewsItem={id:`news-${event.id}-${s.news.length+1}`,date:event.date,headline,body,tone,source,clubIds:[...event.clubIds],playerIds:[...event.playerIds],importance:event.importance,originEventId:event.id};s.news.push(item);if(s.news.length>3000)s.news.splice(0,s.news.length-3000);emitWorldEvent(world,{type:'MediaStoryPublished',date:event.date,clubIds:item.clubIds,playerIds:item.playerIds,importance:event.importance,summary:headline,payload:{newsId:item.id,tone,source}});}
 
-export function adjustRelationship(world:World,clubId:string,facet:RelationshipFacet,delta:number,date:string,reason:string):void{
-  const r=institutionalState(world).relationships.get(clubId);if(!r)return;r[facet]=Math.round(clamp(r[facet]+delta));r.history.push({date,facet,delta,reason});if(r.history.length>200)r.history.shift();
-  emitWorldEvent(world,{type:'ManagerRelationshipChanged',date,clubIds:[clubId],importance:Math.abs(delta)>=8?3:1,summary:reason,payload:{facet,delta,value:r[facet]}});
-}
-
-function pressureDelta(world:World,clubId:string,date:string,d:{supporters?:number;media?:number;dressingRoom?:number;financial?:number;board?:number},reason:string):void{
-  const p=institutionalState(world).pressure.get(clubId);if(!p)return;for(const [k,v] of Object.entries(d) as [keyof Omit<PressureState,'clubId'|'updatedDate'>,number][])p[k]=Math.round(clamp(p[k]+v));p.updatedDate=date;
-  emitWorldEvent(world,{type:'BoardPressureChanged',date,clubIds:[clubId],importance:2,summary:reason,payload:{...d,pressure:{...p}}});
-}
-
-function publish(world:World,event:WorldEvent,headline:string,body:string,tone:NewsTone,source:string):void{
-  const s=institutionalState(world);const item:NewsItem={id:`news-${event.id}-${s.news.length+1}`,date:event.date,headline,body,tone,source,clubIds:[...event.clubIds],playerIds:[...event.playerIds],importance:event.importance,originEventId:event.id};s.news.push(item);if(s.news.length>3000)s.news.splice(0,s.news.length-3000);
-  emitWorldEvent(world,{type:'MediaStoryPublished',date:event.date,clubIds:item.clubIds,playerIds:item.playerIds,importance:event.importance,summary:headline,payload:{newsId:item.id,tone,source}});
+function reactToPersonalLife(world:World,event:WorldEvent):void{
+  const publicity=Number(event.payload.publicity??0),severity=Number(event.payload.severity??0),type=String(event.payload.type??'');
+  const positive=['charityEvent','fanEncounter','socialMediaPraise','birth','relationshipSupport'].includes(type);const privateSensitive=['familyIllness','bereavement','relationshipConflict','pregnancy','paternityLeave'].includes(type);
+  for(const clubId of event.clubIds){if(positive)pressureDelta(world,clubId,event.date,{supporters:-1,media:-1},'Boa repercussão pessoal reduziu pressão externa.');else if(publicity>=55)pressureDelta(world,clubId,event.date,{media:Math.max(1,Math.round(publicity/25)),supporters:type==='publicIncident'||type==='nightOut'?2:0,board:severity>=7?1:0},'Evento pessoal ganhou repercussão pública.');}
+  if(publicity<45||privateSensitive&&publicity<70)return;
+  const tone:NewsTone=positive?'positive':type==='relationshipRumour'||type==='socialMediaBacklash'||type==='partnerRivalryPressure'?'sensational':severity>=7?'critical':'neutral';
+  const source=tone==='sensational'?'Portal Foco Total':positive?'Esporte & Sociedade':'Diário Esportivo';publish(world,event,event.summary,String(event.payload.description??event.summary),tone,source);
 }
 
 function react(world:World,event:WorldEvent):void{
-  if(event.type==='MatchCompleted'){
-    const hg=Number(event.payload.homeGoals??0),ag=Number(event.payload.awayGoals??0);const [home,away]=event.clubIds;
-    if(home)pressureDelta(world,home,event.date,{supporters:hg>ag?-2:hg<ag?3:0,media:hg>ag?-1:hg<ag?2:0},'Resultado da partida alterou o ambiente externo.');
-    if(away)pressureDelta(world,away,event.date,{supporters:ag>hg?-2:ag<hg?3:0,media:ag>hg?-1:ag<hg?2:0},'Resultado da partida alterou o ambiente externo.');
-    if(event.importance>=2)publish(world,event,'Rodada movimenta o ambiente dos clubes',event.summary,hg===ag?'neutral':'positive','Jornal do Futebol');
-  }
-  if(event.type==='NegotiationLeaked'){
-    for(const clubId of event.clubIds)pressureDelta(world,clubId,event.date,{supporters:4,media:7,board:2},'Vazamento de negociação elevou pressão pública.');
-    publish(world,event,'Negociação vaza e aumenta pressão',event.summary,'sensational','Mercado Agora');
-  }
+  if(event.type==='MatchCompleted'){const hg=Number(event.payload.homeGoals??0),ag=Number(event.payload.awayGoals??0);const [home,away]=event.clubIds;if(home)pressureDelta(world,home,event.date,{supporters:hg>ag?-2:hg<ag?3:0,media:hg>ag?-1:hg<ag?2:0},'Resultado da partida alterou o ambiente externo.');if(away)pressureDelta(world,away,event.date,{supporters:ag>hg?-2:ag<hg?3:0,media:ag>hg?-1:ag<hg?2:0},'Resultado da partida alterou o ambiente externo.');if(event.importance>=2)publish(world,event,'Rodada movimenta o ambiente dos clubes',event.summary,hg===ag?'neutral':'positive','Jornal do Futebol');}
+  if(event.type==='NegotiationLeaked'){for(const clubId of event.clubIds)pressureDelta(world,clubId,event.date,{supporters:4,media:7,board:2},'Vazamento de negociação elevou pressão pública.');publish(world,event,'Negociação vaza e aumenta pressão',event.summary,'sensational','Mercado Agora');}
   if(event.type==='PlayerInjured')publish(world,event,'Lesão preocupa clube e comissão técnica',event.summary,event.importance>=4?'critical':'neutral','Boletim Esportivo');
   if(event.type==='PromiseBroken')for(const clubId of event.clubIds)pressureDelta(world,clubId,event.date,{dressingRoom:7,board:5},'Promessa quebrada deteriorou confiança interna.');
   if(event.type==='RecruitmentRejected')for(const clubId of event.clubIds)pressureDelta(world,clubId,event.date,{board:1,supporters:event.importance>=3?3:0},'Decisão de mercado gerou repercussão interna e externa.');
+  if(event.type==='PersonalLifeEvent')reactToPersonalLife(world,event);
+  if(event.type==='PersonalDecisionMade')for(const clubId of event.clubIds)pressureDelta(world,clubId,event.date,{media:-1,board:-1},'Clube respondeu a uma situação pessoal do atleta.');
 }
 
 function wireInstitutionalReactions(world:World):void{onWorldEvent(world,'*',(event)=>{if(event.type!=='MediaStoryPublished'&&event.type!=='BoardPressureChanged'&&event.type!=='ManagerRelationshipChanged')react(world,event);});}
-
-export function tickPromises(world:World,date:string):void{
-  for(const p of institutionalState(world).promises)if(p.status==='active'&&p.deadlineDate<date)resolvePromise(world,p.id,false,date,`Prazo expirou: ${p.description}`);
-}
-
+export function tickPromises(world:World,date:string):void{for(const p of institutionalState(world).promises)if(p.status==='active'&&p.deadlineDate<date)resolvePromise(world,p.id,false,date,`Prazo expirou: ${p.description}`);}
 export function recentNews(world:World,limit=50,clubId?:string):NewsItem[]{return [...institutionalState(world).news].reverse().filter(n=>!clubId||n.clubIds.includes(clubId)).slice(0,limit);}
-
-export function snapshotInstitutionalState(world:World):InstitutionalSnapshot{
-  const s=institutionalState(world);return{promises:s.promises.map(p=>({...p})),relationships:[...s.relationships.entries()].map(([k,v])=>[k,{...v,history:v.history.map(h=>({...h}))}]),pressure:[...s.pressure.entries()].map(([k,v])=>[k,{...v}]),news:s.news.map(n=>({...n,clubIds:[...n.clubIds],playerIds:[...n.playerIds]}))};
-}
-
-export function restoreInstitutionalState(world:World,snapshot:InstitutionalSnapshot):void{
-  const s=institutionalState(world);s.promises=snapshot.promises.map(p=>({...p}));s.relationships=new Map(snapshot.relationships.map(([k,v])=>[k,{...v,history:v.history.map(h=>({...h}))}]));s.pressure=new Map(snapshot.pressure.map(([k,v])=>[k,{...v}]));s.news=snapshot.news.map(n=>({...n,clubIds:[...n.clubIds],playerIds:[...n.playerIds]}));
-}
+export function snapshotInstitutionalState(world:World):InstitutionalSnapshot{const s=institutionalState(world);return{promises:s.promises.map(p=>({...p})),relationships:[...s.relationships.entries()].map(([k,v])=>[k,{...v,history:v.history.map(h=>({...h}))}]),pressure:[...s.pressure.entries()].map(([k,v])=>[k,{...v}]),news:s.news.map(n=>({...n,clubIds:[...n.clubIds],playerIds:[...n.playerIds]}))};}
+export function restoreInstitutionalState(world:World,snapshot:InstitutionalSnapshot):void{const s=institutionalState(world);s.promises=snapshot.promises.map(p=>({...p}));s.relationships=new Map(snapshot.relationships.map(([k,v])=>[k,{...v,history:v.history.map(h=>({...h}))}]));s.pressure=new Map(snapshot.pressure.map(([k,v])=>[k,{...v}]));s.news=snapshot.news.map(n=>({...n,clubIds:[...n.clubIds],playerIds:[...n.playerIds]}));}
