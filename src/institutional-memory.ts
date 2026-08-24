@@ -62,9 +62,7 @@ function react(world:World,event:WorldEvent):void{
     for(const clubId of event.clubIds)pressureDelta(world,clubId,event.date,{supporters:4,media:7,board:2},'Vazamento de negociação elevou pressão pública.');
     publish(world,event,'Negociação vaza e aumenta pressão',event.summary,'sensational','Mercado Agora');
   }
-  if(event.type==='PlayerInjured'){
-    publish(world,event,'Lesão preocupa clube e comissão técnica',event.summary,event.importance>=4?'critical':'neutral','Boletim Esportivo');
-  }
+  if(event.type==='PlayerInjured')publish(world,event,'Lesão preocupa clube e comissão técnica',event.summary,event.importance>=4?'critical':'neutral','Boletim Esportivo');
   if(event.type==='PromiseBroken')for(const clubId of event.clubIds)pressureDelta(world,clubId,event.date,{dressingRoom:7,board:5},'Promessa quebrada deteriorou confiança interna.');
   if(event.type==='RecruitmentRejected')for(const clubId of event.clubIds)pressureDelta(world,clubId,event.date,{board:1,supporters:event.importance>=3?3:0},'Decisão de mercado gerou repercussão interna e externa.');
 }
@@ -72,7 +70,7 @@ function react(world:World,event:WorldEvent):void{
 function wireInstitutionalReactions(world:World):void{onWorldEvent(world,'*',(event)=>{if(event.type!=='MediaStoryPublished'&&event.type!=='BoardPressureChanged'&&event.type!=='ManagerRelationshipChanged')react(world,event);});}
 
 export function tickPromises(world:World,date:string):void{
-  for(const p of institutionalState(world).promises)if(p.status==='active'&&p.deadlineDate<date){p.status='expired';resolvePromise(world,p.id,false,date,`Prazo expirou: ${p.description}`);}
+  for(const p of institutionalState(world).promises)if(p.status==='active'&&p.deadlineDate<date)resolvePromise(world,p.id,false,date,`Prazo expirou: ${p.description}`);
 }
 
 export function recentNews(world:World,limit=50,clubId?:string):NewsItem[]{return [...institutionalState(world).news].reverse().filter(n=>!clubId||n.clubIds.includes(clubId)).slice(0,limit);}
