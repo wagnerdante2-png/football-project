@@ -5,6 +5,7 @@ import { effectiveAttributes, prepareAvailableSquads, restoreSquads, simulateMed
 import { personalAvailability, personalPerformanceFactor } from './human-life';
 import { dressingRoomPerformanceFactor } from './dressing-room';
 import { trainingPerformanceFactor } from './training-engine';
+import { managerRelationshipPerformanceFactor } from './manager-performance';
 
 type RemovedPersonal={clubId:string;players:Player[]};
 const clamp=(v:number,min:number,max:number)=>Math.max(min,Math.min(max,v));
@@ -22,7 +23,7 @@ export function playCurrentRoundWithMedical(world:World):void {
   try {
     for(const club of world.clubs){
       const xi=selectStartingEleven(club);participants.set(club.id,new Set(xi.map(p=>p.id)));
-      for(const player of club.players){snapshots.set(player,{...player.attributes});const medical=effectiveAttributes(world,player);const factor=personalPerformanceFactor(world,player.id)*dressingRoomPerformanceFactor(world,player.id)*trainingPerformanceFactor(world,player.id);player.attributes=applyContextFactor(medical,factor);}
+      for(const player of club.players){snapshots.set(player,{...player.attributes});const medical=effectiveAttributes(world,player);const factor=personalPerformanceFactor(world,player.id)*dressingRoomPerformanceFactor(world,player.id)*trainingPerformanceFactor(world,player.id)*managerRelationshipPerformanceFactor(world,player.id);player.attributes=applyContextFactor(medical,factor);}
     }
     playCurrentRoundWithRoles(world);
   } finally {for(const [player,attributes] of snapshots)player.attributes=attributes;restoreSquads(removed);restorePersonallyUnavailable(world,personalRemoved);}
