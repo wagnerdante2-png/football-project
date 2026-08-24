@@ -30,6 +30,7 @@ p { color: #8d9aa8; }
 .metric { padding: 18px; }
 .metric span { display: block; color: #83909d; font-size: 12px; margin-bottom: 8px; }
 .metric strong { font-size: 24px; }
+.metric small { display: block; margin-top: 5px; color: #62717e; font-size: 10px; }
 .grid { display: grid; grid-template-columns: minmax(680px, 1fr) 390px; gap: 14px; }
 .stack { display: grid; gap: 14px; align-content: start; }
 .section-title { padding: 18px 18px 12px; display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #22303a; }
@@ -109,3 +110,22 @@ th { color: #72808d; font-size: 11px; text-transform: uppercase; letter-spacing:
 .range-row > div span, .range-row small { color: #667784; font-size: 10px; }
 .range-row strong { text-align: center; color: #36d081; }
 .range-row input { width: 100%; accent-color: #36d081; }
+
+.roles-layout { display: grid; grid-template-columns: minmax(760px, 1fr) 320px; gap: 14px; align-items: start; }
+.roles-list { display: grid; }
+.role-row { display: grid; grid-template-columns: 34px 190px 230px 48px 1fr; gap: 12px; align-items: center; padding: 12px 16px; border-bottom: 1px solid #1d2933; }
+.role-row:hover { background: #14212a; }
+.role-player { min-width: 0; }
+.role-player b, .role-desc b { display: block; font-size: 12px; }
+.role-player small, .role-desc small { display: block; color: #71808d; font-size: 10px; margin-top: 3px; line-height: 1.35; }
+.role-select { width: 100%; min-width: 0; padding: 8px 10px; font-size: 11px; }
+.suitability { width: 38px; height: 30px; display: grid; place-items: center; border-radius: 7px; font-size: 12px; font-weight: 900; border: 1px solid #33414d; }
+.suitability.good { color: #36d081; background: #10231a; border-color: #245c40; }
+.suitability.mid { color: #e8c35d; background: #241f10; border-color: #655526; }
+.suitability.low { color: #e57c7c; background: #271415; border-color: #633034; }
+.role-help-body { padding: 18px; }
+.role-help-body > p { margin-top: 0; line-height: 1.55; font-size: 12px; }
+.role-rule { display: flex; justify-content: space-between; gap: 14px; padding: 10px 0; border-bottom: 1px solid #1d2933; font-size: 11px; }
+.role-rule b { color: #dce3ea; }
+.role-rule span { color: #72808d; text-align: right; }
+.role-note { margin: 16px 0 0 !important; color: #64727f !important; font-size: 10px !important; }
