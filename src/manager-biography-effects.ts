@@ -12,7 +12,7 @@ function positionAffinity(manager:ManagerCharacter,position:Position):number{
   const p=manager.primaryPlayingPosition;
   if(!p)return 0;
   const groups:Position[][]=[['GK'],['RB','CB','LB'],['DM','CM','AM'],['RW','LW','ST']];
-  return groups.some(g=>g.includes(p)&&g.includes(position))?.55:0;
+  return groups.some(g=>g.includes(p)&&g.includes(position)) ? .55 : 0;
 }
 
 export function managerInitialAuthority(world:World,clubId:string):number{
