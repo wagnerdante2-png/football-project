@@ -1,5 +1,5 @@
 import type { World } from './engine';
-import { managerCharacterState, managerByClub, userManager } from './manager-character';
+import { managerByClub, userManager } from './manager-character';
 import { archetypeDraft, finalizeManagerCreation, type ManagerArchetypeId } from './manager-creation';
 
 const first=['André','Bruno','Carlos','Diego','Eduardo','Fábio','Gustavo','Henrique','João','Leandro','Marcelo','Paulo','Rafael','Renato','Ricardo','Sérgio'];
@@ -15,12 +15,10 @@ function archetypeFor(world:World,clubId:string):ManagerArchetypeId{
 }
 
 export function ensureAIManagerCharacters(world:World):void{
-  const state=managerCharacterState(world);const user=userManager(world);
+  const user=userManager(world);if(!user)return;
   for(const club of world.clubs){
-    if(managerByClub(world,club.id))continue;
-    if(user&&user.currentClubId===club.id)continue;
+    if(club.id===user.currentClubId||managerByClub(world,club.id))continue;
     const archetype=archetypeFor(world,club.id),draft=archetypeDraft(world,club.id,archetype);draft.name=nameFor(club.id);draft.ambition.startingClubId=club.id;draft.currentClubId=club.id;
     const manager=finalizeManagerCreation(world,draft,false);manager.history[0].summary=`${manager.name} inicia a temporada ${world.season} no ${club.name}.`;manager.history.push({date:`${world.season}-07-25`,type:'aiProfile',summary:`Perfil inicial: ${archetype}.`});
   }
-  void state;
 }
