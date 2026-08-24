@@ -1,4 +1,4 @@
-import type { Club, Player, Position, Tactics, World } from './engine';
+import type { Club, Player, PlayerAttributes, Position, Tactics, World } from './engine';
 import { playCurrentRound, selectStartingEleven } from './engine';
 
 export type PlayerRole =
@@ -112,7 +112,6 @@ export function roleSuitability(player: Player, role: PlayerRole): number {
 }
 
 type TacticalDelta = { tempo:number; pressing:number; defensiveLine:number; width:number; shortBias:number; directBias:number };
-
 function roleDelta(role: PlayerRole): TacticalDelta {
   const zero = { tempo:0, pressing:0, defensiveLine:0, width:0, shortBias:0, directBias:0 };
   const table: Partial<Record<PlayerRole, TacticalDelta>> = {
@@ -154,12 +153,60 @@ export function tacticalRoleSummary(club: Club) {
   };
 }
 
-export function playCurrentRoundWithRoles(world: World): void {
-  const originals = new Map<Club, Tactics>();
-  for (const club of world.clubs) {
-    originals.set(club, { ...club.tactics });
-    club.tactics = effectiveTactics(club);
+type AttributeDelta = Partial<Record<keyof PlayerAttributes, number>>;
+function roleAttributeDelta(role: PlayerRole): AttributeDelta {
+  const table: Partial<Record<PlayerRole, AttributeDelta>> = {
+    sweeperKeeper:{ passing:7, decisions:5, pace:3, goalkeeping:-2 },
+    wingback:{ pace:5, stamina:6, passing:5, tackling:-2, finishing:1 },
+    invertedFullback:{ passing:7, technique:5, decisions:5, pace:-2 },
+    ballPlayingDefender:{ passing:8, technique:5, decisions:4, tackling:-2 },
+    stopper:{ tackling:7, pace:3, positioning:-2, passing:-3 },
+    anchor:{ positioning:7, tackling:5, passing:-2, pace:-3 },
+    deepLyingPlaymaker:{ passing:9, technique:6, decisions:7, finishing:-3, pace:-2 },
+    ballWinningMidfielder:{ tackling:8, stamina:7, pace:3, passing:-3, technique:-2 },
+    boxToBox:{ stamina:8, pace:4, passing:3, finishing:3, tackling:3 },
+    advancedPlaymaker:{ passing:9, technique:8, decisions:6, tackling:-5 },
+    shadowStriker:{ finishing:9, pace:6, positioning:7, passing:-3 },
+    winger:{ pace:7, passing:5, technique:4, finishing:-1 },
+    insideForward:{ finishing:9, pace:6, technique:5, passing:-3 },
+    widePlaymaker:{ passing:9, technique:7, decisions:5, pace:-2, finishing:-2 },
+    advancedForward:{ finishing:9, pace:6, positioning:6, passing:-4 },
+    targetForward:{ positioning:6, finishing:5, stamina:4, passing:3, pace:-5 },
+    falseNine:{ passing:9, technique:8, decisions:7, finishing:-5, pace:-2 },
+  };
+  return table[role] ?? {};
+}
+
+function applyRoleBehaviours(club: Club): Map<Player, PlayerAttributes> {
+  const snapshots = new Map<Player, PlayerAttributes>();
+  const xi = selectStartingEleven(club);
+  for (const player of xi) {
+    snapshots.set(player, { ...player.attributes });
+    const delta = roleAttributeDelta(getPlayerRole(club, player));
+    for (const [key, value] of Object.entries(delta) as [keyof PlayerAttributes, number][]) {
+      player.attributes[key] = Math.max(20, Math.min(99, player.attributes[key] + value));
+    }
   }
-  playCurrentRound(world);
-  for (const club of world.clubs) club.tactics = originals.get(club)!;
+  return snapshots;
+}
+
+function restoreAttributes(snapshots: Map<Player, PlayerAttributes>): void {
+  for (const [player, attributes] of snapshots) player.attributes = attributes;
+}
+
+export function playCurrentRoundWithRoles(world: World): void {
+  const originalTactics = new Map<Club, Tactics>();
+  const attributeSnapshots = new Map<Player, PlayerAttributes>();
+  for (const club of world.clubs) {
+    originalTactics.set(club, { ...club.tactics });
+    club.tactics = effectiveTactics(club);
+    const snapshots = applyRoleBehaviours(club);
+    for (const [player, attrs] of snapshots) attributeSnapshots.set(player, attrs);
+  }
+  try {
+    playCurrentRound(world);
+  } finally {
+    for (const club of world.clubs) club.tactics = originalTactics.get(club)!;
+    restoreAttributes(attributeSnapshots);
+  }
 }
