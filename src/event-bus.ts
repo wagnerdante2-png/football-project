@@ -14,9 +14,10 @@ export type WorldEventType =
   | 'ManagerInteractionOpened' | 'ManagerInteractionResolved' | 'ManagerInteractionExpired' | 'PlayerManagerRelationshipChanged'
   | 'ManagerEducationStarted' | 'ManagerEducationCompleted' | 'ManagerLicenceUpgraded'
   | 'ManagerIdentityShift' | 'ManagerSpecialisationUnlocked'
+  | 'ManagerSacked' | 'ManagerResigned' | 'ManagerHired' | 'ManagerJobOffer' | 'ManagerJobOfferRejected' | 'ManagerJobOfferWithdrawn' | 'ManagerContractRenewed'
   | 'SeasonEnded' | 'SeasonStarted';
 
-export type WorldEvent = {id:string;sequence:number;type:WorldEventType;date:string;season:number;round:number;actorIds:string[];clubIds:string[];playerIds:string[];importance:1|2|3|4|5;tags:string[];summary:string;payload:Record<string,unknown>};
+export type WorldEvent={id:string;sequence:number;type:WorldEventType;date:string;season:number;round:number;actorIds:string[];clubIds:string[];playerIds:string[];importance:1|2|3|4|5;tags:string[];summary:string;payload:Record<string,unknown>};
 export type EventListener=(event:WorldEvent,world:World)=>void;
 export type EventBusState={events:WorldEvent[];nextSequence:number;listeners:Map<WorldEventType|'*',Set<EventListener>>};
 export type EventBusSnapshot={events:WorldEvent[];nextSequence:number};
