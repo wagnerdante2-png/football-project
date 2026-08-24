@@ -2,7 +2,7 @@ import type { World } from './engine';
 
 export type WorldEventType =
   | 'DayAdvanced' | 'MatchDayStarted' | 'MatchCompleted' | 'TrainingCompleted'
-  | 'PlayerInjured' | 'PlayerRecovered' | 'PlayerRetired' | 'YouthPlayerGenerated'
+  | 'PlayerInjured' | 'MedicalPhaseChanged' | 'PlayerRecovered' | 'PlayerRetired' | 'YouthPlayerGenerated'
   | 'TransferRequested' | 'RecruitmentApproved' | 'RecruitmentRejected'
   | 'NegotiationStarted' | 'NegotiationUpdated' | 'NegotiationLeaked' | 'NegotiationEnded'
   | 'ContractExpiring' | 'ContractRenewed' | 'PlayerReleased'
