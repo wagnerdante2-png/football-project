@@ -3,11 +3,13 @@ import { playCurrentRoundWithMedical } from './medical-simulation';
 import { tickRecovery } from './injuries';
 import { tickScoutingRound } from './scouting';
 import { emitWorldEvent } from './event-bus';
+import { institutionalState, tickPromises } from './institutional-memory';
 
 export type TrainingFocus='recovery'|'physical'|'technical'|'tactical'|'attacking'|'defending';
 export type TrainingIntensity='low'|'medium'|'high';
 export type DailyClubPlan={clubId:string;focus:TrainingFocus;intensity:TrainingIntensity;restDay:boolean};
 export type DailyCalendarState={date:string;seasonStart:string;matchDates:Map<number,string>;clubPlans:Map<string,DailyClubPlan>;daysAdvanced:number};
+export type DailyCalendarSnapshot={date:string;seasonStart:string;matchDates:[number,string][];clubPlans:[string,DailyClubPlan][];daysAdvanced:number};
 
 const states=new WeakMap<World,DailyCalendarState>();
 const clamp=(v:number,min:number,max:number)=>Math.max(min,Math.min(max,v));
@@ -61,7 +63,8 @@ function processTrainingDay(world:World,date:string):void{
 }
 
 export function advanceOneDay(world:World):{date:string;matchDay:boolean;playedRound?:number}{
-  const state=dailyCalendar(world);const date=state.date;const matchDate=state.matchDates.get(world.round);const matchDay=matchDate===date&&world.fixtures.some(f=>f.round===world.round&&!f.played);let playedRound:number|undefined;
+  const state=dailyCalendar(world);const date=state.date;institutionalState(world);tickPromises(world,date);
+  const matchDate=state.matchDates.get(world.round);const matchDay=matchDate===date&&world.fixtures.some(f=>f.round===world.round&&!f.played);let playedRound:number|undefined;
   emitWorldEvent(world,{type:'DayAdvanced',date,importance:1,summary:`Calendário avançou para ${date}.`,payload:{}});
   if(matchDay){
     playedRound=world.round;emitWorldEvent(world,{type:'MatchDayStarted',date,importance:2,summary:`Início da rodada ${playedRound}.`,payload:{round:playedRound}});
@@ -77,4 +80,11 @@ export function advanceUntilNextMatch(world:World,maxDays=14):void{for(let i=0;i
 export function resetDailyCalendarForNewSeason(world:World):void{
   const state=dailyCalendar(world);const start=`${world.season}-07-25`;state.date=start;state.seasonStart=start;state.matchDates=buildMatchDates(world,start);state.daysAdvanced=0;
   emitWorldEvent(world,{type:'SeasonStarted',date:start,importance:4,summary:`Temporada ${world.season} começou.`,payload:{season:world.season}});
+}
+
+export function snapshotDailyCalendar(world:World):DailyCalendarSnapshot{
+  const s=dailyCalendar(world);return{date:s.date,seasonStart:s.seasonStart,matchDates:[...s.matchDates.entries()],clubPlans:[...s.clubPlans.entries()].map(([k,v])=>[k,{...v}]),daysAdvanced:s.daysAdvanced};
+}
+export function restoreDailyCalendar(world:World,snapshot:DailyCalendarSnapshot):void{
+  states.set(world,{date:snapshot.date,seasonStart:snapshot.seasonStart,matchDates:new Map(snapshot.matchDates),clubPlans:new Map(snapshot.clubPlans.map(([k,v])=>[k,{...v}])),daysAdvanced:snapshot.daysAdvanced});
 }
