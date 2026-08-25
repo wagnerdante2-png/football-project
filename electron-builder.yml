@@ -1,0 +1,17 @@
+appId: com.thetouchline.beta
+productName: The Touchline Beta
+directories:
+  output: release
+files:
+  - dist/**/*
+  - electron/**/*
+  - package.json
+asar: true
+win:
+  target:
+    - target: portable
+      arch:
+        - x64
+  artifactName: The-Touchline-Beta-Portable-${version}.${ext}
+portable:
+  artifactName: The-Touchline-Beta-Portable-${version}.${ext}
