@@ -1,10 +1,22 @@
 # Match Engine V2 — Integration Status
 
-## Status
+## Status: CLOSED / FROZEN FOR NEW FEATURES
 
-The Match Engine V2 is now the primary simulation path used by the daily world calendar through `playCurrentRoundWithMedical()` -> `playCurrentRoundV2()`.
+The Match Engine V2 is functionally concluded for the current project stage.
 
-The legacy event simulator remains in `engine.ts` only as a compatibility fallback and must not be treated as the authoritative official-match engine.
+It is the primary simulation path used by the daily world calendar through `playCurrentRoundWithMedical()` -> `playCurrentRoundV2()`.
+
+From this point forward, this module is **feature-frozen**. New match mechanics should not be added unless a future world/competition requirement exposes a genuine missing rule or a regression identifies a defect.
+
+The only work still permitted inside this block without reopening it is:
+
+- compile/runtime fixes;
+- regression fixes;
+- statistical tuning/calibration;
+- compatibility fixes required by future competition rules;
+- performance optimization that does not change intended behavior.
+
+The legacy event simulator remains in `engine.ts` only as a compatibility rollback path and must not be treated as the authoritative official-match engine.
 
 ## Official match pipeline
 
@@ -20,9 +32,34 @@ The legacy event simulator remains in `engine.ts` only as a compatibility fallba
 10. Match injuries are converted into the persistent medical model.
 11. Match ledger, ratings and career/season statistics are persisted.
 
+## Functional scope completed
+
+The current module contains the intended anatomy for official football matches:
+
+- 105 x 68 m spatial field model and real goal dimensions;
+- live ball physics, friction, bounce, wind, spin and free-ball trajectory;
+- physical posts and crossbar plus complete-ball goal-line crossing;
+- player perception, body orientation, limited information and bounded rationality;
+- individual action utility and short action-chain planning;
+- role-specific movement and coordinated attacking patterns;
+- collective defending, marking, cover shadows, handoffs and defensive-line behavior;
+- tactical learning/adaptation during the match;
+- passing, carrying, dribbling, crossing, shooting, first touch and aerial duels;
+- goalkeeper positioning, shot resolution, catches, parries, rebounds and errors;
+- contextual defensive decisions and physical contact resolution;
+- fouls, discipline, DOGSO, advantage, referee profiles, assistants and VAR;
+- causal in-match injuries linked to the persistent medical/injury system;
+- substitutions, fatigue, minimum-player continuation and competition rule hooks;
+- corners, free kicks, penalties, throw-ins, goal kicks and set-piece routines;
+- kickoff, halftime, side changes, added time, extra time and penalty shootouts;
+- xG/post-shot xG, ratings, event ledger, action maps and match reports;
+- persistent season/career statistics, records and match archive;
+- deterministic seeds, edge-case checks, calibration, sensitivity and regression diagnostics;
+- integration with official Fixtures, standings, world calendar, condition and career history.
+
 ## Mandatory readiness gates
 
-The V2 is only considered release-ready when all gates pass simultaneously:
+The V2 must remain behind the following quality gates whenever future changes touch the module:
 
 - deterministic replay for identical seeds;
 - diversity across different seeds;
@@ -54,16 +91,14 @@ The V2 is only considered release-ready when all gates pass simultaneously:
 
 ## Legacy engine policy
 
-Do not delete `simulateMatch()` / `playCurrentRound()` from `engine.ts` until the readiness suite is demonstrably passing in a runtime/build environment. They are retained solely as rollback/fallback during migration.
+Do not delete `simulateMatch()` / `playCurrentRound()` from `engine.ts` until the project is executed in a runtime/build environment and the V2 readiness/regression suite is demonstrably passing there.
 
-Once V2 passes all gates under repeated regression runs, the legacy path can be marked deprecated and later removed.
+This is a rollback safeguard only. It is not the normal official-match path.
 
-## Next development block
+## Closure decision
 
-After runtime validation of this integration, the next major domain is world structure rather than more match anatomy:
+No new domain is selected by this document.
 
-1. Clubs and club identity/data model.
-2. National teams and eligibility/call-ups.
-3. Competition framework, rules, calendars, qualification, promotion/relegation and continental/international tournaments.
+The project should remain paused at this boundary until the next product direction is deliberately chosen. Plausible next domains include clubs, competition structures, national teams, user-facing match presentation, database/save architecture, or another systems layer, but none is considered the automatic next step.
 
-The Match Engine should remain extensible for competition-specific rules rather than embedding competition logic directly into the match simulation.
+Any future decision to expand Match Engine anatomy should explicitly reopen this module rather than silently adding scope to it.
