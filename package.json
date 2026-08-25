@@ -22,6 +22,9 @@
     "sync:immersive": "npm run sync:people:checked && npm run sync:visual && npm run sync:rosters",
     "sync:all": "npm run sync:data && npm run sync:immersive"
   },
+  "dependencies": {
+    "flag-icons": "^7.5.0"
+  },
   "devDependencies": {
     "tsx": "^4.20.6",
     "typescript": "^5.9.2",
