@@ -1,6 +1,6 @@
 {
-  "version": 3,
-  "generatedAt": "2026-08-25T19:24:02.060Z",
+  "version": 4,
+  "generatedAt": "2026-08-25T20:27:02.755Z",
   "sources": {
     "structured": [
       "OpenFootball CC0",
@@ -11,11 +11,12 @@
     ]
   },
   "counts": {
-    "clubTargets": 12,
-    "clubCrests": 6,
-    "stadiumImages": 8,
-    "playerTargets": 12,
-    "playerPortraits": 2
+    "clubTargets": 20,
+    "clubCrests": 9,
+    "stadiumImages": 13,
+    "playerTargets": 20,
+    "playerPortraits": 15,
+    "activeRosterPlayerTargets": 20
   },
   "clubs": [
     {
@@ -113,10 +114,10 @@
     {
       "name": "CA Mineiro",
       "wikidataId": "Q270995",
-      "primaryColor": "hsl(156 58% 34%)",
-      "secondaryColor": "hsl(293 58% 42%)",
-      "accentColor": "hsl(226 72% 58%)",
-      "kitSource": "procedural",
+      "primaryColor": "#facf00",
+      "secondaryColor": "#1f1a17",
+      "accentColor": "#1f1a17",
+      "kitSource": "derived-from-crest",
       "crest": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/2/27/Clube_Atl%C3%A9tico_Mineiro_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
         "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Clube_Atl%C3%A9tico_Mineiro_logo.svg/500px-Clube_Atl%C3%A9tico_Mineiro_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -136,35 +137,20 @@
         "sourcePage": "https://commons.wikimedia.org/wiki/File:Mineir%C3%A3o_A%C3%A9rea.jpg",
         "freeToRedistribute": true
       },
-      "sourceConfidence": 96
+      "sourceConfidence": 96,
+      "paletteProvenance": {
+        "source": "verified-free-crest",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Clube_Atl%C3%A9tico_Mineiro_logo.svg",
+        "method": "dominant-svg-colors"
+      }
     },
     {
       "name": "Fortaleza EC",
-      "wikidataId": "Q188841",
       "primaryColor": "hsl(187 58% 34%)",
       "secondaryColor": "hsl(324 58% 42%)",
       "accentColor": "hsl(257 72% 58%)",
       "kitSource": "procedural",
-      "crest": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Fortaleza_Esporte_Clube_logo.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Fortaleza_Esporte_Clube_logo.png/500px-Fortaleza_Esporte_Clube_logo.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-        "source": "Wikimedia Commons",
-        "license": "Public domain",
-        "attribution": "Fortaleza Esporte Clube",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Fortaleza_Esporte_Clube_logo.png",
-        "freeToRedistribute": true
-      },
-      "stadiumName": "Estádio Governador Plácido Castelo",
-      "stadiumImage": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Fortaleza_Arena.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Fortaleza_Arena.jpg/960px-Fortaleza_Arena.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-        "source": "Wikimedia Commons",
-        "license": "CC BY",
-        "attribution": "Fábio Lima/Portal da Copa/Março de 2013",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Fortaleza_Arena.jpg",
-        "freeToRedistribute": true
-      },
-      "sourceConfidence": 96
+      "sourceConfidence": 10
     },
     {
       "name": "Fluminense FC",
@@ -257,98 +243,469 @@
       "secondaryColor": "hsl(325 58% 42%)",
       "accentColor": "hsl(258 72% 58%)",
       "kitSource": "procedural",
-      "sourceConfidence": 20,
-      "identityRejected": "Expected Q80845; rejected ambiguous candidate"
-    }
-  ],
-  "players": [
-    {
-      "name": "Marlon Gomes",
-      "dateOfBirth": "2003-12-14",
-      "wikidataId": "Q115729920",
-      "sourceConfidence": 70
-    },
-    {
-      "name": "Lucas Beraldo",
-      "dateOfBirth": "2003-11-24",
       "sourceConfidence": 10
     },
     {
-      "name": "Robert Renan",
-      "dateOfBirth": "2003-10-11",
-      "wikidataId": "Q112914550",
-      "portrait": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/4/45/Renan_in_Zenit_%28cropped%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Renan_in_Zenit_%28cropped%29.png/330px-Renan_in_Zenit_%28cropped%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "name": "SE Palmeiras",
+      "wikidataId": "Q80964",
+      "primaryColor": "#006437",
+      "secondaryColor": "#f3f5f4",
+      "accentColor": "#f3f5f4",
+      "kitSource": "derived-from-crest",
+      "crest": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/1/10/Palmeiras_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Palmeiras_logo.svg/500px-Palmeiras_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "Public domain",
+        "attribution": "Sociedade Esportiva Palmeiras",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Palmeiras_logo.svg",
+        "freeToRedistribute": true
+      },
+      "stadiumName": "Estádio Palestra Itália",
+      "stadiumImage": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Est%C3%A1dio_Palestra_It%C3%A1lia.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Est%C3%A1dio_Palestra_It%C3%A1lia.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "source": "Wikimedia Commons",
+        "license": "Public domain",
+        "attribution": "Leonef",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Est%C3%A1dio_Palestra_It%C3%A1lia.JPG",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 96,
+      "paletteProvenance": {
+        "source": "verified-free-crest",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Palmeiras_logo.svg",
+        "method": "dominant-svg-colors"
+      }
+    },
+    {
+      "name": "Botafogo FR",
+      "wikidataId": "Q80958",
+      "primaryColor": "hsl(264 58% 34%)",
+      "secondaryColor": "hsl(41 58% 42%)",
+      "accentColor": "hsl(334 72% 58%)",
+      "kitSource": "procedural",
+      "crest": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/5/52/Botafogo_de_Futebol_e_Regatas_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Botafogo_de_Futebol_e_Regatas_logo.svg/500px-Botafogo_de_Futebol_e_Regatas_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "Public domain",
+        "attribution": "Botafogo de Futebol e Regatas",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Botafogo_de_Futebol_e_Regatas_logo.svg",
+        "freeToRedistribute": true
+      },
+      "stadiumName": "Estádio Nilton Santos",
+      "sourceConfidence": 96
+    },
+    {
+      "name": "CR Vasco da Gama",
+      "wikidataId": "Q5014111",
+      "primaryColor": "hsl(331 58% 34%)",
+      "secondaryColor": "hsl(108 58% 42%)",
+      "accentColor": "hsl(41 72% 58%)",
+      "kitSource": "procedural",
+      "stadiumName": "Estádio Vasco da Gama",
+      "stadiumImage": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Est%C3%A1dio_de_S%C3%A3o_Janu%C3%A1rio_by_Diego_Baravelli.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Est%C3%A1dio_de_S%C3%A3o_Janu%C3%A1rio_by_Diego_Baravelli.jpg/960px-Est%C3%A1dio_de_S%C3%A3o_Janu%C3%A1rio_by_Diego_Baravelli.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "source": "Wikimedia Commons",
         "license": "CC BY-SA",
-        "attribution": "Evgeny Asmolov",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Renan_in_Zenit_(cropped).png",
+        "attribution": "Diego Baravelli",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Est%C3%A1dio_de_S%C3%A3o_Janu%C3%A1rio_by_Diego_Baravelli.jpg",
         "freeToRedistribute": true
       },
       "sourceConfidence": 96
     },
     {
-      "name": "André",
-      "dateOfBirth": "2003-10-07",
+      "name": "Santos FC",
+      "wikidataId": "Q80955",
+      "primaryColor": "hsl(224 58% 34%)",
+      "secondaryColor": "hsl(1 58% 42%)",
+      "accentColor": "hsl(294 72% 58%)",
+      "kitSource": "procedural",
+      "crest": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Santos_Futebol_Clube_logo_%28with_stars_and_crown%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Santos_Futebol_Clube_logo_%28with_stars_and_crown%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "source": "Wikimedia Commons",
+        "license": "Public domain",
+        "attribution": "Santos F.C.\n",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Santos_Futebol_Clube_logo_(with_stars_and_crown).png",
+        "freeToRedistribute": true
+      },
+      "stadiumName": "Estádio Urbano Caldeira",
+      "stadiumImage": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/4/47/Vila_Belmiro_pre-match_Santos_vs_Gr%C3%AAmio_2021.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Vila_Belmiro_pre-match_Santos_vs_Gr%C3%AAmio_2021.jpg/960px-Vila_Belmiro_pre-match_Santos_vs_Gr%C3%AAmio_2021.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "CC BY-SA",
+        "attribution": "BrazilianDude70",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Vila_Belmiro_pre-match_Santos_vs_Gr%C3%AAmio_2021.jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 96
+    },
+    {
+      "name": "EC Bahia",
+      "primaryColor": "hsl(168 58% 34%)",
+      "secondaryColor": "hsl(305 58% 42%)",
+      "accentColor": "hsl(238 72% 58%)",
+      "kitSource": "procedural",
       "sourceConfidence": 10
     },
     {
-      "name": "Klayver",
-      "dateOfBirth": "2003-08-25",
-      "sourceConfidence": 10
+      "name": "SC Corinthians Paulista",
+      "wikidataId": "Q35933",
+      "primaryColor": "hsl(78 58% 34%)",
+      "secondaryColor": "hsl(215 58% 42%)",
+      "accentColor": "hsl(148 72% 58%)",
+      "kitSource": "procedural",
+      "crest": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Corinthians23022007_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Corinthians23022007_%28cropped%29.jpg/500px-Corinthians23022007_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "CC BY",
+        "attribution": "Antonio Cruz/ABr",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Corinthians23022007_(cropped).jpg",
+        "freeToRedistribute": true
+      },
+      "stadiumName": "Estádio do Pacaembu",
+      "stadiumImage": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Estadio_Municipal_do_Pacaemb%C3%BA._-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Estadio_Municipal_do_Pacaemb%C3%BA._-_panoramio.jpg/960px-Estadio_Municipal_do_Pacaemb%C3%BA._-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "CC BY-SA",
+        "attribution": "joao batista Shimoto",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Estadio_Municipal_do_Pacaemb%C3%BA._-_panoramio.jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 96
     },
     {
-      "name": "Carlos Henrique",
-      "dateOfBirth": "2003-08-19",
-      "sourceConfidence": 10
+      "name": "RB Bragantino",
+      "wikidataId": "Q541744",
+      "primaryColor": "hsl(128 58% 34%)",
+      "secondaryColor": "hsl(265 58% 42%)",
+      "accentColor": "hsl(198 72% 58%)",
+      "kitSource": "procedural",
+      "stadiumName": "Estádio Nabi Abi Chedid",
+      "stadiumImage": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/3/37/Est%C3%A1dio_Nabi_Abi_Chedid.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Est%C3%A1dio_Nabi_Abi_Chedid.jpg/960px-Est%C3%A1dio_Nabi_Abi_Chedid.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "CC BY",
+        "attribution": "Renato Patinhas",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Est%C3%A1dio_Nabi_Abi_Chedid.jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 96
     },
     {
-      "name": "Matheus Martins",
-      "dateOfBirth": "2003-07-16",
-      "wikidataId": "Q105977735",
+      "name": "Ceará SC",
+      "wikidataId": "Q1052219",
+      "primaryColor": "hsl(265 58% 34%)",
+      "secondaryColor": "hsl(42 58% 42%)",
+      "accentColor": "hsl(335 72% 58%)",
+      "kitSource": "procedural",
+      "crest": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Ceara_logo.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Ceara_logo.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "source": "Wikimedia Commons",
+        "license": "Public domain",
+        "attribution": "Ceará Sporting Club",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Ceara_logo.png",
+        "freeToRedistribute": true
+      },
+      "stadiumName": "Estádio Presidente Vargas",
+      "stadiumImage": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/8/87/Presidentevargasfortal.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/8/87/Presidentevargasfortal.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "source": "Wikimedia Commons",
+        "license": "Public domain",
+        "attribution": "pt:Usuário:Mansueto77",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Presidentevargasfortal.JPG",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 96
+    }
+  ],
+  "players": [
+    {
+      "name": "Cédric Soares",
+      "dateOfBirth": "1991-08-31",
+      "clubName": "São Paulo FC",
+      "wikidataId": "Q481330",
+      "portrait": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/8/85/C%C3%A9dric_%28cropped%29_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/8/85/C%C3%A9dric_%28cropped%29_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "source": "Wikimedia Commons",
+        "license": "CC BY-SA",
+        "attribution": "Екатерина Лаут",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:C%C3%A9dric_(cropped)_2.jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 96
+    },
+    {
+      "name": "Lucas Moura",
+      "dateOfBirth": "1992-08-13",
+      "clubName": "São Paulo FC",
+      "wikidataId": "Q312886",
+      "portrait": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/2/26/2020-03-10_Fu%C3%9Fball%2C_M%C3%A4nner%2C_UEFA_Champions_League_Achtelfinale%2C_RB_Leipzig_-_Tottenham_Hotspur_1DX_3703_by_Stepro.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/2020-03-10_Fu%C3%9Fball%2C_M%C3%A4nner%2C_UEFA_Champions_League_Achtelfinale%2C_RB_Leipzig_-_Tottenham_Hotspur_1DX_3703_by_Stepro.jpg/330px-2020-03-10_Fu%C3%9Fball%2C_M%C3%A4nner%2C_UEFA_Champions_League_Achtelfinale%2C_RB_Leipzig_-_Tottenham_Hotspur_1DX_3703_by_Stepro.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "CC BY-SA",
+        "attribution": "Steffen Prößdorf",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:2020-03-10_Fu%C3%9Fball,_M%C3%A4nner,_UEFA_Champions_League_Achtelfinale,_RB_Leipzig_-_Tottenham_Hotspur_1DX_3703_by_Stepro.jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 96
+    },
+    {
+      "name": "Dudu",
+      "dateOfBirth": "1992-01-07",
+      "clubName": "Cruzeiro EC",
+      "wikidataId": "Q1341709",
+      "portrait": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/0/00/DuduPalmeiras2018.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/DuduPalmeiras2018.jpg/330px-DuduPalmeiras2018.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "CC BY",
+        "attribution": "Renato Gizzi from Guarulhos",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:DuduPalmeiras2018.jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 96
+    },
+    {
+      "name": "Matheus Cunha Queiroz",
+      "dateOfBirth": "2001-05-24",
+      "clubName": "Cruzeiro EC",
+      "wikidataId": "Q110882015",
       "sourceConfidence": 70
     },
     {
-      "name": "Guilherme Smith",
-      "dateOfBirth": "2003-06-11",
+      "name": "Lucas Villalba",
+      "dateOfBirth": "1994-08-18",
+      "clubName": "Cruzeiro EC",
       "sourceConfidence": 5
     },
     {
-      "name": "Kayky",
-      "dateOfBirth": "2003-06-11",
-      "sourceConfidence": 10
+      "name": "Gabigol",
+      "dateOfBirth": "1996-08-30",
+      "clubName": "Cruzeiro EC",
+      "wikidataId": "Q13646572",
+      "portrait": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Gabriel_Barbosa_2016.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Gabriel_Barbosa_2016.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "source": "Wikimedia Commons",
+        "license": "CC BY",
+        "attribution": "Marcelo Camargo/ABr",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gabriel_Barbosa_2016.jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 96
     },
     {
-      "name": "João Neto",
-      "dateOfBirth": "2003-05-21",
-      "sourceConfidence": 10
+      "name": "Yannick Bolasie",
+      "dateOfBirth": "1989-05-24",
+      "clubName": "Cruzeiro EC",
+      "wikidataId": "Q4022527",
+      "portrait": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/8/80/Yannick_Bolasie2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Yannick_Bolasie2.jpg/330px-Yannick_Bolasie2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "CC BY-SA",
+        "attribution": "Yannick34",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Yannick_Bolasie2.jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 96
     },
     {
-      "name": "Zinho",
-      "dateOfBirth": "2003-05-09",
-      "wikidataId": "Q118220043",
+      "name": "Cássio Ramos",
+      "dateOfBirth": "1987-06-06",
+      "clubName": "Cruzeiro EC",
+      "wikidataId": "Q920039",
+      "portrait": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/d/da/Cassio-Corinthians-Juventude-jul-2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Cassio-Corinthians-Juventude-jul-2022.jpg/330px-Cassio-Corinthians-Juventude-jul-2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "Public domain",
+        "attribution": "SOCCER DIGITAL",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Cassio-Corinthians-Juventude-jul-2022.jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 96
+    },
+    {
+      "name": "Fagner",
+      "dateOfBirth": "1989-06-11",
+      "clubName": "Cruzeiro EC",
+      "wikidataId": "Q932827",
+      "portrait": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Bra-Cos_%2820%29_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Bra-Cos_%2820%29_%28cropped%29.jpg/330px-Bra-Cos_%2820%29_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "CC BY-SA",
+        "attribution": "Кирилл Венедиктов",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Bra-Cos_(20)_(cropped).jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 96
+    },
+    {
+      "name": "Fabrizio Peralta",
+      "dateOfBirth": "2002-08-02",
+      "clubName": "Cruzeiro EC",
+      "wikidataId": "Q124838357",
       "sourceConfidence": 70
     },
     {
-      "name": "Marcos Leonardo",
-      "dateOfBirth": "2003-05-02",
-      "wikidataId": "Q98534760",
+      "name": "Wesley Gassova",
+      "dateOfBirth": "2005-03-05",
+      "clubName": "Cruzeiro EC",
+      "sourceConfidence": 5
+    },
+    {
+      "name": "Renan Lodi",
+      "dateOfBirth": "1998-04-08",
+      "clubName": "CA Mineiro",
+      "wikidataId": "Q55055451",
       "portrait": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Marcos-Leonardo-Santos-jul-2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Marcos-Leonardo-Santos-jul-2022.jpg/330px-Marcos-Leonardo-Santos-jul-2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/8/84/ATL-Madrid-Lokomotiv001-Lodi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/8/84/ATL-Madrid-Lokomotiv001-Lodi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
         "source": "Wikimedia Commons",
-        "license": "CC0",
-        "attribution": "SOCCER DIGITAL",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Marcos-Leonardo-Santos-jul-2022.jpg",
+        "license": "CC BY-SA",
+        "attribution": "Anna Nessie",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:ATL-Madrid-Lokomotiv001-Lodi.jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 96
+    },
+    {
+      "name": "Reinier",
+      "dateOfBirth": "2002-01-19",
+      "clubName": "CA Mineiro",
+      "wikidataId": "Q64606160",
+      "portrait": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/8/86/Reinier_2020.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Reinier_2020.png/330px-Reinier_2020.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "CC BY",
+        "attribution": "Real Madrid",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Reinier_2020.png",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 96
+    },
+    {
+      "name": "Bernard",
+      "dateOfBirth": "1992-09-08",
+      "clubName": "CA Mineiro",
+      "wikidataId": "Q137242",
+      "portrait": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Bernard_2014.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Bernard_2014.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "source": "Wikimedia Commons",
+        "license": "CC BY-SA",
+        "attribution": "ОЛЕГ ДУБИНА",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Bernard_2014.jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 96
+    },
+    {
+      "name": "Frederico Rodrigues Santos",
+      "dateOfBirth": "1993-03-05",
+      "clubName": "CA Mineiro",
+      "wikidataId": "Q965448",
+      "portrait": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Fred_Brazil_%28cropped_2%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Fred_Brazil_%28cropped_2%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "source": "Wikimedia Commons",
+        "license": "CC BY-SA",
+        "attribution": "Кирилл Венедиктов",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Fred_Brazil_(cropped_2).jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 96
+    },
+    {
+      "name": "Breno Lopes",
+      "dateOfBirth": "1996-01-24",
+      "clubName": "Fortaleza EC",
+      "wikidataId": "Q101230488",
+      "portrait": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Breno-lopes-palmeiras-wikipedia-2021_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Breno-lopes-palmeiras-wikipedia-2021_%28cropped%29.jpg/330px-Breno-lopes-palmeiras-wikipedia-2021_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "CC BY-SA",
+        "attribution": "NullReason",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Breno-lopes-palmeiras-wikipedia-2021_(cropped).jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 96
+    },
+    {
+      "name": "Thiago Silva",
+      "dateOfBirth": "1984-09-22",
+      "clubName": "Fluminense FC",
+      "sourceConfidence": 5
+    },
+    {
+      "name": "Hulk",
+      "dateOfBirth": "1986-07-25",
+      "clubName": "Fluminense FC",
+      "wikidataId": "Q62786",
+      "portrait": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Bayer-04_-_Zenit_%2814%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Bayer-04_-_Zenit_%2814%29.jpg/330px-Bayer-04_-_Zenit_%2814%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "CC BY-SA",
+        "attribution": "Вячеслав Евдокимов",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Bayer-04_-_Zenit_(14).jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 96
+    },
+    {
+      "name": "Jefferson Savarino",
+      "dateOfBirth": "1996-11-11",
+      "clubName": "Fluminense FC",
+      "wikidataId": "Q20735677",
+      "portrait": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/USAvVEN_2019-06-09_-_Jefferson_Savarino_%2851169633652%29_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/USAvVEN_2019-06-09_-_Jefferson_Savarino_%2851169633652%29_%28cropped%29.jpg/330px-USAvVEN_2019-06-09_-_Jefferson_Savarino_%2851169633652%29_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "CC BY",
+        "attribution": "Hayden Schiff from Cincinnati, USA",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:USAvVEN_2019-06-09_-_Jefferson_Savarino_(51169633652)_(cropped).jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 96
+    },
+    {
+      "name": "Luciano Acosta",
+      "dateOfBirth": "1994-05-31",
+      "clubName": "Fluminense FC",
+      "wikidataId": "Q15696665",
+      "portrait": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Dsc_4650_42558797500_o_%2850121450516%29_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Dsc_4650_42558797500_o_%2850121450516%29_%28cropped%29.jpg/330px-Dsc_4650_42558797500_o_%2850121450516%29_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "CC BY-SA",
+        "attribution": "All-Pro Reels from District of Columbia, USA",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Dsc_4650_42558797500_o_(50121450516)_(cropped).jpg",
         "freeToRedistribute": true
       },
       "sourceConfidence": 96
     }
   ],
   "notes": [
-    "Top-flight Brazilian clubs are prioritized and reconciled against OpenFootball aliases before any Wikidata media is accepted.",
-    "Women, youth and reserve-team Wikidata matches are rejected for male senior club targets.",
+    "Top-flight Brazilian clubs are prioritized and reconciled against OpenFootball names, aliases and city before any Wikidata media is accepted.",
+    "Active verified roster players are prioritized for portrait resolution before the wider player catalogue.",
+    "Women, youth, reserve-team, basketball and futsal Wikidata matches are rejected for senior football club targets.",
     "Player images require an exact name and exact date-of-birth match before a portrait may be attached.",
     "Club and player images are only exposed when Wikimedia Commons metadata resolves to CC0, CC BY, CC BY-SA or Public Domain.",
     "Trademarked/non-free crest libraries are intentionally not vendored.",
@@ -357,11 +714,11 @@
     "Kit/UI palettes may be derived from verified free SVG crest colors; this is a visual approximation, not a claim that the generated shirt reproduces an official kit design."
   ],
   "identitySanitization": {
-    "rejectedAmbiguousClubMatches": 1,
-    "generatedAt": "2026-08-25T19:24:02.203Z"
+    "rejectedAmbiguousClubMatches": 0,
+    "generatedAt": "2026-08-25T20:27:02.888Z"
   },
   "colorEnrichment": {
-    "derivedFromVerifiedCrests": 2,
-    "generatedAt": "2026-08-25T19:24:02.590Z"
+    "derivedFromVerifiedCrests": 4,
+    "generatedAt": "2026-08-25T20:27:03.499Z"
   }
 }
