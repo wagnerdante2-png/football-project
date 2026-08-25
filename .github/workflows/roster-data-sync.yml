@@ -8,6 +8,7 @@ on:
     branches: [main]
     paths:
       - 'scripts/sync-wikidata-rosters-2026.mjs'
+      - 'scripts/sync-people-2026.mjs'
       - '.github/workflows/roster-data-sync.yml'
 
 permissions:
@@ -22,6 +23,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Build licensed player identity index
+        run: npm run sync:people
       - name: Resolve verified club rosters
         run: npm run sync:rosters
       - name: Validate roster artifact
@@ -34,6 +37,7 @@ jobs:
           for(const club of r.rosters) for(const p of club.players??[]){
             if(!p.wikidataId||!p.name||p.clubId!==club.id) throw new Error(`invalid player membership in ${club.name}`);
             if(p.provenance?.clubStatement!=='P54') throw new Error(`unverified membership ${p.name}`);
+            if(p.positionSource?.startsWith('OpenFootball')&&!p.dateOfBirth) throw new Error(`position join without DOB: ${p.name}`);
           }
           console.log(r.counts);
           NODE
