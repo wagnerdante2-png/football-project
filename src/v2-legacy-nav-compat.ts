@@ -36,6 +36,9 @@ document.addEventListener('click',e=>{
   const b=(e.target as HTMLElement).closest<HTMLButtonElement>('.game-sidebar [data-view]');
   if(!b)return;
   const id=b.dataset.view;
+  if(id==='school'){
+    e.preventDefault();e.stopPropagation();launchCanonicalSystem('school');return;
+  }
   if(id==='training'){
     const proxy=document.querySelector<HTMLButtonElement>('.game-sidebar [data-training-view]');
     if(proxy&&proxy!==b){e.preventDefault();queueMicrotask(()=>proxy.click())}
