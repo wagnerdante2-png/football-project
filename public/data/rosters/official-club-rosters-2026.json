@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "season": 2026,
+  "generatedAt": "2026-08-25T21:45:00Z",
+  "notes": [
+    "Identity-only roster facts. Ratings and tactical positions are never sourced from this file.",
+    "When date of birth or a specific position is absent, the engine may assign internal simulation values but must label them as estimated."
+  ],
+  "clubs": [
+    {
+      "id": "sao-paulo",
+      "name": "São Paulo FC",
+      "source": "São Paulo Futebol Clube official professional squad page",
+      "sourceUrl": "https://www.saopaulofc.net/esporte/futebol-masculino-profissional/",
+      "retrievedAt": "2026-08-25",
+      "players": [
+        {"name":"Rafael Toloi","shirtNumber":2},
+        {"name":"Arboleda","shirtNumber":5},
+        {"name":"Lucas","shirtNumber":7},
+        {"name":"Marcos Antonio","shirtNumber":8},
+        {"name":"Calleri","shirtNumber":9},
+        {"name":"Luciano","shirtNumber":10},
+        {"name":"Ferreira","shirtNumber":11},
+        {"name":"Iago","shirtNumber":12},
+        {"name":"Enzo","shirtNumber":13},
+        {"name":"Bobadilla","shirtNumber":16},
+        {"name":"Andre Silva","shirtNumber":17},
+        {"name":"Wendell","shirtNumber":18},
+        {"name":"Lucas Ramon","shirtNumber":19},
+        {"name":"Buta","shirtNumber":20},
+        {"name":"Cedric","shirtNumber":21},
+        {"name":"Domingos Duarte","shirtNumber":22},
+        {"name":"Rafael","shirtNumber":23},
+        {"name":"Victor Sa","shirtNumber":27},
+        {"name":"Newton Jr.","shirtNumber":28},
+        {"name":"Pablo Maia","shirtNumber":29},
+        {"name":"Coronel","shirtNumber":31},
+        {"name":"Luan","shirtNumber":33},
+        {"name":"Tete","shirtNumber":34},
+        {"name":"Sabino","shirtNumber":35},
+        {"name":"Artur","shirtNumber":37},
+        {"name":"Hugo","shirtNumber":38},
+        {"name":"Joao Pedro Pantiga","shirtNumber":41},
+        {"name":"Maik","shirtNumber":42},
+        {"name":"Gustavo Santana","shirtNumber":43},
+        {"name":"Lucca","shirtNumber":45},
+        {"name":"Pedro Ferreira","shirtNumber":46},
+        {"name":"Djhordney","shirtNumber":48},
+        {"name":"Ryan Francisco","shirtNumber":49},
+        {"name":"Young","shirtNumber":50},
+        {"name":"Felipe Preis","shirtNumber":52},
+        {"name":"Isac","shirtNumber":53},
+        {"name":"Osorio","shirtNumber":54},
+        {"name":"Nicolas","shirtNumber":56},
+        {"name":"Cauly","shirtNumber":80},
+        {"name":"Danielzinho","shirtNumber":94}
+      ]
+    }
+  ]
+}
