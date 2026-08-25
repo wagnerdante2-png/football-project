@@ -1,0 +1,25 @@
+name: People Data Check
+
+on:
+  push:
+    paths:
+      - 'scripts/sync-people-2026.mjs'
+      - 'scripts/validate-people-2026.mjs'
+      - 'src/openfootball-people-source-v1.ts'
+      - 'src/real-world-2026-loader-v1.ts'
+      - '.github/workflows/people-data-check.yml'
+  workflow_dispatch:
+
+jobs:
+  verify-people-2026:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Generate licensed 2026 people assets
+        run: npm run sync:people
+      - name: Validate generated assets
+        run: npm run validate:people
