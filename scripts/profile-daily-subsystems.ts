@@ -39,7 +39,8 @@ import { playDomesticFixturesOnDate } from '../src/domestic-match-runtime-v1';
 import { playClubKnockoutsOnDate } from '../src/club-knockout-runtime-v1';
 import { playContinentalFixturesOnDate } from '../src/continental-club-runtime-v1';
 import { tickSportNewsWeeklyV2 } from '../src/sport-news-weekly-v2';
-import { syncWorldDate } from '../src/world-core-v2';
+import { syncWorldDate, queueWorldEvent } from '../src/world-core-v2';
+import { emitWorldEvent } from '../src/event-bus';
 
 const world=createBrazilRealWorld2026();
 const club=world.clubs[0]!;
@@ -89,6 +90,8 @@ timed('tickSocialWorld',()=>tickSocialWorld(world,date));
 timed('tickDressingRoom',()=>tickDressingRoom(world,date));
 timed('tickManagerInteractions',()=>tickManagerInteractions(world,date));
 timed('tickManagerBiographyEffects',()=>tickManagerBiographyEffects(world,date));
+timed('queueWorldEvent DayTick',()=>queueWorldEvent(world,{date,type:'DayTick',scope:'world',entityIds:[],importance:0,payload:{profile:true}}));
+timed('emitWorldEvent DayAdvanced',()=>emitWorldEvent(world,{type:'DayAdvanced',date,importance:1,summary:'Profiler day advanced',payload:{profile:true}}));
 timed('executeTrainingDay',()=>executeTrainingDay(world,date,{daysToNextMatch:7,daysSinceLastMatch:undefined,matchesNext7:1}));
 timed('tickSportNewsWeeklyV2',()=>tickSportNewsWeeklyV2(world,date));
 
