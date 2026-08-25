@@ -2,6 +2,9 @@ name: Roster Data Sync
 
 on:
   workflow_dispatch:
+  workflow_run:
+    workflows: ['Visual Assets Check']
+    types: [completed]
   schedule:
     - cron: '17 6 * * 0'
   push:
@@ -16,10 +19,13 @@ permissions:
 
 jobs:
   sync:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -42,7 +48,6 @@ jobs:
           console.log(r.counts);
           NODE
       - name: Publish verified roster snapshot
-        if: github.event_name == 'workflow_dispatch' || github.actor != 'github-actions[bot]'
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
