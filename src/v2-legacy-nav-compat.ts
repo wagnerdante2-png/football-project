@@ -21,8 +21,18 @@ function syncLegacyNavigation(){
   });
 }
 function schedule(){if(scheduled)return;scheduled=true;queueMicrotask(()=>{scheduled=false;syncLegacyNavigation()})}
+function launchCanonicalSystem(id:string){
+  const direct=document.querySelector<HTMLButtonElement>(`[data-engine-launch="${id}"]`);
+  if(direct){direct.click();return}
+  const systems=document.querySelector<HTMLButtonElement>('.game-sidebar [data-system-view="systems"]');
+  if(!systems)return;
+  systems.click();
+  setTimeout(()=>document.querySelector<HTMLButtonElement>(`[data-engine-launch="${id}"]`)?.click(),0);
+}
 
 document.addEventListener('click',e=>{
+  const direct=(e.target as HTMLElement).closest<HTMLElement>('[data-system-direct]');
+  if(direct?.dataset.systemDirect){e.preventDefault();e.stopPropagation();launchCanonicalSystem(direct.dataset.systemDirect);return}
   const b=(e.target as HTMLElement).closest<HTMLButtonElement>('.game-sidebar [data-view]');
   if(!b)return;
   const id=b.dataset.view;
