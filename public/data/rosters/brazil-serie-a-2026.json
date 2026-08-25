@@ -1,6 +1,6 @@
 {
-  "version": 3,
-  "generatedAt": "2026-08-25T19:55:24.025Z",
+  "version": 4,
+  "generatedAt": "2026-08-25T20:08:22.085Z",
   "season": 2026,
   "source": {
     "name": "Wikidata",
@@ -13,14 +13,17 @@
     "Memberships ended before 2026 are rejected.",
     "A surviving membership must be PreferredRank or explicitly start in 2024 or later; undated historical memberships are rejected.",
     "Positions may be enriched from OpenFootball only on exact normalized name + date-of-birth identity.",
-    "Unknown positions remain undefined rather than guessed from unrelated attributes.",
+    "Nationality and height are included only when explicitly available as Wikidata P27/P2048 statements; neither field is inferred.",
+    "Unknown positions and biographical fields remain undefined rather than guessed.",
     "Club identities come from the already-verified visual manifest; no second club identity registry is maintained."
   ],
   "counts": {
     "clubs": 9,
     "clubsWithPlayers": 7,
     "players": 33,
-    "positionedPlayers": 30
+    "positionedPlayers": 30,
+    "playersWithNationality": 33,
+    "playersWithHeight": 33
   },
   "rosters": [
     {
@@ -34,9 +37,32 @@
       "wikidataId": "Q38568",
       "players": [
         {
+          "wikidataId": "Q481330",
+          "name": "Cédric Soares",
+          "dateOfBirth": "1991-08-31",
+          "nationality": "Portugal",
+          "heightCm": 169,
+          "clubId": "sao-paulo-fc",
+          "clubName": "São Paulo FC",
+          "membershipStart": "2025-01-01",
+          "membershipRank": "PreferredRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+"
+          }
+        },
+        {
           "wikidataId": "Q312886",
           "name": "Lucas Moura",
           "dateOfBirth": "1992-08-13",
+          "nationality": "Brasil",
+          "heightCm": 172,
           "position": "CM",
           "positionSource": "OpenFootball CC0",
           "clubId": "sao-paulo-fc",
@@ -49,25 +75,10 @@
             "snapshotDate": "2026-08-25",
             "clubStatement": "P54",
             "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
             "positionSource": "OpenFootball exact name+DOB"
-          }
-        },
-        {
-          "wikidataId": "Q481330",
-          "name": "Cédric Soares",
-          "dateOfBirth": "1991-08-31",
-          "clubId": "sao-paulo-fc",
-          "clubName": "São Paulo FC",
-          "membershipStart": "2025-01-01",
-          "membershipRank": "PreferredRank",
-          "provenance": {
-            "source": "Wikidata",
-            "license": "CC0",
-            "snapshotDate": "2026-08-25",
-            "clubStatement": "P54",
-            "genderStatement": "P21",
-            "temporalRule": "preferred-rank-or-started-2024+"
           }
         }
       ],
@@ -98,49 +109,11 @@
       "wikidataId": "Q188277",
       "players": [
         {
-          "wikidataId": "Q124838357",
-          "name": "Fabrizio Peralta",
-          "dateOfBirth": "2002-08-02",
-          "position": "DM",
-          "positionSource": "Wikidata",
-          "clubId": "cruzeiro-ec",
-          "clubName": "Cruzeiro EC",
-          "membershipStart": "2024-01-01",
-          "membershipRank": "NormalRank",
-          "provenance": {
-            "source": "Wikidata",
-            "license": "CC0",
-            "snapshotDate": "2026-08-25",
-            "clubStatement": "P54",
-            "genderStatement": "P21",
-            "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
-          }
-        },
-        {
-          "wikidataId": "Q112620020",
-          "name": "Wesley Gassova",
-          "dateOfBirth": "2005-03-05",
-          "position": "LW",
-          "positionSource": "Wikidata",
-          "clubId": "cruzeiro-ec",
-          "clubName": "Cruzeiro EC",
-          "membershipStart": "2026-01-01",
-          "membershipRank": "NormalRank",
-          "provenance": {
-            "source": "Wikidata",
-            "license": "CC0",
-            "snapshotDate": "2026-08-25",
-            "clubStatement": "P54",
-            "genderStatement": "P21",
-            "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
-          }
-        },
-        {
           "wikidataId": "Q1341709",
           "name": "Dudu",
           "dateOfBirth": "1992-01-07",
+          "nationality": "Brasil",
+          "heightCm": 166,
           "position": "DM",
           "positionSource": "Wikidata",
           "clubId": "cruzeiro-ec",
@@ -153,6 +126,56 @@
             "snapshotDate": "2026-08-25",
             "clubStatement": "P54",
             "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "Wikidata P413"
+          }
+        },
+        {
+          "wikidataId": "Q110882015",
+          "name": "Matheus Cunha Queiroz",
+          "dateOfBirth": "2001-05-24",
+          "nationality": "Brasil",
+          "heightCm": 193,
+          "position": "GK",
+          "positionSource": "Wikidata",
+          "clubId": "cruzeiro-ec",
+          "clubName": "Cruzeiro EC",
+          "membershipStart": "2026-01-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "Wikidata P413"
+          }
+        },
+        {
+          "wikidataId": "Q5981950",
+          "name": "Lucas Villalba",
+          "dateOfBirth": "1994-08-18",
+          "nationality": "Argentina",
+          "heightCm": 177,
+          "position": "CB",
+          "positionSource": "Wikidata",
+          "clubId": "cruzeiro-ec",
+          "clubName": "Cruzeiro EC",
+          "membershipStart": "2024-01-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
             "positionSource": "Wikidata P413"
           }
@@ -161,6 +184,8 @@
           "wikidataId": "Q13646572",
           "name": "Gabigol",
           "dateOfBirth": "1996-08-30",
+          "nationality": "Brasil",
+          "heightCm": 178,
           "position": "ST",
           "positionSource": "Wikidata",
           "clubId": "cruzeiro-ec",
@@ -173,15 +198,88 @@
             "snapshotDate": "2026-08-25",
             "clubStatement": "P54",
             "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
             "positionSource": "Wikidata P413"
           }
         },
         {
-          "wikidataId": "Q5981950",
-          "name": "Lucas Villalba",
-          "dateOfBirth": "1994-08-18",
+          "wikidataId": "Q4022527",
+          "name": "Yannick Bolasie",
+          "dateOfBirth": "1989-05-24",
+          "nationality": "República Democrática do Congo",
+          "heightCm": 188,
+          "clubId": "cruzeiro-ec",
+          "clubName": "Cruzeiro EC",
+          "membershipStart": "2025-01-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+"
+          }
+        },
+        {
+          "wikidataId": "Q920039",
+          "name": "Cássio Ramos",
+          "dateOfBirth": "1987-06-06",
+          "nationality": "Brasil",
+          "heightCm": 195,
+          "position": "GK",
+          "positionSource": "Wikidata",
+          "clubId": "cruzeiro-ec",
+          "clubName": "Cruzeiro EC",
+          "membershipStart": "2025-01-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "Wikidata P413"
+          }
+        },
+        {
+          "wikidataId": "Q932827",
+          "name": "Fagner",
+          "dateOfBirth": "1989-06-11",
+          "nationality": "Brasil",
+          "heightCm": 168,
           "position": "CB",
+          "positionSource": "Wikidata",
+          "clubId": "cruzeiro-ec",
+          "clubName": "Cruzeiro EC",
+          "membershipStart": "2025-01-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "Wikidata P413"
+          }
+        },
+        {
+          "wikidataId": "Q124838357",
+          "name": "Fabrizio Peralta",
+          "dateOfBirth": "2002-08-02",
+          "nationality": "Paraguai",
+          "heightCm": 176,
+          "position": "DM",
           "positionSource": "Wikidata",
           "clubId": "cruzeiro-ec",
           "clubName": "Cruzeiro EC",
@@ -193,55 +291,19 @@
             "snapshotDate": "2026-08-25",
             "clubStatement": "P54",
             "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
             "positionSource": "Wikidata P413"
           }
         },
         {
-          "wikidataId": "Q932827",
-          "name": "Fagner",
-          "dateOfBirth": "1989-06-11",
-          "position": "CB",
-          "positionSource": "Wikidata",
-          "clubId": "cruzeiro-ec",
-          "clubName": "Cruzeiro EC",
-          "membershipStart": "2025-01-01",
-          "membershipRank": "NormalRank",
-          "provenance": {
-            "source": "Wikidata",
-            "license": "CC0",
-            "snapshotDate": "2026-08-25",
-            "clubStatement": "P54",
-            "genderStatement": "P21",
-            "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
-          }
-        },
-        {
-          "wikidataId": "Q920039",
-          "name": "Cássio Ramos",
-          "dateOfBirth": "1987-06-06",
-          "position": "GK",
-          "positionSource": "Wikidata",
-          "clubId": "cruzeiro-ec",
-          "clubName": "Cruzeiro EC",
-          "membershipStart": "2025-01-01",
-          "membershipRank": "NormalRank",
-          "provenance": {
-            "source": "Wikidata",
-            "license": "CC0",
-            "snapshotDate": "2026-08-25",
-            "clubStatement": "P54",
-            "genderStatement": "P21",
-            "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
-          }
-        },
-        {
-          "wikidataId": "Q110882015",
-          "name": "Matheus Cunha Queiroz",
-          "dateOfBirth": "2001-05-24",
-          "position": "GK",
+          "wikidataId": "Q112620020",
+          "name": "Wesley Gassova",
+          "dateOfBirth": "2005-03-05",
+          "nationality": "Brasil",
+          "heightCm": 180,
+          "position": "LW",
           "positionSource": "Wikidata",
           "clubId": "cruzeiro-ec",
           "clubName": "Cruzeiro EC",
@@ -253,25 +315,10 @@
             "snapshotDate": "2026-08-25",
             "clubStatement": "P54",
             "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
             "positionSource": "Wikidata P413"
-          }
-        },
-        {
-          "wikidataId": "Q4022527",
-          "name": "Yannick Bolasie",
-          "dateOfBirth": "1989-05-24",
-          "clubId": "cruzeiro-ec",
-          "clubName": "Cruzeiro EC",
-          "membershipStart": "2025-01-01",
-          "membershipRank": "NormalRank",
-          "provenance": {
-            "source": "Wikidata",
-            "license": "CC0",
-            "snapshotDate": "2026-08-25",
-            "clubStatement": "P54",
-            "genderStatement": "P21",
-            "temporalRule": "preferred-rank-or-started-2024+"
           }
         }
       ],
@@ -289,49 +336,11 @@
       "wikidataId": "Q270995",
       "players": [
         {
-          "wikidataId": "Q965448",
-          "name": "Frederico Rodrigues Santos",
-          "dateOfBirth": "1993-03-05",
-          "position": "DM",
-          "positionSource": "Wikidata",
-          "clubId": "ca-mineiro",
-          "clubName": "CA Mineiro",
-          "membershipStart": "2026-08-14",
-          "membershipRank": "PreferredRank",
-          "provenance": {
-            "source": "Wikidata",
-            "license": "CC0",
-            "snapshotDate": "2026-08-25",
-            "clubStatement": "P54",
-            "genderStatement": "P21",
-            "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
-          }
-        },
-        {
-          "wikidataId": "Q137242",
-          "name": "Bernard",
-          "dateOfBirth": "1992-09-08",
-          "position": "CM",
-          "positionSource": "OpenFootball CC0",
-          "clubId": "ca-mineiro",
-          "clubName": "CA Mineiro",
-          "membershipStart": "2024-01-01",
-          "membershipRank": "PreferredRank",
-          "provenance": {
-            "source": "Wikidata",
-            "license": "CC0",
-            "snapshotDate": "2026-08-25",
-            "clubStatement": "P54",
-            "genderStatement": "P21",
-            "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "OpenFootball exact name+DOB"
-          }
-        },
-        {
           "wikidataId": "Q55055451",
           "name": "Renan Lodi",
           "dateOfBirth": "1998-04-08",
+          "nationality": "Brasil",
+          "heightCm": 178,
           "position": "CB",
           "positionSource": "Wikidata",
           "clubId": "ca-mineiro",
@@ -344,6 +353,8 @@
             "snapshotDate": "2026-08-25",
             "clubStatement": "P54",
             "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
             "positionSource": "Wikidata P413"
           }
@@ -352,6 +363,8 @@
           "wikidataId": "Q64606160",
           "name": "Reinier",
           "dateOfBirth": "2002-01-19",
+          "nationality": "Brasil",
+          "heightCm": 185,
           "position": "DM",
           "positionSource": "Wikidata",
           "clubId": "ca-mineiro",
@@ -364,6 +377,56 @@
             "snapshotDate": "2026-08-25",
             "clubStatement": "P54",
             "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "Wikidata P413"
+          }
+        },
+        {
+          "wikidataId": "Q137242",
+          "name": "Bernard",
+          "dateOfBirth": "1992-09-08",
+          "nationality": "Brasil",
+          "heightCm": 164,
+          "position": "CM",
+          "positionSource": "OpenFootball CC0",
+          "clubId": "ca-mineiro",
+          "clubName": "CA Mineiro",
+          "membershipStart": "2024-01-01",
+          "membershipRank": "PreferredRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB"
+          }
+        },
+        {
+          "wikidataId": "Q965448",
+          "name": "Frederico Rodrigues Santos",
+          "dateOfBirth": "1993-03-05",
+          "nationality": "Brasil",
+          "heightCm": 169,
+          "position": "DM",
+          "positionSource": "Wikidata",
+          "clubId": "ca-mineiro",
+          "clubName": "CA Mineiro",
+          "membershipStart": "2026-08-14",
+          "membershipRank": "PreferredRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
             "positionSource": "Wikidata P413"
           }
@@ -386,6 +449,8 @@
           "wikidataId": "Q101230488",
           "name": "Breno Lopes",
           "dateOfBirth": "1996-01-24",
+          "nationality": "Brasil",
+          "heightCm": 178,
           "position": "ST",
           "positionSource": "Wikidata",
           "clubId": "fortaleza-ec",
@@ -398,6 +463,8 @@
             "snapshotDate": "2026-08-25",
             "clubStatement": "P54",
             "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
             "positionSource": "Wikidata P413"
           }
@@ -420,6 +487,8 @@
           "wikidataId": "Q210453",
           "name": "Thiago Silva",
           "dateOfBirth": "1984-09-22",
+          "nationality": "Brasil",
+          "heightCm": 183,
           "position": "CB",
           "positionSource": "OpenFootball CC0",
           "clubId": "fluminense-fc",
@@ -432,55 +501,19 @@
             "snapshotDate": "2026-08-25",
             "clubStatement": "P54",
             "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
             "positionSource": "OpenFootball exact name+DOB"
-          }
-        },
-        {
-          "wikidataId": "Q20735677",
-          "name": "Jefferson Savarino",
-          "dateOfBirth": "1996-11-11",
-          "position": "DM",
-          "positionSource": "Wikidata",
-          "clubId": "fluminense-fc",
-          "clubName": "Fluminense FC",
-          "membershipStart": "2026-01-01",
-          "membershipRank": "NormalRank",
-          "provenance": {
-            "source": "Wikidata",
-            "license": "CC0",
-            "snapshotDate": "2026-08-25",
-            "clubStatement": "P54",
-            "genderStatement": "P21",
-            "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
-          }
-        },
-        {
-          "wikidataId": "Q124805566",
-          "name": "Rubén Lezcano",
-          "dateOfBirth": "2004-02-09",
-          "position": "AM",
-          "positionSource": "Wikidata",
-          "clubId": "fluminense-fc",
-          "clubName": "Fluminense FC",
-          "membershipStart": "2025-02-01",
-          "membershipRank": "NormalRank",
-          "provenance": {
-            "source": "Wikidata",
-            "license": "CC0",
-            "snapshotDate": "2026-08-25",
-            "clubStatement": "P54",
-            "genderStatement": "P21",
-            "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
           }
         },
         {
           "wikidataId": "Q62786",
           "name": "Hulk",
           "dateOfBirth": "1986-07-25",
-          "position": "ST",
+          "nationality": "Brasil",
+          "heightCm": 180,
+          "position": "AM",
           "positionSource": "Wikidata",
           "clubId": "fluminense-fc",
           "clubName": "Fluminense FC",
@@ -492,6 +525,32 @@
             "snapshotDate": "2026-08-25",
             "clubStatement": "P54",
             "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "Wikidata P413"
+          }
+        },
+        {
+          "wikidataId": "Q20735677",
+          "name": "Jefferson Savarino",
+          "dateOfBirth": "1996-11-11",
+          "nationality": "Venezuela",
+          "heightCm": 169,
+          "position": "ST",
+          "positionSource": "Wikidata",
+          "clubId": "fluminense-fc",
+          "clubName": "Fluminense FC",
+          "membershipStart": "2026-01-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
             "positionSource": "Wikidata P413"
           }
@@ -500,6 +559,8 @@
           "wikidataId": "Q15696665",
           "name": "Luciano Acosta",
           "dateOfBirth": "1994-05-31",
+          "nationality": "Argentina",
+          "heightCm": 160,
           "position": "DM",
           "positionSource": "Wikidata",
           "clubId": "fluminense-fc",
@@ -512,6 +573,32 @@
             "snapshotDate": "2026-08-25",
             "clubStatement": "P54",
             "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "Wikidata P413"
+          }
+        },
+        {
+          "wikidataId": "Q124805566",
+          "name": "Rubén Lezcano",
+          "dateOfBirth": "2004-02-09",
+          "nationality": "Paraguai",
+          "heightCm": 178,
+          "position": "AM",
+          "positionSource": "Wikidata",
+          "clubId": "fluminense-fc",
+          "clubName": "Fluminense FC",
+          "membershipStart": "2025-02-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
             "positionSource": "Wikidata P413"
           }
@@ -534,6 +621,8 @@
           "wikidataId": "Q16585144",
           "name": "Juan Quintero Fletcher",
           "dateOfBirth": "1995-03-23",
+          "nationality": "Colômbia",
+          "heightCm": 183,
           "position": "CB",
           "positionSource": "Wikidata",
           "clubId": "ec-juventude",
@@ -546,6 +635,8 @@
             "snapshotDate": "2026-08-25",
             "clubStatement": "P54",
             "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
             "positionSource": "Wikidata P413"
           }
@@ -578,29 +669,11 @@
       "wikidataId": "Q17479",
       "players": [
         {
-          "wikidataId": "Q67222776",
-          "name": "Samuel Lino",
-          "dateOfBirth": "1999-12-23",
-          "position": "DM",
-          "positionSource": "Wikidata",
-          "clubId": "cr-flamengo",
-          "clubName": "CR Flamengo",
-          "membershipStart": "2025-01-01",
-          "membershipRank": "PreferredRank",
-          "provenance": {
-            "source": "Wikidata",
-            "license": "CC0",
-            "snapshotDate": "2026-08-25",
-            "clubStatement": "P54",
-            "genderStatement": "P21",
-            "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
-          }
-        },
-        {
           "wikidataId": "Q551192",
           "name": "Alex Sandro",
           "dateOfBirth": "1991-01-26",
+          "nationality": "Brasil",
+          "heightCm": 180,
           "position": "CB",
           "positionSource": "OpenFootball CC0",
           "clubId": "cr-flamengo",
@@ -613,39 +686,23 @@
             "snapshotDate": "2026-08-25",
             "clubStatement": "P54",
             "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
             "positionSource": "OpenFootball exact name+DOB"
           }
         },
         {
-          "wikidataId": "Q19362872",
-          "name": "Jorge Carrascal",
-          "dateOfBirth": "1998-05-25",
-          "position": "CM",
-          "positionSource": "OpenFootball CC0",
-          "clubId": "cr-flamengo",
-          "clubName": "CR Flamengo",
-          "membershipStart": "2025-08-02",
-          "membershipRank": "NormalRank",
-          "provenance": {
-            "source": "Wikidata",
-            "license": "CC0",
-            "snapshotDate": "2026-08-25",
-            "clubStatement": "P54",
-            "genderStatement": "P21",
-            "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "OpenFootball exact name+DOB"
-          }
-        },
-        {
-          "wikidataId": "Q437329",
-          "name": "Danilo Luiz da Silva",
-          "dateOfBirth": "1991-07-15",
-          "position": "CB",
+          "wikidataId": "Q67222776",
+          "name": "Samuel Lino",
+          "dateOfBirth": "1999-12-23",
+          "nationality": "Brasil",
+          "heightCm": 178,
+          "position": "DM",
           "positionSource": "Wikidata",
           "clubId": "cr-flamengo",
           "clubName": "CR Flamengo",
-          "membershipStart": "2025-01-29",
+          "membershipStart": "2025-01-01",
           "membershipRank": "PreferredRank",
           "provenance": {
             "source": "Wikidata",
@@ -653,6 +710,8 @@
             "snapshotDate": "2026-08-25",
             "clubStatement": "P54",
             "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
             "positionSource": "Wikidata P413"
           }
@@ -661,6 +720,8 @@
           "wikidataId": "Q912172",
           "name": "Saúl Ñíguez",
           "dateOfBirth": "1994-11-21",
+          "nationality": "Espanha",
+          "heightCm": 183,
           "position": "DM",
           "positionSource": "Wikidata",
           "clubId": "cr-flamengo",
@@ -673,19 +734,23 @@
             "snapshotDate": "2026-08-25",
             "clubStatement": "P54",
             "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
             "positionSource": "Wikidata P413"
           }
         },
         {
-          "wikidataId": "Q28663925",
-          "name": "Matías Viña",
-          "dateOfBirth": "1997-11-09",
-          "position": "CB",
-          "positionSource": "Wikidata",
+          "wikidataId": "Q19362872",
+          "name": "Jorge Carrascal",
+          "dateOfBirth": "1998-05-25",
+          "nationality": "Colômbia",
+          "heightCm": 180,
+          "position": "CM",
+          "positionSource": "OpenFootball CC0",
           "clubId": "cr-flamengo",
           "clubName": "CR Flamengo",
-          "membershipStart": "2024-01-01",
+          "membershipStart": "2025-08-02",
           "membershipRank": "NormalRank",
           "provenance": {
             "source": "Wikidata",
@@ -693,34 +758,18 @@
             "snapshotDate": "2026-08-25",
             "clubStatement": "P54",
             "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
-          }
-        },
-        {
-          "wikidataId": "Q20994037",
-          "name": "Nicolás De La Cruz",
-          "dateOfBirth": "1997-06-01",
-          "position": "DM",
-          "positionSource": "Wikidata",
-          "clubId": "cr-flamengo",
-          "clubName": "CR Flamengo",
-          "membershipStart": "2024-01-01",
-          "membershipRank": "NormalRank",
-          "provenance": {
-            "source": "Wikidata",
-            "license": "CC0",
-            "snapshotDate": "2026-08-25",
-            "clubStatement": "P54",
-            "genderStatement": "P21",
-            "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
+            "positionSource": "OpenFootball exact name+DOB"
           }
         },
         {
           "wikidataId": "Q3810078",
           "name": "Jorginho",
           "dateOfBirth": "1991-12-20",
+          "nationality": "Brasil",
+          "heightCm": 180,
           "position": "DM",
           "positionSource": "Wikidata",
           "clubId": "cr-flamengo",
@@ -733,14 +782,20 @@
             "snapshotDate": "2026-08-25",
             "clubStatement": "P54",
             "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
             "positionSource": "Wikidata P413"
           }
         },
         {
-          "wikidataId": "Q55816003",
-          "name": "Léo Ortiz",
-          "dateOfBirth": "1996-01-03",
+          "wikidataId": "Q28663925",
+          "name": "Matías Viña",
+          "dateOfBirth": "1997-11-09",
+          "nationality": "Uruguai",
+          "heightCm": 183,
+          "position": "CB",
+          "positionSource": "Wikidata",
           "clubId": "cr-flamengo",
           "clubName": "CR Flamengo",
           "membershipStart": "2024-01-01",
@@ -751,25 +806,32 @@
             "snapshotDate": "2026-08-25",
             "clubStatement": "P54",
             "genderStatement": "P21",
-            "temporalRule": "preferred-rank-or-started-2024+"
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "Wikidata P413"
           }
         },
         {
-          "wikidataId": "Q50841898",
-          "name": "Olávio Vieira dos Santos Júnior",
-          "dateOfBirth": "1996-11-21",
-          "position": "ST",
+          "wikidataId": "Q20994037",
+          "name": "Nicolás De La Cruz",
+          "dateOfBirth": "1997-06-01",
+          "nationality": "Uruguai",
+          "heightCm": 167,
+          "position": "DM",
           "positionSource": "Wikidata",
           "clubId": "cr-flamengo",
           "clubName": "CR Flamengo",
-          "membershipStart": "2025-01-01",
-          "membershipRank": "PreferredRank",
+          "membershipStart": "2024-01-01",
+          "membershipRank": "NormalRank",
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
             "snapshotDate": "2026-08-25",
             "clubStatement": "P54",
             "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
             "positionSource": "Wikidata P413"
           }
@@ -778,6 +840,8 @@
           "wikidataId": "Q30089624",
           "name": "Lucas Paquetá",
           "dateOfBirth": "1997-08-27",
+          "nationality": "Brasil",
+          "heightCm": 180,
           "position": "AM",
           "positionSource": "Wikidata",
           "clubId": "cr-flamengo",
@@ -790,6 +854,77 @@
             "snapshotDate": "2026-08-25",
             "clubStatement": "P54",
             "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "Wikidata P413"
+          }
+        },
+        {
+          "wikidataId": "Q55816003",
+          "name": "Léo Ortiz",
+          "dateOfBirth": "1996-01-03",
+          "nationality": "Brasil",
+          "heightCm": 185,
+          "clubId": "cr-flamengo",
+          "clubName": "CR Flamengo",
+          "membershipStart": "2024-01-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+"
+          }
+        },
+        {
+          "wikidataId": "Q437329",
+          "name": "Danilo Luiz da Silva",
+          "dateOfBirth": "1991-07-15",
+          "nationality": "Brasil",
+          "heightCm": 184,
+          "position": "CB",
+          "positionSource": "Wikidata",
+          "clubId": "cr-flamengo",
+          "clubName": "CR Flamengo",
+          "membershipStart": "2025-01-29",
+          "membershipRank": "PreferredRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "Wikidata P413"
+          }
+        },
+        {
+          "wikidataId": "Q50841898",
+          "name": "Olávio Vieira dos Santos Júnior",
+          "dateOfBirth": "1996-11-21",
+          "nationality": "Brasil",
+          "heightCm": 179,
+          "position": "ST",
+          "positionSource": "Wikidata",
+          "clubId": "cr-flamengo",
+          "clubName": "CR Flamengo",
+          "membershipStart": "2025-01-01",
+          "membershipRank": "PreferredRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
             "positionSource": "Wikidata P413"
           }
