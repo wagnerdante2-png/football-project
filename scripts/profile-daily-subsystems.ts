@@ -30,6 +30,7 @@ import { tickSocialWorld } from '../src/social-world';
 import { tickDressingRoom } from '../src/dressing-room';
 import { tickManagerBiographyEffects } from '../src/manager-biography-daily';
 import { executeTrainingDay } from '../src/training-engine';
+import { playCurrentRoundWithMedical } from '../src/medical-simulation';
 import { processScheduledWorldEvents, maybeGenerateAmbientWorldEvent } from '../src/world-event-scheduler-v2';
 import { tickInternationalCalendar } from '../src/international-window-runtime-v1';
 import { processInternationalReplacements } from '../src/international-replacement-runtime-v1';
@@ -92,7 +93,7 @@ timed('tickManagerInteractions',()=>tickManagerInteractions(world,date));
 timed('tickManagerBiographyEffects',()=>tickManagerBiographyEffects(world,date));
 timed('queueWorldEvent DayTick',()=>queueWorldEvent(world,{date,type:'DayTick',scope:'world',entityIds:[],importance:0,payload:{profile:true}}));
 timed('emitWorldEvent DayAdvanced',()=>emitWorldEvent(world,{type:'DayAdvanced',date,importance:1,summary:'Profiler day advanced',payload:{profile:true}}));
-timed('executeTrainingDay',()=>executeTrainingDay(world,date,{daysToNextMatch:7,daysSinceLastMatch:undefined,matchesNext7:1}));
+timed('playCurrentRoundWithMedical',()=>playCurrentRoundWithMedical(world,date,'league'));
 timed('tickSportNewsWeeklyV2',()=>tickSportNewsWeeklyV2(world,date));
 
 times.sort((a,b)=>b[1]-a[1]);
