@@ -1,13 +1,14 @@
 {
   "name": "football-project",
   "private": true,
-  "version": "0.2.0-beta.2",
+  "version": "0.2.0-beta.3",
   "type": "module",
   "main": "electron/main.cjs",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "tsc && vite build",
     "preview": "vite preview --host 0.0.0.0",
+    "smoke:advance": "tsx scripts/smoke-advance-day.ts",
     "sync:data": "node scripts/sync-openfootball-data.mjs",
     "sync:people": "node scripts/sync-people-2026.mjs",
     "sync:people:reference": "node scripts/sync-people-2026.mjs --include-reference-only",
@@ -22,6 +23,7 @@
     "sync:all": "npm run sync:data && npm run sync:immersive"
   },
   "devDependencies": {
+    "tsx": "^4.20.6",
     "typescript": "^5.9.2",
     "vite": "^7.1.3"
   }
