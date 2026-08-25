@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "generatedAt": "2026-08-25T19:15:51.851Z",
+  "generatedAt": "2026-08-25T19:24:02.060Z",
   "sources": {
     "structured": [
       "OpenFootball CC0",
@@ -12,19 +12,19 @@
   },
   "counts": {
     "clubTargets": 12,
-    "clubCrests": 5,
-    "stadiumImages": 7,
+    "clubCrests": 6,
+    "stadiumImages": 8,
     "playerTargets": 12,
-    "playerPortraits": 1
+    "playerPortraits": 2
   },
   "clubs": [
     {
       "name": "São Paulo FC",
       "wikidataId": "Q38568",
-      "primaryColor": "hsl(154 58% 34%)",
-      "secondaryColor": "hsl(291 58% 42%)",
-      "accentColor": "hsl(224 72% 58%)",
-      "kitSource": "procedural",
+      "primaryColor": "#00111a",
+      "secondaryColor": "#cb0017",
+      "accentColor": "#cb0017",
+      "kitSource": "derived-from-crest",
       "crest": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/S%C3%A3o_Paulo_Futebol_Clube_logo_%282022%29.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
         "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/S%C3%A3o_Paulo_Futebol_Clube_logo_%282022%29.svg/500px-S%C3%A3o_Paulo_Futebol_Clube_logo_%282022%29.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -35,7 +35,12 @@
         "freeToRedistribute": true
       },
       "stadiumName": "Estádio do Morumbi",
-      "sourceConfidence": 96
+      "sourceConfidence": 96,
+      "paletteProvenance": {
+        "source": "verified-free-crest",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:S%C3%A3o_Paulo_Futebol_Clube_logo_(2022).svg",
+        "method": "dominant-svg-colors"
+      }
     },
     {
       "name": "SC Recife",
@@ -59,10 +64,10 @@
     {
       "name": "Cruzeiro EC",
       "wikidataId": "Q188277",
-      "primaryColor": "hsl(154 58% 34%)",
-      "secondaryColor": "hsl(291 58% 42%)",
-      "accentColor": "hsl(224 72% 58%)",
-      "kitSource": "procedural",
+      "primaryColor": "#2f529e",
+      "secondaryColor": "#f3f5f4",
+      "accentColor": "#f3f5f4",
+      "kitSource": "derived-from-crest",
       "crest": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/9/90/Cruzeiro_Esporte_Clube_%28logo%29.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
         "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Cruzeiro_Esporte_Clube_%28logo%29.svg/500px-Cruzeiro_Esporte_Clube_%28logo%29.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -82,7 +87,12 @@
         "sourcePage": "https://commons.wikimedia.org/wiki/File:Mineir%C3%A3o_A%C3%A9rea.jpg",
         "freeToRedistribute": true
       },
-      "sourceConfidence": 96
+      "sourceConfidence": 96,
+      "paletteProvenance": {
+        "source": "verified-free-crest",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Cruzeiro_Esporte_Clube_(logo).svg",
+        "method": "dominant-svg-colors"
+      }
     },
     {
       "name": "Mirassol FC",
@@ -94,12 +104,11 @@
     },
     {
       "name": "Grêmio FBPA",
-      "wikidataId": "Q28680603",
       "primaryColor": "hsl(260 58% 34%)",
       "secondaryColor": "hsl(37 58% 42%)",
       "accentColor": "hsl(330 72% 58%)",
       "kitSource": "procedural",
-      "sourceConfidence": 82
+      "sourceConfidence": 20
     },
     {
       "name": "CA Mineiro",
@@ -159,11 +168,31 @@
     },
     {
       "name": "Fluminense FC",
+      "wikidataId": "Q80987",
       "primaryColor": "hsl(76 58% 34%)",
       "secondaryColor": "hsl(213 58% 42%)",
       "accentColor": "hsl(146 72% 58%)",
       "kitSource": "procedural",
-      "sourceConfidence": 10
+      "crest": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/6/64/Fluminense_logo.gif?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/6/64/Fluminense_logo.gif?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "source": "Wikimedia Commons",
+        "license": "Public domain",
+        "attribution": "Fluminense Futbol Club",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Fluminense_logo.gif",
+        "freeToRedistribute": true
+      },
+      "stadiumName": "Estádio Jornalista Mário Filho",
+      "stadiumImage": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Maracana_2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Maracana_2022.jpg/960px-Maracana_2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "CC BY-SA",
+        "attribution": "Arne Müseler",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Maracana_2022.jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 96
     },
     {
       "name": "EC Juventude",
@@ -224,21 +253,12 @@
     },
     {
       "name": "SC Internacional",
-      "wikidataId": "Q1991252",
       "primaryColor": "hsl(188 58% 34%)",
       "secondaryColor": "hsl(325 58% 42%)",
       "accentColor": "hsl(258 72% 58%)",
       "kitSource": "procedural",
-      "crest": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/5/55/SCInternacional-SP.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/5/55/SCInternacional-SP.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-        "source": "Wikimedia Commons",
-        "license": "Public domain",
-        "attribution": "Sport Club International",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:SCInternacional-SP.png",
-        "freeToRedistribute": true
-      },
-      "sourceConfidence": 96
+      "sourceConfidence": 20,
+      "identityRejected": "Expected Q80845; rejected ambiguous candidate"
     }
   ],
   "players": [
@@ -251,7 +271,7 @@
     {
       "name": "Lucas Beraldo",
       "dateOfBirth": "2003-11-24",
-      "sourceConfidence": 5
+      "sourceConfidence": 10
     },
     {
       "name": "Robert Renan",
@@ -292,8 +312,7 @@
     {
       "name": "Guilherme Smith",
       "dateOfBirth": "2003-06-11",
-      "wikidataId": "Q109310737",
-      "sourceConfidence": 70
+      "sourceConfidence": 5
     },
     {
       "name": "Kayky",
@@ -314,7 +333,17 @@
     {
       "name": "Marcos Leonardo",
       "dateOfBirth": "2003-05-02",
-      "sourceConfidence": 5
+      "wikidataId": "Q98534760",
+      "portrait": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Marcos-Leonardo-Santos-jul-2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Marcos-Leonardo-Santos-jul-2022.jpg/330px-Marcos-Leonardo-Santos-jul-2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "CC0",
+        "attribution": "SOCCER DIGITAL",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Marcos-Leonardo-Santos-jul-2022.jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 96
     }
   ],
   "notes": [
@@ -323,6 +352,16 @@
     "Player images require an exact name and exact date-of-birth match before a portrait may be attached.",
     "Club and player images are only exposed when Wikimedia Commons metadata resolves to CC0, CC BY, CC BY-SA or Public Domain.",
     "Trademarked/non-free crest libraries are intentionally not vendored.",
-    "Missing or uncertain visuals fall back to deterministic procedural crests, kits and silhouettes."
-  ]
+    "Missing or uncertain visuals fall back to deterministic procedural crests, kits and silhouettes.",
+    "Known ambiguous Brazilian club aliases are guarded by canonical Wikidata IDs; mismatches are discarded rather than displayed.",
+    "Kit/UI palettes may be derived from verified free SVG crest colors; this is a visual approximation, not a claim that the generated shirt reproduces an official kit design."
+  ],
+  "identitySanitization": {
+    "rejectedAmbiguousClubMatches": 1,
+    "generatedAt": "2026-08-25T19:24:02.203Z"
+  },
+  "colorEnrichment": {
+    "derivedFromVerifiedCrests": 2,
+    "generatedAt": "2026-08-25T19:24:02.590Z"
+  }
 }
