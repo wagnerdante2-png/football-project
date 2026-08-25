@@ -1,4 +1,5 @@
 import './visual-identity-v1.css';
+import './real-world-visual-v1.css';
 import { applyClubTheme, clubVisual, crestMarkup, kitSvg, loadVisualAssetManifest, playerFaceMarkup } from './visual-identity-v1';
 
 let decorating=false;
