@@ -9,7 +9,10 @@
     "preview": "vite preview --host 0.0.0.0",
     "sync:data": "node scripts/sync-openfootball-data.mjs",
     "sync:people": "node scripts/sync-people-2026.mjs",
-    "sync:all": "npm run sync:data && npm run sync:people"
+    "sync:people:reference": "node scripts/sync-people-2026.mjs --include-reference-only",
+    "validate:people": "node scripts/validate-people-2026.mjs",
+    "sync:people:checked": "npm run sync:people && npm run validate:people",
+    "sync:all": "npm run sync:data && npm run sync:people:checked"
   },
   "devDependencies": {
     "typescript": "^5.9.2",
