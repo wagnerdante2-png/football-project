@@ -1,0 +1,13 @@
+import type { World } from './engine';
+import { queueWorldEvent, worldEvents, worldCore, type WorldEvent } from './world-core-v2';
+export type ScheduledWorldTask={id:string;date:string;type:string;scope:WorldEvent['scope'];entityIds:string[];importance:number;payload:Record<string,unknown>;recurrence?:'weekly'|'monthly'|'yearly'};
+const tasks=new WeakMap<World,Map<string,ScheduledWorldTask>>(),add=(iso:string,kind:string)=>{const d=new Date(`${iso}T12:00:00Z`);if(kind==='weekly')d.setUTCDate(d.getUTCDate()+7);else if(kind==='monthly')d.setUTCMonth(d.getUTCMonth()+1);else d.setUTCFullYear(d.getUTCFullYear()+1);return d.toISOString().slice(0,10)};
+function store(world:World){let s=tasks.get(world);if(!s){s=new Map();tasks.set(world,s)}return s}
+export function scheduleWorldTask(world:World,t:Omit<ScheduledWorldTask,'id'> & {id?:string}){const id=t.id??`task-${worldCore(world).seed.toString(36)}-${store(world).size.toString(36)}`,task={...t,id};store(world).set(id,task);return id}
+export function cancelWorldTask(world:World,id:string){return store(world).delete(id)}
+export function dueWorldTasks(world:World,date=worldCore(world).date){return[...store(world).values()].filter(t=>t.date<=date).sort((a,b)=>a.date.localeCompare(b.date)||b.importance-a.importance||a.id.localeCompare(b.id))}
+export function executeWorldTasks(world:World,date=worldCore(world).date){const executed:ScheduledWorldTask[]=[];for(const t of dueWorldTasks(world,date)){queueWorldEvent(world,{date:t.date,type:t.type,scope:t.scope,entityIds:[...t.entityIds],importance:t.importance,payload:{...t.payload,scheduledTaskId:t.id}});executed.push({...t});if(t.recurrence){t.date=add(t.date,t.recurrence);store(world).set(t.id,t)}else store(world).delete(t.id)}return executed}
+export function scheduledTasks(world:World){return[...store(world).values()].map(t=>({...t,entityIds:[...t.entityIds],payload:{...t.payload}}))}
+export function snapshotWorldScheduler(world:World){return scheduledTasks(world)}
+export function restoreWorldScheduler(world:World,x:ScheduledWorldTask[]){tasks.set(world,new Map(x.map(t=>[t.id,{...t,entityIds:[...t.entityIds],payload:{...t.payload}}])))}
+export function schedulerDiagnostics(world:World){const all=scheduledTasks(world),ids=new Set(all.map(x=>x.id)),issues:string[]=[];if(ids.size!==all.length)issues.push('IDs duplicados no scheduler.');if(all.some(x=>!/^\d{4}-\d{2}-\d{2}$/.test(x.date)))issues.push('Tarefa com data inválida.');const events=worldEvents(world);if(events.some((e,i,a)=>i>0&&a[i-1].date>e.date))issues.push('Eventos mundiais fora de ordem.');return{ok:issues.length===0,issues,pending:all.length}}
