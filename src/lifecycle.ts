@@ -5,7 +5,7 @@ import { annualRetirementSweep } from './player-lifecycle-v2';
 import { generateClubYouthIntakeV2, registerGeneratedYouth } from './player-generation-v2';
 import { ensurePlayerProfiles } from './player-profile-v2';
 import { medicalProfile } from './injuries';
-import { worldCore, worldRandom } from './world-core-v2';
+import { syncWorldDate, worldCore, worldRandom } from './world-core-v2';
 
 export type RetiredPlayer = {
   id: string;
@@ -148,7 +148,8 @@ function retirePlayersV2(world: World): void {
   const state = careerState(world);
   const before = new Map<string, Player>();
   for (const club of world.clubs) for (const p of club.players) before.set(p.id, p);
-  const retired = annualRetirementSweep(world, worldCore(world).date);
+  const retirementDate = `${world.season + 1}-07-01`;
+  const retired = annualRetirementSweep(world, retirementDate);
   for (const r of retired) {
     const p = before.get(r.playerId);
     if (!p) continue;
@@ -225,6 +226,7 @@ export function advanceToNextSeason(world: World): void {
   world.round = 1;
   world.fixtures = roundRobin(world.clubs);
   world.standings = standings(world.clubs);
+  syncWorldDate(world, `${world.season}-07-25`);
 }
 
 export function simulateSeasons(world: World, count: number, playRound: (world: World) => void): void {
