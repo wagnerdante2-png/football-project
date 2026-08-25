@@ -1,0 +1,23 @@
+import type { Club } from './engine';
+import { createMatchCore, teamOf } from './match-core-v2';
+import { simulateMatchCore, stepMatch } from './match-stepper-v2';
+import { resolveShotV2 } from './match-goalkeeper-resolution-v2';
+import { kickBall, stepFreeBall, goalFrameHitLog } from './match-ball-physics-v2';
+import { legalMatchContinuation } from './match-rules-v2';
+import { lifecycleEvents } from './match-lifecycle-v2';
+
+export type EdgeCaseCheck={name:string;ok:boolean;detail:string};
+export type EdgeCaseDiagnostics={ok:boolean;score:number;checks:EdgeCaseCheck[]};
+function finiteState(s:any){return Number.isFinite(s.ball.position.x)&&Number.isFinite(s.ball.position.y)&&Number.isFinite(s.ball.height)&&Number.isFinite(s.ball.velocity.x)&&Number.isFinite(s.ball.velocity.y)}
+function safely(fn:()=>boolean){try{return fn()}catch{return false}}
+function check(name:string,fn:()=>{ok:boolean;detail:string}):EdgeCaseCheck{try{const r=fn();return{name,...r}}catch(e){return{name,ok:false,detail:`exceção: ${e instanceof Error?e.message:String(e)}`}}}
+export function edgeCaseDiagnosticsV2(home:Club,away:Club,seed=20260824):EdgeCaseDiagnostics{const checks:EdgeCaseCheck[]=[];
+ checks.push(check('bola em 0,0 permanece numericamente estável',()=>{const s=createMatchCore(home,away,{seed});s.phase='firstHalf';s.ball.ownerId=undefined;s.ball.position={x:0,y:0};kickBall(s,{direction:{x:1,y:1},speed:20,lift:2});for(let i=0;i<40;i++)stepFreeBall(s,.25);return{ok:finiteState(s),detail:`bola (${s.ball.position.x.toFixed(2)},${s.ball.position.y.toFixed(2)}) h=${s.ball.height.toFixed(2)}`}}));
+ checks.push(check('chute sobre a linha do gol não quebra o resolvedor',()=>{const s=createMatchCore(home,away,{seed:seed+1}),shooter=s.home.players.find(p=>p.onPitch&&p.role!=='goalkeeper'&&p.role!=='sweeperKeeper')!,src=home.players.find(p=>p.id===shooter.playerId)!;shooter.position={x:s.pitch.length,y:s.pitch.width/2};const r=resolveShotV2(s,home,away,shooter,src,()=>.5);return{ok:Number.isFinite(r.xg)&&Number.isFinite(r.postShotXg),detail:`xG=${r.xg.toFixed(3)} alvo=${r.onTarget}`}}));
+ checks.push(check('partida sem goleiro disponível ainda resolve finalização',()=>{const s=createMatchCore(home,away,{seed:seed+2});for(const g of s.away.players.filter(p=>p.role==='goalkeeper'||p.role==='sweeperKeeper'))g.onPitch=false;const shooter=s.home.players.find(p=>p.onPitch&&p.role!=='goalkeeper'&&p.role!=='sweeperKeeper')!,src=home.players.find(p=>p.id===shooter.playerId)!;shooter.position={x:88,y:34};const r=resolveShotV2(s,home,away,shooter,src,()=>.5);return{ok:r.goalkeeperId===undefined&&Number.isFinite(r.xg),detail:`sem GK, resultado=${r.goal?'gol':r.onTarget?'alvo':'fora'}`}}));
+ checks.push(check('estrutura da meta produz rebote estável',()=>{const s=createMatchCore(home,away,{seed:seed+3});s.phase='firstHalf';s.ball.ownerId=undefined;s.ball.position={x:s.pitch.length-1,y:s.pitch.width/2-s.pitch.goalWidth/2};s.ball.height=1;s.ball.velocity={x:20,y:0};s.ball.verticalVelocity=0;for(let i=0;i<4;i++)stepFreeBall(s,.05);const hits=goalFrameHitLog(s);return{ok:hits.length>0&&finiteState(s),detail:`impactos=${hits.length}, vx=${s.ball.velocity.x.toFixed(2)}, vy=${s.ball.velocity.y.toFixed(2)}`}}));
+ checks.push(check('mínimo regulamentar de jogadores é respeitado',()=>{const s=createMatchCore(home,away,{seed:seed+4});for(const p of s.home.players.slice(0,5))p.sentOff=true;return{ok:!legalMatchContinuation(s),detail:`home disponíveis=${s.home.players.filter(p=>p.onPitch&&!p.sentOff).length}`}}));
+ checks.push(check('ciclo completo contém início intervalo reinício e fim',()=>{const s=createMatchCore(home,away,{seed:seed+5});simulateMatchCore(s,home,away);const e=lifecycleEvents(s),types=new Set(e.map(x=>x.type)),ok=types.has('kickoff')&&types.has('halftimeWhistle')&&types.has('secondHalfKickoff')&&types.has('fulltimeWhistle');return{ok,detail:[...types].join(', ')}}));
+ checks.push(check('troca de lado ocorre após intervalo',()=>{const s=createMatchCore(home,away,{seed:seed+6}),initial=s.home.attackingRight;let guard=0;while(s.phase!=='secondHalf'&&s.phase!=='finished'&&guard++<16000)stepMatch(s,home,away);return{ok:s.phase==='secondHalf'&&s.home.attackingRight!==initial,detail:`inicial=${initial?'→':'←'}, segundo tempo=${s.home.attackingRight?'→':'←'}`}}));
+ checks.push(check('simulação completa termina sem NaN',()=>{const s=createMatchCore(home,away,{seed:seed+7});simulateMatchCore(s,home,away);return{ok:s.phase==='finished'&&finiteState(s)&&Number.isFinite(s.home.xg)&&Number.isFinite(s.away.xg),detail:`${s.home.score}-${s.away.score}, ${s.seconds.toFixed(1)}s`}}));
+ const passed=checks.filter(c=>c.ok).length;return{ok:passed===checks.length,score:Math.round(passed/checks.length*100),checks}}
