@@ -12,10 +12,16 @@ async function patchMain(){
 async function patchGame(){
   const path='src/game-ui-v1.ts';let s=await fs.readFile(path,'utf8');
   if(!s.includes("from './real-world-v1'")) s=s.replace("import { buildManagerCareerProfile } from './manager-career-profile';", "import { buildManagerCareerProfile } from './manager-career-profile';\nimport { createBrazilRealWorld2026 } from './real-world-v1';");
+  if(!s.includes("from './verified-rosters-v1'")) s=s.replace("import { createBrazilRealWorld2026 } from './real-world-v1';", "import { createBrazilRealWorld2026 } from './real-world-v1';\nimport { hydrateVerifiedRosters, isVerifiedRuntimePlayer, runtimePlayerDob } from './verified-rosters-v1';");
   s=s.replace('let world:World=createWorld();','let world:World=createBrazilRealWorld2026();');
   s=s.replace('WORLD ENGINE V1','BRAZIL REAL WORLD · ENGINE V1');
+  if(!s.includes('let rosterHydration=')) s=s.replace("let selectedClubId=world.clubs[0]?.id??'';", "let selectedClubId=world.clubs[0]?.id??'';\nlet rosterHydration={loaded:false,verifiedPlayers:0,clubsTouched:0};\nvoid hydrateVerifiedRosters(world).then(r=>{rosterHydration=r;if(r.loaded&&stage!=='login')render()});");
+  s=s.replace("<span>Reputação ${c.reputation} · ${c.players.length} jogadores</span>","<span>Reputação ${c.reputation} · ${c.players.length} jogadores${c.players.some(isVerifiedRuntimePlayer)?' · elenco factual parcial':''}</span>");
+  s=s.replace("<tr class=\"${xi.has(p.id)?'starter':''}\"><td>","<tr data-player-dob=\"${esc(runtimePlayerDob(p)??'')}\" data-player-origin=\"${isVerifiedRuntimePlayer(p)?'verified':'procedural'}\" class=\"${xi.has(p.id)?'starter':''}\"><td>");
+  s=s.replace("<b>${esc(p.name)}</b></div></td>","<b>${esc(p.name)}${isVerifiedRuntimePlayer(p)?'<em class=\"verified-player\" title=\"Vínculo de clube verificado em fonte CC0\">REAL</em>':''}</b></div></td>");
+  s=s.replace("<button class=\"player-chip\" style=\"left:${positions[i]?.[0]??50}%;top:${positions[i]?.[1]??50}%\">","<button class=\"player-chip\" data-player-dob=\"${esc(runtimePlayerDob(p)??'')}\" data-player-origin=\"${isVerifiedRuntimePlayer(p)?'verified':'procedural'}\" style=\"left:${positions[i]?.[0]??50}%;top:${positions[i]?.[1]??50}%\">");
   await fs.writeFile(path,s);
 }
 
 await Promise.all([patchMain(),patchGame()]);
-console.log('real world default enabled in active and legacy shells');
+console.log('real world default and verified roster hydration enabled');
