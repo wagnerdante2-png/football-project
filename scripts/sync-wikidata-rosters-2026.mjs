@@ -2,8 +2,9 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 const VISUAL=path.resolve('public','data','visual','visual-assets-2026.json');
+const PEOPLE=path.resolve('public','data','people','real-players-2026.json');
 const OUT=path.resolve('public','data','rosters');
-const UA='football-project-roster-sync/1.1 (educational football simulation)';
+const UA='football-project-roster-sync/1.2 (educational football simulation)';
 const SNAPSHOT=new Date().toISOString();
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const positionMap=new Map([
@@ -16,6 +17,8 @@ const norm=s=>String(s??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLo
 const qidFromUri=u=>String(u??'').match(/Q\d+$/)?.[0];
 const isoDate=v=>String(v??'').slice(0,10)||undefined;
 function fallbackPosition(label=''){const s=norm(label);if(/goalkeeper|goleiro/.test(s))return'GK';if(/right back|lateral direito/.test(s))return'RB';if(/left back|lateral esquerdo/.test(s))return'LB';if(/centre back|center back|zagueiro/.test(s))return'CB';if(/defensive mid|volante/.test(s))return'DM';if(/attacking mid|meia atacante/.test(s))return'AM';if(/right wing|ponta direita/.test(s))return'RW';if(/left wing|ponta esquerda/.test(s))return'LW';if(/midfield|meio camp/.test(s))return'CM';if(/forward|striker|atacante/.test(s))return'ST'}
+const personKey=(name,dob)=>`${norm(name)}|${dob??''}`;
+let peopleIndex=new Map();try{const rows=JSON.parse(await fs.readFile(PEOPLE,'utf8'));peopleIndex=new Map(rows.filter(p=>p.name&&p.dateOfBirth&&p.position).map(p=>[personKey(p.name,p.dateOfBirth),p.position]))}catch{console.warn('OpenFootball people index unavailable; using Wikidata positions only')}
 
 async function rosterFor(club){const q=`SELECT DISTINCT ?player ?playerLabel ?dob ?position ?positionLabel ?started ?rank WHERE {
   VALUES ?club { wd:${club.wikidataId} }
@@ -31,14 +34,14 @@ async function rosterFor(club){const q=`SELECT DISTINCT ?player ?playerLabel ?do
 }`;
   const url='https://query.wikidata.org/sparql?query='+encodeURIComponent(q)+'&format=json';
   const data=await request(url),rows=data.results?.bindings??[],seen=new Set(),players=[];
-  for(const r of rows){const wikidataId=qidFromUri(r.player?.value);if(!wikidataId||seen.has(wikidataId))continue;seen.add(wikidataId);const posId=qidFromUri(r.position?.value),position=positionMap.get(posId)||fallbackPosition(r.positionLabel?.value);players.push({wikidataId,name:r.playerLabel?.value||wikidataId,dateOfBirth:isoDate(r.dob?.value),position,clubId:club.id,clubName:club.name,membershipStart:isoDate(r.started?.value),membershipRank:String(r.rank?.value??'').split('#').pop(),provenance:{source:'Wikidata',license:'CC0',snapshotDate:SNAPSHOT.slice(0,10),clubStatement:'P54',genderStatement:'P21',temporalRule:'preferred-rank-or-started-2024+'}})}
+  for(const r of rows){const wikidataId=qidFromUri(r.player?.value);if(!wikidataId||seen.has(wikidataId))continue;seen.add(wikidataId);const name=r.playerLabel?.value||wikidataId,dob=isoDate(r.dob?.value),posId=qidFromUri(r.position?.value),wikiPosition=positionMap.get(posId)||fallbackPosition(r.positionLabel?.value),openFootballPosition=peopleIndex.get(personKey(name,dob)),position=wikiPosition||openFootballPosition;players.push({wikidataId,name,dateOfBirth:dob,position,positionSource:wikiPosition?'Wikidata':openFootballPosition?'OpenFootball CC0':undefined,clubId:club.id,clubName:club.name,membershipStart:isoDate(r.started?.value),membershipRank:String(r.rank?.value??'').split('#').pop(),provenance:{source:'Wikidata',license:'CC0',snapshotDate:SNAPSHOT.slice(0,10),clubStatement:'P54',genderStatement:'P21',temporalRule:'preferred-rank-or-started-2024+',positionSource:wikiPosition?'Wikidata P413':openFootballPosition?'OpenFootball exact name+DOB':undefined}})}
   return players;
 }
 
 await fs.mkdir(OUT,{recursive:true});
 const manifest=JSON.parse(await fs.readFile(VISUAL,'utf8'));
 const clubs=(manifest.clubs??[]).filter(c=>c.wikidataId&&c.sourceConfidence>=80).map(c=>({id:norm(c.name).replace(/ /g,'-'),name:c.name,wikidataId:c.wikidataId}));
-const rosters=[];for(const club of clubs){try{const players=await rosterFor(club);rosters.push({club,...club,players,count:players.length});console.log(club.name,players.length);await sleep(900)}catch(e){console.warn('roster skip',club.name,String(e));rosters.push({club,...club,players:[],count:0,error:String(e)})}}
-const out={version:2,generatedAt:SNAPSHOT,season:2026,source:{name:'Wikidata',license:'CC0',membershipProperty:'P54'},rules:['Only male players with a known birth date and a plausible active-professional birth year (1984-2010) are included.','Memberships ended before 2026 are rejected.','A surviving membership must be PreferredRank or explicitly start in 2024 or later; undated historical memberships are rejected.','Unknown positions remain undefined rather than guessed from unrelated attributes.','Club identities come from the already-verified visual manifest; no second club identity registry is maintained.'],counts:{clubs:rosters.length,clubsWithPlayers:rosters.filter(r=>r.count>0).length,players:rosters.reduce((s,r)=>s+r.count,0)},rosters};
+const rosters=[];for(const club of clubs){try{const players=await rosterFor(club);rosters.push({club,...club,players,count:players.length,positionedPlayers:players.filter(p=>p.position).length});console.log(club.name,players.length,players.filter(p=>p.position).length,'positioned');await sleep(900)}catch(e){console.warn('roster skip',club.name,String(e));rosters.push({club,...club,players:[],count:0,positionedPlayers:0,error:String(e)})}}
+const out={version:3,generatedAt:SNAPSHOT,season:2026,source:{name:'Wikidata',license:'CC0',membershipProperty:'P54',positionFallback:'OpenFootball CC0 exact name+DOB'},rules:['Only male players with a known birth date and a plausible active-professional birth year (1984-2010) are included.','Memberships ended before 2026 are rejected.','A surviving membership must be PreferredRank or explicitly start in 2024 or later; undated historical memberships are rejected.','Positions may be enriched from OpenFootball only on exact normalized name + date-of-birth identity.','Unknown positions remain undefined rather than guessed from unrelated attributes.','Club identities come from the already-verified visual manifest; no second club identity registry is maintained.'],counts:{clubs:rosters.length,clubsWithPlayers:rosters.filter(r=>r.count>0).length,players:rosters.reduce((s,r)=>s+r.count,0),positionedPlayers:rosters.reduce((s,r)=>s+r.positionedPlayers,0)},rosters};
 await fs.writeFile(path.join(OUT,'brazil-serie-a-2026.json'),JSON.stringify(out,null,2));
 console.log(out.counts);
