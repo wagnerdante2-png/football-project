@@ -3,7 +3,7 @@ import { footballDataSnapshot, registerMembership } from './world-football-data-
 
 export type QualificationEntitlement={teamId:string;fromCompetitionId:string;toCompetitionId:string;season:number;reason:'domesticCupWinner'|'continentalChampion';extraSlot:boolean};
 const cupTargets:Record<string,{to:string;extra:boolean}>={
- 'comp-bra-copa':{to:'comp-conmebol-libertadores',extra:true},
+ 'comp-bra-cup':{to:'comp-conmebol-libertadores',extra:true},
  'comp-eng-fa-cup':{to:'comp-uefa-el',extra:false},
  'comp-ger-dfb-pokal':{to:'comp-uefa-el',extra:false},
  'comp-esp-copa-del-rey':{to:'comp-uefa-el',extra:false},
