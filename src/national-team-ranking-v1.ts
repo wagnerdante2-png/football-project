@@ -1,0 +1,18 @@
+import type { World } from './engine';
+import { footballDataSnapshot } from './world-football-data-v1';
+export type InternationalMatchImportance='friendly'|'nationsLeague'|'qualifier'|'continentalFinals'|'worldCup';
+export type NationalRankingEntry={teamId:string;rating:number;reputation:number;matches:number;wins:number;draws:number;losses:number;goalsFor:number;goalsAgainst:number;lastUpdated?:string;peakRating:number;peakDate?:string;lowRating:number;lowDate?:string};
+export type NationalRankingSnapshot={version:number;entries:[string,NationalRankingEntry][]};
+type State={entries:Map<string,NationalRankingEntry>};const states=new WeakMap<World,State>();
+const clamp=(v:number,a:number,b:number)=>Math.max(a,Math.min(b,v));
+function initialRating(countryId:string){const elite=['BRA','ARG','GER','FRA','ESP','ITA','ENG','POR','NED','URU'];const strong=['BEL','CRO','COL','MEX','USA','MAR','JPN','SUI','DEN','SEN'];return elite.includes(countryId)?1700:strong.includes(countryId)?1580:1450}
+function state(w:World){let s=states.get(w);if(!s){s={entries:new Map()};states.set(w,s)}return s}
+export function ensureNationalRankings(w:World){const s=state(w);for(const t of footballDataSnapshot(w).nationalTeams.filter(x=>x.active)){if(!s.entries.has(t.id)){const r=initialRating(t.countryId);s.entries.set(t.id,{teamId:t.id,rating:r,reputation:Math.round(clamp((r-1100)/8,25,95)),matches:0,wins:0,draws:0,losses:0,goalsFor:0,goalsAgainst:0,peakRating:r,lowRating:r})}}return s}
+const expected=(a:number,b:number)=>1/(1+10**((b-a)/400));
+const kFor=(i:InternationalMatchImportance)=>({friendly:14,nationsLeague:20,qualifier:28,continentalFinals:34,worldCup:42}[i]);
+export function recordInternationalResult(w:World,input:{homeTeamId:string;awayTeamId:string;homeGoals:number;awayGoals:number;date:string;importance:InternationalMatchImportance;neutral?:boolean}){const s=ensureNationalRankings(w),h=s.entries.get(input.homeTeamId),a=s.entries.get(input.awayTeamId);if(!h||!a)return;const homeAdv=input.neutral?0:45,eh=expected(h.rating+homeAdv,a.rating),scoreH=input.homeGoals>input.awayGoals?1:input.homeGoals===input.awayGoals?.5:0,gd=Math.abs(input.homeGoals-input.awayGoals),margin=1+Math.min(1.25,gd*.18),k=kFor(input.importance)*margin,delta=k*(scoreH-eh);h.rating=Math.round(h.rating+delta);a.rating=Math.round(a.rating-delta);for(const [x,gf,ga] of [[h,input.homeGoals,input.awayGoals],[a,input.awayGoals,input.homeGoals]] as const){x.matches++;x.goalsFor+=gf;x.goalsAgainst+=ga;if(gf>ga)x.wins++;else if(gf===ga)x.draws++;else x.losses++;x.reputation=Math.round(clamp(x.rating*.055-5,20,99));x.lastUpdated=input.date;if(x.rating>x.peakRating){x.peakRating=x.rating;x.peakDate=input.date}if(x.rating<x.lowRating){x.lowRating=x.rating;x.lowDate=input.date}}return{home:{...h},away:{...a},delta:Number(delta.toFixed(2))}}
+export function nationalRankingTable(w:World){return[...ensureNationalRankings(w).entries.values()].sort((a,b)=>b.rating-a.rating).map((x,i)=>({...x,rank:i+1}))}
+export function nationalTeamRanking(w:World,teamId:string){return ensureNationalRankings(w).entries.get(teamId)}
+export function rankingByConfederation(w:World,confederationId:string){const snap=footballDataSnapshot(w),allowed=new Set(snap.nationalTeams.filter(t=>snap.associations.find(a=>a.id===t.associationId)?.confederationId===confederationId).map(t=>t.id));return nationalRankingTable(w).filter(x=>allowed.has(x.teamId))}
+export function snapshotNationalRankings(w:World):NationalRankingSnapshot{return{version:1,entries:[...ensureNationalRankings(w).entries.entries()].map(([k,v])=>[k,{...v}])}}
+export function restoreNationalRankings(w:World,x:NationalRankingSnapshot){states.set(w,{entries:new Map(x.entries.map(([k,v])=>[k,{...v}]))})}
