@@ -21,7 +21,7 @@ jobs:
     timeout-minutes: 20
     env:
       VISUAL_CLUB_LIMIT: 20
-      VISUAL_PLAYER_LIMIT: 12
+      VISUAL_PLAYER_LIMIT: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
