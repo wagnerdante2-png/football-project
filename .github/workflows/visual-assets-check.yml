@@ -14,6 +14,10 @@ on:
       - 'package.json'
       - '.github/workflows/visual-assets-check.yml'
 
+concurrency:
+  group: football-visual-assets-main
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
