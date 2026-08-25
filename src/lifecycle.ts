@@ -4,235 +4,36 @@ import { applyPlayerDevelopment } from './player-development-v2';
 import { annualRetirementSweep } from './player-lifecycle-v2';
 import { generateClubYouthIntakeV2, registerGeneratedYouth } from './player-generation-v2';
 import { ensurePlayerProfiles } from './player-profile-v2';
+import { decayUnusedPositionFamiliarity, refreshTechnicalFromLegacy, registerTechnicalProfile } from './player-technical-profile-v2';
 import { medicalProfile } from './injuries';
 import { syncWorldDate, worldCore, worldRandom } from './world-core-v2';
 
-export type RetiredPlayer = {
-  id: string;
-  name: string;
-  clubId: string;
-  position: Position;
-  age: number;
-  currentAbility: number;
-  retiredSeason: number;
-};
+export type RetiredPlayer = { id:string; name:string; clubId:string; position:Position; age:number; currentAbility:number; retiredSeason:number };
+export type YouthIntakeRecord = { season:number; clubId:string; playerId:string; name:string; position:Position; age:number; currentAbility:number; potentialAbility:number };
+export type DevelopmentRecord = { season:number; clubId:string; playerId:string; name:string; age:number; before:number; after:number };
+export type SeasonRecord = { season:number; championClubId:string; championPoints:number; topScorerId?:string; topScorerGoals:number };
+export type CareerState = { completedSeasons:SeasonRecord[]; retiredPlayers:RetiredPlayer[]; youthIntakes:YouthIntakeRecord[]; development:DevelopmentRecord[]; releasedPlayers:RetiredPlayer[] };
 
-export type YouthIntakeRecord = {
-  season: number;
-  clubId: string;
-  playerId: string;
-  name: string;
-  position: Position;
-  age: number;
-  currentAbility: number;
-  potentialAbility: number;
-};
+const stateByWorld=new WeakMap<World,CareerState>();
+const metaByPlayer=new WeakMap<Player,{generatedSeason?:number}>();
+const positions:Position[]=['GK','RB','CB','LB','DM','CM','AM','RW','LW','ST'];
+const clamp=(value:number,min:number,max:number)=>Math.max(min,Math.min(max,value));
 
-export type DevelopmentRecord = {
-  season: number;
-  clubId: string;
-  playerId: string;
-  name: string;
-  age: number;
-  before: number;
-  after: number;
-};
-
-export type SeasonRecord = {
-  season: number;
-  championClubId: string;
-  championPoints: number;
-  topScorerId?: string;
-  topScorerGoals: number;
-};
-
-export type CareerState = {
-  completedSeasons: SeasonRecord[];
-  retiredPlayers: RetiredPlayer[];
-  youthIntakes: YouthIntakeRecord[];
-  development: DevelopmentRecord[];
-  releasedPlayers: RetiredPlayer[];
-};
-
-const stateByWorld = new WeakMap<World, CareerState>();
-const metaByPlayer = new WeakMap<Player, { generatedSeason?: number }>();
-const positions: Position[] = ['GK','RB','CB','LB','DM','CM','AM','RW','LW','ST'];
-const clamp = (value: number, min: number, max: number) => Math.max(min, Math.min(max, value));
-
-export function careerState(world: World): CareerState {
-  let state = stateByWorld.get(world);
-  if (!state) {
-    state = { completedSeasons: [], retiredPlayers: [], youthIntakes: [], development: [], releasedPlayers: [] };
-    stateByWorld.set(world, state);
-  }
-  return state;
-}
-
-export function isAcademyPlayer(player: Player): boolean {
-  return Boolean(metaByPlayer.get(player)?.generatedSeason);
-}
-
-export function academyGenerationSeason(player: Player): number | undefined {
-  return metaByPlayer.get(player)?.generatedSeason;
-}
-
-function standings(clubs: Club[]): Record<string, Standing> {
-  return Object.fromEntries(clubs.map(club => [club.id, { clubId: club.id, played: 0, wins: 0, draws: 0, losses: 0, gf: 0, ga: 0, points: 0 }]));
-}
-
-function roundRobin(clubs: Club[]): Fixture[] {
-  const ids = clubs.map(club => club.id);
-  if (ids.length % 2 !== 0) ids.push('BYE');
-  const fixed = ids[0];
-  let rotating = ids.slice(1);
-  const firstLeg: Fixture[] = [];
-  for (let round = 1; round < ids.length; round += 1) {
-    const arrangement = [fixed, ...rotating];
-    for (let i = 0; i < arrangement.length / 2; i += 1) {
-      const a = arrangement[i];
-      const b = arrangement[arrangement.length - 1 - i];
-      if (a !== 'BYE' && b !== 'BYE') {
-        const swap = round % 2 === 0;
-        firstLeg.push({ round, home: swap ? b : a, away: swap ? a : b, played: false });
-      }
-    }
-    rotating = [rotating.at(-1)!, ...rotating.slice(0, -1)];
-  }
-  const legRounds = ids.length - 1;
-  return [...firstLeg, ...firstLeg.map(f => ({ round: f.round + legRounds, home: f.away, away: f.home, played: false }))];
-}
-
-function seasonTopScorer(world: World): { id?: string; goals: number } {
-  const goals = new Map<string, number>();
-  for (const fixture of world.fixtures) {
-    for (const event of fixture.events ?? []) {
-      if (event.type === 'goal' && event.playerId) goals.set(event.playerId, (goals.get(event.playerId) ?? 0) + 1);
-    }
-  }
-  const entry = [...goals.entries()].sort((a, b) => b[1] - a[1])[0];
-  return entry ? { id: entry[0], goals: entry[1] } : { goals: 0 };
-}
-
-function recordSeason(world: World): void {
-  const table = Object.values(world.standings).sort((a, b) => b.points - a.points || (b.gf - b.ga) - (a.gf - a.ga) || b.gf - a.gf);
-  const champion = table[0];
-  if (!champion) return;
-  const scorer = seasonTopScorer(world);
-  careerState(world).completedSeasons.push({ season: world.season, championClubId: champion.clubId, championPoints: champion.points, topScorerId: scorer.id, topScorerGoals: scorer.goals });
-}
-
-function clubDevelopmentContext(world: World, club: Club) {
-  const infrastructure = clamp(42 + club.reputation * .5, 35, 92);
-  return { season: world.season, trainingQuality: infrastructure, facilities: infrastructure, coachQuality: clamp(infrastructure + 3, 35, 95) };
-}
-
-function ageAndDevelopV2(world: World): void {
-  const state = careerState(world);
-  ensurePlayerProfiles(world);
-  for (const club of world.clubs) {
-    const base = clubDevelopmentContext(world, club);
-    for (const player of club.players) {
-      const before = player.currentAbility;
-      const medical = medicalProfile(world, player.id);
-      const injuryBurden = (medical?.activeInjuries.length ?? 0) * .45 + (medical?.deficits.length ?? 0) * .12;
-      applyPlayerDevelopment(world, player, { ...base, injuryBurden });
-      player.age += 1;
-      player.condition = Math.round(clamp(91 + worldRandom(world, 'players', `${player.id}:offseason-condition`) * 9, 80, 100));
-      player.morale = Math.round(clamp(player.morale + (worldRandom(world, 'players', `${player.id}:offseason-morale`) - .45) * 11, 40, 100));
-      if (player.currentAbility !== before) state.development.push({ season: world.season + 1, clubId: club.id, playerId: player.id, name: player.name, age: player.age, before, after: player.currentAbility });
-    }
-  }
-}
-
-function retirePlayersV2(world: World): void {
-  const state = careerState(world);
-  const before = new Map<string, Player>();
-  for (const club of world.clubs) for (const p of club.players) before.set(p.id, p);
-  const retirementDate = `${world.season + 1}-07-01`;
-  const retired = annualRetirementSweep(world, retirementDate);
-  for (const r of retired) {
-    const p = before.get(r.playerId);
-    if (!p) continue;
-    state.retiredPlayers.push({ id: p.id, name: p.name, clubId: r.clubId, position: p.position, age: r.age, currentAbility: p.currentAbility, retiredSeason: world.season + 1 });
-  }
-}
-
-function positionalNeeds(club: Club): Position[] {
-  const minimum: Partial<Record<Position, number>> = { GK:2, RB:2, CB:4, LB:2, DM:2, CM:3, AM:2, RW:2, LW:2, ST:3 };
-  const needs: Position[] = [];
-  for (const position of positions) {
-    const count = club.players.filter(p => p.position === position).length;
-    for (let i = count; i < (minimum[position] ?? 1); i += 1) needs.push(position);
-  }
-  return needs;
-}
-
-function clubCountryId(_world: World, _club: Club): string {
-  // Club geography will replace this fallback when the Club domain is migrated to World Core.
-  return 'BRA';
-}
-
-function youthIntakeV2(world: World): void {
-  const state = careerState(world);
-  for (const club of world.clubs) {
-    const needs = positionalNeeds(club);
-    const desired = Math.max(4, 24 - club.players.length + Math.floor(worldRandom(world, 'youth', `${club.id}:intake-size`) * 3) + 2);
-    const intakeCount = Math.round(clamp(Math.max(desired, needs.length), 4, 9));
-    const academyQuality = clamp(38 + club.reputation * .54, 30, 94);
-    const recruitmentReach = clamp(32 + club.reputation * .58, 25, 96);
-    const countryId = clubCountryId(world, club);
-    const generated = generateClubYouthIntakeV2(world, { clubId: club.id, countryId, season: world.season + 1, academyQuality, recruitmentReach, count: intakeCount, positionNeeds: needs });
-    for (const result of generated) {
-      const player = result.player;
-      club.players.push(player);
-      metaByPlayer.set(player, { generatedSeason: world.season + 1 });
-      registerGeneratedYouth(world, result, countryId);
-      state.youthIntakes.push({ season: world.season + 1, clubId: club.id, playerId: player.id, name: player.name, position: player.position, age: player.age, currentAbility: player.currentAbility, potentialAbility: player.potentialAbility });
-    }
-  }
-}
-
-function squadValue(player: Player): number {
-  const ageFactor = player.age <= 21 ? Math.max(0, player.potentialAbility - player.currentAbility) * .7 : player.age >= 32 ? -8 : 0;
-  return player.currentAbility + ageFactor;
-}
-
-function trimSquads(world: World): void {
-  const state = careerState(world);
-  for (const club of world.clubs) {
-    if (club.players.length <= 30) continue;
-    const sorted = [...club.players].sort((a, b) => squadValue(b) - squadValue(a));
-    const keep = new Set(sorted.slice(0, 30).map(p => p.id));
-    for (const player of club.players) {
-      if (!keep.has(player.id)) state.releasedPlayers.push({ id: player.id, name: player.name, clubId: club.id, position: player.position, age: player.age, currentAbility: player.currentAbility, retiredSeason: world.season + 1 });
-    }
-    club.players = club.players.filter(player => keep.has(player.id));
-  }
-}
-
-export function seasonFinished(world: World): boolean {
-  return world.fixtures.length > 0 && world.fixtures.every(fixture => fixture.played);
-}
-
-export function advanceToNextSeason(world: World): void {
-  if (!seasonFinished(world)) return;
-  recordSeason(world);
-  ageAndDevelopV2(world);
-  retirePlayersV2(world);
-  youthIntakeV2(world);
-  processOffseasonMarket(world, world.season + 1);
-  trimSquads(world);
-  world.season += 1;
-  world.round = 1;
-  world.fixtures = roundRobin(world.clubs);
-  world.standings = standings(world.clubs);
-  syncWorldDate(world, `${world.season}-07-25`);
-}
-
-export function simulateSeasons(world: World, count: number, playRound: (world: World) => void): void {
-  const target = Math.max(0, Math.floor(count));
-  for (let seasonIndex = 0; seasonIndex < target; seasonIndex += 1) {
-    while (!seasonFinished(world)) playRound(world);
-    advanceToNextSeason(world);
-  }
-}
+export function careerState(world:World):CareerState{let state=stateByWorld.get(world);if(!state){state={completedSeasons:[],retiredPlayers:[],youthIntakes:[],development:[],releasedPlayers:[]};stateByWorld.set(world,state)}return state}
+export function isAcademyPlayer(player:Player):boolean{return Boolean(metaByPlayer.get(player)?.generatedSeason)}
+export function academyGenerationSeason(player:Player):number|undefined{return metaByPlayer.get(player)?.generatedSeason}
+function standings(clubs:Club[]):Record<string,Standing>{return Object.fromEntries(clubs.map(club=>[club.id,{clubId:club.id,played:0,wins:0,draws:0,losses:0,gf:0,ga:0,points:0}]))}
+function roundRobin(clubs:Club[]):Fixture[]{const ids=clubs.map(club=>club.id);if(ids.length%2!==0)ids.push('BYE');const fixed=ids[0];let rotating=ids.slice(1);const firstLeg:Fixture[]=[];for(let round=1;round<ids.length;round+=1){const arrangement=[fixed,...rotating];for(let i=0;i<arrangement.length/2;i+=1){const a=arrangement[i],b=arrangement[arrangement.length-1-i];if(a!=='BYE'&&b!=='BYE'){const swap=round%2===0;firstLeg.push({round,home:swap?b:a,away:swap?a:b,played:false})}}rotating=[rotating.at(-1)!,...rotating.slice(0,-1)]}const legRounds=ids.length-1;return[...firstLeg,...firstLeg.map(f=>({round:f.round+legRounds,home:f.away,away:f.home,played:false}))]}
+function seasonTopScorer(world:World):{id?:string;goals:number}{const goals=new Map<string,number>();for(const fixture of world.fixtures)for(const event of fixture.events??[])if(event.type==='goal'&&event.playerId)goals.set(event.playerId,(goals.get(event.playerId)??0)+1);const entry=[...goals.entries()].sort((a,b)=>b[1]-a[1])[0];return entry?{id:entry[0],goals:entry[1]}:{goals:0}}
+function recordSeason(world:World):void{const table=Object.values(world.standings).sort((a,b)=>b.points-a.points||(b.gf-b.ga)-(a.gf-a.ga)||b.gf-a.gf),champion=table[0];if(!champion)return;const scorer=seasonTopScorer(world);careerState(world).completedSeasons.push({season:world.season,championClubId:champion.clubId,championPoints:champion.points,topScorerId:scorer.id,topScorerGoals:scorer.goals})}
+function clubDevelopmentContext(world:World,club:Club){const infrastructure=clamp(42+club.reputation*.5,35,92);return{season:world.season,trainingQuality:infrastructure,facilities:infrastructure,coachQuality:clamp(infrastructure+3,35,95)}}
+function ageAndDevelopV2(world:World):void{const state=careerState(world);ensurePlayerProfiles(world);for(const club of world.clubs){const base=clubDevelopmentContext(world,club);for(const player of club.players){const before=player.currentAbility,medical=medicalProfile(world,player.id),injuryBurden=(medical?.activeInjuries.length??0)*.45+(medical?.deficits.length??0)*.12;applyPlayerDevelopment(world,player,{...base,injuryBurden});refreshTechnicalFromLegacy(world,player,.55);decayUnusedPositionFamiliarity(world,player);player.age+=1;player.condition=Math.round(clamp(91+worldRandom(world,'players',`${player.id}:offseason-condition`)*9,80,100));player.morale=Math.round(clamp(player.morale+(worldRandom(world,'players',`${player.id}:offseason-morale`)-.45)*11,40,100));if(player.currentAbility!==before)state.development.push({season:world.season+1,clubId:club.id,playerId:player.id,name:player.name,age:player.age,before,after:player.currentAbility})}}}
+function retirePlayersV2(world:World):void{const state=careerState(world),before=new Map<string,Player>();for(const club of world.clubs)for(const p of club.players)before.set(p.id,p);const retirementDate=`${world.season+1}-07-01`,retired=annualRetirementSweep(world,retirementDate);for(const r of retired){const p=before.get(r.playerId);if(!p)continue;state.retiredPlayers.push({id:p.id,name:p.name,clubId:r.clubId,position:p.position,age:r.age,currentAbility:p.currentAbility,retiredSeason:world.season+1})}}
+function positionalNeeds(club:Club):Position[]{const minimum:Partial<Record<Position,number>>={GK:2,RB:2,CB:4,LB:2,DM:2,CM:3,AM:2,RW:2,LW:2,ST:3},needs:Position[]=[];for(const position of positions){const count=club.players.filter(p=>p.position===position).length;for(let i=count;i<(minimum[position]??1);i+=1)needs.push(position)}return needs}
+function clubCountryId(_world:World,_club:Club):string{return'BRA'}
+function youthIntakeV2(world:World):void{const state=careerState(world);for(const club of world.clubs){const needs=positionalNeeds(club),desired=Math.max(4,24-club.players.length+Math.floor(worldRandom(world,'youth',`${club.id}:intake-size`)*3)+2),intakeCount=Math.round(clamp(Math.max(desired,needs.length),4,9)),academyQuality=clamp(38+club.reputation*.54,30,94),recruitmentReach=clamp(32+club.reputation*.58,25,96),countryId=clubCountryId(world,club),generated=generateClubYouthIntakeV2(world,{clubId:club.id,countryId,season:world.season+1,academyQuality,recruitmentReach,count:intakeCount,positionNeeds:needs});for(const result of generated){const player=result.player;club.players.push(player);metaByPlayer.set(player,{generatedSeason:world.season+1});registerGeneratedYouth(world,result,countryId);registerTechnicalProfile(world,player);state.youthIntakes.push({season:world.season+1,clubId:club.id,playerId:player.id,name:player.name,position:player.position,age:player.age,currentAbility:player.currentAbility,potentialAbility:player.potentialAbility})}}}
+function squadValue(player:Player):number{const ageFactor=player.age<=21?Math.max(0,player.potentialAbility-player.currentAbility)*.7:player.age>=32?-8:0;return player.currentAbility+ageFactor}
+function trimSquads(world:World):void{const state=careerState(world);for(const club of world.clubs){if(club.players.length<=30)continue;const sorted=[...club.players].sort((a,b)=>squadValue(b)-squadValue(a)),keep=new Set(sorted.slice(0,30).map(p=>p.id));for(const player of club.players)if(!keep.has(player.id))state.releasedPlayers.push({id:player.id,name:player.name,clubId:club.id,position:player.position,age:player.age,currentAbility:player.currentAbility,retiredSeason:world.season+1});club.players=club.players.filter(player=>keep.has(player.id))}}
+export function seasonFinished(world:World):boolean{return world.fixtures.length>0&&world.fixtures.every(fixture=>fixture.played)}
+export function advanceToNextSeason(world:World):void{if(!seasonFinished(world))return;recordSeason(world);ageAndDevelopV2(world);retirePlayersV2(world);youthIntakeV2(world);processOffseasonMarket(world,world.season+1);trimSquads(world);world.season+=1;world.round=1;world.fixtures=roundRobin(world.clubs);world.standings=standings(world.clubs);syncWorldDate(world,`${world.season}-07-25`)}
+export function simulateSeasons(world:World,count:number,playRound:(world:World)=>void):void{const target=Math.max(0,Math.floor(count));for(let seasonIndex=0;seasonIndex<target;seasonIndex+=1){while(!seasonFinished(world))playRound(world);advanceToNextSeason(world)}}
