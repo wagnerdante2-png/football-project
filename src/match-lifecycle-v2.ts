@@ -1,4 +1,5 @@
 import type { MatchCoreState, MatchPhase } from './match-core-v2';
+import { finalizeMatchLedger } from './match-event-ledger-v2';
 
 export type MatchLifecycleEventType='warmupEnd'|'kickoff'|'halftimeWhistle'|'secondHalfKickoff'|'regulationEnd'|'extraTimeKickoff'|'extraTimeBreak'|'extraTimeSecondKickoff'|'shootoutStart'|'fulltimeWhistle';
 export type MatchLifecycleEvent={second:number;type:MatchLifecycleEventType;phase:MatchPhase;clubId?:string;score:[number,number];text:string};
@@ -9,14 +10,14 @@ function mirrorTeam(s:MatchCoreState,team:'home'|'away'){const t=s[team];t.attac
 function resetCentre(s:MatchCoreState,clubId:string){s.ball.ownerId=undefined;s.ball.position={x:s.pitch.length/2,y:s.pitch.width/2};s.ball.velocity={x:0,y:0};s.ball.height=0;s.ball.verticalVelocity=0;s.ball.spin=0;s.possessionClubId=clubId;s.restart={type:'kickoff',clubId,position:{x:s.pitch.length/2,y:s.pitch.width/2}}}
 function initializeFromCurrent(s:MatchCoreState,l:LifecycleState){if(l.initialized)return;if(s.phase==='firstHalf'){const starter=s.restart?.type==='kickoff'?s.restart.clubId:(s.possessionClubId??s.home.clubId);l.initialized=true;l.firstKickoffClubId=starter;l.secondHalfKickoffClubId=starter===s.home.clubId?s.away.clubId:s.home.clubId;l.lastPhase='firstHalf';log(s,'warmupEnd','Equipes deixam o aquecimento e se posicionam para o início da partida.');log(s,'kickoff','O árbitro autoriza o início da partida.',starter)}}
 export function beginMatchLifecycle(s:MatchCoreState,starterClubId:string){const l=store(s);if(l.initialized)return;l.initialized=true;l.firstKickoffClubId=starterClubId;l.secondHalfKickoffClubId=starterClubId===s.home.clubId?s.away.clubId:s.home.clubId;l.lastPhase='preKickoff';log(s,'warmupEnd','Equipes deixam o aquecimento e se posicionam para o início da partida.');s.phase='firstHalf';resetCentre(s,starterClubId);log(s,'kickoff','O árbitro autoriza o início da partida.',starterClubId);l.lastPhase=s.phase}
-export function syncMatchLifecycle(s:MatchCoreState){const l=store(s);initializeFromCurrent(s,l);const prev=l.lastPhase,current=s.phase;if(prev===current)return;
+export function syncMatchLifecycle(s:MatchCoreState){const l=store(s);initializeFromCurrent(s,l);const prev=l.lastPhase,current=s.phase;if(prev===current){if(current==='finished')finalizeMatchLedger(s);return}
  if(current==='halftime'){log(s,'halftimeWhistle','Fim do primeiro tempo. O árbitro manda as equipes para o intervalo.');s.ball.ownerId=undefined;s.ball.velocity={x:0,y:0};s.possessionClubId=undefined}
  if(prev==='halftime'&&current==='secondHalf'){if(!l.switchedAtHalf){mirrorTeam(s,'home');mirrorTeam(s,'away');l.switchedAtHalf=true}const club=l.secondHalfKickoffClubId??s.away.clubId;resetCentre(s,club);log(s,'secondHalfKickoff','Começa o segundo tempo, com as equipes em lados invertidos.',club)}
  if(prev==='secondHalf'&&current==='extraTime1'){const club=(Math.abs(s.seed)%2===0?s.home.clubId:s.away.clubId);l.extraTimeKickoffClubId=club;resetCentre(s,club);log(s,'regulationEnd','Fim do tempo regulamentar; a partida seguirá para a prorrogação.');log(s,'extraTimeKickoff','Começa o primeiro tempo da prorrogação.',club)}
  if(current==='extraTimeBreak'){log(s,'extraTimeBreak','Fim do primeiro tempo da prorrogação; breve troca de lado.')}
  if(prev==='extraTimeBreak'&&current==='extraTime2'){if(!l.switchedAtExtraBreak){mirrorTeam(s,'home');mirrorTeam(s,'away');l.switchedAtExtraBreak=true}const first=l.extraTimeKickoffClubId??s.home.clubId,club=first===s.home.clubId?s.away.clubId:s.home.clubId;resetCentre(s,club);log(s,'extraTimeSecondKickoff','Começa o segundo tempo da prorrogação.',club)}
  if(current==='penalties'){log(s,'shootoutStart','Fim da prorrogação. A decisão será por disputa de pênaltis.')}
- if(current==='finished'&&!l.loggedFulltime){l.loggedFulltime=true;log(s,'fulltimeWhistle','Fim de jogo. O árbitro encerra oficialmente a partida.')}
+ if(current==='finished'&&!l.loggedFulltime){l.loggedFulltime=true;log(s,'fulltimeWhistle','Fim de jogo. O árbitro encerra oficialmente a partida.');finalizeMatchLedger(s)}
  l.lastPhase=current}
 export function lifecycleEvents(s:MatchCoreState){return[...store(s).events]}
 export function lifecycleState(s:MatchCoreState){return{...store(s),events:lifecycleEvents(s)}}
