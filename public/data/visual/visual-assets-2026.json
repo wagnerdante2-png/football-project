@@ -1,6 +1,6 @@
 {
   "version": 4,
-  "generatedAt": "2026-08-25T21:54:01.663Z",
+  "generatedAt": "2026-08-25T22:13:01.315Z",
   "sources": {
     "structured": [
       "OpenFootball CC0",
@@ -706,10 +706,10 @@
   ],
   "identitySanitization": {
     "rejectedAmbiguousClubMatches": 0,
-    "generatedAt": "2026-08-25T21:54:01.796Z"
+    "generatedAt": "2026-08-25T22:13:01.456Z"
   },
   "colorEnrichment": {
     "derivedFromVerifiedCrests": 4,
-    "generatedAt": "2026-08-25T21:54:02.068Z"
+    "generatedAt": "2026-08-25T22:13:01.752Z"
   }
 }
