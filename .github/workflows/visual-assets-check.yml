@@ -17,8 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 12
     env:
-      VISUAL_CLUB_LIMIT: 24
-      VISUAL_PLAYER_LIMIT: 36
+      VISUAL_CLUB_LIMIT: 12
+      VISUAL_PLAYER_LIMIT: 12
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
