@@ -1,0 +1,382 @@
+{
+  "version": 2,
+  "generatedAt": "2026-08-25T19:10:00.964Z",
+  "sources": {
+    "structured": [
+      "OpenFootball CC0",
+      "Wikidata CC0"
+    ],
+    "images": [
+      "Wikimedia Commons — per-file free-license validation"
+    ]
+  },
+  "counts": {
+    "clubTargets": 12,
+    "clubCrests": 5,
+    "stadiumImages": 9,
+    "playerTargets": 12,
+    "playerPortraits": 4
+  },
+  "clubs": [
+    {
+      "name": "São Paulo FC",
+      "wikidataId": "Q118966935",
+      "primaryColor": "hsl(154 58% 34%)",
+      "secondaryColor": "hsl(291 58% 42%)",
+      "accentColor": "hsl(224 72% 58%)",
+      "kitSource": "procedural",
+      "sourceConfidence": 70
+    },
+    {
+      "name": "SC Recife",
+      "wikidataId": "Q219098",
+      "primaryColor": "hsl(297 58% 34%)",
+      "secondaryColor": "hsl(74 58% 42%)",
+      "accentColor": "hsl(7 72% 58%)",
+      "kitSource": "procedural",
+      "stadiumName": "Estádio Adelmar da Costa Carvalho",
+      "stadiumImage": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Est%C3%A1dio_Ilha_do_Retiro_-_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Est%C3%A1dio_Ilha_do_Retiro_-_2.jpg/960px-Est%C3%A1dio_Ilha_do_Retiro_-_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "CC BY",
+        "attribution": "Andre Oliveira",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Est%C3%A1dio_Ilha_do_Retiro_-_2.jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 90
+    },
+    {
+      "name": "Cruzeiro EC",
+      "wikidataId": "Q188277",
+      "primaryColor": "hsl(154 58% 34%)",
+      "secondaryColor": "hsl(291 58% 42%)",
+      "accentColor": "hsl(224 72% 58%)",
+      "kitSource": "procedural",
+      "crest": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/9/90/Cruzeiro_Esporte_Clube_%28logo%29.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Cruzeiro_Esporte_Clube_%28logo%29.svg/500px-Cruzeiro_Esporte_Clube_%28logo%29.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "Public domain",
+        "attribution": "Cruzeiro Esporte Clube",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Cruzeiro_Esporte_Clube_(logo).svg",
+        "freeToRedistribute": true
+      },
+      "stadiumName": "Estádio Governador Magalhães Pinto",
+      "stadiumImage": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/8/82/Mineir%C3%A3o_A%C3%A9rea.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Mineir%C3%A3o_A%C3%A9rea.jpg/960px-Mineir%C3%A3o_A%C3%A9rea.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "CC BY",
+        "attribution": "Rodrigo Lima/Portal da Copa",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Mineir%C3%A3o_A%C3%A9rea.jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 90
+    },
+    {
+      "name": "Mirassol FC",
+      "wikidataId": "Q2622870",
+      "primaryColor": "hsl(326 58% 34%)",
+      "secondaryColor": "hsl(103 58% 42%)",
+      "accentColor": "hsl(36 72% 58%)",
+      "kitSource": "procedural",
+      "crest": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Mirassol_FC_logo.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Mirassol_FC_logo.png/500px-Mirassol_FC_logo.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "Public domain",
+        "attribution": "Mirassol Futebol Clube",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Mirassol_FC_logo.png",
+        "freeToRedistribute": true
+      },
+      "stadiumName": "Estádio Municipal José Maria de Campos Maia",
+      "stadiumImage": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Patinhas_esteve_aqui_-_Estadio_Mirassol_2_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Patinhas_esteve_aqui_-_Estadio_Mirassol_2_-_panoramio.jpg/960px-Patinhas_esteve_aqui_-_Estadio_Mirassol_2_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "CC BY",
+        "attribution": "Renato Patinhas",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Patinhas_esteve_aqui_-_Estadio_Mirassol_2_-_panoramio.jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 90
+    },
+    {
+      "name": "Grêmio FBPA",
+      "wikidataId": "Q221695",
+      "primaryColor": "hsl(260 58% 34%)",
+      "secondaryColor": "hsl(37 58% 42%)",
+      "accentColor": "hsl(330 72% 58%)",
+      "kitSource": "procedural",
+      "crest": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/0/08/Gremio_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Gremio_logo.svg/500px-Gremio_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "Public domain",
+        "attribution": "Grêmio Foot-Ball Porto Alegrense",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Gremio_logo.svg",
+        "freeToRedistribute": true
+      },
+      "stadiumName": "Arena do Grêmio",
+      "stadiumImage": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Arena_do_Gr%C3%AAmio_2014.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Arena_do_Gr%C3%AAmio_2014.jpg/960px-Arena_do_Gr%C3%AAmio_2014.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "CC BY",
+        "attribution": "Contato: clickdearaujo@gmail.com",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Arena_do_Gr%C3%AAmio_2014.jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 90
+    },
+    {
+      "name": "CA Mineiro",
+      "wikidataId": "Q270995",
+      "primaryColor": "hsl(156 58% 34%)",
+      "secondaryColor": "hsl(293 58% 42%)",
+      "accentColor": "hsl(226 72% 58%)",
+      "kitSource": "procedural",
+      "crest": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/2/27/Clube_Atl%C3%A9tico_Mineiro_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Clube_Atl%C3%A9tico_Mineiro_logo.svg/500px-Clube_Atl%C3%A9tico_Mineiro_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "Public domain",
+        "attribution": "Clube Atlético Mineiro",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Clube_Atl%C3%A9tico_Mineiro_logo.svg",
+        "freeToRedistribute": true
+      },
+      "stadiumName": "Estádio Governador Magalhães Pinto",
+      "stadiumImage": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/8/82/Mineir%C3%A3o_A%C3%A9rea.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Mineir%C3%A3o_A%C3%A9rea.jpg/960px-Mineir%C3%A3o_A%C3%A9rea.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "CC BY",
+        "attribution": "Rodrigo Lima/Portal da Copa",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Mineir%C3%A3o_A%C3%A9rea.jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 90
+    },
+    {
+      "name": "Fortaleza EC",
+      "wikidataId": "Q188841",
+      "primaryColor": "hsl(187 58% 34%)",
+      "secondaryColor": "hsl(324 58% 42%)",
+      "accentColor": "hsl(257 72% 58%)",
+      "kitSource": "procedural",
+      "crest": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Fortaleza_Esporte_Clube_logo.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Fortaleza_Esporte_Clube_logo.png/500px-Fortaleza_Esporte_Clube_logo.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "Public domain",
+        "attribution": "Fortaleza Esporte Clube",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Fortaleza_Esporte_Clube_logo.png",
+        "freeToRedistribute": true
+      },
+      "stadiumName": "Estádio Governador Plácido Castelo",
+      "stadiumImage": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Fortaleza_Arena.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Fortaleza_Arena.jpg/960px-Fortaleza_Arena.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "CC BY",
+        "attribution": "Fábio Lima/Portal da Copa/Março de 2013",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Fortaleza_Arena.jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 90
+    },
+    {
+      "name": "Fluminense FC",
+      "primaryColor": "hsl(76 58% 34%)",
+      "secondaryColor": "hsl(213 58% 42%)",
+      "accentColor": "hsl(146 72% 58%)",
+      "kitSource": "procedural",
+      "sourceConfidence": 20
+    },
+    {
+      "name": "EC Juventude",
+      "wikidataId": "Q910453",
+      "primaryColor": "hsl(135 58% 34%)",
+      "secondaryColor": "hsl(272 58% 42%)",
+      "accentColor": "hsl(205 72% 58%)",
+      "kitSource": "procedural",
+      "stadiumName": "Estádio Alfredo Jaconi",
+      "stadiumImage": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/8/82/EstadioAlfredoJaconi22.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/EstadioAlfredoJaconi22.jpg/960px-EstadioAlfredoJaconi22.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "Public domain",
+        "attribution": "Tetraktys",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:EstadioAlfredoJaconi22.jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 90
+    },
+    {
+      "name": "EC Vitória",
+      "wikidataId": "Q274465",
+      "primaryColor": "hsl(285 58% 34%)",
+      "secondaryColor": "hsl(62 58% 42%)",
+      "accentColor": "hsl(355 72% 58%)",
+      "kitSource": "procedural",
+      "stadiumName": "Estádio Manoel Barradas",
+      "stadiumImage": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Jogo_barradao.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Jogo_barradao.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "source": "Wikimedia Commons",
+        "license": "Public domain",
+        "attribution": "eu",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Jogo_barradao.jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 90
+    },
+    {
+      "name": "CR Flamengo",
+      "wikidataId": "Q27044292",
+      "primaryColor": "hsl(157 58% 34%)",
+      "secondaryColor": "hsl(294 58% 42%)",
+      "accentColor": "hsl(227 72% 58%)",
+      "kitSource": "procedural",
+      "stadiumName": "Estádio da Gávea",
+      "stadiumImage": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/6/60/G%C3%A1vea_HPIM0892.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/G%C3%A1vea_HPIM0892.JPG/960px-G%C3%A1vea_HPIM0892.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "CC BY",
+        "attribution": "Martins, Tito",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:G%C3%A1vea_HPIM0892.JPG",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 90
+    },
+    {
+      "name": "SC Internacional",
+      "wikidataId": "Q56294170",
+      "primaryColor": "hsl(188 58% 34%)",
+      "secondaryColor": "hsl(325 58% 42%)",
+      "accentColor": "hsl(258 72% 58%)",
+      "kitSource": "procedural",
+      "sourceConfidence": 70
+    }
+  ],
+  "players": [
+    {
+      "name": "Marlon Gomes",
+      "dateOfBirth": "2003-12-14",
+      "wikidataId": "Q115729920",
+      "sourceConfidence": 55
+    },
+    {
+      "name": "Lucas Beraldo",
+      "dateOfBirth": "2003-11-24",
+      "wikidataId": "Q112604843",
+      "portrait": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Beraldo_asse_psg_2425.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Beraldo_asse_psg_2425.png/330px-Beraldo_asse_psg_2425.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "CC0",
+        "attribution": "Paté kroute",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Beraldo_asse_psg_2425.png",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 88
+    },
+    {
+      "name": "Robert Renan",
+      "dateOfBirth": "2003-10-11",
+      "wikidataId": "Q112914550",
+      "portrait": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/4/45/Renan_in_Zenit_%28cropped%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Renan_in_Zenit_%28cropped%29.png/330px-Renan_in_Zenit_%28cropped%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "CC BY-SA",
+        "attribution": "Evgeny Asmolov",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Renan_in_Zenit_(cropped).png",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 88
+    },
+    {
+      "name": "André",
+      "dateOfBirth": "2003-10-07",
+      "wikidataId": "Q6298851",
+      "sourceConfidence": 55
+    },
+    {
+      "name": "Klayver",
+      "dateOfBirth": "2003-08-25",
+      "wikidataId": "Q129169549",
+      "sourceConfidence": 55
+    },
+    {
+      "name": "Carlos Henrique",
+      "dateOfBirth": "2003-08-19",
+      "wikidataId": "Q5042163",
+      "sourceConfidence": 55
+    },
+    {
+      "name": "Matheus Martins",
+      "dateOfBirth": "2003-07-16",
+      "wikidataId": "Q105977735",
+      "sourceConfidence": 55
+    },
+    {
+      "name": "Guilherme Smith",
+      "dateOfBirth": "2003-06-11",
+      "wikidataId": "Q109310737",
+      "sourceConfidence": 55
+    },
+    {
+      "name": "Kayky",
+      "dateOfBirth": "2003-06-11",
+      "wikidataId": "Q108528054",
+      "sourceConfidence": 55
+    },
+    {
+      "name": "João Neto",
+      "dateOfBirth": "2003-05-21",
+      "wikidataId": "Q106838779",
+      "sourceConfidence": 55
+    },
+    {
+      "name": "Zinho",
+      "dateOfBirth": "2003-05-09",
+      "wikidataId": "Q204555",
+      "portrait": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Zinho-%28footballer%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Zinho-%28footballer%29.jpg/330px-Zinho-%28footballer%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "Public domain",
+        "attribution": "Longbomb",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Zinho-(footballer).jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 88
+    },
+    {
+      "name": "Marcos Leonardo",
+      "dateOfBirth": "2003-05-02",
+      "wikidataId": "Q98534760",
+      "portrait": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Marcos-Leonardo-Santos-jul-2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Marcos-Leonardo-Santos-jul-2022.jpg/330px-Marcos-Leonardo-Santos-jul-2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "CC0",
+        "attribution": "SOCCER DIGITAL",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Marcos-Leonardo-Santos-jul-2022.jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 88
+    }
+  ],
+  "notes": [
+    "Top-flight Brazilian clubs are prioritized from the latest stable OpenFootball Série A fixture source before the wider club catalogue.",
+    "Wikidata and Commons calls are throttled and retry 429/503 responses to preserve useful coverage.",
+    "Club and player images are only exposed when Wikimedia Commons metadata resolves to CC0, CC BY, CC BY-SA or Public Domain.",
+    "Trademarked/non-free crest libraries are intentionally not vendored.",
+    "Missing visuals fall back to deterministic procedural crests, kits and silhouettes.",
+    "Wikidata IDs are stored for reconciliation and future enrichment."
+  ]
+}
