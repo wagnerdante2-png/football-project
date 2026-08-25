@@ -1,14 +1,14 @@
 import type { World } from './engine';
 
 export type WorldEventType =
-  | 'DayAdvanced' | 'MatchDayStarted' | 'MatchCompleted' | 'TrainingCompleted' | 'TrainingOverloadWarning'
+  | 'DayAdvanced' | 'MatchDayStarted' | 'MatchCompleted' | 'MatchDayPostponed' | 'DomesticLeagueMatchCompleted' | 'TrainingCompleted' | 'TrainingOverloadWarning'
   | 'PlayerInjured' | 'PlayerRecovered' | 'PlayerRetired' | 'YouthPlayerGenerated'
   | 'TransferRequested' | 'RecruitmentApproved' | 'RecruitmentRejected'
   | 'NegotiationStarted' | 'NegotiationUpdated' | 'NegotiationLeaked' | 'NegotiationEnded'
   | 'ContractExpiring' | 'ContractRenewed' | 'PlayerReleased'
   | 'PromiseMade' | 'PromiseBroken' | 'PromiseKept'
   | 'ManagerRelationshipChanged' | 'BoardPressureChanged'
-  | 'SupporterMoodChanged' | 'MediaStoryPublished'
+  | 'SupporterMoodChanged' | 'MediaStoryPublished' | 'SportNewsWeeklyPublished' | 'ClubSupporterBaseShift'
   | 'PersonalLifeEvent' | 'PersonalDecisionMade' | 'RelationshipChanged'
   | 'CaptaincyChanged' | 'MentorshipStarted' | 'SquadTurnover' | 'DressingRoomConcern' | 'DressingRoomCrisis'
   | 'ManagerInteractionOpened' | 'ManagerInteractionResolved' | 'ManagerInteractionExpired' | 'PlayerManagerRelationshipChanged'
@@ -20,6 +20,11 @@ export type WorldEventType =
   | 'ManagerInterviewOpened' | 'ManagerInterviewResolved' | 'ManagerInterviewExpired'
   | 'ManagerContractNegotiationStarted' | 'ManagerContractCountered' | 'ManagerContractNegotiationAgreed' | 'ManagerContractNegotiationCollapsed'
   | 'StaffHired' | 'StaffDismissed' | 'StaffResigned' | 'StaffRetired' | 'StaffFollowedManager' | 'StaffRequestDenied'
+  | 'StaffResponsibilityDelegated' | 'StaffPromoted' | 'StaffConflict'
+  | 'FacilityProjectApproved' | 'PitchConfigurationChanged' | 'CommercialRightsSigned' | 'FacilityProjectCompleted' | 'MediaObligationsMissed'
+  | 'StadiumCommercialLease' | 'CommercialPartnershipSigned' | 'PartnerClubAgreement' | 'CommercialAppearanceControversy' | 'CommercialAppearanceSuccess'
+  | 'NamingRightsSigned' | 'MatchdayCommercialRevenue' | 'PreseasonCommercialTour'
+  | 'ClubElection' | 'CouncillorSuccession' | 'ClubOwnershipChanged'
   | 'SeasonEnded' | 'SeasonStarted';
 
 export type WorldEvent={id:string;sequence:number;type:WorldEventType;date:string;season:number;round:number;actorIds:string[];clubIds:string[];playerIds:string[];importance:1|2|3|4|5;tags:string[];summary:string;payload:Record<string,unknown>};
