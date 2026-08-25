@@ -1,0 +1,12 @@
+import type { World } from './engine';
+import { registerCity, registerCountry, worldCore, type WorldGeo } from './world-core-v2';
+const R=6371,rad=(v:number)=>v*Math.PI/180,clamp=(v:number,a:number,b:number)=>Math.max(a,Math.min(b,v));
+export type CountryProfile={id:string;name:string;continent:string;associationId?:string;fifaConfederation?:string;currency?:string;languages?:string[]};
+export type CityProfile=WorldGeo&{altitude?:number;population?:number};
+export function addCountry(world:World,c:CountryProfile){registerCountry(world,c);return c}
+export function addCity(world:World,c:CityProfile){registerCity(world,c);return c}
+export function city(world:World,id:string){return worldCore(world).cities.get(id) as CityProfile|undefined}
+export function geoDistanceKm(a:{latitude:number;longitude:number},b:{latitude:number;longitude:number}){const dLat=rad(b.latitude-a.latitude),dLon=rad(b.longitude-a.longitude),x=Math.sin(dLat/2)**2+Math.cos(rad(a.latitude))*Math.cos(rad(b.latitude))*Math.sin(dLon/2)**2;return 2*R*Math.asin(Math.sqrt(x))}
+export function travelProfile(a:CityProfile,b:CityProfile){const km=geoDistanceKm(a,b),timezoneShift=Math.abs(timezoneOffsetHours(a.timezone)-timezoneOffsetHours(b.timezone)),mode=km<350?'bus':km<900?'shortFlight':'flight',hours=mode==='bus'?km/70+1:km/720+3,fatigue=clamp(km/85+timezoneShift*3+(hours>8?8:0),0,45);return{km:Number(km.toFixed(0)),mode,hours:Number(hours.toFixed(1)),timezoneShift,fatigue:Number(fatigue.toFixed(1))}}
+function timezoneOffsetHours(tz:string){const m=tz.match(/UTC([+-]\d+(?:\.\d+)?)/i);return m?Number(m[1]):0}
+export function seasonalClimate(g:CityProfile,date:string,random=0.5){const month=Number(date.slice(5,7)),south=g.latitude<0,summer=south?[12,1,2]:[6,7,8],winter=south?[6,7,8]:[12,1,2];let base=g.climate==='tropical'?27:g.climate==='subtropical'?22:g.climate==='temperate'?16:g.climate==='continental'?12:g.climate==='arid'?26:g.climate==='polar'?-5:14;if(summer.includes(month))base+=6;if(winter.includes(month))base-=7;const altitude=(g.altitude??0)/1000;base-=altitude*6.2;const rainBase=g.climate==='tropical'?58:g.climate==='subtropical'?42:g.climate==='temperate'?35:g.climate==='continental'?25:g.climate==='arid'?8:g.climate==='polar'?18:38;return{temperature:Number((base+(random-.5)*8).toFixed(1)),rain:clamp(rainBase+(random-.5)*45,0,100),wind:Number((4+random*20).toFixed(1)),humidity:clamp((g.climate==='arid'?28:62)+(random-.5)*30,10,100)}}
