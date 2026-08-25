@@ -1,0 +1,12 @@
+import type { World } from './engine';
+import { domesticPyramid } from './world-football-data-v1';
+import { ensureDomesticSeason, domesticSeason, type LeagueFixture } from './domestic-competition-runtime-v1';
+import { queueWorldEvent, worldCore } from './world-core-v2';
+
+export type DomesticCalendarDay={date:string;fixtures:Array<{competitionId:string;season:number;fixtureId:string;round:number;homeTeamId:string;awayTeamId:string}>};
+type Runtime={processed:Set<string>};const states=new WeakMap<World,Runtime>();function state(w:World){let s=states.get(w);if(!s){s={processed:new Set()};states.set(w,s)}return s}
+export function seedDomesticCompetitions(w:World,countryIds:string[],season=w.season){let competitions=0,fixtures=0;for(const countryId of countryIds)for(const comp of domesticPyramid(w,countryId)){const s=ensureDomesticSeason(w,comp.id,season);competitions++;fixtures+=s.fixtures.length}return{competitions,fixtures}}
+export function domesticFixturesOn(w:World,date=worldCore(w).date){const out:DomesticCalendarDay={date,fixtures:[]};const snap=(w as any);for(const countryId of [...new Set((snap.clubs??[]).map((c:any)=>String(c.countryId??'')).filter(Boolean))])for(const comp of domesticPyramid(w,countryId)){const s=domesticSeason(w,comp.id,w.season);if(!s)continue;for(const f of s.fixtures.filter(x=>x.date===date&&!x.played))out.fixtures.push({competitionId:comp.id,season:s.season,fixtureId:f.id,round:f.round,homeTeamId:f.homeTeamId,awayTeamId:f.awayTeamId})}return out}
+export function rescheduleDomesticFixture(w:World,competitionId:string,season:number,fixtureId:string,newDate:string,reason:string){const s=domesticSeason(w,competitionId,season);const f=s?.fixtures.find(x=>x.id===fixtureId);if(!f)throw new Error(`Unknown domestic fixture ${fixtureId}`);const oldDate=f.date;f.date=newDate;queueWorldEvent(w,{date:worldCore(w).date,type:'DomesticFixtureRescheduled',scope:'competition',entityIds:[competitionId,f.homeTeamId,f.awayTeamId],importance:3,payload:{fixtureId,oldDate,newDate,reason}});return f}
+export function markDomesticCalendarDateProcessed(w:World,date:string){state(w).processed.add(date)}export function domesticCalendarDateProcessed(w:World,date:string){return state(w).processed.has(date)}
+export function snapshotDomesticCalendar(w:World){return{processed:[...state(w).processed]}}export function restoreDomesticCalendar(w:World,x:{processed:string[]}){states.set(w,{processed:new Set(x?.processed??[])})}
