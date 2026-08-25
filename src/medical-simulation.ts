@@ -1,7 +1,7 @@
 import type { Player, PlayerAttributes, World } from './engine';
-import { selectStartingEleven } from './engine';
-import { playCurrentRoundWithRoles } from './roles';
-import { effectiveAttributes, prepareAvailableSquads, restoreSquads, simulateMedicalAfterRound } from './injuries';
+import { playCurrentRoundV2 } from './match-world-integration-v2';
+import { effectiveAttributes, prepareAvailableSquads, restoreSquads, inflictInjury, injuryDefinitions, tickRecovery } from './injuries';
+import { matchInjuries, type MatchInjury } from './match-contact-injury-v2';
 import { personalAvailability, personalPerformanceFactor } from './human-life';
 import { dressingRoomPerformanceFactor } from './dressing-room';
 import { trainingPerformanceFactor } from './training-engine';
@@ -17,15 +17,18 @@ function removePersonallyUnavailable(world:World):RemovedPersonal[]{
 }
 function restorePersonallyUnavailable(world:World,removed:RemovedPersonal[]):void{for(const row of removed){const club=world.clubs.find(c=>c.id===row.clubId);if(club)club.players.push(...row.players);}}
 function applyContextFactor(attributes:PlayerAttributes,factor:number):PlayerAttributes{const out={...attributes};for(const key of Object.keys(out) as (keyof PlayerAttributes)[])out[key]=Math.round(clamp(out[key]*factor,20,99));return out;}
+function playerById(world:World,id:string){for(const c of world.clubs){const p=c.players.find(x=>x.id===id);if(p)return p}}
+function definitionForMatchInjury(i:MatchInjury){const by=(id:string)=>injuryDefinitions.find(x=>x.id===id)!;if(i.concussion||i.mechanism==='head')return by('concussion');if(i.mechanism==='shoulder')return i.severity==='knock'?by('bruise'):by('shoulder-dislocation');if(i.mechanism==='ankle')return by('ankle-sprain');if(i.mechanism==='knee')return i.severity==='severe'?by('knee-acl'):by('knee-mcl');if(i.mechanism==='lowerLeg')return i.severity==='severe'?by('tibia-fracture'):i.severity==='moderate'?by('fibula-fracture'):by('calf-strain');if(i.mechanism==='hip')return by('hip-flexor');if(i.mechanism==='muscle')return by('hamstring-strain');if(i.mechanism==='thigh')return i.severity==='knock'?by('bruise'):by('hamstring-strain');return by('bruise')}
+function persistV2Medical(world:World,states:any[]){const seen=new Set<string>();for(const state of states)for(const i of matchInjuries(state)){const key=`${state.home.clubId}:${state.away.clubId}:${i.playerId}:${Math.round(i.second)}:${i.mechanism}`;if(seen.has(key)||i.severity==='knock')continue;seen.add(key);const p=playerById(world,i.playerId);if(!p)continue;const context=i.source==='foul'||i.source==='duel'?'contact':'match';const event=inflictInjury(world,p,definitionForMatchInjury(i),context);event.notes.push(`Origem Match Engine V2: ${i.mechanism}, ${i.severity}, minuto ${Math.floor(i.second/60)}.`);if(i.forcedOff)event.notes.push('Jogador precisou deixar a partida.')}}
 
 export function playCurrentRoundWithMedical(world:World):void {
-  const personalRemoved=removePersonallyUnavailable(world);const removed=prepareAvailableSquads(world);const participants=new Map<string,Set<string>>();const snapshots=new Map<Player,PlayerAttributes>();
+  const personalRemoved=removePersonallyUnavailable(world);const removed=prepareAvailableSquads(world);const snapshots=new Map<Player,PlayerAttributes>();let matchStates:any[]=[];
   try {
     for(const club of world.clubs){
-      const xi=selectStartingEleven(club);participants.set(club.id,new Set(xi.map(p=>p.id)));
       for(const player of club.players){snapshots.set(player,{...player.attributes});const medical=effectiveAttributes(world,player);const factor=personalPerformanceFactor(world,player.id)*dressingRoomPerformanceFactor(world,player.id)*trainingPerformanceFactor(world,player.id)*managerRelationshipPerformanceFactor(world,player.id);player.attributes=applyContextFactor(medical,factor);}
     }
-    playCurrentRoundWithRoles(world);
+    matchStates=playCurrentRoundV2(world);
   } finally {for(const [player,attributes] of snapshots)player.attributes=attributes;restoreSquads(removed);restorePersonallyUnavailable(world,personalRemoved);}
-  simulateMedicalAfterRound(world,participants);
+  persistV2Medical(world,matchStates);
+  tickRecovery(world);
 }
