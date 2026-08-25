@@ -12,10 +12,11 @@ function syncLegacyNavigation(){
     const legacy=nav.querySelector<HTMLButtonElement>(`[data-system-view="${id}"]`);
     if(native&&legacy){legacy.hidden=true;legacy.dataset.v2Proxy=id}
   }
-  nav.querySelectorAll<HTMLButtonElement>('button').forEach((b,i,all)=>{
+  const buttons=[...nav.querySelectorAll<HTMLButtonElement>('button')];
+  buttons.forEach((b,i)=>{
     const label=b.textContent?.trim().replace(/\s+/g,' ').toLowerCase();
     if(!label)return;
-    const first=all.findIndex(x=>x.textContent?.trim().replace(/\s+/g,' ').toLowerCase()===label&&!x.hidden);
+    const first=buttons.findIndex((x:HTMLButtonElement)=>x.textContent?.trim().replace(/\s+/g,' ').toLowerCase()===label&&!x.hidden);
     if(first>=0&&first<i&&!b.dataset.saveView)b.hidden=true;
   });
 }
