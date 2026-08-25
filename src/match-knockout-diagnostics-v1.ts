@@ -1,0 +1,8 @@
+import type { Club } from './engine';
+import { createMatchCore } from './match-core-v2';
+import { simulateMatchCore } from './match-stepper-v2';
+import { shootoutState } from './match-time-competition-v2';
+import { defaultCompetitionRules } from './match-rules-v2';
+
+export type KnockoutDiagnostic={id:string;ok:boolean;detail:string};
+export function diagnoseKnockoutRuntime(home:Club,away:Club){const out:KnockoutDiagnostic[]=[];const s=createMatchCore(home,away,{seed:987654321});simulateMatchCore(s,home,away,36000,{requiresWinner:true,rules:defaultCompetitionRules});const transitions=((s as any).__lifecycle?.transitions??[]) as Array<{phase:string}>;const phases=transitions.map(x=>x.phase),so=shootoutState(s),tied=s.home.score===s.away.score;out.push({id:'finished',ok:s.phase==='finished',detail:`phase=${s.phase}`});out.push({id:'winner-resolution',ok:!tied||!!so?.winnerClubId,detail:tied?`shootout=${so?.home??0}-${so?.away??0}`:`score=${s.home.score}-${s.away.score}`});if(tied){out.push({id:'extra-time-entered',ok:phases.includes('extraTime1')||!!(s as any).__extraTimeStart,detail:`transitions=${phases.join('>')}`});out.push({id:'extra-time-two-halves',ok:phases.includes('extraTime2'),detail:`transitions=${phases.join('>')}`});out.push({id:'shootout-entered',ok:phases.includes('penalties')||!!so,detail:`kicks=${so?.kicks.length??0}`});out.push({id:'shootout-winner',ok:!!so?.winnerClubId,detail:`winner=${so?.winnerClubId??'none'}`})}if(so){out.push({id:'shootout-balanced-order',ok:Math.abs(so.homeTaken-so.awayTaken)<=1,detail:`taken=${so.homeTaken}/${so.awayTaken}`});out.push({id:'shootout-kicks-recorded',ok:so.kicks.length===so.homeTaken+so.awayTaken,detail:`ledger=${so.kicks.length}`})}return{ok:out.every(x=>x.ok),checks:out,state:s}}
