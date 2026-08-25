@@ -1,0 +1,7 @@
+import type { World } from './engine';
+import { clubIdentityProfile } from './club-history-identity-v1';
+import { supporterCulture } from './club-supporter-culture-v1';
+import { footballDataSnapshot } from './world-football-data-v1';
+
+export type ClubIdentityDiagnostic={id:string;ok:boolean;detail:string};
+export function diagnoseClubHistoricalIdentity(w:World,limit=25){const out:ClubIdentityDiagnostic[]=[];const clubs=footballDataSnapshot(w).clubs.filter(c=>c.active).slice(0,limit);for(const c of clubs){const x=clubIdentityProfile(w,c.id),s=supporterCulture(w,c.id);out.push({id:`supporters-${c.id}`,ok:s.supporters>0,detail:`supporters=${s.supporters}`});out.push({id:`culture-range-${c.id}`,ok:[s.loyalty,s.expectation,s.patience,s.identityStrength,s.organizedInfluence,s.commercialEngagement,s.volatility].every(v=>v>=0&&v<=100),detail:`loyalty=${s.loyalty}, expectation=${s.expectation}`});out.push({id:`records-${c.id}`,ok:x.recordBook.totalTitles>=0&&x.recordBook.continentalTitles<=x.recordBook.totalTitles,detail:`titles=${x.recordBook.totalTitles}`});out.push({id:`eras-${c.id}`,ok:x.eras.every(e=>e.fromSeason<=e.toSeason&&e.score>=0&&e.score<=100),detail:`eras=${x.eras.length}`});out.push({id:`hall-${c.id}`,ok:new Set(x.hall.map(h=>h.playerId)).size===x.hall.length,detail:`hall=${x.hall.length}`});out.push({id:`rivals-${c.id}`,ok:x.majorRivals.every(r=>r.clubId!==c.id&&r.score>=0&&r.score<=100),detail:`rivals=${x.majorRivals.length}`})}return{ok:out.every(x=>x.ok),checks:out,clubsChecked:clubs.length}}
