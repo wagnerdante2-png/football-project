@@ -8,6 +8,7 @@ export type VisualAssetManifest={version:number;generatedAt:string;clubs:ClubVis
 
 const norm=(s:string)=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
 const state:{manifest?:VisualAssetManifest;loading?:Promise<VisualAssetManifest|undefined>}={};
+const canonicalClubQids:Record<string,string>={'sao paulo fc':'Q38568','cr flamengo':'Q17479','gremio fbpa':'Q221695','sc internacional':'Q80845'};
 
 function hash(text:string){let h=2166136261;for(const c of text){h^=c.charCodeAt(0);h=Math.imul(h,16777619)}return h>>>0}
 function colorFrom(text:string,offset=0){const h=(hash(text)+offset*137)%360;return `hsl(${h} 58% ${offset?42:34}%)`}
@@ -16,10 +17,10 @@ export function proceduralClubVisual(name:string):ClubVisualIdentity{return{name
 export async function loadVisualAssetManifest(base='/data/visual/visual-assets-2026.json'){if(state.manifest)return state.manifest;if(state.loading)return state.loading;state.loading=fetch(base).then(async r=>{if(!r.ok)return;const m=await r.json() as VisualAssetManifest;state.manifest=m;return m}).catch(()=>undefined);return state.loading}
 export function setVisualAssetManifest(m:VisualAssetManifest|undefined){state.manifest=m;state.loading=undefined}
 export function visualManifest(){return state.manifest}
-export function clubVisual(name:string):ClubVisualIdentity{const found=state.manifest?.clubs.find(x=>norm(x.name)===norm(name));return found??proceduralClubVisual(name)}
+export function clubVisual(name:string):ClubVisualIdentity{const found=state.manifest?.clubs.find(x=>norm(x.name)===norm(name));if(!found)return proceduralClubVisual(name);const expected=canonicalClubQids[norm(name)];if(expected&&found.wikidataId!==expected)return proceduralClubVisual(name);return found}
 export function playerVisual(player:Pick<Player,'name'> & {dateOfBirth?:string}):PlayerVisualIdentity|undefined{if(!player.dateOfBirth)return undefined;const candidates=state.manifest?.players.filter(x=>norm(x.name)===norm(player.name)&&x.dateOfBirth===player.dateOfBirth)??[];return candidates.length===1?candidates[0]:undefined}
 
-function esc(s:string){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]!))}
+function esc(s:string){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!))}
 export function crestMarkup(name:string,className='visual-crest'){const v=clubVisual(name);if(v.crest?.url)return `<img class="${className}" src="${esc(v.crest.thumbnailUrl??v.crest.url)}" alt="Escudo ${esc(name)}" loading="lazy" referrerpolicy="no-referrer">`;const initials=name.split(/\s+/).filter(Boolean).slice(0,2).map(x=>x[0]).join('').toUpperCase();return `<span class="${className} procedural-crest" style="--vc1:${v.primaryColor};--vc2:${v.secondaryColor}">${esc(initials||'FC')}</span>`}
 export function playerFaceMarkup(player:Pick<Player,'name'> & {dateOfBirth?:string},className='player-face'){const v=playerVisual(player);return v?.portrait?.url?`<img class="${className}" src="${esc(v.portrait.thumbnailUrl??v.portrait.url)}" alt="${esc(player.name)}" loading="lazy" referrerpolicy="no-referrer">`:`<span class="${className} procedural-face" aria-hidden="true"><i></i></span>`}
 export function kitSvg(name:string,kind:'home'|'away'|'third'='home'){const v=clubVisual(name),a=kind==='away'?v.secondaryColor:v.primaryColor,b=kind==='away'?v.primaryColor:v.secondaryColor,accent=kind==='third'?v.accentColor:b;return `<svg viewBox="0 0 120 130" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="${a}"/><stop offset="1" stop-color="${accent}"/></linearGradient></defs><path d="M35 11 49 4h22l14 7 25 13-10 23-15-7v83H35V40l-15 7-10-23z" fill="url(#g)" stroke="rgba(255,255,255,.35)" stroke-width="2"/><path d="M49 4c2 11 20 11 22 0" fill="none" stroke="${b}" stroke-width="5"/><path d="M35 58h50" stroke="rgba(255,255,255,.16)" stroke-width="3"/></svg>`}
