@@ -8,6 +8,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: windows-portable-beta
+  cancel-in-progress: true
+
 jobs:
   portable:
     runs-on: windows-latest
@@ -22,6 +26,9 @@ jobs:
 
       - name: Install project dependencies
         run: npm install
+
+      - name: Bundle verified visual assets for offline desktop
+        run: node scripts/bundle-portable-visual-assets.mjs
 
       - name: Build web application
         run: npm run build
