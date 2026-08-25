@@ -12,7 +12,9 @@
     "sync:people:reference": "node scripts/sync-people-2026.mjs --include-reference-only",
     "validate:people": "node scripts/validate-people-2026.mjs",
     "sync:people:checked": "npm run sync:people && npm run validate:people",
-    "sync:visual": "node scripts/sync-visual-assets-2026.mjs",
+    "sync:visual:raw": "node scripts/sync-visual-assets-2026.mjs",
+    "sync:visual:colors": "node scripts/enrich-visual-colors-2026.mjs",
+    "sync:visual": "npm run sync:visual:raw && npm run sync:visual:colors",
     "sync:immersive": "npm run sync:people:checked && npm run sync:visual",
     "sync:all": "npm run sync:data && npm run sync:immersive"
   },
