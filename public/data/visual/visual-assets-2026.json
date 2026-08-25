@@ -1,6 +1,6 @@
 {
   "version": 4,
-  "generatedAt": "2026-08-25T20:38:02.621Z",
+  "generatedAt": "2026-08-25T21:08:01.348Z",
   "sources": {
     "structured": [
       "OpenFootball CC0",
@@ -15,7 +15,7 @@
     "clubCrests": 9,
     "stadiumImages": 13,
     "playerTargets": 20,
-    "playerPortraits": 15,
+    "playerPortraits": 14,
     "activeRosterPlayerTargets": 20
   },
   "clubs": [
@@ -114,10 +114,10 @@
     {
       "name": "CA Mineiro",
       "wikidataId": "Q270995",
-      "primaryColor": "hsl(156 58% 34%)",
-      "secondaryColor": "hsl(293 58% 42%)",
-      "accentColor": "hsl(226 72% 58%)",
-      "kitSource": "procedural",
+      "primaryColor": "#facf00",
+      "secondaryColor": "#1f1a17",
+      "accentColor": "#1f1a17",
+      "kitSource": "derived-from-crest",
       "crest": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/2/27/Clube_Atl%C3%A9tico_Mineiro_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
         "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Clube_Atl%C3%A9tico_Mineiro_logo.svg/500px-Clube_Atl%C3%A9tico_Mineiro_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -137,7 +137,12 @@
         "sourcePage": "https://commons.wikimedia.org/wiki/File:Mineir%C3%A3o_A%C3%A9rea.jpg",
         "freeToRedistribute": true
       },
-      "sourceConfidence": 96
+      "sourceConfidence": 96,
+      "paletteProvenance": {
+        "source": "verified-free-crest",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Clube_Atl%C3%A9tico_Mineiro_logo.svg",
+        "method": "dominant-svg-colors"
+      }
     },
     {
       "name": "Fortaleza EC",
@@ -627,42 +632,26 @@
       "sourceConfidence": 96
     },
     {
-      "name": "Breno Lopes",
-      "dateOfBirth": "1996-01-24",
-      "clubName": "Fortaleza EC",
-      "wikidataId": "Q101230488",
-      "portrait": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Breno-lopes-palmeiras-wikipedia-2021_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Breno-lopes-palmeiras-wikipedia-2021_%28cropped%29.jpg/330px-Breno-lopes-palmeiras-wikipedia-2021_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-        "source": "Wikimedia Commons",
-        "license": "CC BY-SA",
-        "attribution": "NullReason",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Breno-lopes-palmeiras-wikipedia-2021_(cropped).jpg",
-        "freeToRedistribute": true
-      },
-      "sourceConfidence": 96
-    },
-    {
       "name": "Thiago Silva",
       "dateOfBirth": "1984-09-22",
       "clubName": "Fluminense FC",
-      "sourceConfidence": 5
+      "wikidataId": "Q210453",
+      "portrait": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/c/c8/20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Thiago_Silva_850_1582.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Thiago_Silva_850_1582.jpg/330px-20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Thiago_Silva_850_1582.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "CC BY-SA",
+        "attribution": "Granada",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Thiago_Silva_850_1582.jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 96
     },
     {
       "name": "Hulk",
       "dateOfBirth": "1986-07-25",
       "clubName": "Fluminense FC",
-      "wikidataId": "Q62786",
-      "portrait": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Bayer-04_-_Zenit_%2814%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Bayer-04_-_Zenit_%2814%29.jpg/330px-Bayer-04_-_Zenit_%2814%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-        "source": "Wikimedia Commons",
-        "license": "CC BY-SA",
-        "attribution": "Вячеслав Евдокимов",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Bayer-04_-_Zenit_(14).jpg",
-        "freeToRedistribute": true
-      },
-      "sourceConfidence": 96
+      "sourceConfidence": 5
     },
     {
       "name": "Jefferson Savarino",
@@ -695,6 +684,13 @@
         "freeToRedistribute": true
       },
       "sourceConfidence": 96
+    },
+    {
+      "name": "Rubén Lezcano",
+      "dateOfBirth": "2004-02-09",
+      "clubName": "Fluminense FC",
+      "wikidataId": "Q124805566",
+      "sourceConfidence": 70
     }
   ],
   "notes": [
@@ -710,10 +706,10 @@
   ],
   "identitySanitization": {
     "rejectedAmbiguousClubMatches": 0,
-    "generatedAt": "2026-08-25T20:38:02.753Z"
+    "generatedAt": "2026-08-25T21:08:01.482Z"
   },
   "colorEnrichment": {
-    "derivedFromVerifiedCrests": 3,
-    "generatedAt": "2026-08-25T20:38:03.151Z"
+    "derivedFromVerifiedCrests": 4,
+    "generatedAt": "2026-08-25T21:08:01.805Z"
   }
 }
