@@ -1,6 +1,6 @@
 {
   "version": 4,
-  "generatedAt": "2026-08-25T20:27:02.755Z",
+  "generatedAt": "2026-08-25T20:38:02.621Z",
   "sources": {
     "structured": [
       "OpenFootball CC0",
@@ -114,10 +114,10 @@
     {
       "name": "CA Mineiro",
       "wikidataId": "Q270995",
-      "primaryColor": "#facf00",
-      "secondaryColor": "#1f1a17",
-      "accentColor": "#1f1a17",
-      "kitSource": "derived-from-crest",
+      "primaryColor": "hsl(156 58% 34%)",
+      "secondaryColor": "hsl(293 58% 42%)",
+      "accentColor": "hsl(226 72% 58%)",
+      "kitSource": "procedural",
       "crest": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/2/27/Clube_Atl%C3%A9tico_Mineiro_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
         "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Clube_Atl%C3%A9tico_Mineiro_logo.svg/500px-Clube_Atl%C3%A9tico_Mineiro_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -137,12 +137,7 @@
         "sourcePage": "https://commons.wikimedia.org/wiki/File:Mineir%C3%A3o_A%C3%A9rea.jpg",
         "freeToRedistribute": true
       },
-      "sourceConfidence": 96,
-      "paletteProvenance": {
-        "source": "verified-free-crest",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Clube_Atl%C3%A9tico_Mineiro_logo.svg",
-        "method": "dominant-svg-colors"
-      }
+      "sourceConfidence": 96
     },
     {
       "name": "Fortaleza EC",
@@ -715,10 +710,10 @@
   ],
   "identitySanitization": {
     "rejectedAmbiguousClubMatches": 0,
-    "generatedAt": "2026-08-25T20:27:02.888Z"
+    "generatedAt": "2026-08-25T20:38:02.753Z"
   },
   "colorEnrichment": {
-    "derivedFromVerifiedCrests": 4,
-    "generatedAt": "2026-08-25T20:27:03.499Z"
+    "derivedFromVerifiedCrests": 3,
+    "generatedAt": "2026-08-25T20:38:03.151Z"
   }
 }
