@@ -19,6 +19,8 @@ export type VerifiedRosterSnapshot={version:number;generatedAt:string;season:num
 export type RuntimeRosterPlayer=Player&{dateOfBirth?:string;wikidataId?:string;factualRoleGroup?:FactualRoleGroup;dataOrigin?:'wikidata-membership'|'procedural-filler';ratingsOrigin?:'engine-estimate';positionOrigin?:'verified-specific'|'engine-role-estimate'};
 export type RosterHydrationReport={loaded:boolean;verifiedPlayers:number;clubsTouched:number;sourceVersion?:number;estimatedPositions?:number;reason?:string};
 
+declare global { interface Window { __touchlineWorld?: World } }
+
 const norm=(s:string)=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
 function ageAtSeason(dob:string|undefined,season:number){if(!dob)return;const y=Number(dob.slice(0,4));return Number.isFinite(y)?season-y:undefined}
 function groupForPosition(position:Position):FactualRoleGroup{if(position==='GK')return'goalkeeper';if(['CB','RB','LB'].includes(position))return'defender';if(['DM','CM','AM'].includes(position))return'midfielder';return'forward'}
@@ -29,6 +31,8 @@ function factualPlayer(source:VerifiedRosterPerson,template:Player,season:number
 }
 
 export async function hydrateVerifiedRosters(world:World,url='/data/rosters/brazil-serie-a-2026.json'):Promise<RosterHydrationReport>{
+  window.__touchlineWorld=world;
+  window.dispatchEvent(new CustomEvent('touchline:world-ready',{detail:{season:world.season}}));
   let snapshot:VerifiedRosterSnapshot;
   try{const r=await fetch(url,{cache:'no-cache'});if(!r.ok)return{loaded:false,verifiedPlayers:0,clubsTouched:0,reason:`HTTP ${r.status}`};snapshot=await r.json() as VerifiedRosterSnapshot}catch(e){return{loaded:false,verifiedPlayers:0,clubsTouched:0,reason:String(e)}}
   if(!Array.isArray(snapshot.rosters)||snapshot.version<2)return{loaded:false,verifiedPlayers:0,clubsTouched:0,sourceVersion:snapshot.version,reason:'roster snapshot is not temporally strict v2+'};
@@ -42,6 +46,7 @@ export async function hydrateVerifiedRosters(world:World,url='/data/rosters/braz
     }
     const fillers=procedural.filter((_,i)=>!used.has(i));club.players=[...real,...fillers].slice(0,Math.max(24,Math.min(30,real.length+fillers.length)));verifiedPlayers+=real.length;clubsTouched++;
   }
+  window.dispatchEvent(new CustomEvent('touchline:world-hydrated',{detail:{verifiedPlayers,clubsTouched}}));
   return{loaded:true,verifiedPlayers,clubsTouched,sourceVersion:snapshot.version,estimatedPositions};
 }
 
