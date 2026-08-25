@@ -4,8 +4,9 @@ import { bindTactics, renderTactics } from './tactics';
 import { availableRoles, getPlayerRole, playCurrentRoundWithRoles, roleDefinition, roleSuitability, setPlayerRole, tacticalRoleSummary, type PlayerRole } from './roles';
 import { fixturePlayerStats, playerFromWorld, topPlayers } from './analytics';
 import { advanceToNextSeason, careerState, isAcademyPlayer, seasonFinished, simulateSeasons } from './lifecycle';
+import { createBrazilRealWorld2026, realWorldBootstrapInfo } from './real-world-v1';
 
-let world: World = createWorld();
+let world: World = createBrazilRealWorld2026();
 let selectedClubId = world.clubs[0].id;
 let selectedFixture: Fixture | null = null;
 let activeView: 'overview' | 'squad' | 'tactics' | 'roles' | 'analytics' | 'world' | 'match' = 'overview';
@@ -22,7 +23,7 @@ function renderOverview() {
   const table = sortedStandings(world);
   const totalPlayers = world.clubs.reduce((sum, c) => sum + c.players.length, 0);
   const finished = seasonFinished(world);
-  return `<header><div><span class="eyebrow">TEMPORADA ${world.season}</span><h1>Centro do Manager</h1><p>O mundo agora envelhece, desenvolve jogadores, aposenta veteranos e recebe novas gerações da base todos os anos.</p></div><div class="actions"><button id="reset" class="secondary">Reiniciar</button><button id="advance" class="primary">${finished ? `Iniciar temporada ${world.season + 1}` : `Simular rodada ${world.round}`}</button></div></header>
+  return `<header><div><span class="eyebrow">TEMPORADA ${world.season} · ${realWorldBootstrapInfo.competition}</span><h1>Centro do Manager</h1><p>O universo principal agora nasce com clubes reais do futebol brasileiro. Elencos reais só são vinculados quando a fonte factual é verificada; até lá, atletas procedurais preservam a integridade da simulação.</p></div><div class="actions"><button id="reset" class="secondary">Reiniciar</button><button id="advance" class="primary">${finished ? `Iniciar temporada ${world.season + 1}` : `Simular rodada ${world.round}`}</button></div></header>
   <section class="cards"><article class="card metric"><span>Clubes ativos</span><strong>${world.clubs.length}</strong></article><article class="card metric"><span>Jogadores ativos</span><strong>${totalPlayers}</strong></article><article class="card metric"><span>Temporada</span><strong>${world.season}</strong></article><article class="card metric"><span>Líder</span><strong>${table[0] ? clubName(table[0].clubId) : '—'}</strong></article></section>
   <div class="grid"><section class="card standings"><div class="section-title"><h2>Classificação</h2><span>Pontos corridos · ida e volta</span></div><table><thead><tr><th>#</th><th>Clube</th><th>J</th><th>V</th><th>E</th><th>D</th><th>SG</th><th>Pts</th></tr></thead><tbody>${table.map((r, i) => `<tr><td>${i + 1}</td><td><button class="club-link" data-club="${r.clubId}">${clubName(r.clubId)}</button></td><td>${r.played}</td><td>${r.wins}</td><td>${r.draws}</td><td>${r.losses}</td><td>${r.gf - r.ga}</td><td><b>${r.points}</b></td></tr>`).join('')}</tbody></table></section>
   <section class="stack"><article class="card fixtures"><div class="section-title"><h2>${finished ? 'Fim da temporada' : 'Próxima rodada'}</h2><span>${finished ? world.season : `Rodada ${world.round}`}</span></div>${finished ? `<p>Temporada concluída. Avance o calendário para envelhecimento, aposentadorias e nova fornada da base.</p>` : currentRound.map(f => `<div class="fixture"><span>${clubName(f.home)}</span><b>×</b><span>${clubName(f.away)}</span></div>`).join('')}</article>
@@ -90,7 +91,7 @@ function render() {
   document.querySelector<HTMLButtonElement>('#advance')?.addEventListener('click', () => { if (seasonFinished(world)) advanceToNextSeason(world); else playCurrentRoundWithRoles(world); selectedFixture = null; render(); });
   document.querySelector<HTMLButtonElement>('#next-season')?.addEventListener('click', () => { advanceToNextSeason(world); selectedFixture = null; render(); });
   document.querySelector<HTMLButtonElement>('#simulate-five')?.addEventListener('click', () => { simulateSeasons(world, 5, playCurrentRoundWithRoles); selectedFixture = null; render(); });
-  document.querySelector<HTMLButtonElement>('#reset')?.addEventListener('click', () => { world = createWorld(); selectedClubId = world.clubs[0].id; selectedFixture = null; activeView = 'overview'; render(); });
+  document.querySelector<HTMLButtonElement>('#reset')?.addEventListener('click', () => { world = createBrazilRealWorld2026(); selectedClubId = world.clubs[0].id; selectedFixture = null; activeView = 'overview'; render(); });
 
   const lastRound = world.fixtures.filter(f => f.round === world.round - 1 && f.played);
   document.querySelectorAll<HTMLButtonElement>('.match-link').forEach(b => b.addEventListener('click', () => { selectedFixture = lastRound[Number(b.dataset.match)]; activeView = 'match'; render(); }));
