@@ -212,7 +212,7 @@ export function inflictInjury(world:World,player:Player,definition:InjuryDefinit
   if(severity==='critical'||severity==='careerThreatening') injury.notes.push('Lesão de altíssima gravidade: pode deixar sequela funcional e elevar risco de recorrência a longo prazo.');
   if(pre&&pre.susceptibility>=30) injury.notes.push('Área já vulnerável por histórico anterior.');
   profile.activeInjuries.push(injury);profile.history.push(injury);registerVulnerability(profile,injury,definition);createDeficits(profile,player,injury,definition);
-  player.morale=Math.round(clamp(player.morale-(severity>=5?14:severity>=4?9:severity>=3?5:2),30,100));
+  player.morale=Math.round(clamp(player.morale-(weight>=5?14:weight>=4?9:weight>=3?5:2),30,100));
   return injury;
 }
 
