@@ -6,7 +6,7 @@ let snapshot:Snapshot|undefined;
 const esc=(s:unknown)=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
 const hash=(text:string)=>{let h=2166136261;for(let i=0;i<text.length;i++){h^=text.charCodeAt(i);h=Math.imul(h,16777619)}return Math.abs(h>>>0)};
 const age=(dob?:string)=>dob?Math.max(16,2026-Number(dob.slice(0,4))):24;
-const role=(p:Player)=>p.position||p.roleGroup==='goalkeeper'?'GK':p.roleGroup==='defender'?'DEF':p.roleGroup==='midfielder'?'MEI':p.roleGroup==='forward'?'ATA':'—';
+const role=(p:Player)=>{if(p.position==='GK')return'GK';if(['RB','CB','LB'].includes(p.position||''))return'DEF';if(['DM','CM','AM'].includes(p.position||''))return'MEI';if(['RW','LW','ST'].includes(p.position||''))return'ATA';return p.roleGroup==='goalkeeper'?'GK':p.roleGroup==='defender'?'DEF':p.roleGroup==='midfielder'?'MEI':p.roleGroup==='forward'?'ATA':'—'};
 function engineValue(p:Player){const seed=hash(p.wikidataId||p.name),a=age(p.dateOfBirth),base=2+(seed%230)/10;return Math.max(.4,Math.round(base*(a<=23?1.35:a>=31?.66:1)*10)/10)}
 function shortlist(){try{return new Set<string>(JSON.parse(localStorage.getItem('touchline-shortlist-v1')||'[]'))}catch{return new Set<string>()}}
 function save(s:Set<string>){localStorage.setItem('touchline-shortlist-v1',JSON.stringify([...s]))}
