@@ -9,7 +9,7 @@ export type NationalEligibility={countryId:string;basis:EligibilityBasis;eligibl
 export type HiddenTraits={professionalism:number;ambition:number;consistency:number;bigMatches:number;adaptability:number;pressure:number;loyalty:number;temperament:number;leadership:number;controversy:number;injuryProneness:number};
 export type PotentialEnvelope={floor:number;ceiling:number;projection:number;certainty:number;lateBloomer:number;developmentVolatility:number};
 export type PhysicalProfile={heightCm:number;weightKg:number;preferredFoot:PreferredFoot;weakFoot:number;bodyType:BodyType;growthComplete:boolean};
-export type PlayerIdentityProfile={playerId:string;birthDate:string;birthCountryId:string;birthCityId?:string;nationalities:string[];citizenships:string[];eligibility:NationalEligibility[];physical:PhysicalProfile;hidden:HiddenTraits;potential:PotentialEnvelope;positionFamiliarity:Partial<Record<Position,number>>;createdBy:'seeded'|'generated'|'imported';retired:boolean;retiredDate?:string;staffTransitionInterest:number};
+export type PlayerIdentityProfile={playerId:string;birthDate:string;birthCountryId:string;birthCityId?:string;nationalities:string[];citizenships:string[];eligibility:NationalEligibility[];physical:PhysicalProfile;hidden:HiddenTraits;potential:PotentialEnvelope;positionFamiliarity:Partial<Record<Position,number>>;createdBy:'seeded'|'generated'|'imported'|'real';retired:boolean;retiredDate?:string;staffTransitionInterest:number};
 export type PlayerProfileSnapshot={profiles:[string,PlayerIdentityProfile][]};
 
 type State={profiles:Map<string,PlayerIdentityProfile>};
