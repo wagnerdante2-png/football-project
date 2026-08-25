@@ -1,0 +1,8 @@
+import type { World } from './engine';
+import { footballDataSnapshot } from './world-football-data-v1';
+import { clubHistoricalPressure, historicalMatchContext } from './club-memory-consequences-v1';
+import { activeClubRecordChases } from './club-record-chase-v1';
+
+export type ClubMemoryConsequencesDiagnostic={ok:boolean;issues:string[];clubs:number;pressureProfiles:number;recordChases:number;matchContextsSampled:number};
+const inRange=(v:number)=>Number.isFinite(v)&&v>=0&&v<=100;
+export function diagnoseClubMemoryConsequences(w:World):ClubMemoryConsequencesDiagnostic{const issues:string[]=[];let pressureProfiles=0,recordChases=0,matchContextsSampled=0;const clubs=footballDataSnapshot(w).clubs.filter(c=>c.active);for(const c of clubs){const p=clubHistoricalPressure(w,c.id);pressureProfiles++;for(const [k,v] of Object.entries(p))if(typeof v==='number'&&!inRange(v)&&k!=='clubId')issues.push(`pressão histórica fora da faixa: ${c.id}.${k}=${v}`);const chases=activeClubRecordChases(w,c.id);recordChases+=chases.length;for(const x of chases){if(x.remaining<0)issues.push(`record chase restante negativo: ${c.id}/${x.playerId}/${x.record}`);if(!inRange(x.progress))issues.push(`record chase progresso inválido: ${c.id}/${x.playerId}/${x.record}`)}const rival=clubs.find(x=>x.id!==c.id&&x.countryId===c.countryId);if(rival){const m=historicalMatchContext(w,c.id,rival.id);matchContextsSampled++;for(const [k,v] of Object.entries(m))if(typeof v==='number'&&!inRange(v)&&k!=='clubId'&&k!=='opponentId')issues.push(`contexto histórico fora da faixa: ${c.id}/${rival.id}.${k}=${v}`)}}return{ok:issues.length===0,issues,clubs:clubs.length,pressureProfiles,recordChases,matchContextsSampled}}
