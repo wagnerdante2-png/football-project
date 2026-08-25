@@ -1,6 +1,8 @@
 import type { World } from './engine';
 import { seedFootballGovernanceFoundation } from './world-football-foundation-v1';
 import { seedInternationalCompetitions } from './international-competitions-v1';
+import { seedWorldCupQualifierCompetitions } from './international-qualifiers-v1';
+import { ensureNationalRankings } from './national-team-ranking-v1';
 import { bootstrapInternationalFootballHistory, type FootballHistoryBootstrapReport } from './world-football-history-bootstrap-v1';
 import { FOOTBALL_SOURCE_CATALOG, GLOBAL_FOOTBALL_SOURCES, allCatalogSources } from './world-football-source-catalog-v1';
 import { footballLoadProfile, type FootballLoadProfileId } from './world-football-load-profiles-v1';
@@ -9,14 +11,15 @@ import { importOpenFootballSeasonResults, type SeasonResultsImport } from './ope
 import { footballCompetition, setHistoricalCutover, validateFootballData } from './world-football-data-v1';
 import { applyCompetitionRuleOverrides, competitionRuleAudit } from './competition-rule-normalizer-v1';
 
-export type BootstrapReport={ok:boolean;loadedSources:string[];missingSources:string[];warnings:string[];historicalSeasons:SeasonResultsImport[];internationalHistory?:FootballHistoryBootstrapReport;rulesApplied:number;validation:ReturnType<typeof validateFootballData>;countries:string[];profile?:FootballLoadProfileId;internationalCompetitions:number};
+export type BootstrapReport={ok:boolean;loadedSources:string[];missingSources:string[];warnings:string[];historicalSeasons:SeasonResultsImport[];internationalHistory?:FootballHistoryBootstrapReport;rulesApplied:number;validation:ReturnType<typeof validateFootballData>;countries:string[];profile?:FootballLoadProfileId;internationalCompetitions:number;worldCupQualifierCycle:number;rankingTeams:number};
 const urlFor=(source:OpenFootballSource)=>`/data/openfootball/${source.repo.replace('/','__')}/${source.path}`;
 async function loadText(source:OpenFootballSource){const r=await fetch(urlFor(source));if(!r.ok)return;return await r.text()}
 async function importSource(world:World,source:OpenFootballSource,text:string){if(source.kind==='leagues')return parseOpenFootballLeagues(world,text,source);if(source.kind==='clubs')return parseOpenFootballClubs(world,text,source);if(source.kind==='stadiums')return parseOpenFootballStadiums(world,text,source)}
 const europeIds=new Set(['ENG','GER','ESP','ITA','FRA','POR','NED','BEL','SCO','TUR','GRE','DEN','NOR','SWE','FIN','AUT','SUI','POL','CZE','CRO','SRB','UKR']);
 const southAmericaIds=new Set(['BRA','ARG','COL','PAR','PER','BOL','CHI','URU','ECU','VEN']);
+const nextWorldCupYear=(season:number)=>{let y=Math.max(2030,season);while((y-2026)%4!==0)y++;return y};
 export async function bootstrapWorldFootballDataV1(world:World,options:{cutoverDate?:string;countries?:string[];profile?:FootballLoadProfileId;includeHistory?:boolean;historyFromYear?:number;historyToYear?:number;internationalHistoryFromYear?:number}={}):Promise<BootstrapReport>{
-  seedFootballGovernanceFoundation(world);const international=seedInternationalCompetitions(world);setHistoricalCutover(world,options.cutoverDate??`${world.season}-07-01`);
+  seedFootballGovernanceFoundation(world);const international=seedInternationalCompetitions(world),worldCupQualifierCycle=nextWorldCupYear(world.season);seedWorldCupQualifierCompetitions(world,worldCupQualifierCycle);const rankingTeams=ensureNationalRankings(world).entries.size;setHistoricalCutover(world,options.cutoverDate??`${world.season}-07-01`);
   const profile=options.profile?footballLoadProfile(options.profile):undefined,selectedCountries=options.countries??profile?.countries??['BRA'],includeHistory=options.includeHistory??profile?.includeHistory??true,historyFromYear=options.historyFromYear??profile?.historyFromYear??2018;
   const loadedSources:string[]=[],missingSources:string[]=[],warnings:string[]=[],historicalSeasons:SeasonResultsImport[]=[];const countries=new Set(selectedCountries),sources:OpenFootballSource[]=[GLOBAL_FOOTBALL_SOURCES.nationalAndInternational];
   if([...countries].some(x=>southAmericaIds.has(x)))sources.push(GLOBAL_FOOTBALL_SOURCES.southAmericaMapped);if([...countries].some(x=>europeIds.has(x)))sources.push(GLOBAL_FOOTBALL_SOURCES.europeMapped);sources.push(...FOOTBALL_SOURCE_CATALOG.filter(x=>countries.has(x.countryId)).flatMap(x=>[...x.leagueSources,...x.clubSources,...x.stadiumSources]));
@@ -26,6 +29,6 @@ export async function bootstrapWorldFootballDataV1(world:World,options:{cutoverD
   const rulesApplied=applyCompetitionRuleOverrides(world,world.season),ruleAudit=competitionRuleAudit(world,world.season);warnings.push(...ruleAudit.issues.map(x=>`competition rules: ${x}`));
   if(includeHistory&&countries.has('BRA')){const to=options.historyToYear??world.season;for(let year=historyFromYear;year<=to;year++)for(const level of [1,2]){const source:OpenFootballSource={id:`of-bra-${year}-br${level}`,repo:'openfootball/south-america',path:`brazil/${year}_br${level}.txt`,kind:'matches',countryId:'BRA',confederationId:'CONMEBOL',license:'CC0-1.0',historical:true};const text=await loadText(source);if(text===undefined){missingSources.push(source.id);continue}loadedSources.push(source.id);const result=importOpenFootballSeasonResults(world,text,{source,competitionId:`comp-bra-${level}`,season:String(year)});historicalSeasons.push(result);if(result.unresolvedTeams.length)warnings.push(`${source.id}: ${result.unresolvedTeams.length} times não resolvidos (${result.unresolvedTeams.slice(0,5).join(', ')})`)}}
   let internationalHistory:FootballHistoryBootstrapReport|undefined;if(includeHistory){internationalHistory=await bootstrapInternationalFootballHistory(world,{fromYear:options.internationalHistoryFromYear??1930,toYear:options.historyToYear??world.season});loadedSources.push(...internationalHistory.loaded);missingSources.push(...internationalHistory.missing);warnings.push(...internationalHistory.warnings)}
-  const validation=validateFootballData(world);return{ok:validation.ok&&ruleAudit.ok&&loadedSources.length>0,loadedSources,missingSources,warnings,historicalSeasons,internationalHistory,rulesApplied,validation,countries:[...countries],profile:options.profile,internationalCompetitions:international.total}
+  const validation=validateFootballData(world);return{ok:validation.ok&&ruleAudit.ok&&loadedSources.length>0,loadedSources,missingSources,warnings,historicalSeasons,internationalHistory,rulesApplied,validation,countries:[...countries],profile:options.profile,internationalCompetitions:international.total,worldCupQualifierCycle,rankingTeams}
 }
 export function configuredFootballSources(){return allCatalogSources().map(s=>({id:s.id,repo:s.repo,path:s.path,kind:s.kind,countryId:s.countryId,license:s.license}))}
