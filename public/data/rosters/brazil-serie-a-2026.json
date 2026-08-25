@@ -1,6 +1,6 @@
 {
   "version": 6,
-  "generatedAt": "2026-08-25T20:15:32.619Z",
+  "generatedAt": "2026-08-25T20:27:20.914Z",
   "season": 2026,
   "source": {
     "name": "Wikidata",
@@ -19,15 +19,15 @@
     "Club identities come from the already-verified visual manifest; no second club identity registry is maintained."
   ],
   "counts": {
-    "clubs": 9,
-    "clubsWithPlayers": 7,
-    "players": 33,
-    "playersWithSpecificPosition": 13,
-    "playersWithRoleGroup": 32,
-    "positionsFromWikidata": 13,
+    "clubs": 15,
+    "clubsWithPlayers": 11,
+    "players": 58,
+    "playersWithSpecificPosition": 16,
+    "playersWithRoleGroup": 56,
+    "positionsFromWikidata": 16,
     "positionsFromOpenFootball": 0,
-    "playersWithNationality": 33,
-    "playersWithHeight": 33
+    "playersWithNationality": 58,
+    "playersWithHeight": 58
   },
   "rosters": [
     {
@@ -480,45 +480,6 @@
       ],
       "count": 4,
       "positionedPlayers": 1
-    },
-    {
-      "club": {
-        "id": "fortaleza-ec",
-        "name": "Fortaleza EC",
-        "wikidataId": "Q188841"
-      },
-      "id": "fortaleza-ec",
-      "name": "Fortaleza EC",
-      "wikidataId": "Q188841",
-      "players": [
-        {
-          "wikidataId": "Q101230488",
-          "name": "Breno Lopes",
-          "dateOfBirth": "1996-01-24",
-          "nationality": "Brasil",
-          "heightCm": 178,
-          "roleGroup": "forward",
-          "roleGroupSource": "Wikidata P413",
-          "clubId": "fortaleza-ec",
-          "clubName": "Fortaleza EC",
-          "membershipStart": "2024-10-02",
-          "membershipRank": "NormalRank",
-          "provenance": {
-            "source": "Wikidata",
-            "license": "CC0",
-            "snapshotDate": "2026-08-25",
-            "clubStatement": "P54",
-            "genderStatement": "P21",
-            "nationalityStatement": "P27",
-            "heightStatement": "P2048",
-            "temporalRule": "preferred-rank-or-started-2024+",
-            "roleGroupSource": "Wikidata P413 broad role",
-            "rawPositionLabel": "avançado"
-          }
-        }
-      ],
-      "count": 1,
-      "positionedPlayers": 0
     },
     {
       "club": {
@@ -1014,6 +975,757 @@
       ],
       "count": 11,
       "positionedPlayers": 3
+    },
+    {
+      "club": {
+        "id": "se-palmeiras",
+        "name": "SE Palmeiras",
+        "wikidataId": "Q80964"
+      },
+      "id": "se-palmeiras",
+      "name": "SE Palmeiras",
+      "wikidataId": "Q80964",
+      "players": [
+        {
+          "wikidataId": "Q110160871",
+          "name": "Ramón Sosa",
+          "dateOfBirth": "1999-08-31",
+          "nationality": "Paraguai",
+          "heightCm": 178,
+          "roleGroup": "midfielder",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "se-palmeiras",
+          "clubName": "SE Palmeiras",
+          "membershipStart": "2025-01-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "Meio-campista"
+          }
+        },
+        {
+          "wikidataId": "Q65378670",
+          "name": "Jhon Arias",
+          "dateOfBirth": "1997-09-21",
+          "nationality": "Colômbia",
+          "heightCm": 168,
+          "roleGroup": "midfielder",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "se-palmeiras",
+          "clubName": "SE Palmeiras",
+          "membershipStart": "2026-01-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "Meio-campista"
+          }
+        },
+        {
+          "wikidataId": "Q119152074",
+          "name": "Riquelme Fillipi",
+          "dateOfBirth": "2006-09-15",
+          "nationality": "Brasil",
+          "heightCm": 175,
+          "roleGroup": "forward",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "se-palmeiras",
+          "clubName": "SE Palmeiras",
+          "membershipStart": "2024-01-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "avançado"
+          }
+        },
+        {
+          "wikidataId": "Q111016177",
+          "name": "Vitor Roque",
+          "dateOfBirth": "2005-02-28",
+          "nationality": "Brasil",
+          "heightCm": 172,
+          "roleGroup": "forward",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "se-palmeiras",
+          "clubName": "SE Palmeiras",
+          "membershipStart": "2025-02-28",
+          "membershipRank": "PreferredRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "avançado"
+          }
+        }
+      ],
+      "count": 4,
+      "positionedPlayers": 0
+    },
+    {
+      "club": {
+        "id": "botafogo-fr",
+        "name": "Botafogo FR",
+        "wikidataId": "Q80958"
+      },
+      "id": "botafogo-fr",
+      "name": "Botafogo FR",
+      "wikidataId": "Q80958",
+      "players": [
+        {
+          "wikidataId": "Q20735677",
+          "name": "Jefferson Savarino",
+          "dateOfBirth": "1996-11-11",
+          "nationality": "Venezuela",
+          "heightCm": 169,
+          "roleGroup": "midfielder",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "botafogo-fr",
+          "clubName": "Botafogo FR",
+          "membershipStart": "2024-01-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "Meio-campista"
+          }
+        },
+        {
+          "wikidataId": "Q85713528",
+          "name": "Cristian Medina",
+          "dateOfBirth": "2002-06-01",
+          "nationality": "Argentina",
+          "heightCm": 176,
+          "roleGroup": "midfielder",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "botafogo-fr",
+          "clubName": "Botafogo FR",
+          "membershipStart": "2026-01-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "Meio-campista"
+          }
+        },
+        {
+          "wikidataId": "Q62657",
+          "name": "Neto",
+          "dateOfBirth": "1989-07-19",
+          "nationality": "Brasil",
+          "heightCm": 190,
+          "roleGroup": "goalkeeper",
+          "position": "GK",
+          "positionSource": "Wikidata specific label",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "botafogo-fr",
+          "clubName": "Botafogo FR",
+          "membershipStart": "2025-08-01",
+          "membershipRank": "PreferredRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "Wikidata P413 specific role",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "guarda-redes"
+          }
+        },
+        {
+          "wikidataId": "Q15214940",
+          "name": "Alex Telles",
+          "dateOfBirth": "1992-12-15",
+          "nationality": "Brasil",
+          "heightCm": 181,
+          "roleGroup": "defender",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "botafogo-fr",
+          "clubName": "Botafogo FR",
+          "membershipStart": "2024-09-03",
+          "membershipRank": "PreferredRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "Lateral (futebol)"
+          }
+        }
+      ],
+      "count": 4,
+      "positionedPlayers": 1
+    },
+    {
+      "club": {
+        "id": "cr-vasco-da-gama",
+        "name": "CR Vasco da Gama",
+        "wikidataId": "Q5014111"
+      },
+      "id": "cr-vasco-da-gama",
+      "name": "CR Vasco da Gama",
+      "wikidataId": "Q5014111",
+      "players": [
+        {
+          "wikidataId": "Q71735316",
+          "name": "Juan Sforza",
+          "dateOfBirth": "2002-02-14",
+          "nationality": "Argentina",
+          "heightCm": 180,
+          "roleGroup": "midfielder",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "cr-vasco-da-gama",
+          "clubName": "CR Vasco da Gama",
+          "membershipStart": "2024-02-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "Meio-campista"
+          }
+        },
+        {
+          "wikidataId": "Q311872",
+          "name": "Philippe Coutinho",
+          "dateOfBirth": "1992-06-12",
+          "nationality": "Portugal",
+          "heightCm": 172,
+          "roleGroup": "forward",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "cr-vasco-da-gama",
+          "clubName": "CR Vasco da Gama",
+          "membershipStart": "2025-07-01",
+          "membershipRank": "PreferredRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "winger"
+          }
+        },
+        {
+          "wikidataId": "Q108532924",
+          "name": "Nuno Moreira",
+          "dateOfBirth": "1999-06-16",
+          "nationality": "Portugal",
+          "heightCm": 175,
+          "clubId": "cr-vasco-da-gama",
+          "clubName": "CR Vasco da Gama",
+          "membershipStart": "2025-01-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+"
+          }
+        },
+        {
+          "wikidataId": "Q26838147",
+          "name": "Carlos Cuesta",
+          "dateOfBirth": "1999-03-09",
+          "nationality": "Colômbia",
+          "heightCm": 178,
+          "roleGroup": "defender",
+          "position": "CB",
+          "positionSource": "Wikidata specific label",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "cr-vasco-da-gama",
+          "clubName": "CR Vasco da Gama",
+          "membershipStart": "2025-01-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "Wikidata P413 specific role",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "zagueiro"
+          }
+        },
+        {
+          "wikidataId": "Q42227698",
+          "name": "Benjamín Garré",
+          "dateOfBirth": "2000-07-11",
+          "nationality": "Argentina",
+          "heightCm": 172,
+          "roleGroup": "midfielder",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "cr-vasco-da-gama",
+          "clubName": "CR Vasco da Gama",
+          "membershipStart": "2025-01-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "wing half"
+          }
+        },
+        {
+          "wikidataId": "Q16021107",
+          "name": "Maxime Dominguez",
+          "dateOfBirth": "1996-02-01",
+          "nationality": "Suíça",
+          "heightCm": 166,
+          "roleGroup": "midfielder",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "cr-vasco-da-gama",
+          "clubName": "CR Vasco da Gama",
+          "membershipStart": "2024-01-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "Meio-campista"
+          }
+        }
+      ],
+      "count": 6,
+      "positionedPlayers": 1
+    },
+    {
+      "club": {
+        "id": "santos-fc",
+        "name": "Santos FC",
+        "wikidataId": "Q80955"
+      },
+      "id": "santos-fc",
+      "name": "Santos FC",
+      "wikidataId": "Q80955",
+      "players": [
+        {
+          "wikidataId": "Q142794",
+          "name": "Neymar",
+          "dateOfBirth": "1992-02-05",
+          "nationality": "Brasil",
+          "heightCm": 175,
+          "roleGroup": "midfielder",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "santos-fc",
+          "clubName": "Santos FC",
+          "membershipStart": "2025-01-01",
+          "membershipRank": "PreferredRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "wing half"
+          }
+        },
+        {
+          "wikidataId": "Q13646572",
+          "name": "Gabigol",
+          "dateOfBirth": "1996-08-30",
+          "nationality": "Brasil",
+          "heightCm": 178,
+          "roleGroup": "forward",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "santos-fc",
+          "clubName": "Santos FC",
+          "membershipStart": "2026-01-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "avançado"
+          }
+        },
+        {
+          "wikidataId": "Q2035459",
+          "name": "Willian Arão",
+          "dateOfBirth": "1992-03-12",
+          "nationality": "Brasil",
+          "heightCm": 181,
+          "roleGroup": "midfielder",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "santos-fc",
+          "clubName": "Santos FC",
+          "membershipStart": "2025-07-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "Meio-campista"
+          }
+        }
+      ],
+      "count": 3,
+      "positionedPlayers": 0
+    },
+    {
+      "club": {
+        "id": "sc-corinthians-paulista",
+        "name": "SC Corinthians Paulista",
+        "wikidataId": "Q35933"
+      },
+      "id": "sc-corinthians-paulista",
+      "name": "SC Corinthians Paulista",
+      "wikidataId": "Q35933",
+      "players": [
+        {
+          "wikidataId": "Q1155889",
+          "name": "André Carrillo",
+          "dateOfBirth": "1991-06-14",
+          "nationality": "Peru",
+          "heightCm": 180,
+          "roleGroup": "midfielder",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "sc-corinthians-paulista",
+          "clubName": "SC Corinthians Paulista",
+          "membershipStart": "2024-01-01",
+          "membershipRank": "PreferredRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "wing half"
+          }
+        },
+        {
+          "wikidataId": "Q1894",
+          "name": "Memphis Depay",
+          "dateOfBirth": "1994-02-13",
+          "nationality": "Gana",
+          "heightCm": 178,
+          "roleGroup": "forward",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "sc-corinthians-paulista",
+          "clubName": "SC Corinthians Paulista",
+          "membershipStart": "2024-09-01",
+          "membershipRank": "PreferredRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "avançado"
+          }
+        },
+        {
+          "wikidataId": "Q144616",
+          "name": "Zakaria Labyad",
+          "dateOfBirth": "1993-03-09",
+          "nationality": "Reino dos Países Baixos",
+          "heightCm": 170,
+          "roleGroup": "midfielder",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "sc-corinthians-paulista",
+          "clubName": "SC Corinthians Paulista",
+          "membershipStart": "2026-01-01",
+          "membershipRank": "PreferredRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "Meio-campista"
+          }
+        },
+        {
+          "wikidataId": "Q17477924",
+          "name": "Jarlan Barrera",
+          "dateOfBirth": "1999-09-16",
+          "nationality": "Colômbia",
+          "heightCm": 171,
+          "roleGroup": "midfielder",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "sc-corinthians-paulista",
+          "clubName": "SC Corinthians Paulista",
+          "membershipStart": "2019-01-01",
+          "membershipRank": "PreferredRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "Meio-campista"
+          }
+        },
+        {
+          "wikidataId": "Q6186603",
+          "name": "Jesse Lingard",
+          "dateOfBirth": "1992-12-15",
+          "nationality": "Reino Unido",
+          "heightCm": 175,
+          "roleGroup": "midfielder",
+          "position": "AM",
+          "positionSource": "Wikidata specific label",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "sc-corinthians-paulista",
+          "clubName": "SC Corinthians Paulista",
+          "membershipStart": "2026-01-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "Wikidata P413 specific role",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "attacking midfielder"
+          }
+        },
+        {
+          "wikidataId": "Q79634899",
+          "name": "José Andrés Martínez",
+          "dateOfBirth": "1994-08-07",
+          "nationality": "Venezuela",
+          "heightCm": 176,
+          "roleGroup": "midfielder",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "sc-corinthians-paulista",
+          "clubName": "SC Corinthians Paulista",
+          "membershipStart": "2024-08-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "Meio-campista"
+          }
+        },
+        {
+          "wikidataId": "Q30916190",
+          "name": "Félix Torres",
+          "dateOfBirth": "1997-01-11",
+          "nationality": "Equador",
+          "heightCm": 187,
+          "roleGroup": "defender",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "sc-corinthians-paulista",
+          "clubName": "SC Corinthians Paulista",
+          "membershipStart": "2024-01-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "defender"
+          }
+        },
+        {
+          "wikidataId": "Q14602686",
+          "name": "Gabriel Paulista",
+          "dateOfBirth": "1990-11-26",
+          "nationality": "Brasil",
+          "heightCm": 187,
+          "roleGroup": "defender",
+          "roleGroupSource": "OpenFootball CC0",
+          "clubId": "sc-corinthians-paulista",
+          "clubName": "SC Corinthians Paulista",
+          "membershipStart": "2026-01-01",
+          "membershipRank": "PreferredRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "roleGroupSource": "OpenFootball exact name+DOB broad role",
+            "rawPositionLabel": "defesa central"
+          }
+        },
+        {
+          "wikidataId": "Q5621422",
+          "name": "Gustavo Henrique",
+          "dateOfBirth": "1993-03-24",
+          "nationality": "Brasil",
+          "heightCm": 193,
+          "roleGroup": "defender",
+          "roleGroupSource": "OpenFootball CC0",
+          "clubId": "sc-corinthians-paulista",
+          "clubName": "SC Corinthians Paulista",
+          "membershipStart": "2024-01-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-08-25",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "roleGroupSource": "OpenFootball exact name+DOB broad role",
+            "rawPositionLabel": "defesa central"
+          }
+        }
+      ],
+      "count": 9,
+      "positionedPlayers": 1
+    },
+    {
+      "club": {
+        "id": "rb-bragantino",
+        "name": "RB Bragantino",
+        "wikidataId": "Q541744"
+      },
+      "id": "rb-bragantino",
+      "name": "RB Bragantino",
+      "wikidataId": "Q541744",
+      "players": [],
+      "count": 0,
+      "positionedPlayers": 0
+    },
+    {
+      "club": {
+        "id": "ceara-sc",
+        "name": "Ceará SC",
+        "wikidataId": "Q1052219"
+      },
+      "id": "ceara-sc",
+      "name": "Ceará SC",
+      "wikidataId": "Q1052219",
+      "players": [],
+      "count": 0,
+      "positionedPlayers": 0
     }
   ]
 }
