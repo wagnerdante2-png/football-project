@@ -18,9 +18,9 @@ permissions:
 jobs:
   verify-visual-assets:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 20
     env:
-      VISUAL_CLUB_LIMIT: 12
+      VISUAL_CLUB_LIMIT: 20
       VISUAL_PLAYER_LIMIT: 12
     steps:
       - uses: actions/checkout@v4
@@ -38,7 +38,7 @@ jobs:
           import fs from 'node:fs/promises';
           const m=JSON.parse(await fs.readFile('public/data/visual/visual-assets-2026.json','utf8'));
           if(!m.version||!Array.isArray(m.clubs)||!Array.isArray(m.players)) throw new Error('invalid manifest');
-          if(m.clubs.length<10) throw new Error('insufficient club identity coverage');
+          if(m.clubs.length<20) throw new Error('full Serie A identity target was not produced');
           for(const group of [m.clubs,m.players]) for(const row of group) for(const key of ['crest','stadiumImage','portrait']){
             const a=row[key]; if(!a) continue;
             if(!['CC0','CC BY','CC BY-SA','Public domain'].includes(a.license)) throw new Error(`non-free asset leaked: ${row.name} ${a.license}`);
