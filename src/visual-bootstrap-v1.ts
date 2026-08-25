@@ -1,0 +1,20 @@
+import './visual-identity-v1.css';
+import { applyClubTheme, clubVisual, crestMarkup, kitSvg, loadVisualAssetManifest, playerFaceMarkup } from './visual-identity-v1';
+
+const norm=(s:string)=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+let decorating=false;
+
+function decorateClubIdentity(root:ParentNode=document){const identity=root.querySelector<HTMLElement>('.club-identity');if(!identity)return;const name=identity.querySelector('b')?.textContent?.trim();const crest=identity.querySelector<HTMLElement>('.crest');const shell=root.querySelector<HTMLElement>('.game-shell');if(!name||!crest)return;if(shell)applyClubTheme(shell,name);if(!crest.dataset.visualized){crest.innerHTML=crestMarkup(name,'club-logo-img');crest.dataset.visualized='1'}const stadium=clubVisual(name).stadiumImage;if(stadium&&shell)shell.classList.add('has-stadium-visual')}
+
+function decorateMiniCrests(root:ParentNode=document){root.querySelectorAll<HTMLElement>('.mini-crest').forEach(el=>{if(el.dataset.visualized)return;const box=el.parentElement;const name=box?.querySelector('b')?.textContent?.trim();if(!name)return;el.innerHTML=crestMarkup(name,'mini-club-logo');el.dataset.visualized='1'})}
+
+function decorateSquad(root:ParentNode=document){root.querySelectorAll<HTMLTableRowElement>('.squad-list tbody tr').forEach(row=>{if(row.dataset.visualized)return;const cells=row.querySelectorAll<HTMLTableCellElement>('td');if(cells.length<2)return;const name=cells[1].textContent?.trim();if(!name)return;cells[1].insertAdjacentHTML('afterbegin',playerFaceMarkup({name},'row-player-face'));row.dataset.visualized='1'})}
+
+function decoratePitch(root:ParentNode=document){root.querySelectorAll<HTMLElement>('.tactical-player').forEach(node=>{if(node.dataset.visualized)return;const name=node.querySelector('b')?.textContent?.trim()||node.textContent?.trim();if(!name)return;node.insertAdjacentHTML('afterbegin',playerFaceMarkup({name},'pitch-player-face'));node.dataset.visualized='1'})}
+
+function decorateKits(root:ParentNode=document){const identity=root.querySelector<HTMLElement>('.club-identity');const name=identity?.querySelector('b')?.textContent?.trim();if(!name)return;root.querySelectorAll<HTMLElement>('[data-kit-kind]').forEach(el=>{if(el.dataset.visualized)return;const kind=(el.dataset.kitKind??'home') as 'home'|'away'|'third';el.innerHTML=kitSvg(name,kind);el.dataset.visualized='1'})}
+
+function decorate(){if(decorating)return;decorating=true;try{decorateClubIdentity();decorateMiniCrests();decorateSquad();decoratePitch();decorateKits()}finally{decorating=false}}
+
+async function boot(){await loadVisualAssetManifest();decorate();const app=document.querySelector('#app');if(!app)return;new MutationObserver(()=>queueMicrotask(decorate)).observe(app,{subtree:true,childList:true})}
+boot();
