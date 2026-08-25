@@ -46,11 +46,12 @@ export function topPlayers(world: World, limit = 10): PlayerSeasonStats[] {
 }
 
 export function fixturePlayerStats(fixture: Fixture) {
-  const map = new Map<string, { playerId:string; goals:number; shots:number; xg:number; yellows:number; saves:number }>();
+  const map = new Map<string, { playerId:string; clubId:string; goals:number; shots:number; xg:number; yellows:number; saves:number }>();
   for (const event of fixture.events ?? []) {
     if (!event.playerId) continue;
-    if (!map.has(event.playerId)) map.set(event.playerId, { playerId:event.playerId, goals:0, shots:0, xg:0, yellows:0, saves:0 });
+    if (!map.has(event.playerId)) map.set(event.playerId, { playerId:event.playerId, clubId:event.clubId??'', goals:0, shots:0, xg:0, yellows:0, saves:0 });
     const row = map.get(event.playerId)!;
+    if (!row.clubId && event.clubId) row.clubId=event.clubId;
     if (event.type === 'shot') { row.shots += 1; row.xg += event.xg ?? 0; }
     if (event.type === 'goal') row.goals += 1;
     if (event.type === 'yellow') row.yellows += 1;
