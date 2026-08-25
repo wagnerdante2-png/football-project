@@ -30,6 +30,16 @@ import { tickSocialWorld } from '../src/social-world';
 import { tickDressingRoom } from '../src/dressing-room';
 import { tickManagerBiographyEffects } from '../src/manager-biography-daily';
 import { executeTrainingDay } from '../src/training-engine';
+import { processScheduledWorldEvents, maybeGenerateAmbientWorldEvent } from '../src/world-event-scheduler-v2';
+import { tickInternationalCalendar } from '../src/international-window-runtime-v1';
+import { processInternationalReplacements } from '../src/international-replacement-runtime-v1';
+import { tickInternationalMatches } from '../src/international-daily-runtime-v1';
+import { tickInternationalFinals } from '../src/international-finals-runtime-v1';
+import { playDomesticFixturesOnDate } from '../src/domestic-match-runtime-v1';
+import { playClubKnockoutsOnDate } from '../src/club-knockout-runtime-v1';
+import { playContinentalFixturesOnDate } from '../src/continental-club-runtime-v1';
+import { tickSportNewsWeeklyV2 } from '../src/sport-news-weekly-v2';
+import { syncWorldDate } from '../src/world-core-v2';
 
 const world=createBrazilRealWorld2026();
 const club=world.clubs[0]!;
@@ -39,6 +49,16 @@ const date='2026-07-25';
 const times:Array<[string,number]>=[];
 function timed<T>(label:string,fn:()=>T):T{const t=performance.now();const r=fn();times.push([label,performance.now()-t]);return r;}
 
+timed('syncWorldDate',()=>syncWorldDate(world,date));
+timed('processScheduledWorldEvents',()=>processScheduledWorldEvents(world,date));
+timed('maybeGenerateAmbientWorldEvent',()=>maybeGenerateAmbientWorldEvent(world,date));
+timed('tickInternationalCalendar',()=>tickInternationalCalendar(world,date));
+timed('processInternationalReplacements',()=>processInternationalReplacements(world,date));
+timed('tickInternationalMatches',()=>tickInternationalMatches(world,date));
+timed('tickInternationalFinals',()=>tickInternationalFinals(world,date));
+timed('playDomesticFixturesOnDate',()=>playDomesticFixturesOnDate(world,date));
+timed('playClubKnockoutsOnDate',()=>playClubKnockoutsOnDate(world,date));
+timed('playContinentalFixturesOnDate',()=>playContinentalFixturesOnDate(world,date));
 timed('wireTrainingMedical',()=>wireTrainingMedical(world));
 timed('wireManagerCareerDevelopment',()=>wireManagerCareerDevelopment(world));
 timed('wireManagerSeasonEvolution',()=>wireManagerSeasonEvolution(world));
@@ -70,7 +90,8 @@ timed('tickDressingRoom',()=>tickDressingRoom(world,date));
 timed('tickManagerInteractions',()=>tickManagerInteractions(world,date));
 timed('tickManagerBiographyEffects',()=>tickManagerBiographyEffects(world,date));
 timed('executeTrainingDay',()=>executeTrainingDay(world,date,{daysToNextMatch:7,daysSinceLastMatch:undefined,matchesNext7:1}));
+timed('tickSportNewsWeeklyV2',()=>tickSportNewsWeeklyV2(world,date));
 
 times.sort((a,b)=>b[1]-a[1]);
 console.log('[profile] slowest daily subsystems');
-for(const [label,ms] of times)console.log(`[profile] ${label.padEnd(34)} ${ms.toFixed(1)}ms`);
+for(const [label,ms] of times)console.log(`[profile] ${label.padEnd(36)} ${ms.toFixed(1)}ms`);
