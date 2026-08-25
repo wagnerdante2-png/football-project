@@ -1,0 +1,51 @@
+name: Roster Data Sync
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 6 * * 0'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/sync-wikidata-rosters-2026.mjs'
+      - '.github/workflows/roster-data-sync.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Resolve verified club rosters
+        run: npm run sync:rosters
+      - name: Validate roster artifact
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs/promises';
+          const r=JSON.parse(await fs.readFile('public/data/rosters/brazil-serie-a-2026.json','utf8'));
+          if(r.source?.license!=='CC0') throw new Error('roster source must remain CC0');
+          if(!Array.isArray(r.rosters)||!r.rosters.length) throw new Error('no club rosters resolved');
+          for(const club of r.rosters) for(const p of club.players??[]){
+            if(!p.wikidataId||!p.name||p.clubId!==club.id) throw new Error(`invalid player membership in ${club.name}`);
+            if(p.provenance?.clubStatement!=='P54') throw new Error(`unverified membership ${p.name}`);
+          }
+          console.log(r.counts);
+          NODE
+      - name: Publish verified roster snapshot
+        if: github.event_name == 'workflow_dispatch' || github.actor != 'github-actions[bot]'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/data/rosters/brazil-serie-a-2026.json
+          if git diff --cached --quiet; then
+            echo 'Roster snapshot unchanged.'
+          else
+            git commit -m 'data: refresh verified Brazilian rosters 2026'
+            git push
+          fi
