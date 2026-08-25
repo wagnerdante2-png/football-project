@@ -18,3 +18,5 @@ jobs:
           cache-dependency-path: package.json
       - run: npm install
       - run: npm run build
+      - name: Smoke daily simulation runtime
+        run: npm run smoke:advance
