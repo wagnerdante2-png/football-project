@@ -1,6 +1,6 @@
 {
-  "version": 4,
-  "generatedAt": "2026-08-25T20:08:22.085Z",
+  "version": 5,
+  "generatedAt": "2026-08-25T20:10:10.070Z",
   "season": 2026,
   "source": {
     "name": "Wikidata",
@@ -12,7 +12,8 @@
     "Only male players with a known birth date and a plausible active-professional birth year (1984-2010) are included.",
     "Memberships ended before 2026 are rejected.",
     "A surviving membership must be PreferredRank or explicitly start in 2024 or later; undated historical memberships are rejected.",
-    "Positions may be enriched from OpenFootball only on exact normalized name + date-of-birth identity.",
+    "Generic Wikidata roles such as defender, midfielder or forward are not converted into a specific engine position.",
+    "Wikidata P413 is accepted only when its label names a specific role; otherwise OpenFootball may fill position only on exact normalized name + date-of-birth identity.",
     "Nationality and height are included only when explicitly available as Wikidata P27/P2048 statements; neither field is inferred.",
     "Unknown positions and biographical fields remain undefined rather than guessed.",
     "Club identities come from the already-verified visual manifest; no second club identity registry is maintained."
@@ -21,7 +22,9 @@
     "clubs": 9,
     "clubsWithPlayers": 7,
     "players": 33,
-    "positionedPlayers": 30,
+    "positionedPlayers": 20,
+    "positionsFromWikidata": 11,
+    "positionsFromOpenFootball": 9,
     "playersWithNationality": 33,
     "playersWithHeight": 33
   },
@@ -54,7 +57,8 @@
             "genderStatement": "P21",
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
-            "temporalRule": "preferred-rank-or-started-2024+"
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "rawPositionLabel": "Lateral (futebol)"
           }
         },
         {
@@ -78,7 +82,8 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "OpenFootball exact name+DOB"
+            "positionSource": "OpenFootball exact name+DOB",
+            "rawPositionLabel": "wing half"
           }
         }
       ],
@@ -114,8 +119,6 @@
           "dateOfBirth": "1992-01-07",
           "nationality": "Brasil",
           "heightCm": 166,
-          "position": "DM",
-          "positionSource": "Wikidata",
           "clubId": "cruzeiro-ec",
           "clubName": "Cruzeiro EC",
           "membershipStart": "2025-01-01",
@@ -129,7 +132,7 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
+            "rawPositionLabel": "Meio-campista"
           }
         },
         {
@@ -138,8 +141,6 @@
           "dateOfBirth": "2001-05-24",
           "nationality": "Brasil",
           "heightCm": 193,
-          "position": "GK",
-          "positionSource": "Wikidata",
           "clubId": "cruzeiro-ec",
           "clubName": "Cruzeiro EC",
           "membershipStart": "2026-01-01",
@@ -153,7 +154,7 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
+            "rawPositionLabel": "guarda-redes"
           }
         },
         {
@@ -163,7 +164,7 @@
           "nationality": "Argentina",
           "heightCm": 177,
           "position": "CB",
-          "positionSource": "Wikidata",
+          "positionSource": "Wikidata specific label",
           "clubId": "cruzeiro-ec",
           "clubName": "Cruzeiro EC",
           "membershipStart": "2024-01-01",
@@ -177,7 +178,8 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
+            "positionSource": "Wikidata P413 specific role",
+            "rawPositionLabel": "zagueiro"
           }
         },
         {
@@ -186,8 +188,6 @@
           "dateOfBirth": "1996-08-30",
           "nationality": "Brasil",
           "heightCm": 178,
-          "position": "ST",
-          "positionSource": "Wikidata",
           "clubId": "cruzeiro-ec",
           "clubName": "Cruzeiro EC",
           "membershipStart": "2025-01-01",
@@ -201,7 +201,7 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
+            "rawPositionLabel": "avançado"
           }
         },
         {
@@ -222,7 +222,8 @@
             "genderStatement": "P21",
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
-            "temporalRule": "preferred-rank-or-started-2024+"
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "rawPositionLabel": "wing half"
           }
         },
         {
@@ -231,8 +232,6 @@
           "dateOfBirth": "1987-06-06",
           "nationality": "Brasil",
           "heightCm": 195,
-          "position": "GK",
-          "positionSource": "Wikidata",
           "clubId": "cruzeiro-ec",
           "clubName": "Cruzeiro EC",
           "membershipStart": "2025-01-01",
@@ -246,7 +245,7 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
+            "rawPositionLabel": "guarda-redes"
           }
         },
         {
@@ -256,7 +255,7 @@
           "nationality": "Brasil",
           "heightCm": 168,
           "position": "CB",
-          "positionSource": "Wikidata",
+          "positionSource": "Wikidata specific label",
           "clubId": "cruzeiro-ec",
           "clubName": "Cruzeiro EC",
           "membershipStart": "2025-01-01",
@@ -270,7 +269,8 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
+            "positionSource": "Wikidata P413 specific role",
+            "rawPositionLabel": "zagueiro"
           }
         },
         {
@@ -280,7 +280,7 @@
           "nationality": "Paraguai",
           "heightCm": 176,
           "position": "DM",
-          "positionSource": "Wikidata",
+          "positionSource": "Wikidata specific label",
           "clubId": "cruzeiro-ec",
           "clubName": "Cruzeiro EC",
           "membershipStart": "2024-01-01",
@@ -294,7 +294,8 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
+            "positionSource": "Wikidata P413 specific role",
+            "rawPositionLabel": "defensive midfielder"
           }
         },
         {
@@ -304,7 +305,7 @@
           "nationality": "Brasil",
           "heightCm": 180,
           "position": "LW",
-          "positionSource": "Wikidata",
+          "positionSource": "Wikidata specific label",
           "clubId": "cruzeiro-ec",
           "clubName": "Cruzeiro EC",
           "membershipStart": "2026-01-01",
@@ -318,12 +319,13 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
+            "positionSource": "Wikidata P413 specific role",
+            "rawPositionLabel": "left winger"
           }
         }
       ],
       "count": 9,
-      "positionedPlayers": 8
+      "positionedPlayers": 4
     },
     {
       "club": {
@@ -342,7 +344,7 @@
           "nationality": "Brasil",
           "heightCm": 178,
           "position": "CB",
-          "positionSource": "Wikidata",
+          "positionSource": "Wikidata specific label",
           "clubId": "ca-mineiro",
           "clubName": "CA Mineiro",
           "membershipStart": "2026-01-01",
@@ -356,7 +358,8 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
+            "positionSource": "Wikidata P413 specific role",
+            "rawPositionLabel": "zagueiro"
           }
         },
         {
@@ -365,8 +368,8 @@
           "dateOfBirth": "2002-01-19",
           "nationality": "Brasil",
           "heightCm": 185,
-          "position": "DM",
-          "positionSource": "Wikidata",
+          "position": "CM",
+          "positionSource": "OpenFootball CC0",
           "clubId": "ca-mineiro",
           "clubName": "CA Mineiro",
           "membershipStart": "2025-08-01",
@@ -380,7 +383,8 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
+            "positionSource": "OpenFootball exact name+DOB",
+            "rawPositionLabel": "Meio-campista"
           }
         },
         {
@@ -404,7 +408,8 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "OpenFootball exact name+DOB"
+            "positionSource": "OpenFootball exact name+DOB",
+            "rawPositionLabel": "wing half"
           }
         },
         {
@@ -413,8 +418,6 @@
           "dateOfBirth": "1993-03-05",
           "nationality": "Brasil",
           "heightCm": 169,
-          "position": "DM",
-          "positionSource": "Wikidata",
           "clubId": "ca-mineiro",
           "clubName": "CA Mineiro",
           "membershipStart": "2026-08-14",
@@ -428,12 +431,12 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
+            "rawPositionLabel": "Meio-campista"
           }
         }
       ],
       "count": 4,
-      "positionedPlayers": 4
+      "positionedPlayers": 3
     },
     {
       "club": {
@@ -451,8 +454,6 @@
           "dateOfBirth": "1996-01-24",
           "nationality": "Brasil",
           "heightCm": 178,
-          "position": "ST",
-          "positionSource": "Wikidata",
           "clubId": "fortaleza-ec",
           "clubName": "Fortaleza EC",
           "membershipStart": "2024-10-02",
@@ -466,12 +467,12 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
+            "rawPositionLabel": "avançado"
           }
         }
       ],
       "count": 1,
-      "positionedPlayers": 1
+      "positionedPlayers": 0
     },
     {
       "club": {
@@ -504,7 +505,8 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "OpenFootball exact name+DOB"
+            "positionSource": "OpenFootball exact name+DOB",
+            "rawPositionLabel": "defesa central"
           }
         },
         {
@@ -514,7 +516,7 @@
           "nationality": "Brasil",
           "heightCm": 180,
           "position": "AM",
-          "positionSource": "Wikidata",
+          "positionSource": "Wikidata specific label",
           "clubId": "fluminense-fc",
           "clubName": "Fluminense FC",
           "membershipStart": "2026-07-01",
@@ -528,7 +530,8 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
+            "positionSource": "Wikidata P413 specific role",
+            "rawPositionLabel": "attacking midfielder"
           }
         },
         {
@@ -538,7 +541,7 @@
           "nationality": "Venezuela",
           "heightCm": 169,
           "position": "ST",
-          "positionSource": "Wikidata",
+          "positionSource": "OpenFootball CC0",
           "clubId": "fluminense-fc",
           "clubName": "Fluminense FC",
           "membershipStart": "2026-01-01",
@@ -552,7 +555,8 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
+            "positionSource": "OpenFootball exact name+DOB",
+            "rawPositionLabel": "avançado"
           }
         },
         {
@@ -561,8 +565,6 @@
           "dateOfBirth": "1994-05-31",
           "nationality": "Argentina",
           "heightCm": 160,
-          "position": "DM",
-          "positionSource": "Wikidata",
           "clubId": "fluminense-fc",
           "clubName": "Fluminense FC",
           "membershipStart": "2025-08-01",
@@ -576,7 +578,7 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
+            "rawPositionLabel": "Meio-campista"
           }
         },
         {
@@ -586,7 +588,7 @@
           "nationality": "Paraguai",
           "heightCm": 178,
           "position": "AM",
-          "positionSource": "Wikidata",
+          "positionSource": "Wikidata specific label",
           "clubId": "fluminense-fc",
           "clubName": "Fluminense FC",
           "membershipStart": "2025-02-01",
@@ -600,12 +602,13 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
+            "positionSource": "Wikidata P413 specific role",
+            "rawPositionLabel": "attacking midfielder"
           }
         }
       ],
       "count": 5,
-      "positionedPlayers": 5
+      "positionedPlayers": 4
     },
     {
       "club": {
@@ -624,7 +627,7 @@
           "nationality": "Colômbia",
           "heightCm": 183,
           "position": "CB",
-          "positionSource": "Wikidata",
+          "positionSource": "Wikidata specific label",
           "clubId": "ec-juventude",
           "clubName": "EC Juventude",
           "membershipStart": "2021-01-01",
@@ -638,7 +641,8 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
+            "positionSource": "Wikidata P413 specific role",
+            "rawPositionLabel": "zagueiro"
           }
         }
       ],
@@ -689,7 +693,8 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "OpenFootball exact name+DOB"
+            "positionSource": "OpenFootball exact name+DOB",
+            "rawPositionLabel": "Lateral (futebol)"
           }
         },
         {
@@ -698,8 +703,8 @@
           "dateOfBirth": "1999-12-23",
           "nationality": "Brasil",
           "heightCm": 178,
-          "position": "DM",
-          "positionSource": "Wikidata",
+          "position": "ST",
+          "positionSource": "OpenFootball CC0",
           "clubId": "cr-flamengo",
           "clubName": "CR Flamengo",
           "membershipStart": "2025-01-01",
@@ -713,7 +718,8 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
+            "positionSource": "OpenFootball exact name+DOB",
+            "rawPositionLabel": "Meio-campista"
           }
         },
         {
@@ -722,8 +728,6 @@
           "dateOfBirth": "1994-11-21",
           "nationality": "Espanha",
           "heightCm": 183,
-          "position": "DM",
-          "positionSource": "Wikidata",
           "clubId": "cr-flamengo",
           "clubName": "CR Flamengo",
           "membershipStart": "2025-07-01",
@@ -737,7 +741,7 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
+            "rawPositionLabel": "Meio-campista"
           }
         },
         {
@@ -761,7 +765,8 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "OpenFootball exact name+DOB"
+            "positionSource": "OpenFootball exact name+DOB",
+            "rawPositionLabel": "wing half"
           }
         },
         {
@@ -770,8 +775,6 @@
           "dateOfBirth": "1991-12-20",
           "nationality": "Brasil",
           "heightCm": 180,
-          "position": "DM",
-          "positionSource": "Wikidata",
           "clubId": "cr-flamengo",
           "clubName": "CR Flamengo",
           "membershipStart": "2025-06-01",
@@ -785,7 +788,7 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
+            "rawPositionLabel": "Meio-campista"
           }
         },
         {
@@ -795,7 +798,7 @@
           "nationality": "Uruguai",
           "heightCm": 183,
           "position": "CB",
-          "positionSource": "Wikidata",
+          "positionSource": "Wikidata specific label",
           "clubId": "cr-flamengo",
           "clubName": "CR Flamengo",
           "membershipStart": "2024-01-01",
@@ -809,7 +812,8 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
+            "positionSource": "Wikidata P413 specific role",
+            "rawPositionLabel": "zagueiro"
           }
         },
         {
@@ -818,8 +822,8 @@
           "dateOfBirth": "1997-06-01",
           "nationality": "Uruguai",
           "heightCm": 167,
-          "position": "DM",
-          "positionSource": "Wikidata",
+          "position": "CM",
+          "positionSource": "OpenFootball CC0",
           "clubId": "cr-flamengo",
           "clubName": "CR Flamengo",
           "membershipStart": "2024-01-01",
@@ -833,7 +837,8 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
+            "positionSource": "OpenFootball exact name+DOB",
+            "rawPositionLabel": "Meio-campista"
           }
         },
         {
@@ -843,7 +848,7 @@
           "nationality": "Brasil",
           "heightCm": 180,
           "position": "AM",
-          "positionSource": "Wikidata",
+          "positionSource": "Wikidata specific label",
           "clubId": "cr-flamengo",
           "clubName": "CR Flamengo",
           "membershipStart": "2026-01-01",
@@ -857,7 +862,8 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
+            "positionSource": "Wikidata P413 specific role",
+            "rawPositionLabel": "attacking midfielder"
           }
         },
         {
@@ -878,7 +884,8 @@
             "genderStatement": "P21",
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
-            "temporalRule": "preferred-rank-or-started-2024+"
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "rawPositionLabel": "defesa central"
           }
         },
         {
@@ -888,7 +895,7 @@
           "nationality": "Brasil",
           "heightCm": 184,
           "position": "CB",
-          "positionSource": "Wikidata",
+          "positionSource": "Wikidata specific label",
           "clubId": "cr-flamengo",
           "clubName": "CR Flamengo",
           "membershipStart": "2025-01-29",
@@ -902,7 +909,8 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
+            "positionSource": "Wikidata P413 specific role",
+            "rawPositionLabel": "zagueiro"
           }
         },
         {
@@ -911,8 +919,6 @@
           "dateOfBirth": "1996-11-21",
           "nationality": "Brasil",
           "heightCm": 179,
-          "position": "ST",
-          "positionSource": "Wikidata",
           "clubId": "cr-flamengo",
           "clubName": "CR Flamengo",
           "membershipStart": "2025-01-01",
@@ -926,12 +932,12 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "Wikidata P413"
+            "rawPositionLabel": "avançado"
           }
         }
       ],
       "count": 11,
-      "positionedPlayers": 10
+      "positionedPlayers": 7
     }
   ]
 }
