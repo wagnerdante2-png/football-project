@@ -17,17 +17,16 @@ async function clickCreatorNext(timeout = 8000) {
   const marker = (await page.locator('.v2-creator main>header span').first().textContent()) || '';
   const el = page.locator(selector).first();
   await el.waitFor({ state: 'visible', timeout });
-  try {
-    await el.click({ timeout });
-  } catch (error) {
-    if (!(error instanceof Error) || !error.message.includes('Timeout')) throw error;
-    const progressed = await page.waitForFunction(previous => {
-      if (document.querySelector('.game-sidebar')) return true;
-      const current = document.querySelector('.v2-creator main>header span')?.textContent || '';
-      return Boolean(current && current !== previous);
-    }, marker, { timeout: 1200 }).then(() => true).catch(() => false);
-    if (!progressed) throw error;
-  }
+  await page.waitForFunction(sel => {
+    const button = document.querySelector(sel);
+    return button instanceof HTMLButtonElement && !button.disabled;
+  }, selector, { timeout });
+  await el.evaluate(button => button.click());
+  await page.waitForFunction(previous => {
+    if (document.querySelector('.game-sidebar')) return true;
+    const current = document.querySelector('.v2-creator main>header span')?.textContent || '';
+    return Boolean(current && current !== previous);
+  }, marker, { timeout });
 }
 async function assertResponsive(label) {
   const ok = await page.evaluate(() => new Promise(resolve => {
@@ -159,7 +158,8 @@ try {
 
   const runtimeErrors = await page.evaluate(() => {
     try { return JSON.parse(sessionStorage.getItem('touchline-beta-runtime-issues-v1') || '[]'); }
-    catch { return [{ message: 'invalid runtime diagnostics JSON' }]; }
+    catch { return [{ message: 'invalid runtime diagnostics JSON' }];
+    }
   });
   if (runtimeErrors.length) failures.push(...runtimeErrors.map(x => `runtime: ${x.message || JSON.stringify(x)}`));
   if (failures.length) throw new Error(failures.join('\n'));
