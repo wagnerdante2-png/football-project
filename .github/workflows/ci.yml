@@ -10,6 +10,7 @@ concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
 
+# Full beta gate: engine/data smoke tests plus browser stress and UI lifecycle coverage.
 jobs:
   build:
     runs-on: ubuntu-latest
