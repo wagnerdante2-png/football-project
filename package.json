@@ -20,6 +20,7 @@
     "smoke:background-club": "tsx scripts/smoke-background-club-integration.ts",
     "smoke:human-dialogue": "tsx scripts/smoke-human-dialogue.ts",
     "smoke:human-press": "tsx scripts/smoke-human-press-conference.ts",
+    "smoke:team-talks": "tsx scripts/smoke-team-talks.ts",
     "test:e2e:stress": "node scripts/e2e-stress.mjs",
     "test:e2e:ui-bridge": "node scripts/e2e-ui-event-bridge.mjs",
     "audit:coverage": "node scripts/audit-module-coverage.mjs",
