@@ -27,7 +27,7 @@ function launchCanonicalSystem(id:string){
   const systems=document.querySelector<HTMLButtonElement>('.game-sidebar [data-system-view="systems"]');
   if(!systems)return;
   systems.click();
-  setTimeout(()=>document.querySelector<HTMLButtonElement>(`[data-engine-launch="${id}"]`)?.click(),0);
+  queueMicrotask(()=>document.querySelector<HTMLButtonElement>(`[data-engine-launch="${id}"]`)?.click());
 }
 
 document.addEventListener('click',e=>{
@@ -37,19 +37,12 @@ document.addEventListener('click',e=>{
   if(!b)return;
   const id=b.dataset.view;
   if(id==='school'){
-    e.preventDefault();e.stopPropagation();launchCanonicalSystem('school');return;
-  }
-  if(id==='training'){
-    const proxy=document.querySelector<HTMLButtonElement>('.game-sidebar [data-training-view]');
-    if(proxy&&proxy!==b){e.preventDefault();queueMicrotask(()=>proxy.click())}
-  }else if(id==='medical'||id==='systems'){
-    const proxy=document.querySelector<HTMLButtonElement>(`.game-sidebar [data-system-view="${id}"]`);
-    if(proxy&&proxy!==b){e.preventDefault();queueMicrotask(()=>proxy.click())}
+    const proxy=document.querySelector<HTMLButtonElement>('.game-sidebar [data-system-view="school"]');
+    if(proxy&&proxy!==b){e.preventDefault();e.stopPropagation();queueMicrotask(()=>proxy.click())}
   }
 },true);
 
 window.addEventListener('touchline:world-ready',schedule);
-window.addEventListener('touchline:view-rendered',schedule);
-const root=document.querySelector('#app');
-if(root)new MutationObserver(schedule).observe(root,{childList:true,subtree:true});
+window.addEventListener('touchline:world-hydrated',schedule);
+document.addEventListener('touchline:view-rendered',schedule);
 schedule();
