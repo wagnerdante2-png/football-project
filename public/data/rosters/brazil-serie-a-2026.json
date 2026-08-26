@@ -1,6 +1,6 @@
 {
   "version": 6,
-  "generatedAt": "2026-08-26T10:38:22.190Z",
+  "generatedAt": "2026-08-26T10:54:47.681Z",
   "season": 2026,
   "source": {
     "name": "Wikidata",
@@ -22,10 +22,10 @@
     "clubs": 16,
     "clubsWithPlayers": 12,
     "players": 59,
-    "playersWithSpecificPosition": 16,
-    "playersWithRoleGroup": 57,
+    "playersWithSpecificPosition": 43,
+    "playersWithRoleGroup": 58,
     "positionsFromWikidata": 16,
-    "positionsFromOpenFootball": 0,
+    "positionsFromOpenFootball": 27,
     "playersWithNationality": 59,
     "playersWithHeight": 59
   },
@@ -47,6 +47,8 @@
           "nationality": "Portugal",
           "heightCm": 169,
           "roleGroup": "defender",
+          "position": "CB",
+          "positionSource": "OpenFootball specific role",
           "roleGroupSource": "Wikidata P413",
           "clubId": "sao-paulo-fc",
           "clubName": "São Paulo FC",
@@ -61,6 +63,7 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB specific role",
             "roleGroupSource": "Wikidata P413 broad role",
             "rawPositionLabel": "Lateral (futebol)"
           }
@@ -72,6 +75,8 @@
           "nationality": "Brasil",
           "heightCm": 172,
           "roleGroup": "midfielder",
+          "position": "CM",
+          "positionSource": "OpenFootball specific role",
           "roleGroupSource": "Wikidata P413",
           "clubId": "sao-paulo-fc",
           "clubName": "São Paulo FC",
@@ -86,13 +91,14 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB specific role",
             "roleGroupSource": "Wikidata P413 broad role",
             "rawPositionLabel": "wing half"
           }
         }
       ],
       "count": 2,
-      "positionedPlayers": 0
+      "positionedPlayers": 2
     },
     {
       "club": {
@@ -230,6 +236,8 @@
           "nationality": "República Democrática do Congo",
           "heightCm": 188,
           "roleGroup": "midfielder",
+          "position": "CM",
+          "positionSource": "OpenFootball specific role",
           "roleGroupSource": "Wikidata P413",
           "clubId": "cruzeiro-ec",
           "clubName": "Cruzeiro EC",
@@ -244,6 +252,7 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB specific role",
             "roleGroupSource": "Wikidata P413 broad role",
             "rawPositionLabel": "wing half"
           }
@@ -362,7 +371,7 @@
         }
       ],
       "count": 9,
-      "positionedPlayers": 6
+      "positionedPlayers": 7
     },
     {
       "club": {
@@ -409,6 +418,8 @@
           "nationality": "Brasil",
           "heightCm": 185,
           "roleGroup": "midfielder",
+          "position": "CM",
+          "positionSource": "OpenFootball specific role",
           "roleGroupSource": "Wikidata P413",
           "clubId": "ca-mineiro",
           "clubName": "CA Mineiro",
@@ -423,6 +434,7 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB specific role",
             "roleGroupSource": "Wikidata P413 broad role",
             "rawPositionLabel": "Meio-campista"
           }
@@ -434,6 +446,8 @@
           "nationality": "Brasil",
           "heightCm": 164,
           "roleGroup": "midfielder",
+          "position": "CM",
+          "positionSource": "OpenFootball specific role",
           "roleGroupSource": "Wikidata P413",
           "clubId": "ca-mineiro",
           "clubName": "CA Mineiro",
@@ -448,6 +462,7 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB specific role",
             "roleGroupSource": "Wikidata P413 broad role",
             "rawPositionLabel": "wing half"
           }
@@ -479,7 +494,7 @@
         }
       ],
       "count": 4,
-      "positionedPlayers": 1
+      "positionedPlayers": 3
     },
     {
       "club": {
@@ -537,6 +552,8 @@
           "nationality": "Brasil",
           "heightCm": 183,
           "roleGroup": "defender",
+          "position": "CB",
+          "positionSource": "OpenFootball specific role",
           "roleGroupSource": "OpenFootball CC0",
           "clubId": "fluminense-fc",
           "clubName": "Fluminense FC",
@@ -551,6 +568,7 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB specific role",
             "roleGroupSource": "OpenFootball exact name+DOB broad role",
             "rawPositionLabel": "defesa central"
           }
@@ -590,6 +608,8 @@
           "nationality": "Venezuela",
           "heightCm": 169,
           "roleGroup": "forward",
+          "position": "ST",
+          "positionSource": "OpenFootball specific role",
           "roleGroupSource": "Wikidata P413",
           "clubId": "fluminense-fc",
           "clubName": "Fluminense FC",
@@ -604,6 +624,7 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB specific role",
             "roleGroupSource": "Wikidata P413 broad role",
             "rawPositionLabel": "avançado"
           }
@@ -663,7 +684,7 @@
         }
       ],
       "count": 5,
-      "positionedPlayers": 2
+      "positionedPlayers": 4
     },
     {
       "club": {
@@ -737,6 +758,8 @@
           "nationality": "Brasil",
           "heightCm": 180,
           "roleGroup": "defender",
+          "position": "CB",
+          "positionSource": "OpenFootball specific role",
           "roleGroupSource": "Wikidata P413",
           "clubId": "cr-flamengo",
           "clubName": "CR Flamengo",
@@ -751,6 +774,7 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB specific role",
             "roleGroupSource": "Wikidata P413 broad role",
             "rawPositionLabel": "Lateral (futebol)"
           }
@@ -761,7 +785,9 @@
           "dateOfBirth": "1999-12-23",
           "nationality": "Brasil",
           "heightCm": 178,
-          "roleGroup": "midfielder",
+          "roleGroup": "forward",
+          "position": "ST",
+          "positionSource": "OpenFootball specific role",
           "roleGroupSource": "Wikidata P413",
           "clubId": "cr-flamengo",
           "clubName": "CR Flamengo",
@@ -776,6 +802,7 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB specific role",
             "roleGroupSource": "Wikidata P413 broad role",
             "rawPositionLabel": "Meio-campista"
           }
@@ -787,6 +814,8 @@
           "nationality": "Espanha",
           "heightCm": 183,
           "roleGroup": "midfielder",
+          "position": "CM",
+          "positionSource": "OpenFootball specific role",
           "roleGroupSource": "Wikidata P413",
           "clubId": "cr-flamengo",
           "clubName": "CR Flamengo",
@@ -801,6 +830,7 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB specific role",
             "roleGroupSource": "Wikidata P413 broad role",
             "rawPositionLabel": "Meio-campista"
           }
@@ -812,6 +842,8 @@
           "nationality": "Colômbia",
           "heightCm": 180,
           "roleGroup": "midfielder",
+          "position": "CM",
+          "positionSource": "OpenFootball specific role",
           "roleGroupSource": "Wikidata P413",
           "clubId": "cr-flamengo",
           "clubName": "CR Flamengo",
@@ -826,6 +858,7 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB specific role",
             "roleGroupSource": "Wikidata P413 broad role",
             "rawPositionLabel": "wing half"
           }
@@ -890,6 +923,8 @@
           "nationality": "Uruguai",
           "heightCm": 167,
           "roleGroup": "midfielder",
+          "position": "CM",
+          "positionSource": "OpenFootball specific role",
           "roleGroupSource": "Wikidata P413",
           "clubId": "cr-flamengo",
           "clubName": "CR Flamengo",
@@ -904,6 +939,7 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB specific role",
             "roleGroupSource": "Wikidata P413 broad role",
             "rawPositionLabel": "Meio-campista"
           }
@@ -1013,7 +1049,7 @@
         }
       ],
       "count": 11,
-      "positionedPlayers": 3
+      "positionedPlayers": 8
     },
     {
       "club": {
@@ -1107,6 +1143,8 @@
           "nationality": "Brasil",
           "heightCm": 172,
           "roleGroup": "forward",
+          "position": "ST",
+          "positionSource": "OpenFootball specific role",
           "roleGroupSource": "Wikidata P413",
           "clubId": "se-palmeiras",
           "clubName": "SE Palmeiras",
@@ -1121,13 +1159,14 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB specific role",
             "roleGroupSource": "Wikidata P413 broad role",
             "rawPositionLabel": "avançado"
           }
         }
       ],
       "count": 4,
-      "positionedPlayers": 0
+      "positionedPlayers": 1
     },
     {
       "club": {
@@ -1145,7 +1184,9 @@
           "dateOfBirth": "1996-11-11",
           "nationality": "Venezuela",
           "heightCm": 169,
-          "roleGroup": "midfielder",
+          "roleGroup": "forward",
+          "position": "ST",
+          "positionSource": "OpenFootball specific role",
           "roleGroupSource": "Wikidata P413",
           "clubId": "botafogo-fr",
           "clubName": "Botafogo FR",
@@ -1160,6 +1201,7 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB specific role",
             "roleGroupSource": "Wikidata P413 broad role",
             "rawPositionLabel": "Meio-campista"
           }
@@ -1224,6 +1266,8 @@
           "nationality": "Brasil",
           "heightCm": 181,
           "roleGroup": "defender",
+          "position": "CB",
+          "positionSource": "OpenFootball specific role",
           "roleGroupSource": "Wikidata P413",
           "clubId": "botafogo-fr",
           "clubName": "Botafogo FR",
@@ -1238,13 +1282,14 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB specific role",
             "roleGroupSource": "Wikidata P413 broad role",
             "rawPositionLabel": "Lateral (futebol)"
           }
         }
       ],
       "count": 4,
-      "positionedPlayers": 1
+      "positionedPlayers": 3
     },
     {
       "club": {
@@ -1287,7 +1332,9 @@
           "dateOfBirth": "1992-06-12",
           "nationality": "Portugal",
           "heightCm": 172,
-          "roleGroup": "forward",
+          "roleGroup": "midfielder",
+          "position": "CM",
+          "positionSource": "OpenFootball specific role",
           "roleGroupSource": "Wikidata P413",
           "clubId": "cr-vasco-da-gama",
           "clubName": "CR Vasco da Gama",
@@ -1302,6 +1349,7 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB specific role",
             "roleGroupSource": "Wikidata P413 broad role",
             "rawPositionLabel": "winger"
           }
@@ -1312,6 +1360,10 @@
           "dateOfBirth": "1999-06-16",
           "nationality": "Portugal",
           "heightCm": 175,
+          "roleGroup": "forward",
+          "position": "ST",
+          "positionSource": "OpenFootball specific role",
+          "roleGroupSource": "OpenFootball CC0",
           "clubId": "cr-vasco-da-gama",
           "clubName": "CR Vasco da Gama",
           "membershipStart": "2025-01-01",
@@ -1324,7 +1376,9 @@
             "genderStatement": "P21",
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
-            "temporalRule": "preferred-rank-or-started-2024+"
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB specific role",
+            "roleGroupSource": "OpenFootball exact name+DOB broad role"
           }
         },
         {
@@ -1387,6 +1441,8 @@
           "nationality": "Suíça",
           "heightCm": 166,
           "roleGroup": "midfielder",
+          "position": "CM",
+          "positionSource": "OpenFootball specific role",
           "roleGroupSource": "Wikidata P413",
           "clubId": "cr-vasco-da-gama",
           "clubName": "CR Vasco da Gama",
@@ -1401,13 +1457,14 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB specific role",
             "roleGroupSource": "Wikidata P413 broad role",
             "rawPositionLabel": "Meio-campista"
           }
         }
       ],
       "count": 6,
-      "positionedPlayers": 1
+      "positionedPlayers": 4
     },
     {
       "club": {
@@ -1425,7 +1482,9 @@
           "dateOfBirth": "1992-02-05",
           "nationality": "Brasil",
           "heightCm": 175,
-          "roleGroup": "midfielder",
+          "roleGroup": "forward",
+          "position": "ST",
+          "positionSource": "OpenFootball specific role",
           "roleGroupSource": "Wikidata P413",
           "clubId": "santos-fc",
           "clubName": "Santos FC",
@@ -1440,6 +1499,7 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB specific role",
             "roleGroupSource": "Wikidata P413 broad role",
             "rawPositionLabel": "wing half"
           }
@@ -1476,6 +1536,8 @@
           "nationality": "Brasil",
           "heightCm": 181,
           "roleGroup": "midfielder",
+          "position": "CM",
+          "positionSource": "OpenFootball specific role",
           "roleGroupSource": "Wikidata P413",
           "clubId": "santos-fc",
           "clubName": "Santos FC",
@@ -1490,13 +1552,14 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB specific role",
             "roleGroupSource": "Wikidata P413 broad role",
             "rawPositionLabel": "Meio-campista"
           }
         }
       ],
       "count": 3,
-      "positionedPlayers": 0
+      "positionedPlayers": 2
     },
     {
       "club": {
@@ -1515,6 +1578,8 @@
           "nationality": "Peru",
           "heightCm": 180,
           "roleGroup": "midfielder",
+          "position": "CM",
+          "positionSource": "OpenFootball specific role",
           "roleGroupSource": "Wikidata P413",
           "clubId": "sc-corinthians-paulista",
           "clubName": "SC Corinthians Paulista",
@@ -1529,6 +1594,7 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB specific role",
             "roleGroupSource": "Wikidata P413 broad role",
             "rawPositionLabel": "wing half"
           }
@@ -1540,6 +1606,8 @@
           "nationality": "Gana",
           "heightCm": 178,
           "roleGroup": "forward",
+          "position": "ST",
+          "positionSource": "OpenFootball specific role",
           "roleGroupSource": "Wikidata P413",
           "clubId": "sc-corinthians-paulista",
           "clubName": "SC Corinthians Paulista",
@@ -1554,6 +1622,7 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB specific role",
             "roleGroupSource": "Wikidata P413 broad role",
             "rawPositionLabel": "avançado"
           }
@@ -1565,6 +1634,8 @@
           "nationality": "Reino dos Países Baixos",
           "heightCm": 170,
           "roleGroup": "midfielder",
+          "position": "CM",
+          "positionSource": "OpenFootball specific role",
           "roleGroupSource": "Wikidata P413",
           "clubId": "sc-corinthians-paulista",
           "clubName": "SC Corinthians Paulista",
@@ -1579,6 +1650,7 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB specific role",
             "roleGroupSource": "Wikidata P413 broad role",
             "rawPositionLabel": "Meio-campista"
           }
@@ -1643,6 +1715,8 @@
           "nationality": "Venezuela",
           "heightCm": 176,
           "roleGroup": "midfielder",
+          "position": "CM",
+          "positionSource": "OpenFootball specific role",
           "roleGroupSource": "Wikidata P413",
           "clubId": "sc-corinthians-paulista",
           "clubName": "SC Corinthians Paulista",
@@ -1657,6 +1731,7 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB specific role",
             "roleGroupSource": "Wikidata P413 broad role",
             "rawPositionLabel": "Meio-campista"
           }
@@ -1668,6 +1743,8 @@
           "nationality": "Equador",
           "heightCm": 187,
           "roleGroup": "defender",
+          "position": "CB",
+          "positionSource": "OpenFootball specific role",
           "roleGroupSource": "Wikidata P413",
           "clubId": "sc-corinthians-paulista",
           "clubName": "SC Corinthians Paulista",
@@ -1682,6 +1759,7 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB specific role",
             "roleGroupSource": "Wikidata P413 broad role",
             "rawPositionLabel": "defender"
           }
@@ -1693,6 +1771,8 @@
           "nationality": "Brasil",
           "heightCm": 187,
           "roleGroup": "defender",
+          "position": "CB",
+          "positionSource": "OpenFootball specific role",
           "roleGroupSource": "OpenFootball CC0",
           "clubId": "sc-corinthians-paulista",
           "clubName": "SC Corinthians Paulista",
@@ -1707,6 +1787,7 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB specific role",
             "roleGroupSource": "OpenFootball exact name+DOB broad role",
             "rawPositionLabel": "defesa central"
           }
@@ -1718,6 +1799,8 @@
           "nationality": "Brasil",
           "heightCm": 193,
           "roleGroup": "defender",
+          "position": "CB",
+          "positionSource": "OpenFootball specific role",
           "roleGroupSource": "OpenFootball CC0",
           "clubId": "sc-corinthians-paulista",
           "clubName": "SC Corinthians Paulista",
@@ -1732,13 +1815,14 @@
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB specific role",
             "roleGroupSource": "OpenFootball exact name+DOB broad role",
             "rawPositionLabel": "defesa central"
           }
         }
       ],
       "count": 9,
-      "positionedPlayers": 1
+      "positionedPlayers": 8
     },
     {
       "club": {
