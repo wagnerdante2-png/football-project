@@ -102,8 +102,9 @@ export function ensureActiveLeagueCanonicalBridge(world:World){
   ensureClubsAndMemberships(world);
   if(wired.has(world))return;
   wired.add(world);
-  onWorldEvent(world,'MatchCompleted',(event,w)=>{
-    if(event.season!==w.season&&event.season!==w.season-1)return;
-    mirrorCompletedMatch(w,event);
+  onWorldEvent(world,'MatchCompleted',(event,w)=>mirrorCompletedMatch(w,event));
+  onWorldEvent(world,'SeasonStarted',(_event,w)=>{
+    ensureCompetition(w);
+    ensureClubsAndMemberships(w);
   });
 }
