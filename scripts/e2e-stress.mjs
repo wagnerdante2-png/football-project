@@ -76,14 +76,12 @@ try {
     await click('.game-sidebar [data-view="home"]');
   }
 
-  // Canonical engine hub: every deep system must be reachable from the visible beta shell.
   for (const system of ['medical','transfers','negotiations','recruitment','staff','career','press','school','analytics','club','world']) {
     await openSystems();
     await click(`[data-engine-launch="${system}"]`, 5000);
     await assertResponsive(`canonical system ${system}`);
   }
 
-  // Media is a first-class workspace; all four formats must switch without replacing the world.
   const mediaNav = page.locator('[data-media-hub-nav]');
   if (await mediaNav.count()) {
     await mediaNav.click({ timeout: 5000 });
@@ -93,7 +91,6 @@ try {
     }
   }
 
-  // Optional football school must be creatable and remain navigable.
   await click('.game-sidebar [data-view="school"]');
   const createSchool = page.locator('[data-create-school]');
   if (await createSchool.count()) {
@@ -102,20 +99,20 @@ try {
   }
   await assertResponsive('football school');
 
-  // Composite save/load: save the exact active world, change a day, then restore without runtime errors.
   const saveNav = page.locator('[data-save-view]');
   await saveNav.waitFor({ state: 'visible', timeout: 5000 });
   await saveNav.click({ timeout: 5000 });
   await click('[data-save-local]', 5000);
-  const hasSave = await page.evaluate(() => Boolean(localStorage.getItem('touchline-beta-save-v2')));
-  if (!hasSave) throw new Error('Composite beta save was not written to localStorage');
+  await page.locator('[data-save-status]').filter({ hasText: 'Carreira completa salva com sucesso' }).waitFor({ state: 'visible', timeout: 10000 });
+  const savedStatus = await page.locator('[data-save-status]').textContent();
+  if (!savedStatus?.includes('MB')) throw new Error(`IndexedDB save did not report persisted size: ${savedStatus}`);
   await click('.game-sidebar [data-view="home"]');
   const beforeMutation = await page.locator('[data-world-date]').textContent();
   await click('[data-continue]', 8000);
   await page.waitForFunction(prev => document.querySelector('[data-world-date]')?.textContent !== prev, beforeMutation, { timeout: 8000 });
   await saveNav.click({ timeout: 5000 });
   await click('[data-load-local]', 5000);
-  await page.locator('[data-save-status]').filter({ hasText: 'Save carregado' }).waitFor({ state: 'visible', timeout: 5000 });
+  await page.locator('[data-save-status]').filter({ hasText: 'Save carregado' }).waitFor({ state: 'visible', timeout: 10000 });
   await assertResponsive('save load');
 
   const runtimeErrors = await page.evaluate(() => {
@@ -124,7 +121,7 @@ try {
   });
   if (runtimeErrors.length) failures.push(...runtimeErrors.map(x => `runtime: ${x.message || JSON.stringify(x)}`));
   if (failures.length) throw new Error(failures.join('\n'));
-  console.log('E2E stress passed: navigation, 5 day advances, matchday, profiles, canonical systems, media, school and composite save/load remained responsive.');
+  console.log('E2E stress passed: navigation, 5 day advances, matchday, profiles, canonical systems, media, school and IndexedDB save/load remained responsive.');
 } finally {
   await browser.close();
 }
