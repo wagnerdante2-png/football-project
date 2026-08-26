@@ -1,0 +1,18 @@
+import type { World } from './engine';
+import { buildRecordBook, careerLeaderboards, seasonLeaderboards } from './match-record-book-v2';
+import { historicalHonours } from './football-history-v1';
+import { userManager } from './manager-character';
+
+const esc=(v:unknown)=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
+function world(){return window.__touchlineWorld as World|undefined}
+function playerName(w:World,id?:string){if(!id)return'—';for(const c of w.clubs){const p=c.players.find(x=>x.id===id);if(p)return p.name}return id}
+function managedClubId(w:World){return userManager(w)?.currentClubId??w.clubs[0]?.id}
+function leaderRows(w:World){const s=seasonLeaderboards(w,w.season),c=careerLeaderboards(w);const rows=[
+ ['Artilheiro da temporada',s.goals[0]?.playerId,s.goals[0]?.goals??0],`${s.goals[0]?.goals??0} gols`],
+ ['Mais assistências',s.assists[0]?.playerId,s.assists[0]?.assists??0,`${s.assists[0]?.assists??0} assist.`],
+ ['Melhor média',s.ratings[0]?.playerId,s.ratings[0]?.averageRating??0,`${(s.ratings[0]?.averageRating??0).toFixed(2)}`],
+ ['Mais jogos na carreira',c.appearances[0]?.playerId,c.appearances[0]?.appearances??0,`${c.appearances[0]?.appearances??0} jogos`],
+ ['Mais gols na carreira',c.goals[0]?.playerId,c.goals[0]?.goals??0,`${c.goals[0]?.goals??0} gols`],
+ ];return rows.map(([label,id,,value])=>`<article><span>${esc(label)}</span><b>${esc(playerName(w,id as string|undefined))}</b><strong>${esc(value)}</strong></article>`).join('')}
+function render(){const w=world(),host=document.querySelector<HTMLElement>('.game-stage main.view');if(!w||!host||host.querySelector('.records-history-v1'))return;const clubId=managedClubId(w),honours=clubId?historicalHonours(w,clubId):undefined,records=buildRecordBook(w).sort((a,b)=>b.value-a.value).slice(0,12);const section=document.createElement('section');section.className='records-history-v1';section.innerHTML=`<header><div><span>MEMÓRIA ESPORTIVA</span><h2>Recordes & História</h2><p>Marcos produzidos pelo histórico persistente de partidas e títulos do universo.</p></div><strong>${honours?.total??0}<small>títulos históricos registrados</small></strong></header><div class="rh-leaders">${leaderRows(w)}</div><div class="rh-grid"><section><h3>LIVRO DE RECORDES</h3>${records.length?records.map(r=>`<div class="rh-record"><span>${esc(r.category)}</span><b>${esc(playerName(w,r.playerId))}</b><strong>${esc(r.detail)}</strong><em>${r.value}</em></div>`).join(''):'<p class="rh-empty">Os recordes começam a surgir conforme a carreira produz partidas suficientes.</p>'}</section><section><h3>GALERIA DO CLUBE</h3>${honours?.byCompetition.length?honours.byCompetition.slice(0,10).map(h=>`<div class="rh-honour"><b>${esc(h.competitionId)}</b><span>${h.count} título${h.count===1?'':'s'}</span><small>${esc(h.seasons.slice(-8).join(' · '))}</small></div>`).join(''):'<p class="rh-empty">O cadastro histórico factual ainda não possui títulos vinculados a este clube.</p>'}</section></div></section>`;host.appendChild(section)}
+document.addEventListener('touchline:view-rendered',e=>{const d=(e as CustomEvent).detail;if(d?.view==='analytics')queueMicrotask(render)});
