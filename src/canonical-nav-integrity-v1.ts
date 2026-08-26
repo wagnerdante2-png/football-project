@@ -18,9 +18,9 @@ function repair(nav:HTMLElement){
     capture(nav);
     let anchor:Element|null=null;
     for(const id of canonicalOrder){
-      let node=nav.querySelector<HTMLButtonElement>(`:scope > [data-view="${id}"]`);
+      let node:HTMLButtonElement|null=nav.querySelector<HTMLButtonElement>(`:scope > [data-view="${id}"]`);
       if(!node){
-        node=canonicalNodes.get(id);
+        node=canonicalNodes.get(id)??null;
         if(node){
           console.warn(`[canonical-nav] restored removed route: ${id}`);
           if(anchor?.nextSibling)nav.insertBefore(node,anchor.nextSibling);else if(anchor)nav.appendChild(node);else nav.prepend(node);
