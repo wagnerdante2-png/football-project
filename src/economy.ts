@@ -34,8 +34,13 @@ function createFinance(club:Club):ClubFinance{
   const scale=club.reputation/75; const balance=Math.round((12_000_000+44_000_000*scale)/100000)*100000;
   return{clubId:club.id,balance,transferBudget:Math.round(balance*.28/100000)*100000,wageBudget:Math.round((210_000+club.reputation*8_600)/1000)*1000,wageSpend:0};
 }
+function economyContainer(world:World):EconomyState{
+  let state=economyByWorld.get(world);
+  if(!state){state={contracts:new Map(),finances:new Map(),freeAgents:[],transfers:[],loans:[]};economyByWorld.set(world,state);}
+  return state;
+}
 export function economyState(world:World):EconomyState{
-  let state=economyByWorld.get(world); if(!state){state={contracts:new Map(),finances:new Map(),freeAgents:[],transfers:[],loans:[]};economyByWorld.set(world,state);}
+  const state=economyContainer(world);
   for(const club of world.clubs){
     if(!state.finances.has(club.id))state.finances.set(club.id,createFinance(club));
     for(const player of club.players)if(!state.contracts.has(player.id)){
@@ -149,7 +154,16 @@ function runTransferAI(world:World,state:EconomyState,season:number):void{
 }
 function annualFinanceReset(world:World,state:EconomyState):void{for(const club of world.clubs){const finance=state.finances.get(club.id)!;const commercial=5_000_000+club.reputation*220_000;const wagesAnnual=finance.wageSpend*52;finance.balance+=commercial-wagesAnnual;finance.balance=Math.max(-8_000_000,finance.balance);finance.transferBudget=Math.max(250_000,Math.round(Math.max(0,finance.balance)*.22/100000)*100000);finance.wageBudget=Math.max(finance.wageSpend*1.04,Math.round((220_000+club.reputation*8_900)/1000)*1000);}}
 export function processOffseasonMarket(world:World,season:number):void{const state=economyState(world);resolveExpiredLoans(world,state,season);handleContracts(world,state,season);signFreeAgents(world,state,season);runTransferAI(world,state,season);annualFinanceReset(world,state);recalcWages(world,state);}
-export function clubFinance(world:World,clubId:string):ClubFinance|undefined{return economyState(world).finances.get(clubId);}
+export function clubFinance(world:World,clubId:string):ClubFinance|undefined{
+  const state=economyContainer(world);
+  const existing=state.finances.get(clubId);
+  if(existing)return existing;
+  const club=world.clubs.find(c=>c.id===clubId);if(!club)return undefined;
+  const finance=createFinance(club);
+  finance.wageSpend=Math.round(club.players.reduce((sum,p)=>sum+suggestedWage(p,club),0));
+  state.finances.set(club.id,finance);
+  return finance;
+}
 export function playerContract(world:World,playerId:string):Contract|undefined{return economyState(world).contracts.get(playerId);}
 export function recentTransfers(world:World,limit=30):TransferRecord[]{return[...economyState(world).transfers].reverse().slice(0,limit);}
 export function activeLoans(world:World,clubId?:string):LoanRecord[]{return economyState(world).loans.filter(l=>l.active&&(!clubId||l.parentClubId===clubId||l.loanClubId===clubId));}
