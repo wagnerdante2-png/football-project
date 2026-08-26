@@ -16,6 +16,14 @@ try{
   await click('.game-sidebar [data-view="club"]');
   await page.locator('.view-hero.club-context-hero').waitFor({state:'visible',timeout:5000});
   await page.locator('.club-context-crest').waitFor({state:'visible',timeout:5000});
+  const legacy=page.locator('[data-club-legacy-insights]');
+  await legacy.waitFor({state:'visible',timeout:5000});
+  const legacyTitle=(await legacy.locator('h2').textContent())?.trim();
+  if(legacyTitle!=='Legado & pressão histórica')throw new Error(`Club legacy panel title mismatch: ${legacyTitle}`);
+  const legacyKpis=legacy.locator('.cli-kpis article');
+  if(await legacyKpis.count()!==4)throw new Error(`Club legacy panel expected 4 KPIs, got ${await legacyKpis.count()}`);
+  const pressureText=(await legacy.locator('header > strong').textContent())?.trim()||'';
+  if(!/\d+/.test(pressureText))throw new Error(`Club legacy panel missing historical pressure value: ${pressureText}`);
 
   await click('.game-sidebar [data-view="analytics"]');
   await page.locator('.records-history-v1').waitFor({state:'visible',timeout:5000});
@@ -26,5 +34,5 @@ try{
   await page.locator('.world-club-crest').first().waitFor({state:'visible',timeout:5000});
 
   if(errors.length)throw new Error(errors.join('\n'));
-  console.log('UI lifecycle bridge passed: club, analytics/history and world decorators receive canonical view events.');
+  console.log('UI lifecycle bridge passed: club visuals + institutional legacy, analytics/history and world decorators receive canonical view events.');
 }finally{await browser.close()}
