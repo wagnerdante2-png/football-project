@@ -77,13 +77,15 @@ function ensureClubsAndMemberships(world:World){
   }
 }
 
-function mirrorCompletedMatch(world:World,event:{date:string;season:number;round:number;clubIds:string[]}){
+function mirrorCompletedMatch(world:World,event:{date:string;season:number;round:number;clubIds:string[];payload:Record<string,unknown>}){
   const [homeId,awayId]=event.clubIds;
   if(!homeId||!awayId)return;
-  const fixture=world.fixtures.find(f=>f.round===event.round&&f.home===homeId&&f.away===awayId&&f.played);
+  const payloadRound=Number(event.payload.round);
+  const round=Number.isFinite(payloadRound)&&payloadRound>0?payloadRound:event.round;
+  const fixture=world.fixtures.find(f=>f.round===round&&f.home===homeId&&f.away===awayId&&f.played);
   if(!fixture||fixture.homeGoals===undefined||fixture.awayGoals===undefined)return;
   registerHistoricalMatch(world,{
-    id:`active-${ACTIVE_BRAZIL_LEAGUE_ID}-${event.season}-r${event.round}-${homeId}-${awayId}`,
+    id:`active-${ACTIVE_BRAZIL_LEAGUE_ID}-${event.season}-r${round}-${homeId}-${awayId}`,
     date:event.date,
     competitionId:ACTIVE_BRAZIL_LEAGUE_ID,
     season:String(event.season),
@@ -91,7 +93,7 @@ function mirrorCompletedMatch(world:World,event:{date:string;season:number;round
     awayTeamId:awayId,
     homeGoals:fixture.homeGoals,
     awayGoals:fixture.awayGoals,
-    round:String(event.round),
+    round:String(round),
     source:'simulated',
     provenance:[provenance],
   });
