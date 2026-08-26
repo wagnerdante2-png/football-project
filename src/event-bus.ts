@@ -1,7 +1,7 @@
 import type { World } from './engine';
 
 export type WorldEventType =
-  | 'DayAdvanced' | 'MatchDayStarted' | 'MatchCompleted' | 'MatchDayPostponed' | 'DomesticLeagueMatchCompleted' | 'TrainingCompleted' | 'TrainingOverloadWarning'
+  | 'DayAdvanced' | 'MatchDayStarted' | 'MatchCompleted' | 'MatchDayPostponed' | 'DomesticLeagueMatchCompleted' | 'TrainingCompleted' | 'TrainingOverloadWarning' | 'TrainingConcernResponded'
   | 'PlayerInjured' | 'PlayerRecovered' | 'PlayerRetired' | 'YouthPlayerGenerated'
   | 'TransferRequested' | 'RecruitmentApproved' | 'RecruitmentRejected'
   | 'NegotiationStarted' | 'NegotiationUpdated' | 'NegotiationLeaked' | 'NegotiationEnded'
