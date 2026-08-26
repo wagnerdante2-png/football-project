@@ -53,11 +53,18 @@ try {
   await click('.game-sidebar [data-view="inbox"]');
   const inboxItems = page.locator('.v2-inbox-layout aside button');
   if (await inboxItems.count() >= 2) {
+    const total = await inboxItems.count();
     const secondSubject = (await inboxItems.nth(1).locator('b').textContent())?.trim();
+    const secondSummary = (await inboxItems.nth(1).locator('span').textContent())?.trim();
     await inboxItems.nth(1).click({ timeout: 5000 });
     const displayed = (await page.locator('.v2-message h2').textContent())?.trim();
-    if (!secondSubject || displayed !== secondSubject) throw new Error(`Inbox selection did not update message panel: expected ${secondSubject}, got ${displayed}`);
-    if (!(await inboxItems.nth(1).evaluate(el => el.classList.contains('active')))) throw new Error('Inbox selection did not move active state');
+    const displayedSummary = (await page.locator('.v2-message p').textContent())?.trim();
+    const meta = (await page.locator('.v2-message-meta').textContent())?.trim();
+    if (!secondSubject || displayed !== secondSubject) throw new Error(`Inbox selection did not update message title: expected ${secondSubject}, got ${displayed}`);
+    if (!secondSummary || displayedSummary !== secondSummary) throw new Error(`Inbox selection did not update message body: expected ${secondSummary}, got ${displayedSummary}`);
+    if (!meta?.includes(`Mensagem 2 de ${total}`)) throw new Error(`Inbox selection metadata did not reflect second item: ${meta}`);
+    if (!(await inboxItems.nth(1).evaluate(el => el.classList.contains('active') && el.getAttribute('aria-selected') === 'true'))) throw new Error('Inbox selection did not move active/aria-selected state');
+    if (await inboxItems.nth(0).evaluate(el => el.classList.contains('active') || el.getAttribute('aria-selected') === 'true')) throw new Error('Inbox first item remained selected after selecting second item');
   }
 
   await click('.game-sidebar [data-view="calendar"]');
