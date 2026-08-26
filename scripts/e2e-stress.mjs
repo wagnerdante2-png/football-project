@@ -9,7 +9,8 @@ page.on('console', msg => { if (msg.type() === 'error') failures.push(`console: 
 
 async function click(selector, timeout = 8000) {
   const el = page.locator(selector).first();
-  await el.waitFor({ state: 'visible', timeout });
+  await el.waitFor({ state: 'attached', timeout });
+  await el.scrollIntoViewIfNeeded({ timeout });
   await el.click({ timeout });
 }
 async function clickCreatorNext(timeout = 8000) {
