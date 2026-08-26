@@ -9,6 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -20,3 +21,16 @@ jobs:
       - run: npm run build
       - name: Smoke daily simulation runtime
         run: npm run smoke:advance
+      - name: Install Chromium for E2E
+        run: npx playwright install --with-deps chromium
+      - name: Start preview server
+        run: |
+          npm run preview -- --port 4173 > /tmp/touchline-preview.log 2>&1 &
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:4173 >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/touchline-preview.log
+          exit 1
+      - name: Stress beta end to end
+        run: npm run test:e2e:stress
