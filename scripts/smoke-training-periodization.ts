@@ -1,0 +1,30 @@
+import { createBrazilRealWorld2026 } from '../src/real-world-v1';
+import { dailyCalendar } from '../src/daily-simulation';
+import { clubTraining } from '../src/training-engine';
+import { clubWeeklyTrainingSchedule } from '../src/training-weekly-schedule-v1';
+import { applyWeeklyPeriodization,suggestWeeklyPeriodization } from '../src/training-periodization-v1';
+
+const world=createBrazilRealWorld2026(),club=world.clubs[0],calendar=dailyCalendar(world);
+calendar.date='2026-08-24';
+calendar.matchDates=new Map([[1,'2026-08-26'],[2,'2026-08-30']]);
+const congested=suggestWeeklyPeriodization(world,club.id,calendar.date);
+if(congested.profile!=='congested')throw new Error(`Expected congested profile, received ${congested.profile}`);
+if(congested.matchesNext7!==2||congested.daysToNextMatch!==2)throw new Error(`Unexpected calendar reading: matches=${congested.matchesNext7} next=${congested.daysToNextMatch}`);
+const matchDay=new Date('2026-08-26T12:00:00Z').getUTCDay();
+if(congested.slots[matchDay].am.type!=='rest'||congested.slots[matchDay].pm.type!=='rest')throw new Error('Match day was not protected from training');
+const preMatchDay=new Date('2026-08-25T12:00:00Z').getUTCDay();
+if(congested.slots[preMatchDay].am.type!=='teamShape'||congested.slots[preMatchDay].pm.type!=='setPieces')throw new Error('Day before match lacks team shape and set pieces');
+applyWeeklyPeriodization(world,congested);
+const applied=clubWeeklyTrainingSchedule(world,club.id);
+if(!applied.enabled||applied.slots[matchDay].am.type!=='rest'||applied.slots[preMatchDay].am.type!=='teamShape')throw new Error('Periodization suggestion was not applied to canonical weekly schedule');
+
+const training=clubTraining(world,club.id);if(!training)throw new Error('Training state unavailable');
+for(const player of training.players.values())player.load.readiness=45;
+calendar.matchDates=new Map([[1,'2026-08-31']]);
+const protective=suggestWeeklyPeriodization(world,club.id,calendar.date);
+if(protective.profile!=='protective')throw new Error(`Low readiness should force protective profile, received ${protective.profile}`);
+if(!(protective.avgReadiness<55))throw new Error(`Protective planner did not read low readiness: ${protective.avgReadiness}`);
+const hasRecovery=Object.values(protective.slots).some(day=>day.am.type==='recovery'||day.pm.type==='recovery');
+const hasVeryHigh=Object.values(protective.slots).some(day=>day.am.intensity==='veryHigh'||day.pm.intensity==='veryHigh');
+if(!hasRecovery||hasVeryHigh)throw new Error('Protective profile did not reduce weekly load safely');
+console.log(`[smoke-training-periodization] congested=${congested.profile} · matches=${congested.matchesNext7} · protective=${protective.profile} · readiness=${protective.avgReadiness.toFixed(1)} · apply=OK · OK`);
