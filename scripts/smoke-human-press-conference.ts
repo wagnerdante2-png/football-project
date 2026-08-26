@@ -46,7 +46,7 @@ const restored=snapshotPressRoom(world).conferences.find(x=>x.id===conference.id
 if(!restored)throw new Error('Conference disappeared after save/restore');
 const rq=restored.questions.find(x=>x.id===follow.id),ra=restored.answers.find(x=>x.questionId===follow.id);
 if(rq?.reporterId!==first.reporterId||!ra?.text)throw new Error('Reporter identity or answer text did not survive save/restore');
-const restoredStatement=statementRecall(world,manager.id,statement.topic,first.reporterId);
+const restoredStatement=recentManagerStatements(world,manager.id,{reporterId:first.reporterId,limit:10}).find(x=>x.id===statement.id);
 if(restoredStatement?.text!==answer.text)throw new Error('Manager statement memory did not survive PressRoom restore');
 if(managerBehavior(world,manager.id).evasive!==savedEvasive)throw new Error('Manager behavioral reputation did not survive PressRoom restore');
 console.log(`[smoke-human-press] issue=${issue.id} · reporter=${first.reporterName}/${first.outlet} · initialQuestions=${initialCount} · followUp=OK · spokenAnswers=OK · socialMemory=OK · reputation=OK · centralSavePath=OK · OK`);
