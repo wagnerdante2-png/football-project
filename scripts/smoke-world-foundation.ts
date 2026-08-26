@@ -4,6 +4,8 @@ import { footballDataSnapshot } from '../src/world-football-data-v1';
 import { snapshotNationalRankings } from '../src/national-team-ranking-v1';
 import { snapshotQualifierRuntime } from '../src/international-qualifier-runtime-v1';
 import { tickInternationalMatches } from '../src/international-daily-runtime-v1';
+import { allDomesticSeasons } from '../src/domestic-competition-runtime-v1';
+import { ACTIVE_BRAZIL_LEAGUE_ID } from '../src/active-league-canonical-bridge-v1';
 
 const world=createBrazilRealWorld2026();
 const fixturesBefore=world.fixtures.length;
@@ -12,17 +14,21 @@ const snapshot=footballDataSnapshot(world);
 const rankings=snapshotNationalRankings(world);
 const ids=new Set(snapshot.competitions.map(c=>c.id));
 
-for(const required of ['comp-fifa-world-cup','comp-conmebol-libertadores','comp-bra-cup','qual-conmebol-wc-2030','qual-uefa-wc-2030']){
+for(const required of ['comp-fifa-world-cup','comp-conmebol-libertadores','comp-bra-cup',ACTIVE_BRAZIL_LEAGUE_ID,'qual-conmebol-wc-2030','qual-uefa-wc-2030']){
   if(!ids.has(required))throw new Error(`World foundation missing competition ${required}`);
 }
 if(snapshot.confederations.length<7)throw new Error(`Expected at least 7 confederations, got ${snapshot.confederations.length}`);
 if(snapshot.nationalTeams.filter(t=>t.active).length<100)throw new Error(`Expected broad national-team registry, got ${snapshot.nationalTeams.length}`);
 if(rankings.entries.length!==snapshot.nationalTeams.filter(t=>t.active).length)throw new Error(`Ranking/team mismatch: rankings=${rankings.entries.length} activeTeams=${snapshot.nationalTeams.filter(t=>t.active).length}`);
+if(snapshot.clubs.length!==world.clubs.length)throw new Error(`Canonical club mismatch: footballData=${snapshot.clubs.length} world=${world.clubs.length}`);
+const activeMemberships=snapshot.memberships.filter(m=>m.competitionId===ACTIVE_BRAZIL_LEAGUE_ID&&m.season===String(world.season)&&m.status==='participant');
+if(activeMemberships.length!==world.clubs.length)throw new Error(`Active league membership mismatch: ${activeMemberships.length} vs ${world.clubs.length}`);
 if(world.fixtures.length!==fixturesBefore)throw new Error(`Safe foundation mutated playable fixtures: ${fixturesBefore} -> ${world.fixtures.length}`);
 if(snapshot.matches.length!==0)throw new Error(`Safe foundation unexpectedly materialized ${snapshot.matches.length} football-data matches`);
+if(allDomesticSeasons(world).length!==0)throw new Error('Safe foundation unexpectedly created a parallel DomesticSeasonState');
 if(snapshotQualifierRuntime(world).cycles.length!==0)throw new Error('Safe foundation unexpectedly created qualifier cycles');
 
 tickInternationalMatches(world,'2026-07-25');
 if(snapshotQualifierRuntime(world).cycles.length!==0)throw new Error('Daily international runtime implicitly created qualifier cycles');
 
-console.log(`[smoke-foundation] confederations=${snapshot.confederations.length} · nationalTeams=${snapshot.nationalTeams.length} · competitions=${snapshot.competitions.length} · rankings=${rankings.entries.length} · fixtures=${world.fixtures.length} · qualifierCycles=0 · OK`);
+console.log(`[smoke-foundation] confederations=${snapshot.confederations.length} · nationalTeams=${snapshot.nationalTeams.length} · clubs=${snapshot.clubs.length} · competitions=${snapshot.competitions.length} · memberships=${activeMemberships.length} · rankings=${rankings.entries.length} · fixtures=${world.fixtures.length} · qualifierCycles=0 · domesticRuntime=0 · OK`);
