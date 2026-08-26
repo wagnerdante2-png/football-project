@@ -52,6 +52,8 @@ jobs:
         run: npm run smoke:team-talks
       - name: Smoke individual training progress and save continuity
         run: npm run smoke:training-individual
+      - name: Smoke weekly morning afternoon training schedule
+        run: npm run smoke:training-weekly
       - name: Validate bundled people when present
         run: |
           if [ -f public/data/people/manifest-2026.json ]; then npm run validate:people; else echo 'People bundle pending data workflow publication.'; fi
