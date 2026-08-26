@@ -1,6 +1,6 @@
 {
   "version": 6,
-  "generatedAt": "2026-08-26T01:28:16.753Z",
+  "generatedAt": "2026-08-26T02:06:20.465Z",
   "season": 2026,
   "source": {
     "name": "Wikidata",
@@ -19,15 +19,15 @@
     "Club identities come from the already-verified visual manifest; no second club identity registry is maintained."
   ],
   "counts": {
-    "clubs": 16,
-    "clubsWithPlayers": 12,
-    "players": 59,
+    "clubs": 15,
+    "clubsWithPlayers": 11,
+    "players": 58,
     "playersWithSpecificPosition": 16,
-    "playersWithRoleGroup": 57,
+    "playersWithRoleGroup": 56,
     "positionsFromWikidata": 16,
     "positionsFromOpenFootball": 0,
-    "playersWithNationality": 59,
-    "playersWithHeight": 59
+    "playersWithNationality": 58,
+    "playersWithHeight": 58
   },
   "rosters": [
     {
@@ -480,45 +480,6 @@
       ],
       "count": 4,
       "positionedPlayers": 1
-    },
-    {
-      "club": {
-        "id": "fortaleza-ec",
-        "name": "Fortaleza EC",
-        "wikidataId": "Q188841"
-      },
-      "id": "fortaleza-ec",
-      "name": "Fortaleza EC",
-      "wikidataId": "Q188841",
-      "players": [
-        {
-          "wikidataId": "Q101230488",
-          "name": "Breno Lopes",
-          "dateOfBirth": "1996-01-24",
-          "nationality": "Brasil",
-          "heightCm": 178,
-          "roleGroup": "forward",
-          "roleGroupSource": "Wikidata P413",
-          "clubId": "fortaleza-ec",
-          "clubName": "Fortaleza EC",
-          "membershipStart": "2024-10-02",
-          "membershipRank": "NormalRank",
-          "provenance": {
-            "source": "Wikidata",
-            "license": "CC0",
-            "snapshotDate": "2026-08-26",
-            "clubStatement": "P54",
-            "genderStatement": "P21",
-            "nationalityStatement": "P27",
-            "heightStatement": "P2048",
-            "temporalRule": "preferred-rank-or-started-2024+",
-            "roleGroupSource": "Wikidata P413 broad role",
-            "rawPositionLabel": "avançado"
-          }
-        }
-      ],
-      "count": 1,
-      "positionedPlayers": 0
     },
     {
       "club": {
