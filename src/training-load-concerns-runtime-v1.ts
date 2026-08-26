@@ -3,7 +3,7 @@ import { emitWorldEvent, onWorldEvent, recentWorldEvents } from './event-bus';
 import { clubTraining, type PlayerTrainingState } from './training-engine';
 import { clubDressingRoom, tickDressingRoom } from './dressing-room';
 import { humanLifeState } from './human-life';
-import { managerInteractionState } from './manager-interactions';
+import { managerInteractionState, type InteractionOption } from './manager-interactions';
 
 const wired=new WeakSet<World>();
 const clamp=(value:number,min=0,max=100)=>Math.max(min,Math.min(max,value));
@@ -76,6 +76,36 @@ function concernSummary(name:string,reason:TrainingConcernReason):string{
   return`${name} demonstrou preocupação com a carga de treino.`;
 }
 
+function trainingOption(id:string,label:string,description:string,tone:InteractionOption['tone'],effects:Partial<InteractionOption>):InteractionOption{
+  return{id,label,description,tone,trust:0,respect:0,friction:0,morale:0,authority:0,publicity:0,disciplineSignal:0,empathySignal:0,confrontationSignal:0,...effects};
+}
+function trainingConcernOptions(reason:TrainingConcernReason):InteractionOption[]{
+  if(reason==='overload')return[
+    trainingOption('reduce_training_load','Reduzir a carga por alguns dias','Ajustar o microciclo e mostrar que o desgaste físico foi ouvido.','supportive',{trust:5,respect:2,friction:-4,morale:4,empathySignal:3}),
+    trainingOption('explain_periodization','Explicar a periodização','Apresentar a lógica da carga e combinar um ponto de revisão.','calm',{trust:3,respect:3,friction:-2,morale:2,authority:1,empathySignal:1}),
+    trainingOption('maintain_training_load','Manter a carga planejada','Reforçar que a comissão considera a carga adequada.','firm',{trust:-2,respect:2,friction:3,morale:-2,authority:2,disciplineSignal:2}),
+    trainingOption('demand_adaptation','Exigir adaptação','Cobrar que o atleta suporte o nível de exigência do grupo.','harsh',{trust:-6,respect:3,friction:7,morale:-4,authority:4,confrontationSignal:4})];
+  if(reason==='undertraining')return[
+    trainingOption('increase_training_load','Elevar a exigência','Aceitar a leitura do atleta e aumentar progressivamente a carga.','supportive',{trust:5,respect:4,friction:-3,morale:3,authority:1,empathySignal:2}),
+    trainingOption('individual_challenge','Criar um desafio individual','Manter o microciclo coletivo e aumentar a exigência do plano individual.','calm',{trust:4,respect:4,friction:-2,morale:3,authority:2,disciplineSignal:1}),
+    trainingOption('explain_rotation_load','Explicar a gestão de carga','Mostrar por que a comissão está preservando energia neste momento.','calm',{trust:2,respect:2,friction:-1,morale:1,authority:1}),
+    trainingOption('hold_current_load','Manter o nível atual','Rejeitar a necessidade de mais trabalho e manter a programação.','firm',{trust:-3,respect:1,friction:4,morale:-2,authority:2,disciplineSignal:2})];
+  if(reason==='monotony')return[
+    trainingOption('vary_training_sessions','Variar as sessões','Alterar estímulos mantendo os objetivos físicos e táticos do microciclo.','supportive',{trust:5,respect:2,friction:-4,morale:4,empathySignal:3}),
+    trainingOption('explain_repetition','Explicar a necessidade da repetição','Contextualizar por que certos padrões precisam ser repetidos.','calm',{trust:3,respect:3,friction:-2,morale:2,authority:1}),
+    trainingOption('keep_repetition','Manter a rotina','Priorizar automatismos mesmo com o desgaste percebido pelo atleta.','firm',{trust:-2,respect:2,friction:3,morale:-2,authority:2,disciplineSignal:2})];
+  return[
+    trainingOption('review_individual_plan','Rever o plano individual','Ouvir o atleta e ajustar foco ou intensidade com a comissão.','supportive',{trust:6,respect:3,friction:-4,morale:4,empathySignal:3}),
+    trainingOption('change_individual_focus','Trocar o foco do trabalho','Manter a exigência, mas redirecionar o objetivo individual.','calm',{trust:4,respect:3,friction:-2,morale:3,authority:1}),
+    trainingOption('explain_individual_plan','Explicar o plano atual','Mostrar a lógica do desenvolvimento e marcar nova avaliação.','calm',{trust:3,respect:3,friction:-1,morale:2,authority:1}),
+    trainingOption('maintain_individual_plan','Manter o plano sem alteração','Reforçar a confiança da comissão no programa atual.','firm',{trust:-2,respect:2,friction:3,morale:-2,authority:2,disciplineSignal:2})];
+}
+
+function specializeInteraction(world:World,sourceEventId:string,reason:TrainingConcernReason):void{
+  const interaction=managerInteractionState(world).interactions.find(item=>item.sourceEventId===sourceEventId&&item.status==='pending');
+  if(interaction)interaction.options=trainingConcernOptions(reason);
+}
+
 function evaluateClub(world:World,clubId:string,date:string):void{
   const club=world.clubs.find(c=>c.id===clubId),training=clubTraining(world,clubId),room=ensureRoomPlayers(world,clubId,date),life=humanLifeState(world);
   if(!club||!training||!room)return;
@@ -104,11 +134,19 @@ function evaluateClub(world:World,clubId:string,date:string):void{
     const reason:TrainingConcernReason=severeIndividual&&!persistentOverload?'individual-plan':reaction.reason??human.trainingConcernReason??'overload';
     const importance=state.load.overloadDays>=5||state.load.readiness<35||human.trainingSatisfaction!<38||reaction.severity>=7?3:2;
     status.managerTrust=clamp(status.managerTrust-(importance===3?1.1:.55));
-    emitWorldEvent(world,{type:'DressingRoomConcern',date,clubIds:[clubId],playerIds:[player.id],importance,tags:['training','training-load',reason],summary:concernSummary(player.name,reason),payload:{reason,readiness:Math.round(state.load.readiness),overloadDays:state.load.overloadDays,strain:Math.round(state.load.strain),monotony:Number(state.load.monotony.toFixed(2)),individualSatisfaction:plan?Math.round(plan.satisfaction):undefined,trainingSatisfactionBefore:Math.round(beforeTraining),trainingSatisfaction:Math.round(human.trainingSatisfaction!),trainingGrievanceDays:human.trainingGrievanceDays,overallHappinessBefore:Math.round(beforeHappiness),overallHappiness:Math.round(status.overallHappiness),professionalism:person?.professionalism,temperament:person?.temperament,stressResilience:profile?.stressResilience,managerTrust:Math.round(status.managerTrust),reactionSummary:reaction.summary}});
+    const concern=emitWorldEvent(world,{type:'DressingRoomConcern',date,clubIds:[clubId],playerIds:[player.id],importance,tags:['training','training-load',reason],summary:concernSummary(player.name,reason),payload:{reason,readiness:Math.round(state.load.readiness),overloadDays:state.load.overloadDays,strain:Math.round(state.load.strain),monotony:Number(state.load.monotony.toFixed(2)),individualSatisfaction:plan?Math.round(plan.satisfaction):undefined,trainingSatisfactionBefore:Math.round(beforeTraining),trainingSatisfaction:Math.round(human.trainingSatisfaction!),trainingGrievanceDays:human.trainingGrievanceDays,overallHappinessBefore:Math.round(beforeHappiness),overallHappiness:Math.round(status.overallHappiness),professionalism:person?.professionalism,temperament:person?.temperament,stressResilience:profile?.stressResilience,managerTrust:Math.round(status.managerTrust),reactionSummary:reaction.summary}});
+    specializeInteraction(world,concern.id,reason);
   }
 }
 
 function resolutionEffect(reason:TrainingConcernReason|undefined,optionId:string){
+  if(['reduce_training_load','vary_training_sessions','review_individual_plan'].includes(optionId))return{satisfaction:7,relief:5};
+  if(['increase_training_load','individual_challenge','change_individual_focus'].includes(optionId))return{satisfaction:6,relief:4};
+  if(['explain_periodization','explain_repetition','explain_individual_plan','explain_rotation_load'].includes(optionId))return{satisfaction:4,relief:3};
+  if(['maintain_training_load','demand_adaptation'].includes(optionId))return reason==='overload'?{satisfaction:-5,relief:0}:{satisfaction:-2,relief:0};
+  if(optionId==='hold_current_load')return reason==='undertraining'?{satisfaction:-4,relief:0}:{satisfaction:-1,relief:0};
+  if(optionId==='keep_repetition')return reason==='monotony'?{satisfaction:-4,relief:0}:{satisfaction:-1,relief:0};
+  if(optionId==='maintain_individual_plan')return reason==='individual-plan'?{satisfaction:-3,relief:0}:{satisfaction:0,relief:0};
   if(optionId==='encourage'||optionId==='private_support')return{satisfaction:5,relief:3};
   if(optionId==='professional_support')return{satisfaction:6,relief:4};
   if(optionId==='firm_private')return reason==='undertraining'?{satisfaction:5,relief:3}:reason==='overload'?{satisfaction:-2,relief:0}:{satisfaction:1,relief:1};
