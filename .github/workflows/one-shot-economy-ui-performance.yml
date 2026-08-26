@@ -1,0 +1,35 @@
+name: One-shot economy UI performance migration
+
+on:
+  push:
+    paths:
+      - '.github/workflows/one-shot-economy-ui-performance.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Apply guarded migration
+        run: node scripts/one-shot-economy-ui-performance.mjs
+      - name: Validate build
+        run: |
+          npm install
+          npm run build
+      - name: Publish migration
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add src/economy.ts
+          git diff --cached --quiet && { echo 'No economy migration changes found.'; exit 1; }
+          git commit -m 'perf(economy): make club finance lookup lazy'
+          git pull --rebase origin main
+          git push origin HEAD:main
