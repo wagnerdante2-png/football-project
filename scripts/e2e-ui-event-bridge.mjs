@@ -12,6 +12,8 @@ try{
   await click('[data-start]',15000);
   for(let i=0;i<6;i++)await click('[data-next]');
   await page.locator('.game-sidebar').waitFor({state:'visible',timeout:15000});
+  const legacySystemProxies=await page.locator('.game-sidebar [data-system-view]').count();
+  if(legacySystemProxies!==0)throw new Error(`Canonical sidebar must not contain legacy system proxies: ${legacySystemProxies}`);
 
   await page.waitForFunction(()=>window.__touchlinePeopleStatus?.state==='ready',{timeout:90000});
   const people=await page.evaluate(()=>({status:window.__touchlinePeopleStatus,report:window.__touchlinePeopleReport}));
