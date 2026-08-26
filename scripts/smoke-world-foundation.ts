@@ -6,6 +6,7 @@ import { snapshotQualifierRuntime } from '../src/international-qualifier-runtime
 import { tickInternationalMatches } from '../src/international-daily-runtime-v1';
 import { allDomesticSeasons } from '../src/domestic-competition-runtime-v1';
 import { ACTIVE_BRAZIL_LEAGUE_ID } from '../src/active-league-canonical-bridge-v1';
+import { emitWorldEvent } from '../src/event-bus';
 
 const world=createBrazilRealWorld2026();
 const fixturesBefore=world.fixtures.length;
@@ -31,4 +32,17 @@ if(snapshotQualifierRuntime(world).cycles.length!==0)throw new Error('Safe found
 tickInternationalMatches(world,'2026-07-25');
 if(snapshotQualifierRuntime(world).cycles.length!==0)throw new Error('Daily international runtime implicitly created qualifier cycles');
 
-console.log(`[smoke-foundation] confederations=${snapshot.confederations.length} · nationalTeams=${snapshot.nationalTeams.length} · clubs=${snapshot.clubs.length} · competitions=${snapshot.competitions.length} · memberships=${activeMemberships.length} · rankings=${rankings.entries.length} · fixtures=${world.fixtures.length} · qualifierCycles=0 · domesticRuntime=0 · OK`);
+const fixture=world.fixtures.find(f=>f.round===world.round);
+if(!fixture)throw new Error('No active league fixture available for canonical bridge smoke');
+fixture.played=true;
+fixture.homeGoals=2;
+fixture.awayGoals=1;
+emitWorldEvent(world,{type:'MatchCompleted',date:'2026-07-25',clubIds:[fixture.home,fixture.away],importance:2,summary:'Canonical bridge smoke match.',payload:{round:fixture.round,homeGoals:2,awayGoals:1}});
+emitWorldEvent(world,{type:'MatchCompleted',date:'2026-07-25',clubIds:[fixture.home,fixture.away],importance:2,summary:'Duplicate canonical bridge smoke event.',payload:{round:fixture.round,homeGoals:2,awayGoals:1}});
+const mirrored=footballDataSnapshot(world).matches.filter(m=>m.competitionId===ACTIVE_BRAZIL_LEAGUE_ID&&m.homeTeamId===fixture.home&&m.awayTeamId===fixture.away);
+if(mirrored.length!==1)throw new Error(`Expected exactly one mirrored active-league result, got ${mirrored.length}`);
+if(mirrored[0]?.homeGoals!==2||mirrored[0]?.awayGoals!==1)throw new Error('Mirrored active-league result has wrong score');
+if(world.fixtures.length!==fixturesBefore)throw new Error('Canonical result mirroring changed playable fixture count');
+if(allDomesticSeasons(world).length!==0)throw new Error('Canonical result mirroring created a parallel DomesticSeasonState');
+
+console.log(`[smoke-foundation] confederations=${snapshot.confederations.length} · nationalTeams=${snapshot.nationalTeams.length} · clubs=${snapshot.clubs.length} · competitions=${snapshot.competitions.length} · memberships=${activeMemberships.length} · rankings=${rankings.entries.length} · fixtures=${world.fixtures.length} · mirroredMatches=${mirrored.length} · qualifierCycles=0 · domesticRuntime=0 · OK`);
