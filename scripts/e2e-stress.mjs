@@ -15,13 +15,17 @@ async function click(selector, timeout = 8000) {
 async function clickCreatorNext(timeout = 8000) {
   const selector = '[data-next]';
   const marker = (await page.locator('.v2-creator main>header span').first().textContent()) || '';
-  const el = page.locator(selector).first();
-  await el.waitFor({ state: 'visible', timeout });
   await page.waitForFunction(sel => {
     const button = document.querySelector(sel);
-    return button instanceof HTMLButtonElement && !button.disabled;
+    return button instanceof HTMLButtonElement && !button.disabled && button.offsetParent !== null;
   }, selector, { timeout });
-  await el.evaluate(button => button.click());
+  const clicked = await page.evaluate(sel => {
+    const button = document.querySelector(sel);
+    if (!(button instanceof HTMLButtonElement) || button.disabled || button.offsetParent === null) return false;
+    button.click();
+    return true;
+  }, selector);
+  if (!clicked) throw new Error('Creator CONTINUAR button disappeared before click');
   await page.waitForFunction(previous => {
     if (document.querySelector('.game-sidebar')) return true;
     const current = document.querySelector('.v2-creator main>header span')?.textContent || '';
@@ -158,8 +162,7 @@ try {
 
   const runtimeErrors = await page.evaluate(() => {
     try { return JSON.parse(sessionStorage.getItem('touchline-beta-runtime-issues-v1') || '[]'); }
-    catch { return [{ message: 'invalid runtime diagnostics JSON' }];
-    }
+    catch { return [{ message: 'invalid runtime diagnostics JSON' }]; }
   });
   if (runtimeErrors.length) failures.push(...runtimeErrors.map(x => `runtime: ${x.message || JSON.stringify(x)}`));
   if (failures.length) throw new Error(failures.join('\n'));
