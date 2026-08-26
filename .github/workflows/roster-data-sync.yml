@@ -67,8 +67,18 @@ jobs:
             echo 'Roster snapshots unchanged.'
           else
             git commit -m 'data: refresh verified world rosters 2026'
+            # sync:people intentionally regenerates additional local artifacts. They are
+            # inputs/cache for this job, not part of the roster snapshot publication.
+            # Drop those residual worktree changes so rebase can operate on a clean tree.
+            git reset --hard HEAD
+            git clean -fd
             for attempt in 1 2 3; do
-              git pull --rebase origin main
+              if ! git pull --rebase origin main; then
+                echo "Rebase race on attempt ${attempt}; aborting and retrying."
+                git rebase --abort || true
+                sleep $((attempt * 2))
+                continue
+              fi
               if git push origin HEAD:main; then exit 0; fi
               echo "Push race on attempt ${attempt}; retrying."
               sleep $((attempt * 2))
