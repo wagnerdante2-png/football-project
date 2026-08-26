@@ -16,6 +16,7 @@
     "smoke:foundation": "tsx scripts/smoke-world-foundation.ts",
     "smoke:population": "tsx scripts/smoke-world-population-integrity.ts",
     "smoke:people-bundle": "tsx scripts/smoke-bundled-world-people.ts",
+    "smoke:scouting-recruitment": "tsx scripts/smoke-scouting-recruitment-bridge.ts",
     "test:e2e:stress": "node scripts/e2e-stress.mjs",
     "test:e2e:ui-bridge": "node scripts/e2e-ui-event-bridge.mjs",
     "audit:coverage": "node scripts/audit-module-coverage.mjs",
