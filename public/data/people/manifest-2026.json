@@ -1,0 +1,43 @@
+{
+  "version": 2,
+  "generatedAt": "2026-08-26T10:55:30.446Z",
+  "cutover": "2026",
+  "mode": "licensed-only-global-offline",
+  "offline": true,
+  "sources": {
+    "openfootball": {
+      "repo": "https://github.com/openfootball/players",
+      "license": "CC0-1.0",
+      "snapshotCommit": "125d20f7cc06cac7e758b40df535a7695632680a",
+      "files": 184
+    }
+  },
+  "counts": {
+    "openFootballFiles": 184,
+    "openFootballParsed": 32654,
+    "worldCupPlayers": 0,
+    "coaches": 0,
+    "deduplicatedPlayers": 32272,
+    "conflicts": 22,
+    "droppedUnknownPosition": 0,
+    "droppedMissingNationality": 0,
+    "factualPosition": 3951,
+    "estimatedPosition": 28321
+  },
+  "schemaNotes": {
+    "provenanceLicenseValues": [
+      "CC0-1.0",
+      "public-fact-reference",
+      "unknown"
+    ],
+    "identity": "Name+date-of-birth merges across source country files; no-DOB rows retain source identity to avoid false merges.",
+    "position": "OpenFootball G maps factually to GK. D/M/F and compound role groups require a tactical engine slot, so the generated position is explicitly positionEstimated=true with positionBasis=openfootball-role-group.",
+    "nationality": "Source country headings are retained and resolved at runtime against the canonical national-team registry; no separate national-team player copy is created."
+  },
+  "notes": [
+    "Modo padrão é construído integralmente do snapshot OpenFootball CC0 já vendorizado, sem internet em runtime.",
+    "A fonte sem licença explícita World Cup Tracker permanece opt-in e não é vendorizada pelo fluxo padrão.",
+    "Staff real permanece vazio no modo padrão em vez de ser inventado.",
+    "Runtime importer realiza uma segunda passagem de identidade/deduplicação e preserva proveniência/confiança."
+  ]
+}
