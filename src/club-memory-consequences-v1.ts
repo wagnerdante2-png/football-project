@@ -1,5 +1,5 @@
 import type { World } from './engine';
-import { footballDataSnapshot } from './world-football-data-v1';
+import { footballClub } from './world-football-data-v1';
 import { strongestClubMemories, managerAchievements } from './club-institutional-memory-v1';
 import { deepClubRecordBook } from './club-record-book-v2';
 import { clubReputation, clubRivalry } from './club-reputation-rivalry-v1';
@@ -71,4 +71,4 @@ export function historicalMatchContext(w:World,clubId:string,opponentId:string):
   return{clubId,opponentId,rivalry:Number(rivalry.toFixed(1)),historicalPressure:Number(historicalPressure.toFixed(1)),motivation:Number(motivation.toFixed(1)),anxiety:Number(anxiety.toFixed(1)),revengeFactor:Number(revengeFactor.toFixed(1)),confidenceFactor:Number(confidenceFactor.toFixed(1)),reasons,sourceMemoryIds:[...new Set(sourceMemoryIds)].slice(0,16)};
 }
 
-export function clubHistoricalNarrativeHooks(w:World,clubId:string,opponentId?:string){const p=clubHistoricalPressure(w,clubId),hooks=[...p.reasons];if(opponentId)hooks.push(...historicalMatchContext(w,clubId,opponentId).reasons);const club=footballDataSnapshot(w).clubs.find(c=>c.id===clubId);if(p.legacyExpectation>=70)hooks.push(`${club?.name??clubId} carrega uma expectativa histórica acima do momento atual.`);return[...new Set(hooks)].slice(0,8)}
+export function clubHistoricalNarrativeHooks(w:World,clubId:string,opponentId?:string){const p=clubHistoricalPressure(w,clubId),hooks=[...p.reasons];if(opponentId)hooks.push(...historicalMatchContext(w,clubId,opponentId).reasons);const club=footballClub(w,clubId);if(p.legacyExpectation>=70)hooks.push(`${club?.name??clubId} carrega uma expectativa histórica acima do momento atual.`);return[...new Set(hooks)].slice(0,8)}
