@@ -1,5 +1,5 @@
 import type { Club, Player, World } from './engine';
-import { realPlayersV2 } from './real-world-player-import-v2';
+import { realPlayerByIdV2, realPlayersV2 } from './real-world-player-import-v2';
 import { playerProfile } from './player-profile-v2';
 
 export type WorldPlayerPoolEntry={
@@ -25,10 +25,21 @@ export function worldPlayerPool(world:World,options:{includeRetired?:boolean;ext
 }
 
 export function worldPlayerById(world:World,playerId:string,extras:Player[]=[]){
-  return worldPlayerPool(world,{includeRetired:true,extras}).find(x=>x.player.id===playerId)?.player;
+  for(const club of world.clubs){const player=club.players.find(p=>p.id===playerId);if(player)return player;}
+  const real=realPlayerByIdV2(world,playerId)?.player;if(real)return real;
+  return extras.find(p=>p.id===playerId);
 }
 export function worldPlayerClub(world:World,playerId:string){
-  return worldPlayerPool(world,{includeRetired:true}).find(x=>x.player.id===playerId)?.runtimeClub;
+  return world.clubs.find(club=>club.players.some(player=>player.id===playerId));
+}
+export function worldPlayerPoolEntryById(world:World,playerId:string,extras:Player[]=[]):WorldPlayerPoolEntry|undefined{
+  const runtimeClub=worldPlayerClub(world,playerId);
+  const player=runtimeClub?.players.find(p=>p.id===playerId);
+  if(player)return{player,runtimeClub,source:'runtime-club',retired:!!playerProfile(world,playerId)?.retired};
+  const real=realPlayerByIdV2(world,playerId)?.player;
+  if(real)return{player:real,source:'real-background',retired:!!playerProfile(world,playerId)?.retired};
+  const extra=extras.find(p=>p.id===playerId);
+  return extra?{player:extra,source:'extra',retired:!!playerProfile(world,playerId)?.retired}:undefined;
 }
 export function worldPlayerPoolCounts(world:World){
   const rows=worldPlayerPool(world,{includeRetired:true});
