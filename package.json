@@ -31,7 +31,8 @@
     "sync:visual:sanitize": "node scripts/sanitize-visual-identities-2026.mjs",
     "sync:visual:colors": "node scripts/enrich-visual-colors-2026.mjs",
     "sync:visual": "npm run sync:visual:raw && npm run sync:visual:sanitize && npm run sync:visual:colors",
-    "sync:rosters": "node scripts/sync-wikidata-rosters-2026.mjs",
+    "sync:rosters:preflight": "node scripts/sanitize-roster-fallback-2026.mjs",
+    "sync:rosters": "npm run sync:rosters:preflight && node scripts/sync-wikidata-rosters-2026.mjs",
     "sync:immersive": "npm run sync:people:checked && npm run sync:visual && npm run sync:rosters",
     "sync:all": "npm run sync:data:global && npm run sync:data && npm run sync:immersive"
   },
