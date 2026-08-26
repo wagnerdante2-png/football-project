@@ -46,6 +46,8 @@ jobs:
         run: npm run smoke:background-club
       - name: Smoke persistent human dialogue and voice identity
         run: npm run smoke:human-dialogue
+      - name: Smoke human press conference and reporter follow-ups
+        run: npm run smoke:human-press
       - name: Validate bundled people when present
         run: |
           if [ -f public/data/people/manifest-2026.json ]; then npm run validate:people; else echo 'People bundle pending data workflow publication.'; fi
