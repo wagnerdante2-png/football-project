@@ -6,6 +6,7 @@ import { institutionalState,recentHumanConversations,snapshotInstitutionalState,
 import { managerInteractionState,pendingManagerInteractions,resolveManagerInteraction } from '../src/manager-interactions';
 import { managerBehavior,recentManagerStatements,statementForInteraction } from '../src/manager-social-memory-v1';
 import { captureResolvedManagerInteraction,wireManagerSocialMemoryRuntime } from '../src/manager-social-memory-runtime-v1';
+import { serializeSave,restoreSave } from '../src/save-game';
 
 const world=createBrazilRealWorld2026();
 const club=world.clubs[0];
@@ -41,6 +42,11 @@ const countBeforeReplay=recentManagerStatements(world,pending.managerId,{interac
 captureResolvedManagerInteraction(world,pending.id,`${world.season}-08-26`);
 const countAfterReplay=recentManagerStatements(world,pending.managerId,{interactionId:pending.id,limit:10}).length;
 if(countBeforeReplay!==1||countAfterReplay!==1)throw new Error('Private social-memory bridge is not idempotent');
+const supportiveBeforeSave=managerBehavior(world,pending.managerId).supportive;
+const restoredSaveWorld=restoreSave(serializeSave(world));
+const restoredPrivateStatement=statementForInteraction(restoredSaveWorld,pending.managerId,pending.id);
+if(!restoredPrivateStatement||restoredPrivateStatement.text!==privateStatement.text||restoredPrivateStatement.playerId!==privateStatement.playerId)throw new Error('Manager social memory did not survive canonical save/restore');
+if(managerBehavior(restoredSaveWorld,pending.managerId).supportive!==supportiveBeforeSave)throw new Error('Manager behavioral reputation changed across save/restore');
 emitWorldEvent(world,{type:'StaffConflict',date:`${world.season}-08-26`,actorIds:['staff-diag-1'],clubIds:[club.id],importance:3,summary:'O auxiliar discordou da distribuição de responsabilidades.',payload:{}});
 emitWorldEvent(world,{type:'SupporterMoodChanged',date:`${world.season}-08-26`,clubIds:[club.id],importance:3,summary:'A torcida demonstrou impaciência após a última atuação.',payload:{}});
 const after=recentHumanConversations(world,100,club.id);
@@ -53,4 +59,4 @@ restoreInstitutionalState(world,snap);
 const restored=recentHumanConversations(world,100,club.id);
 for(const x of expected)if(!restored.some(r=>r.text===x.text&&r.voiceSignature===x.signature))throw new Error('Human conversation network did not survive institutional save/restore');
 const news=institutionalState(world).news;
-console.log(`[smoke-human-dialogue] variants=${coverage.combinatorialVariants} · contexts=${coverage.contexts} · voices=${snap.humanVoices?.profiles.length??0} · boardLines=${board.length} · conversations=${after.length} · opening=OK · reaction=OK · privateMemory=OK · idempotency=OK · staff=OK · supporters=OK · save=OK · identity=OK · news=${news.length} · OK`);
+console.log(`[smoke-human-dialogue] variants=${coverage.combinatorialVariants} · contexts=${coverage.contexts} · voices=${snap.humanVoices?.profiles.length??0} · boardLines=${board.length} · conversations=${after.length} · opening=OK · reaction=OK · privateMemory=OK · idempotency=OK · socialMemorySave=OK · staff=OK · supporters=OK · save=OK · identity=OK · news=${news.length} · OK`);
