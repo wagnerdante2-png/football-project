@@ -1,6 +1,6 @@
 {
   "version": 4,
-  "generatedAt": "2026-08-26T01:28:01.536Z",
+  "generatedAt": "2026-08-26T02:06:01.379Z",
   "sources": {
     "structured": [
       "OpenFootball CC0",
@@ -12,10 +12,10 @@
   },
   "counts": {
     "clubTargets": 20,
-    "clubCrests": 10,
-    "stadiumImages": 14,
+    "clubCrests": 9,
+    "stadiumImages": 13,
     "playerTargets": 20,
-    "playerPortraits": 14,
+    "playerPortraits": 15,
     "activeRosterPlayerTargets": 20
   },
   "clubs": [
@@ -146,31 +146,11 @@
     },
     {
       "name": "Fortaleza EC",
-      "wikidataId": "Q188841",
       "primaryColor": "hsl(187 58% 34%)",
       "secondaryColor": "hsl(324 58% 42%)",
       "accentColor": "hsl(257 72% 58%)",
       "kitSource": "procedural",
-      "crest": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Fortaleza_Esporte_Clube_logo.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Fortaleza_Esporte_Clube_logo.png/500px-Fortaleza_Esporte_Clube_logo.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-        "source": "Wikimedia Commons",
-        "license": "Public domain",
-        "attribution": "Fortaleza Esporte Clube",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Fortaleza_Esporte_Clube_logo.png",
-        "freeToRedistribute": true
-      },
-      "stadiumName": "Estádio Governador Plácido Castelo",
-      "stadiumImage": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Fortaleza_Arena.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Fortaleza_Arena.jpg/960px-Fortaleza_Arena.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-        "source": "Wikimedia Commons",
-        "license": "CC BY",
-        "attribution": "Fábio Lima/Portal da Copa/Março de 2013",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Fortaleza_Arena.jpg",
-        "freeToRedistribute": true
-      },
-      "sourceConfidence": 96
+      "sourceConfidence": 10
     },
     {
       "name": "Fluminense FC",
@@ -652,26 +632,42 @@
       "sourceConfidence": 96
     },
     {
-      "name": "Thiago Silva",
-      "dateOfBirth": "1984-09-22",
-      "clubName": "Fluminense FC",
-      "wikidataId": "Q210453",
+      "name": "Breno Lopes",
+      "dateOfBirth": "1996-01-24",
+      "clubName": "Fortaleza EC",
+      "wikidataId": "Q101230488",
       "portrait": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/c/c8/20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Thiago_Silva_850_1582.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Thiago_Silva_850_1582.jpg/330px-20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Thiago_Silva_850_1582.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Breno-lopes-palmeiras-wikipedia-2021_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Breno-lopes-palmeiras-wikipedia-2021_%28cropped%29.jpg/330px-Breno-lopes-palmeiras-wikipedia-2021_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "source": "Wikimedia Commons",
         "license": "CC BY-SA",
-        "attribution": "Granada",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Thiago_Silva_850_1582.jpg",
+        "attribution": "NullReason",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Breno-lopes-palmeiras-wikipedia-2021_(cropped).jpg",
         "freeToRedistribute": true
       },
       "sourceConfidence": 96
     },
     {
+      "name": "Thiago Silva",
+      "dateOfBirth": "1984-09-22",
+      "clubName": "Fluminense FC",
+      "sourceConfidence": 5
+    },
+    {
       "name": "Hulk",
       "dateOfBirth": "1986-07-25",
       "clubName": "Fluminense FC",
-      "sourceConfidence": 5
+      "wikidataId": "Q62786",
+      "portrait": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Bayer-04_-_Zenit_%2814%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Bayer-04_-_Zenit_%2814%29.jpg/330px-Bayer-04_-_Zenit_%2814%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "CC BY-SA",
+        "attribution": "Вячеслав Евдокимов",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Bayer-04_-_Zenit_(14).jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 96
     },
     {
       "name": "Jefferson Savarino",
@@ -704,13 +700,6 @@
         "freeToRedistribute": true
       },
       "sourceConfidence": 96
-    },
-    {
-      "name": "Rubén Lezcano",
-      "dateOfBirth": "2004-02-09",
-      "clubName": "Fluminense FC",
-      "wikidataId": "Q124805566",
-      "sourceConfidence": 70
     }
   ],
   "notes": [
@@ -726,10 +715,10 @@
   ],
   "identitySanitization": {
     "rejectedAmbiguousClubMatches": 0,
-    "generatedAt": "2026-08-26T01:28:01.675Z"
+    "generatedAt": "2026-08-26T02:06:01.512Z"
   },
   "colorEnrichment": {
     "derivedFromVerifiedCrests": 4,
-    "generatedAt": "2026-08-26T01:28:01.942Z"
+    "generatedAt": "2026-08-26T02:06:01.873Z"
   }
 }
