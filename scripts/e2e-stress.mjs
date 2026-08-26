@@ -50,6 +50,16 @@ try {
     await assertResponsive(`continue ${i + 1}`);
   }
 
+  await click('.game-sidebar [data-view="inbox"]');
+  const inboxItems = page.locator('.v2-inbox-layout aside button');
+  if (await inboxItems.count() >= 2) {
+    const secondSubject = (await inboxItems.nth(1).locator('b').textContent())?.trim();
+    await inboxItems.nth(1).click({ timeout: 5000 });
+    const displayed = (await page.locator('.v2-message h2').textContent())?.trim();
+    if (!secondSubject || displayed !== secondSubject) throw new Error(`Inbox selection did not update message panel: expected ${secondSubject}, got ${displayed}`);
+    if (!(await inboxItems.nth(1).evaluate(el => el.classList.contains('active')))) throw new Error('Inbox selection did not move active state');
+  }
+
   await click('.game-sidebar [data-view="calendar"]');
   const matchButton = page.locator('.md-open').first();
   if (await matchButton.count()) {
@@ -121,7 +131,7 @@ try {
   });
   if (runtimeErrors.length) failures.push(...runtimeErrors.map(x => `runtime: ${x.message || JSON.stringify(x)}`));
   if (failures.length) throw new Error(failures.join('\n'));
-  console.log('E2E stress passed: navigation, 5 day advances, matchday, profiles, canonical systems, media, school and IndexedDB save/load remained responsive.');
+  console.log('E2E stress passed: navigation, inbox interaction, 5 day advances, matchday, profiles, canonical systems, media, school and IndexedDB save/load remained responsive.');
 } finally {
   await browser.close();
 }
