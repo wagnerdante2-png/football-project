@@ -8,6 +8,7 @@ import { footballDataSnapshot } from '../src/world-football-data-v1';
 import { playerProfile } from '../src/player-profile-v2';
 import { selectNationalSquad } from '../src/national-team-selection-v1';
 import { worldPlayerPoolCounts } from '../src/world-player-pool-v1';
+import { scoutingCandidates, scoutingReport } from '../src/scouting';
 
 const root=path.resolve('public/data/people');
 const read=async<T>(name:string)=>JSON.parse(await readFile(path.join(root,name),'utf8')) as T;
@@ -38,4 +39,9 @@ const eligible=selectNationalSquad(world,{teamId:brazil.id,countryId:'BRA',size:
 if(!eligible.members.some(m=>m.playerId===brazilian.id))throw new Error('National selection cannot see canonical Brazilian background identity');
 const pool=worldPlayerPoolCounts(world);
 if(pool.backgroundReal<25000)throw new Error(`Canonical pool did not expose background real population: ${pool.backgroundReal}`);
-console.log(`[smoke-people-bundle] source=${manifest.sources.openfootball.snapshotCommit} · bundle=${players.length} · imported=${real.length} · adopted=${report.players.adoptedRuntime} · background=${pool.backgroundReal} · canonicalBRA=OK · duplicates=0 · loadMs=${elapsed}`);
+const observer=world.clubs[0];if(!observer)throw new Error('Playable observer club missing');
+const directReport=scoutingReport(world,observer.id,brazilian.id);if(!directReport||directReport.playerId!==brazilian.id)throw new Error('Scouting cannot resolve a background real identity');
+const scoutStarted=Date.now(),candidates=scoutingCandidates(world,observer.id,undefined,40000),scoutMs=Date.now()-scoutStarted;
+if(candidates.length<25000)throw new Error(`Global scouting returned only ${candidates.length} candidates`);
+if(!candidates.some(c=>c.playerId===brazilian.id))throw new Error('Global scouting candidate list omitted a known background identity');
+console.log(`[smoke-people-bundle] source=${manifest.sources.openfootball.snapshotCommit} · bundle=${players.length} · imported=${real.length} · adopted=${report.players.adoptedRuntime} · background=${pool.backgroundReal} · canonicalBRA=OK · scouting=${candidates.length} · duplicates=0 · loadMs=${elapsed} · scoutMs=${scoutMs}`);
