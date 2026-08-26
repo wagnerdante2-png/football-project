@@ -13,6 +13,18 @@ try{
   for(let i=0;i<6;i++)await click('[data-next]');
   await page.locator('.game-sidebar').waitFor({state:'visible',timeout:15000});
 
+  await page.waitForFunction(()=>window.__touchlinePeopleStatus?.status==='loaded',{timeout:90000});
+  const people=await page.evaluate(()=>window.__touchlinePeopleStatus);
+  const peopleCount=people?.report?.manifest?.counts?.deduplicatedPlayers??0;
+  if(peopleCount<30000)throw new Error(`Offline people runtime did not load broad bundle: ${peopleCount}`);
+  if(people?.report?.players?.inserted+people?.report?.players?.merged+people?.report?.players?.adoptedRuntime<30000)throw new Error('Offline people runtime did not hydrate global identities');
+
+  await page.waitForFunction(()=>Boolean(window.__touchlineGlobalMetadata),{timeout:90000});
+  const metadata=await page.evaluate(()=>window.__touchlineGlobalMetadata);
+  if(metadata?.license!=='CC0-1.0')throw new Error(`Global metadata license mismatch: ${metadata?.license}`);
+  if((metadata?.files?.clubs??0)<100)throw new Error(`Global metadata did not read broad club catalog: ${metadata?.files?.clubs}`);
+  if((metadata?.parsed?.clubs??0)<=20)throw new Error(`Global metadata did not expand club identities: ${metadata?.parsed?.clubs}`);
+
   await click('.game-sidebar [data-view="club"]');
   await page.locator('.view-hero.club-context-hero').waitFor({state:'visible',timeout:5000});
   await page.locator('.club-context-crest').waitFor({state:'visible',timeout:5000});
@@ -41,5 +53,5 @@ try{
   if(await coverage.locator('.wfc-table tbody tr').count()!==countries)throw new Error('World coverage row count does not match catalogued country count');
 
   if(errors.length)throw new Error(errors.join('\n'));
-  console.log('UI lifecycle bridge passed: club visuals + institutional legacy, analytics/history, world decorators and read-only world coverage receive canonical view events.');
+  console.log(`UI lifecycle bridge passed: offlinePeople=${peopleCount} · metadataClubs=${metadata.parsed.clubs} · club visuals + history + world coverage OK.`);
 }finally{await browser.close()}
