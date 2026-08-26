@@ -7,11 +7,37 @@ const failures = [];
 page.on('pageerror', err => failures.push(`pageerror: ${err.message}`));
 page.on('console', msg => { if (msg.type() === 'error') failures.push(`console: ${msg.text()}`); });
 
+async function sidebarSnapshot() {
+  return page.evaluate(() => {
+    const sidebar = document.querySelector('.game-sidebar');
+    const nav = sidebar?.querySelector('nav');
+    return {
+      sidebarPresent: !!sidebar,
+      navPresent: !!nav,
+      views: [...(nav?.querySelectorAll('[data-view]') ?? [])].map(el => ({
+        view: el.getAttribute('data-view'),
+        text: el.textContent?.trim().replace(/\s+/g, ' '),
+        connected: el.isConnected,
+        hidden: el instanceof HTMLElement ? el.hidden : undefined,
+      })),
+      systems: [...(nav?.querySelectorAll('[data-system-view]') ?? [])].map(el => el.getAttribute('data-system-view')),
+      navHtml: nav?.innerHTML.slice(0, 6000) ?? '',
+    };
+  });
+}
 async function click(selector, timeout = 8000) {
   const el = page.locator(selector).first();
-  await el.waitFor({ state: 'attached', timeout });
-  await el.scrollIntoViewIfNeeded({ timeout });
-  await el.click({ timeout });
+  try {
+    await el.waitFor({ state: 'attached', timeout });
+    await el.scrollIntoViewIfNeeded({ timeout });
+    await el.click({ timeout });
+  } catch (error) {
+    if (selector.includes('.game-sidebar')) {
+      const snapshot = await sidebarSnapshot();
+      throw new Error(`${error instanceof Error ? error.message : String(error)}\nSIDEBAR_SNAPSHOT=${JSON.stringify(snapshot)}`);
+    }
+    throw error;
+  }
 }
 async function clickCreatorNext(timeout = 8000) {
   const selector = '[data-next]';
