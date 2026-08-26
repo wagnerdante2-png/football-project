@@ -1,6 +1,6 @@
 {
   "version": 4,
-  "generatedAt": "2026-08-26T17:20:01.963Z",
+  "generatedAt": "2026-08-26T18:07:01.809Z",
   "sources": {
     "structured": [
       "OpenFootball CC0",
@@ -12,8 +12,8 @@
   },
   "counts": {
     "clubTargets": 20,
-    "clubCrests": 10,
-    "stadiumImages": 14,
+    "clubCrests": 9,
+    "stadiumImages": 13,
     "playerTargets": 20,
     "playerPortraits": 15,
     "activeRosterPlayerTargets": 20
@@ -114,10 +114,10 @@
     {
       "name": "CA Mineiro",
       "wikidataId": "Q270995",
-      "primaryColor": "hsl(156 58% 34%)",
-      "secondaryColor": "hsl(293 58% 42%)",
-      "accentColor": "hsl(226 72% 58%)",
-      "kitSource": "procedural",
+      "primaryColor": "#facf00",
+      "secondaryColor": "#1f1a17",
+      "accentColor": "#1f1a17",
+      "kitSource": "derived-from-crest",
       "crest": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/2/27/Clube_Atl%C3%A9tico_Mineiro_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
         "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Clube_Atl%C3%A9tico_Mineiro_logo.svg/500px-Clube_Atl%C3%A9tico_Mineiro_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -137,35 +137,20 @@
         "sourcePage": "https://commons.wikimedia.org/wiki/File:Mineir%C3%A3o_A%C3%A9rea.jpg",
         "freeToRedistribute": true
       },
-      "sourceConfidence": 96
+      "sourceConfidence": 96,
+      "paletteProvenance": {
+        "source": "verified-free-crest",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Clube_Atl%C3%A9tico_Mineiro_logo.svg",
+        "method": "dominant-svg-colors"
+      }
     },
     {
       "name": "Fortaleza EC",
-      "wikidataId": "Q188841",
       "primaryColor": "hsl(187 58% 34%)",
       "secondaryColor": "hsl(324 58% 42%)",
       "accentColor": "hsl(257 72% 58%)",
       "kitSource": "procedural",
-      "crest": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Fortaleza_Esporte_Clube_logo.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Fortaleza_Esporte_Clube_logo.png/500px-Fortaleza_Esporte_Clube_logo.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-        "source": "Wikimedia Commons",
-        "license": "Public domain",
-        "attribution": "Fortaleza Esporte Clube",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Fortaleza_Esporte_Clube_logo.png",
-        "freeToRedistribute": true
-      },
-      "stadiumName": "Estádio Governador Plácido Castelo",
-      "stadiumImage": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Fortaleza_Arena.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Fortaleza_Arena.jpg/960px-Fortaleza_Arena.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-        "source": "Wikimedia Commons",
-        "license": "CC BY",
-        "attribution": "Fábio Lima/Portal da Copa/Março de 2013",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Fortaleza_Arena.jpg",
-        "freeToRedistribute": true
-      },
-      "sourceConfidence": 96
+      "sourceConfidence": 10
     },
     {
       "name": "Fluminense FC",
@@ -730,10 +715,10 @@
   ],
   "identitySanitization": {
     "rejectedAmbiguousClubMatches": 0,
-    "generatedAt": "2026-08-26T17:20:02.103Z"
+    "generatedAt": "2026-08-26T18:07:01.951Z"
   },
   "colorEnrichment": {
-    "derivedFromVerifiedCrests": 3,
-    "generatedAt": "2026-08-26T17:20:02.703Z"
+    "derivedFromVerifiedCrests": 4,
+    "generatedAt": "2026-08-26T18:07:02.278Z"
   }
 }
