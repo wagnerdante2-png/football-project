@@ -6,7 +6,7 @@ import { medicalState } from './injuries';
 import { queueWorldEvent, worldCore } from './world-core-v2';
 import { footballDataSnapshot, resolveFootballEntity } from './world-football-data-v1';
 import { fetchOpenFootballPeople2026 } from './openfootball-people-source-v1';
-import { canonicalCountryId } from './country-identity-v1';
+import { canonicalCountryId } from './country-code-v1';
 
 export type PublicPeople2026Payload={players:RealPlayerSeedV2[];staff:RealStaffSeed[];manifest?:any};
 export type AssignmentResolutionReport={club:{exact:number;alias:number;unresolved:number;ambiguous:number;absent:number};nationalTeam:{exact:number;alias:number;unresolved:number;ambiguous:number;absent:number}};
