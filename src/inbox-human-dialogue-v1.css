@@ -1,0 +1,5 @@
+.v2-human-dialogue{margin:18px 0 14px;padding:18px 20px;border:1px solid rgba(255,255,255,.1);border-left:3px solid var(--club-accent,#d5b56a);background:linear-gradient(135deg,rgba(255,255,255,.045),rgba(255,255,255,.018));border-radius:10px;box-shadow:0 12px 28px rgba(0,0,0,.16)}
+.v2-human-dialogue small{display:block;margin-bottom:9px;font-size:10px;letter-spacing:.14em;font-weight:800;opacity:.62}
+.v2-human-dialogue p{margin:0;font-size:14px;line-height:1.62;font-style:italic;color:rgba(255,255,255,.92)}
+.v2-human-dialogue footer{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-top:13px;padding-top:11px;border-top:1px solid rgba(255,255,255,.07)}
+.v2-human-dialogue footer b{font-size:12px;letter-spacing:.02em}.v2-human-dialogue footer span{font-size:10px;opacity:.55;text-align:right}
