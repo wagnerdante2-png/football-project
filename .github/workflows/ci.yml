@@ -33,6 +33,11 @@ jobs:
         run: npm run profile:match
       - name: Smoke safe world football foundation
         run: npm run smoke:foundation
+      - name: Smoke world population identity integrity
+        run: npm run smoke:population
+      - name: Validate bundled people when present
+        run: |
+          if [ -f public/data/people/manifest-2026.json ]; then npm run validate:people; else echo 'People bundle pending data workflow publication.'; fi
       - name: Install Chromium for E2E
         run: npx playwright install --with-deps chromium
       - name: Start preview server
