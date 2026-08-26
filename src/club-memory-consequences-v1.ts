@@ -1,7 +1,7 @@
 import type { World } from './engine';
 import { footballClub } from './world-football-data-v1';
 import { strongestClubMemories, managerAchievements } from './club-institutional-memory-v1';
-import { deepClubRecordBook } from './club-record-book-v2';
+import { deepClubRecordBook, type ClubDeepRecordBook } from './club-record-book-v2';
 import { clubReputation, clubRivalry } from './club-reputation-rivalry-v1';
 
 const clamp=(v:number,a=0,b=100)=>Math.max(a,Math.min(b,v));
@@ -37,11 +37,11 @@ function memoryWeight(m:ReturnType<typeof strongestClubMemories>[number]){
   return (m.importance/100)*(m.memoryStrength/100)*audience;
 }
 
-export function clubHistoricalPressure(w:World,clubId:string):HistoricalPressureProfile{
-  const rep=clubReputation(w,clubId),records=deepClubRecordBook(w,clubId),memories=strongestClubMemories(w,clubId,60),achievements=managerAchievements(w,clubId);
+export function clubHistoricalPressure(w:World,clubId:string,records?:ClubDeepRecordBook):HistoricalPressureProfile{
+  const rep=clubReputation(w,clubId),recordBook=records??deepClubRecordBook(w,clubId),memories=strongestClubMemories(w,clubId,60),achievements=managerAchievements(w,clubId);
   const reasons:string[]=[],sourceMemoryIds:string[]=[];
-  const titleDroughtPressure=clamp(records.currentTitleDrought*3.2+Math.max(0,rep.historical-55)*.35);
-  if(records.currentTitleDrought>=4)reasons.push(`O clube vive um jejum de ${records.currentTitleDrought} temporadas sem título.`);
+  const titleDroughtPressure=clamp(recordBook.currentTitleDrought*3.2+Math.max(0,rep.historical-55)*.35);
+  if(recordBook.currentTitleDrought>=4)reasons.push(`O clube vive um jejum de ${recordBook.currentTitleDrought} temporadas sem título.`);
   let negative=0,positive=0,identity=0;
   for(const m of memories){
     const weight=memoryWeight(m);if(weight<.12)continue;
@@ -71,4 +71,4 @@ export function historicalMatchContext(w:World,clubId:string,opponentId:string):
   return{clubId,opponentId,rivalry:Number(rivalry.toFixed(1)),historicalPressure:Number(historicalPressure.toFixed(1)),motivation:Number(motivation.toFixed(1)),anxiety:Number(anxiety.toFixed(1)),revengeFactor:Number(revengeFactor.toFixed(1)),confidenceFactor:Number(confidenceFactor.toFixed(1)),reasons,sourceMemoryIds:[...new Set(sourceMemoryIds)].slice(0,16)};
 }
 
-export function clubHistoricalNarrativeHooks(w:World,clubId:string,opponentId?:string){const p=clubHistoricalPressure(w,clubId),hooks=[...p.reasons];if(opponentId)hooks.push(...historicalMatchContext(w,clubId,opponentId).reasons);const club=footballClub(w,clubId);if(p.legacyExpectation>=70)hooks.push(`${club?.name??clubId} carrega uma expectativa histórica acima do momento atual.`);return[...new Set(hooks)].slice(0,8)}
+export function clubHistoricalNarrativeHooks(w:World,clubId:string,opponentId?:string,pressure?:HistoricalPressureProfile){const p=pressure??clubHistoricalPressure(w,clubId),hooks=[...p.reasons];if(opponentId)hooks.push(...historicalMatchContext(w,clubId,opponentId).reasons);const club=footballClub(w,clubId);if(p.legacyExpectation>=70)hooks.push(`${club?.name??clubId} carrega uma expectativa histórica acima do momento atual.`);return[...new Set(hooks)].slice(0,8)}
