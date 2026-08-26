@@ -1,29 +1,33 @@
 const canonicalOrder=['home','inbox','squad','tactics','training','calendar','medical','transfers','staff','systems','analytics','club','world','school','manager'] as const;
 const canonicalNodes=new Map<string,HTMLButtonElement>();
 let observedNav:HTMLElement|undefined;
-let observer:MutationObserver|undefined;
+let navObserver:MutationObserver|undefined;
+let bindScheduled=false;
+let repairScheduled=false;
 let repairing=false;
 
 function capture(nav:HTMLElement){
   for(const id of canonicalOrder){
     const node=nav.querySelector<HTMLButtonElement>(`:scope > [data-view="${id}"]`);
-    if(node&&!canonicalNodes.has(id))canonicalNodes.set(id,node);
+    if(node)canonicalNodes.set(id,node);
   }
 }
 
 function repair(nav:HTMLElement){
-  if(repairing)return;
+  if(repairing||!nav.isConnected||nav!==observedNav)return;
   repairing=true;
   try{
     capture(nav);
     let anchor:Element|null=null;
     for(const id of canonicalOrder){
-      let node:HTMLButtonElement|null=nav.querySelector<HTMLButtonElement>(`:scope > [data-view="${id}"]`);
+      let node=nav.querySelector<HTMLButtonElement>(`:scope > [data-view="${id}"]`);
       if(!node){
         node=canonicalNodes.get(id)??null;
         if(node){
           console.warn(`[canonical-nav] restored removed route: ${id}`);
-          if(anchor?.nextSibling)nav.insertBefore(node,anchor.nextSibling);else if(anchor)nav.appendChild(node);else nav.prepend(node);
+          if(anchor?.nextSibling)nav.insertBefore(node,anchor.nextSibling);
+          else if(anchor)nav.appendChild(node);
+          else nav.prepend(node);
         }
       }
       if(node)anchor=node;
@@ -31,21 +35,47 @@ function repair(nav:HTMLElement){
   }finally{repairing=false}
 }
 
+function scheduleRepair(nav:HTMLElement){
+  if(repairScheduled)return;
+  repairScheduled=true;
+  queueMicrotask(()=>{
+    repairScheduled=false;
+    if(nav.isConnected&&nav===observedNav)repair(nav);
+    else scheduleBind();
+  });
+}
+
 function bind(){
   const nav=document.querySelector<HTMLElement>('.game-sidebar nav');
-  if(!nav)return;
+  if(!nav){
+    navObserver?.disconnect();
+    navObserver=undefined;
+    observedNav=undefined;
+    return;
+  }
   if(nav!==observedNav){
-    observer?.disconnect();
+    navObserver?.disconnect();
     observedNav=nav;
     capture(nav);
-    observer=new MutationObserver(()=>queueMicrotask(()=>repair(nav)));
-    observer.observe(nav,{childList:true});
+    navObserver=new MutationObserver(()=>scheduleRepair(nav));
+    navObserver.observe(nav,{childList:true});
   }
   repair(nav);
 }
 
-window.addEventListener('touchline:world-ready',bind);
-window.addEventListener('touchline:world-hydrated',bind);
-window.addEventListener('touchline:save-loaded',bind);
-document.addEventListener('touchline:view-rendered',()=>queueMicrotask(bind));
+function scheduleBind(){
+  if(bindScheduled)return;
+  bindScheduled=true;
+  queueMicrotask(()=>{
+    bindScheduled=false;
+    bind();
+  });
+}
+
+const app=document.querySelector<HTMLElement>('#app');
+if(app)new MutationObserver(scheduleBind).observe(app,{childList:true,subtree:true});
+window.addEventListener('touchline:world-ready',scheduleBind);
+window.addEventListener('touchline:world-hydrated',scheduleBind);
+window.addEventListener('touchline:save-loaded',scheduleBind);
+document.addEventListener('touchline:view-rendered',scheduleBind);
 bind();
