@@ -1,6 +1,6 @@
 {
   "version": 4,
-  "generatedAt": "2026-08-26T18:07:01.809Z",
+  "generatedAt": "2026-08-26T19:27:01.446Z",
   "sources": {
     "structured": [
       "OpenFootball CC0",
@@ -15,7 +15,7 @@
     "clubCrests": 9,
     "stadiumImages": 13,
     "playerTargets": 20,
-    "playerPortraits": 15,
+    "playerPortraits": 14,
     "activeRosterPlayerTargets": 20
   },
   "clubs": [
@@ -632,42 +632,26 @@
       "sourceConfidence": 96
     },
     {
-      "name": "Breno Lopes",
-      "dateOfBirth": "1996-01-24",
-      "clubName": "Fortaleza EC",
-      "wikidataId": "Q101230488",
-      "portrait": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Breno-lopes-palmeiras-wikipedia-2021_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Breno-lopes-palmeiras-wikipedia-2021_%28cropped%29.jpg/330px-Breno-lopes-palmeiras-wikipedia-2021_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-        "source": "Wikimedia Commons",
-        "license": "CC BY-SA",
-        "attribution": "NullReason",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Breno-lopes-palmeiras-wikipedia-2021_(cropped).jpg",
-        "freeToRedistribute": true
-      },
-      "sourceConfidence": 96
-    },
-    {
       "name": "Thiago Silva",
       "dateOfBirth": "1984-09-22",
       "clubName": "Fluminense FC",
-      "sourceConfidence": 5
+      "wikidataId": "Q210453",
+      "portrait": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/c/c8/20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Thiago_Silva_850_1582.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Thiago_Silva_850_1582.jpg/330px-20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Thiago_Silva_850_1582.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "CC BY-SA",
+        "attribution": "Granada",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Thiago_Silva_850_1582.jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 96
     },
     {
       "name": "Hulk",
       "dateOfBirth": "1986-07-25",
       "clubName": "Fluminense FC",
-      "wikidataId": "Q62786",
-      "portrait": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Bayer-04_-_Zenit_%2814%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Bayer-04_-_Zenit_%2814%29.jpg/330px-Bayer-04_-_Zenit_%2814%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-        "source": "Wikimedia Commons",
-        "license": "CC BY-SA",
-        "attribution": "Вячеслав Евдокимов",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Bayer-04_-_Zenit_(14).jpg",
-        "freeToRedistribute": true
-      },
-      "sourceConfidence": 96
+      "sourceConfidence": 5
     },
     {
       "name": "Jefferson Savarino",
@@ -700,6 +684,13 @@
         "freeToRedistribute": true
       },
       "sourceConfidence": 96
+    },
+    {
+      "name": "Rubén Lezcano",
+      "dateOfBirth": "2004-02-09",
+      "clubName": "Fluminense FC",
+      "wikidataId": "Q124805566",
+      "sourceConfidence": 70
     }
   ],
   "notes": [
@@ -715,10 +706,10 @@
   ],
   "identitySanitization": {
     "rejectedAmbiguousClubMatches": 0,
-    "generatedAt": "2026-08-26T18:07:01.951Z"
+    "generatedAt": "2026-08-26T19:27:01.583Z"
   },
   "colorEnrichment": {
     "derivedFromVerifiedCrests": 4,
-    "generatedAt": "2026-08-26T18:07:02.278Z"
+    "generatedAt": "2026-08-26T19:27:01.804Z"
   }
 }
