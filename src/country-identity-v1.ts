@@ -11,18 +11,30 @@ const isoByName:Record<string,string>={
   marrocos:'ma',morocco:'ma',argelia:'dz',algeria:'dz',tunisia:'tn',egito:'eg',egypt:'eg',senegal:'sn',gana:'gh',ghana:'gh',nigeria:'ng',camaroes:'cm',cameroon:'cm','costa do marfim':'ci','ivory coast':'ci',mali:'ml','africa do sul':'za','south africa':'za',
   'republica democratica do congo':'cd','democratic republic of the congo':'cd',congo:'cg',angola:'ao','cabo verde':'cv','cape verde':'cv',mocambique:'mz',mozambique:'mz'
 };
-const fifaToIso:Record<string,string>={BRA:'br',ARG:'ar',URU:'uy',PAR:'py',CHI:'cl',COL:'co',ECU:'ec',PER:'pe',BOL:'bo',VEN:'ve',POR:'pt',ESP:'es',FRA:'fr',GER:'de',ITA:'it',ENG:'gb-eng',SCO:'gb-sct',WAL:'gb-wls',NIR:'gb-nir',IRL:'ie',NED:'nl',BEL:'be',SUI:'ch',AUT:'at',DEN:'dk',SWE:'se',NOR:'no',FIN:'fi',ISL:'is',POL:'pl',CRO:'hr',SRB:'rs',SVN:'si',SVK:'sk',CZE:'cz',ROU:'ro',HUN:'hu',GRE:'gr',TUR:'tr',UKR:'ua',RUS:'ru',USA:'us',CAN:'ca',MEX:'mx',CRC:'cr',PAN:'pa',JAM:'jm',HON:'hn',GUA:'gt',HAI:'ht',CUB:'cu',JPN:'jp',KOR:'kr',CHN:'cn',AUS:'au',NZL:'nz',KSA:'sa',QAT:'qa',IRN:'ir',IRQ:'iq',UAE:'ae',MAR:'ma',ALG:'dz',TUN:'tn',EGY:'eg',SEN:'sn',GHA:'gh',NGA:'ng',CMR:'cm',CIV:'ci',MLI:'ml',RSA:'za',COD:'cd',CGO:'cg',ANG:'ao',CPV:'cv',MOZ:'mz'};
+export const fifaToIso:Record<string,string>={BRA:'br',ARG:'ar',URU:'uy',PAR:'py',CHI:'cl',COL:'co',ECU:'ec',PER:'pe',BOL:'bo',VEN:'ve',POR:'pt',ESP:'es',FRA:'fr',GER:'de',ITA:'it',ENG:'gb-eng',SCO:'gb-sct',WAL:'gb-wls',NIR:'gb-nir',IRL:'ie',NED:'nl',BEL:'be',SUI:'ch',AUT:'at',DEN:'dk',SWE:'se',NOR:'no',FIN:'fi',ISL:'is',POL:'pl',CRO:'hr',SRB:'rs',SVN:'si',SVK:'sk',CZE:'cz',ROU:'ro',HUN:'hu',GRE:'gr',TUR:'tr',UKR:'ua',RUS:'ru',USA:'us',CAN:'ca',MEX:'mx',CRC:'cr',PAN:'pa',JAM:'jm',HON:'hn',GUA:'gt',HAI:'ht',CUB:'cu',JPN:'jp',KOR:'kr',CHN:'cn',AUS:'au',NZL:'nz',KSA:'sa',QAT:'qa',IRN:'ir',IRQ:'iq',UAE:'ae',MAR:'ma',ALG:'dz',TUN:'tn',EGY:'eg',SEN:'sn',GHA:'gh',NGA:'ng',CMR:'cm',CIV:'ci',MLI:'ml',RSA:'za',COD:'cd',CGO:'cg',ANG:'ao',CPV:'cv',MOZ:'mz'};
+const canonicalByIso:Record<string,string>=Object.fromEntries(Object.entries(fifaToIso).map(([fifa,iso])=>[iso.toLowerCase(),fifa]));
+Object.assign(canonicalByIso,{'gb-eng':'ENG','gb-sct':'SCO','gb-wls':'WAL','gb-nir':'NIR'});
 
 export function countryIso2(input?:string):string|undefined{
   if(!input)return;
   const raw=input.trim();
   const upper=raw.toUpperCase();
   if(fifaToIso[upper])return fifaToIso[upper];
+  const lower=raw.toLowerCase();
+  if(canonicalByIso[lower])return lower;
   const n=norm(raw).replace(/^country /,'').replace(/^national team /,'');
   if(isoByName[n])return isoByName[n];
   const tail=n.split(/[-_:]/).at(-1)?.trim();
   return tail&&isoByName[tail]?isoByName[tail]:undefined;
 }
+export function canonicalCountryId(input?:string):string|undefined{
+  if(!input)return;
+  const upper=input.trim().toUpperCase();
+  if(fifaToIso[upper])return upper;
+  const iso=countryIso2(input);
+  return iso?canonicalByIso[iso.toLowerCase()]:undefined;
+}
+export function canonicalCountryIds(inputs:string[]){return[...new Set(inputs.map(canonicalCountryId).filter((x):x is string=>!!x))]}
 export function countryFlagMarkup(country?:string,className='country-flag'){
   const iso=countryIso2(country);
   if(!iso)return `<span class="${className} country-flag-fallback" aria-hidden="true">◈</span>`;
