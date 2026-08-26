@@ -1,7 +1,7 @@
 import type { Club, Player, PlayerAttributes, Position, World } from './engine';
 import { playerMarketValue } from './economy';
 import { clubScouts, decayRegionalKnowledge, improveRegionalKnowledge, playerOriginRegion, regionalKnowledge, scoutById, staffSummary, type ScoutingRegion } from './staff';
-import { worldPlayerPool } from './world-player-pool-v1';
+import { worldPlayerPool, worldPlayerPoolEntryById } from './world-player-pool-v1';
 
 export type ScoutProfile = {clubId:string;judgingAbility:number;judgingPotential:number;adaptability:number;capacity:number};
 export type KnowledgeLevel = 0|1|2|3|4|5;
@@ -21,7 +21,7 @@ export function scoutingState(world:World):ScoutingState{
   for(const club of world.clubs){const summary=staffSummary(world,club.id);state.profiles.set(club.id,{clubId:club.id,judgingAbility:summary.judgingAbility,judgingPotential:summary.judgingPotential,adaptability:summary.adaptability,capacity:summary.scouts.length*2});if(!state.shortlists.has(club.id))state.shortlists.set(club.id,new Set());for(const player of club.players){const ownKey=key(club.id,player.id);if(!state.knowledge.has(ownKey))state.knowledge.set(ownKey,{observerClubId:club.id,playerId:player.id,level:5,progress:100,lastSeenSeason:world.season,lastSeenRound:world.round})}}
   return state;
 }
-function poolEntry(world:World,playerId:string){return worldPlayerPool(world,{includeRetired:true}).find(x=>x.player.id===playerId)}
+function poolEntry(world:World,playerId:string){return worldPlayerPoolEntryById(world,playerId)}
 function baseExternalKnowledge(world:World,observer:Club,target:Player,targetClub?:Club):PlayerKnowledge{const region=playerOriginRegion(target.id),regionKnowledge=regionalKnowledge(world,observer.id,region),fame=(target.currentAbility-55)*.55+Math.max(0,target.potentialAbility-78)*.35+(targetClub?.reputation??60)*.09,observerReach=observer.reputation*.12+regionKnowledge*.22,progress=clamp(5+fame+observerReach+rnd()*10,3,64),level=progress>=56?3:progress>=32?2:progress>=14?1:0;return{observerClubId:observer.id,playerId:target.id,level:level as KnowledgeLevel,progress,lastSeenSeason:world.season,lastSeenRound:world.round}}
 function knowledgeForKnownPlayer(world:World,observerClubId:string,player:Player,targetClub?:Club):PlayerKnowledge{const state=scoutingState(world),existing=state.knowledge.get(key(observerClubId,player.id));if(existing)return existing;const observer=world.clubs.find(c=>c.id===observerClubId);if(!observer)return{observerClubId,playerId:player.id,level:0,progress:0,lastSeenSeason:world.season,lastSeenRound:world.round};const created=player.clubId===observerClubId?{observerClubId,playerId:player.id,level:5 as KnowledgeLevel,progress:100,lastSeenSeason:world.season,lastSeenRound:world.round}:baseExternalKnowledge(world,observer,player,targetClub);state.knowledge.set(key(observerClubId,player.id),created);return created}
 export function knowledgeFor(world:World,observerClubId:string,playerId:string):PlayerKnowledge{const entry=poolEntry(world,playerId);return entry?knowledgeForKnownPlayer(world,observerClubId,entry.player,entry.runtimeClub):{observerClubId,playerId,level:0,progress:0,lastSeenSeason:world.season,lastSeenRound:world.round}}
