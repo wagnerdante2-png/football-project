@@ -38,7 +38,7 @@ function parseClubAliases(text){const clubs=[],owners=new Map();let current;cons
 const TIER_A=[
   {countryId:'BRA',name:'Brazil',qid:'Q155',file:'br.clubs.txt'},
   {countryId:'ARG',name:'Argentina',qid:'Q414',file:'ar.clubs.txt'},
-  {countryId:'ENG',name:'England',qid:'Q21',file:'eng.clubs.txt'},
+  {countryId:'ENG',name:'England',qid:'Q21',qids:['Q21','Q145'],file:'eng.clubs.txt'},
   {countryId:'ESP',name:'Spain',qid:'Q29',file:'es.clubs.txt'},
   {countryId:'GER',name:'Germany',qid:'Q183',file:'de.clubs.txt'},
   {countryId:'ITA',name:'Italy',qid:'Q38',file:'it.clubs.txt'},
@@ -48,8 +48,9 @@ const TIER_A=[
   {countryId:'BEL',name:'Belgium',qid:'Q31',file:'be.clubs.txt'}
 ];
 async function openFootballIndex(country,manifest){const meta=manifest.files.find(f=>f.repo==='openfootball/clubs'&&f.path.endsWith('/'+country.file));if(!meta)return{...country,available:false,clubs:[],owners:new Map(),sourcePath:undefined};const full=path.join(GLOBAL,'openfootball__clubs',meta.path),parsed=parseClubAliases(await fs.readFile(full,'utf8'));return{...country,available:true,...parsed,sourcePath:meta.path}}
-async function tierCountryRoster(index){if(!index.available)return{countryId:index.countryId,countryName:index.name,status:'missing-openfootball-club-file',clubs:[],players:[],sourcePath:index.sourcePath};const q=`SELECT DISTINCT ?club ?clubLabel ?clubAltLabel ?player ?playerLabel ?dob ?position ?positionLabel ?started ?rank ?country ?countryLabel ?height WHERE {
-  ?club wdt:P17 wd:${index.qid} .
+async function tierCountryRoster(index){if(!index.available)return{countryId:index.countryId,countryName:index.name,status:'missing-openfootball-club-file',clubs:[],players:[],sourcePath:index.sourcePath};const countryValues=(index.qids??[index.qid]).map(q=>`wd:${q}`).join(' ');const q=`SELECT DISTINCT ?club ?clubLabel ?clubAltLabel ?player ?playerLabel ?dob ?position ?positionLabel ?started ?rank ?country ?countryLabel ?height WHERE {
+  VALUES ?clubCountry { ${countryValues} }
+  ?club wdt:P17 ?clubCountry .
   ?player p:P54 ?membership ; wdt:P21 wd:Q6581097 ; wdt:P569 ?dob .
   ?membership ps:P54 ?club ; wikibase:rank ?rank .
   OPTIONAL { ?membership pq:P580 ?started } OPTIONAL { ?membership pq:P582 ?ended }
