@@ -5,9 +5,13 @@ import { humanLifeState } from '../src/human-life';
 import { emitWorldEvent, recentWorldEvents } from '../src/event-bus';
 import { humanTrainingMemory, wireTrainingLoadConcerns, type HumanTrainingMemory } from '../src/training-load-concerns-runtime-v1';
 import { pendingManagerInteractions, resolveManagerInteraction } from '../src/manager-interactions';
+import { createDefaultManagerCharacter } from '../src/manager-character';
+import { wireHumanManagerControl } from '../src/manager-human-control-runtime-v1';
 import { restoreSave, serializeSave } from '../src/save-game';
 
 const world=createBrazilRealWorld2026(),club=world.clubs[0],date=`${world.season}-08-26`;
+createDefaultManagerCharacter(world,club.id,'Smoke Human Manager');
+wireHumanManagerControl(world);
 tickDressingRoom(world,date);
 wireTrainingLoadConcerns(world);
 const training=clubTraining(world,club.id),room=clubDressingRoom(world,club.id),life=humanLifeState(world);
@@ -40,6 +44,7 @@ if(!(memoryAfterConcern.trainingSatisfaction<65)||memoryAfterConcern.trainingGri
 
 const interaction=pendingManagerInteractions(world,club.id).find(item=>item.sourceEventId===overloadConcern.id);
 if(!interaction)throw new Error('Training concern did not open a manager interaction');
+if(interaction.aiControlled)throw new Error('User-controlled club interaction was left under AI control');
 const responseBefore=humanTrainingMemory(overload.state);
 if(!resolveManagerInteraction(world,interaction.id,'encourage',`${world.season}-08-26`))throw new Error('Could not resolve training concern interaction');
 const responseAfter=humanTrainingMemory(overload.state);
@@ -56,6 +61,7 @@ const restored=restoreSave(serializeSave(world)),restoredState=clubTraining(rest
 if(!restoredState)throw new Error('Training player state missing after save/restore');
 const restoredMemory=humanTrainingMemory(restoredState);
 if(restoredMemory.trainingSatisfaction!==afterResponseMemory.trainingSatisfaction||restoredMemory.trainingGrievanceDays!==afterResponseMemory.trainingGrievanceDays||restoredMemory.trainingLastResolvedDate!==afterResponseMemory.trainingLastResolvedDate)throw new Error('Human training memory did not survive save/restore');
+wireHumanManagerControl(restored);
 wireTrainingLoadConcerns(restored);
 const restoredRoom=clubDressingRoom(restored,club.id);
 if(!restoredRoom)throw new Error('Dressing room missing after restore');
@@ -63,6 +69,8 @@ restoredState.load.overloadDays=3;restoredState.load.readiness=40;
 emitWorldEvent(restored,{type:'TrainingCompleted',date:`${world.season}-09-03`,clubIds:[club.id],summary:'Post-restore human training concern smoke.',payload:{restDay:false}});
 const postRestoreConcern=recentWorldEvents(restored,60,{clubId:club.id,playerId:overload.player.id,types:['DressingRoomConcern']}).find(e=>e.tags.includes('training-load'));
 if(!postRestoreConcern)throw new Error('Post-restore training concern failed to materialize dressing-room player state');
+const restoredInteraction=pendingManagerInteractions(restored,club.id).find(item=>item.sourceEventId===postRestoreConcern.id);
+if(!restoredInteraction||restoredInteraction.aiControlled)throw new Error('Restored user-controlled interaction was not protected from AI control');
 
 const under=stateFor(1);
 under.person.professionalism=95;under.person.temperament=45;under.profile.stressResilience=82;
@@ -85,4 +93,4 @@ emitWorldEvent(world,{type:'TrainingCompleted',date:`${world.season}-09-04`,club
 const individualConcern=recentWorldEvents(world,100,{clubId:club.id,playerId:individual.player.id,types:['DressingRoomConcern']}).find(e=>e.tags.includes('individual-plan'));
 if(!individualConcern)throw new Error('Severe individual-plan frustration did not raise concern');
 
-console.log(`[smoke-training-human-response] overload=${overload.player.name} · interactionLoop=OK · saveRestore=OK · postRestoreMaterialization=OK · undertraining=${under.player.name} · monotony=${monotony.player.name} · individual=${individual.player.name} · restNoChange=OK · personalityContext=OK · OK`);
+console.log(`[smoke-training-human-response] overload=${overload.player.name} · humanControl=OK · interactionLoop=OK · saveRestore=OK · postRestoreHumanControl=OK · postRestoreMaterialization=OK · undertraining=${under.player.name} · monotony=${monotony.player.name} · individual=${individual.player.name} · restNoChange=OK · personalityContext=OK · OK`);
