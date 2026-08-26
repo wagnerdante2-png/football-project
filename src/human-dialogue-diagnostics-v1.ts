@@ -1,0 +1,4 @@
+import { dialogueVariantCount,generateDialogueSet,type DialogueAudience,type DialogueTopic } from './human-dialogue-bank-v1';
+const audiences:DialogueAudience[]=['press','board','player','dressingRoom','staff','agent','supporters'];
+const topics:DialogueTopic[]=['result','performance','selection','tactics','pressure','future','transfer','contract','discipline','personal','injury','dressingRoom','leadership','youth','finance','facilities','promise','rivalry','referee','training'];
+export function humanDialogueDiagnostics(){const missing:string[]=[];for(const audience of audiences)for(const topic of topics){const rows=generateDialogueSet({audience,topic,seed:`diag:${audience}:${topic}`},8);if(rows.length<8)missing.push(`${audience}:${topic}`)}const variants=dialogueVariantCount();return{ok:missing.length===0&&variants>=100_000,audiences:audiences.length,topics:topics.length,contexts:audiences.length*topics.length,combinatorialVariants:variants,missing}}
