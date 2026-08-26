@@ -9,6 +9,7 @@ import { playerProfile } from '../src/player-profile-v2';
 import { selectNationalSquad } from '../src/national-team-selection-v1';
 import { worldPlayerPoolCounts } from '../src/world-player-pool-v1';
 import { scoutingCandidates, scoutingReport } from '../src/scouting';
+import { globalScoutingSearch } from '../src/global-scouting-search-v1';
 
 const root=path.resolve('public/data/people');
 const read=async<T>(name:string)=>JSON.parse(await readFile(path.join(root,name),'utf8')) as T;
@@ -44,4 +45,7 @@ const directReport=scoutingReport(world,observer.id,brazilian.id);if(!directRepo
 const scoutStarted=Date.now(),candidates=scoutingCandidates(world,observer.id,undefined,40000),scoutMs=Date.now()-scoutStarted;
 if(candidates.length<25000)throw new Error(`Global scouting returned only ${candidates.length} candidates`);
 if(!candidates.some(c=>c.playerId===brazilian.id))throw new Error('Global scouting candidate list omitted a known background identity');
-console.log(`[smoke-people-bundle] source=${manifest.sources.openfootball.snapshotCommit} · bundle=${players.length} · imported=${real.length} · adopted=${report.players.adoptedRuntime} · background=${pool.backgroundReal} · canonicalBRA=OK · scouting=${candidates.length} · duplicates=0 · loadMs=${elapsed} · scoutMs=${scoutMs}`);
+const searchStarted=Date.now(),search=globalScoutingSearch(world,{observerClubId:observer.id,query:brazilian.player.name,countryId:'BRA',limit:80}),searchMs=Date.now()-searchStarted;
+if(!search.reports.some(r=>r.playerId===brazilian.id))throw new Error('Global search failed to recover a known Brazilian identity by name and nationality');
+if(search.matched<1||search.scanned<30000)throw new Error(`Global search coverage is incomplete: matched=${search.matched} scanned=${search.scanned}`);
+console.log(`[smoke-people-bundle] source=${manifest.sources.openfootball.snapshotCommit} · bundle=${players.length} · imported=${real.length} · adopted=${report.players.adoptedRuntime} · background=${pool.backgroundReal} · canonicalBRA=OK · scouting=${candidates.length} · search=OK · duplicates=0 · loadMs=${elapsed} · scoutMs=${scoutMs} · searchMs=${searchMs}`);
