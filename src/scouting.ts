@@ -1,6 +1,7 @@
 import type { Club, Player, PlayerAttributes, Position, World } from './engine';
 import { playerMarketValue } from './economy';
 import { clubScouts, decayRegionalKnowledge, improveRegionalKnowledge, playerOriginRegion, regionalKnowledge, scoutById, staffSummary, type ScoutingRegion } from './staff';
+import { worldPlayerById, worldPlayerClub, worldPlayerPool } from './world-player-pool-v1';
 
 export type ScoutProfile = {
   clubId: string;
@@ -40,8 +41,8 @@ export function scoutingState(world:World):ScoutingState{
   return state;
 }
 
-function playerClub(world:World,playerId:string):Club|undefined{return world.clubs.find(c=>c.players.some(p=>p.id===playerId));}
-function playerById(world:World,playerId:string):Player|undefined{for(const c of world.clubs){const p=c.players.find(x=>x.id===playerId);if(p)return p;}return undefined;}
+function playerClub(world:World,playerId:string):Club|undefined{return worldPlayerClub(world,playerId);}
+function playerById(world:World,playerId:string):Player|undefined{return worldPlayerById(world,playerId);}
 
 function baseExternalKnowledge(world:World,observer:Club,target:Player):PlayerKnowledge{
   const targetClub=playerClub(world,target.id);
@@ -56,7 +57,8 @@ function baseExternalKnowledge(world:World,observer:Club,target:Player):PlayerKn
 
 export function knowledgeFor(world:World,observerClubId:string,playerId:string):PlayerKnowledge{
   const state=scoutingState(world); const existing=state.knowledge.get(key(observerClubId,playerId)); if(existing)return existing;
-  const observer=world.clubs.find(c=>c.id===observerClubId)!; const player=playerById(world,playerId)!;
+  const observer=world.clubs.find(c=>c.id===observerClubId); const player=playerById(world,playerId);
+  if(!observer||!player)return{observerClubId,playerId,level:0,progress:0,lastSeenSeason:world.season,lastSeenRound:world.round};
   const created=player.clubId===observerClubId?{observerClubId,playerId,level:5 as KnowledgeLevel,progress:100,lastSeenSeason:world.season,lastSeenRound:world.round}:baseExternalKnowledge(world,observer,player);
   state.knowledge.set(key(observerClubId,playerId),created); return created;
 }
@@ -65,7 +67,8 @@ function levelFromProgress(progress:number):KnowledgeLevel{if(progress>=92)retur
 function activeCountForScout(state:ScoutingState,scoutId:string):number{return state.assignments.filter(a=>a.scoutId===scoutId&&a.active).length;}
 
 export function assignScout(world:World,observerClubId:string,playerId:string,preferredScoutId?:string):boolean{
-  const state=scoutingState(world); const profile=state.profiles.get(observerClubId)!;
+  const state=scoutingState(world); const profile=state.profiles.get(observerClubId);
+  if(!profile)return false;
   const active=state.assignments.filter(a=>a.observerClubId===observerClubId&&a.active);
   if(active.some(a=>a.playerId===playerId))return true;
   if(active.length>=profile.capacity)return false;
@@ -124,7 +127,7 @@ function summaryFor(player:Player,rec:ScoutingReport['recommendation'],knowledge
 
 export function scoutingReport(world:World,observerClubId:string,playerId:string):ScoutingReport|undefined{
   const state=scoutingState(world); const player=playerById(world,playerId); if(!player)return undefined;
-  const knowledge=knowledgeFor(world,observerClubId,playerId); const profile=state.profiles.get(observerClubId)!; const region=playerOriginRegion(player.id); const regionKnow=regionalKnowledge(world,observerClubId,region);
+  const knowledge=knowledgeFor(world,observerClubId,playerId); const profile=state.profiles.get(observerClubId); if(!profile)return undefined; const region=playerOriginRegion(player.id); const regionKnow=regionalKnowledge(world,observerClubId,region);
   const ca=estimate(player.currentAbility,knowledge,profile.judgingAbility,20,99,regionKnow); const pa=estimate(player.potentialAbility,knowledge,profile.judgingPotential,20,99,regionKnow);
   const trueValue=playerMarketValue(player); const market=estimate(trueValue,knowledge,(profile.judgingAbility+profile.judgingPotential)/2,0,400_000_000,regionKnow);
   const attrs:Partial<Record<keyof PlayerAttributes,AttributeEstimate>>={}; const visibleCount=[0,2,4,6,8,9][knowledge.level];
@@ -135,7 +138,11 @@ export function scoutingReport(world:World,observerClubId:string,playerId:string
 }
 
 export function scoutingCandidates(world:World,observerClubId:string,position?:Position,limit=30):ScoutingReport[]{
-  const reports:ScoutingReport[]=[]; for(const club of world.clubs){if(club.id===observerClubId)continue;for(const player of club.players){if(position&&player.position!==position)continue;const r=scoutingReport(world,observerClubId,player.id);if(r)reports.push(r);}}
+  const reports:ScoutingReport[]=[];
+  for(const entry of worldPlayerPool(world)){
+    const player=entry.player;if(player.clubId===observerClubId)continue;if(position&&player.position!==position)continue;
+    const r=scoutingReport(world,observerClubId,player.id);if(r)reports.push(r);
+  }
   const score=(r:ScoutingReport)=>(r.currentAbility.min+r.currentAbility.max)*.34+(r.potentialAbility.min+r.potentialAbility.max)*.16+(r.age<=21?7:r.age<=24?3:0)+r.confidence*.05;
   return reports.sort((a,b)=>score(b)-score(a)).slice(0,limit);
 }
