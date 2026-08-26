@@ -35,6 +35,7 @@ export function wireTrainingMentorshipRuntime(world:World):void{
   if(wired.has(world))return;
   wired.add(world);
   onWorldEvent(world,'TrainingCompleted',event=>{
+    if(event.payload.restDay===true)return;
     for(const clubId of event.clubIds)applyMentorshipAfterTraining(world,clubId);
   });
 }
