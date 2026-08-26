@@ -32,7 +32,14 @@ try{
   await click('.game-sidebar [data-view="world"]');
   await page.locator('.engine-table tbody tr').first().waitFor({state:'visible',timeout:5000});
   await page.locator('.world-club-crest').first().waitFor({state:'visible',timeout:5000});
+  const coverage=page.locator('[data-world-football-coverage]');
+  await coverage.waitFor({state:'visible',timeout:5000});
+  const coverageKpis=coverage.locator('.wfc-kpis article');
+  if(await coverageKpis.count()!==4)throw new Error(`World coverage expected 4 KPIs, got ${await coverageKpis.count()}`);
+  const countries=Number((await coverageKpis.nth(0).locator('b').textContent())?.trim()||0);
+  if(countries<=0)throw new Error(`World coverage did not expose catalogued countries: ${countries}`);
+  if(await coverage.locator('.wfc-table tbody tr').count()!==countries)throw new Error('World coverage row count does not match catalogued country count');
 
   if(errors.length)throw new Error(errors.join('\n'));
-  console.log('UI lifecycle bridge passed: club visuals + institutional legacy, analytics/history and world decorators receive canonical view events.');
+  console.log('UI lifecycle bridge passed: club visuals + institutional legacy, analytics/history, world decorators and read-only world coverage receive canonical view events.');
 }finally{await browser.close()}
