@@ -25,8 +25,19 @@ while(stack.length){const f=stack.pop();if(!f||reachable.has(f))continue;reachab
 const unreachable=[...srcSet].filter(f=>!reachable.has(f)).sort();
 const roots=unreachable.filter(f=>(importedBy.get(f)?.size||0)===0);
 const referencedOnlyByUnreachable=unreachable.filter(f=>(importedBy.get(f)?.size||0)>0);
-const uiLike=unreachable.filter(f=>/(ui|view|screen|shell|visual|workspace|bootstrap|main|manager\.ts$)/i.test(f));
-const engineLike=unreachable.filter(f=>!uiLike.includes(f)&&/(engine|world|manager|player|club|competition|match|transfer|scout|medical|training|staff|career|finance|econom|social|human|press|news|school|national|international|contract|agent|retire|development|academy|youth|governance|recruit)/i.test(f));
+const diagnostics=unreachable.filter(f=>/(diagnostics?|regression-suite|readiness|calibration|import-audit)/i.test(f));
+const knownLegacy=new Set([
+  'src/game-ui-v1.ts','src/player-profile-ui-v1.ts','src/main.ts','src/visual-bootstrap-v1.ts',
+  'src/transfer-beta-ui-v1.ts','src/staff-ui.ts','src/manager-creation-preview.ts','src/manager-creation-ui.ts',
+  'src/manager-job-market.ts','src/world-weather-v2.ts','src/world-geography-v2.ts','src/world-save-v2.ts',
+  'src/world-time-v2.ts','src/season-transition.ts'
+]);
+const legacy=unreachable.filter(f=>knownLegacy.has(f));
+const classified=new Set([...diagnostics,...legacy]);
+const uiLike=unreachable.filter(f=>!classified.has(f)&&/(ui|view|screen|shell|visual|workspace|bootstrap|main|manager\.ts$)/i.test(f));
+const engineLike=unreachable.filter(f=>!classified.has(f)&&!uiLike.includes(f)&&/(engine|world|manager|player|club|competition|match|transfer|scout|medical|training|staff|career|finance|econom|social|human|press|news|school|national|international|contract|agent|retire|development|academy|youth|governance|recruit)/i.test(f));
+const actionable=[...new Set([...engineLike,...uiLike])].sort();
+const other=unreachable.filter(f=>!classified.has(f)&&!actionable.includes(f));
 
 console.log('=== TOUCHLINE MODULE COVERAGE AUDIT ===');
 console.log(`Source modules: ${srcSet.size}`);
@@ -35,18 +46,26 @@ for(const e of entries)console.log(`  ENTRY ${e}`);
 console.log(`Reachable from active app: ${reachable.size}`);
 console.log(`Unreachable from active app: ${unreachable.length}`);
 console.log(`Unreachable root modules (zero importers): ${roots.length}`);
-console.log(`Unreachable engine/domain candidates: ${engineLike.length}`);
-console.log(`Unreachable UI/legacy candidates: ${uiLike.length}`);
-console.log('\n--- UNREACHABLE ENGINE / DOMAIN CANDIDATES ---');
+console.log(`Actionable unreachable candidates: ${actionable.length}`);
+console.log(`Diagnostics/test-only unreachable: ${diagnostics.length}`);
+console.log(`Known legacy/superseded unreachable: ${legacy.length}`);
+console.log(`Other unreachable: ${other.length}`);
+console.log('\n--- ACTIONABLE ENGINE / DOMAIN CANDIDATES ---');
 for(const f of engineLike)console.log(`${f} | imported-by=${[...(importedBy.get(f)||[])].join(',')||'NONE'}`);
-console.log('\n--- UNREACHABLE UI / LEGACY CANDIDATES ---');
+console.log('\n--- ACTIONABLE UI / BOOTSTRAP CANDIDATES ---');
 for(const f of uiLike)console.log(`${f} | imported-by=${[...(importedBy.get(f)||[])].join(',')||'NONE'}`);
+console.log('\n--- DIAGNOSTICS / TEST-ONLY UNREACHABLE ---');
+for(const f of diagnostics)console.log(f);
+console.log('\n--- KNOWN LEGACY / SUPERSEDED UNREACHABLE ---');
+for(const f of legacy)console.log(f);
+console.log('\n--- OTHER UNREACHABLE ---');
+for(const f of other)console.log(f);
 console.log('\n--- ALL UNREACHABLE ROOTS ---');
 for(const f of roots)console.log(f);
 console.log('\n--- ACTIVE REACHABLE MODULES ---');
 for(const f of [...reachable].sort())console.log(f);
 console.log(`\nDesktop entry exists: ${fs.existsSync(path.join(root,desktopMain))?'YES':'NO'} (${desktopMain})`);
 
-const report={generatedAt:new Date().toISOString(),sourceModules:srcSet.size,entrypoints:entries,reachable:[...reachable].sort(),unreachable,roots,engineLike,uiLike,referencedOnlyByUnreachable};
+const report={generatedAt:new Date().toISOString(),sourceModules:srcSet.size,entrypoints:entries,reachable:[...reachable].sort(),unreachable,roots,actionable,engineLike,uiLike,diagnostics,legacy,other,referencedOnlyByUnreachable};
 fs.mkdirSync(path.join(root,'tmp'),{recursive:true});
 fs.writeFileSync(path.join(root,'tmp/module-coverage-audit.json'),JSON.stringify(report,null,2));
