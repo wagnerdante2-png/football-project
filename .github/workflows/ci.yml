@@ -29,6 +29,8 @@ jobs:
         run: npm run smoke:match
       - name: Smoke isolated match context
         run: npm run smoke:context
+      - name: Profile active match distribution
+        run: npm run profile:match
       - name: Smoke safe world football foundation
         run: npm run smoke:foundation
       - name: Install Chromium for E2E
