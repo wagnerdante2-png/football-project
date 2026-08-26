@@ -45,12 +45,13 @@ if(!(memoryAfterConcern.trainingSatisfaction<65)||memoryAfterConcern.trainingGri
 const interaction=pendingManagerInteractions(world,club.id).find(item=>item.sourceEventId===overloadConcern.id);
 if(!interaction)throw new Error('Training concern did not open a manager interaction');
 if(interaction.aiControlled)throw new Error('User-controlled club interaction was left under AI control');
+if(!interaction.options.some(option=>option.id==='reduce_training_load')||interaction.options.some(option=>option.id==='bench'))throw new Error('Overload interaction did not receive cause-specific training options');
 const responseBefore=humanTrainingMemory(overload.state);
-if(!resolveManagerInteraction(world,interaction.id,'encourage',`${world.season}-08-26`))throw new Error('Could not resolve training concern interaction');
+if(!resolveManagerInteraction(world,interaction.id,'reduce_training_load',`${world.season}-08-26`))throw new Error('Could not resolve training concern with specific load response');
 const responseAfter=humanTrainingMemory(overload.state);
 if(!(responseAfter.trainingSatisfaction>responseBefore.trainingSatisfaction)||!(responseAfter.trainingGrievanceDays<responseBefore.trainingGrievanceDays))throw new Error('Supportive manager response did not improve training sentiment');
 const responded=recentWorldEvents(world,40,{clubId:club.id,playerId:overload.player.id,types:['TrainingConcernResponded']}).find(e=>e.payload.interactionId===interaction.id);
-if(!responded)throw new Error('Resolved manager interaction did not feed back into training state');
+if(!responded||responded.payload.optionId!=='reduce_training_load')throw new Error('Resolved manager interaction did not feed the specific training response back into training state');
 
 const afterConcernHappy=overload.status.overallHappiness,afterConcernTrust=overload.status.managerTrust,afterResponseMemory=humanTrainingMemory(overload.state);
 emitWorldEvent(world,{type:'TrainingCompleted',date:`${world.season}-08-27`,clubIds:[club.id],summary:'Rest should not affect training sentiment.',payload:{restDay:true}});
@@ -71,6 +72,7 @@ const postRestoreConcern=recentWorldEvents(restored,60,{clubId:club.id,playerId:
 if(!postRestoreConcern)throw new Error('Post-restore training concern failed to materialize dressing-room player state');
 const restoredInteraction=pendingManagerInteractions(restored,club.id).find(item=>item.sourceEventId===postRestoreConcern.id);
 if(!restoredInteraction||restoredInteraction.aiControlled)throw new Error('Restored user-controlled interaction was not protected from AI control');
+if(!restoredInteraction.options.some(option=>option.id==='reduce_training_load'))throw new Error('Post-restore concern lost its specialized training options');
 
 const under=stateFor(1);
 under.person.professionalism=95;under.person.temperament=45;under.profile.stressResilience=82;
@@ -78,6 +80,8 @@ setTrainingMemory(under.state,{trainingSatisfaction:52,trainingGrievanceDays:0})
 under.state.load.acuteLoad=8;under.state.load.chronicLoad=20;under.state.load.readiness=92;under.state.load.overloadDays=0;under.state.load.strain=260;under.state.load.monotony=1.1;
 const underConcern=completePersistentConcern(under,28,'undertraining');
 if(!underConcern)throw new Error('Highly professional undertrained player did not raise persistent concern');
+const underInteraction=pendingManagerInteractions(world,club.id).find(item=>item.sourceEventId===underConcern.id);
+if(!underInteraction?.options.some(option=>option.id==='increase_training_load'))throw new Error('Undertraining concern did not receive higher-load response options');
 
 const monotony=stateFor(2);
 monotony.person.temperament=72;monotony.profile.stressResilience=55;
@@ -85,6 +89,8 @@ setTrainingMemory(monotony.state,{trainingSatisfaction:52,trainingGrievanceDays:
 monotony.state.load.acuteLoad=20;monotony.state.load.chronicLoad=20;monotony.state.load.readiness=72;monotony.state.load.overloadDays=0;monotony.state.load.strain=1050;monotony.state.load.monotony=2.9;
 const monotonyConcern=completePersistentConcern(monotony,31,'monotony');
 if(!monotonyConcern)throw new Error('Persistent monotonous training did not raise concern');
+const monotonyInteraction=pendingManagerInteractions(world,club.id).find(item=>item.sourceEventId===monotonyConcern.id);
+if(!monotonyInteraction?.options.some(option=>option.id==='vary_training_sessions'))throw new Error('Monotony concern did not receive session-variation response options');
 
 const individual=stateFor(3);
 individual.state.load.acuteLoad=18;individual.state.load.chronicLoad=18;individual.state.load.readiness=70;individual.state.load.overloadDays=0;individual.state.load.strain=600;individual.state.load.monotony=1.4;
@@ -92,5 +98,7 @@ individual.state.individual={playerId:individual.player.id,focus:'roleWork',inte
 emitWorldEvent(world,{type:'TrainingCompleted',date:`${world.season}-09-04`,clubIds:[club.id],summary:'Human individual training frustration smoke.',payload:{restDay:false}});
 const individualConcern=recentWorldEvents(world,100,{clubId:club.id,playerId:individual.player.id,types:['DressingRoomConcern']}).find(e=>e.tags.includes('individual-plan'));
 if(!individualConcern)throw new Error('Severe individual-plan frustration did not raise concern');
+const individualInteraction=pendingManagerInteractions(world,club.id).find(item=>item.sourceEventId===individualConcern.id);
+if(!individualInteraction?.options.some(option=>option.id==='review_individual_plan'))throw new Error('Individual-plan concern did not receive plan-review response options');
 
-console.log(`[smoke-training-human-response] overload=${overload.player.name} · humanControl=OK · interactionLoop=OK · saveRestore=OK · postRestoreHumanControl=OK · postRestoreMaterialization=OK · undertraining=${under.player.name} · monotony=${monotony.player.name} · individual=${individual.player.name} · restNoChange=OK · personalityContext=OK · OK`);
+console.log(`[smoke-training-human-response] overload=${overload.player.name} · humanControl=OK · specificOptions=OK · interactionLoop=OK · saveRestore=OK · postRestoreHumanControl=OK · postRestoreMaterialization=OK · undertraining=${under.player.name} · monotony=${monotony.player.name} · individual=${individual.player.name} · restNoChange=OK · personalityContext=OK · OK`);
