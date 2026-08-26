@@ -1,18 +1,43 @@
 import type { World } from './engine';
 import { emitWorldEvent, onWorldEvent, recentWorldEvents } from './event-bus';
-import { clubTraining } from './training-engine';
-import { clubDressingRoom } from './dressing-room';
+import { clubTraining, type PlayerTrainingState } from './training-engine';
+import { clubDressingRoom, tickDressingRoom } from './dressing-room';
 import { humanLifeState } from './human-life';
+import { managerInteractionState } from './manager-interactions';
 
 const wired=new WeakSet<World>();
 const clamp=(value:number,min=0,max=100)=>Math.max(min,Math.min(max,value));
 const daysBetween=(a:string,b:string)=>Math.abs(Math.round((new Date(`${a}T12:00:00Z`).getTime()-new Date(`${b}T12:00:00Z`).getTime())/86400000));
 
-type TrainingConcernReason='overload'|'individual-plan'|'monotony'|'undertraining';
+export type TrainingConcernReason='overload'|'individual-plan'|'monotony'|'undertraining';
 type TrainingReaction={reason?:TrainingConcernReason;delta:number;severity:number;summary:string};
+export type HumanTrainingMemory={trainingSatisfaction?:number;trainingGrievanceDays?:number;trainingConcernReason?:TrainingConcernReason;trainingLastReactionDate?:string;trainingLastResolvedDate?:string};
+type HumanTrainingState=PlayerTrainingState&HumanTrainingMemory;
+
+export function humanTrainingMemory(state:PlayerTrainingState):Required<Pick<HumanTrainingMemory,'trainingSatisfaction'|'trainingGrievanceDays'>>&HumanTrainingMemory{
+  const human=state as HumanTrainingState;
+  return{...human,trainingSatisfaction:human.trainingSatisfaction??65,trainingGrievanceDays:human.trainingGrievanceDays??0};
+}
+
+function mutableHumanState(state:PlayerTrainingState):HumanTrainingState{
+  const human=state as HumanTrainingState;
+  if(human.trainingSatisfaction===undefined)human.trainingSatisfaction=65;
+  if(human.trainingGrievanceDays===undefined)human.trainingGrievanceDays=0;
+  return human;
+}
 
 function alreadyRaised(world:World,clubId:string,playerId:string,date:string):boolean{
-  return recentWorldEvents(world,80,{clubId,playerId,types:['DressingRoomConcern']}).some(event=>event.tags.includes('training-load')&&daysBetween(date,event.date)<=6);
+  return recentWorldEvents(world,100,{clubId,playerId,types:['DressingRoomConcern']}).some(event=>event.tags.includes('training-load')&&daysBetween(date,event.date)<=6);
+}
+
+function ensureRoomPlayers(world:World,clubId:string,date:string){
+  let room=clubDressingRoom(world,clubId);
+  const club=world.clubs.find(c=>c.id===clubId);
+  if(room&&club&&club.players.some(player=>!room!.players.has(player.id))){
+    tickDressingRoom(world,date);
+    room=clubDressingRoom(world,clubId);
+  }
+  return room;
 }
 
 function reactionFor(world:World,clubId:string,playerId:string):TrainingReaction{
@@ -52,38 +77,74 @@ function concernSummary(name:string,reason:TrainingConcernReason):string{
 }
 
 function evaluateClub(world:World,clubId:string,date:string):void{
-  const club=world.clubs.find(c=>c.id===clubId),training=clubTraining(world,clubId),room=clubDressingRoom(world,clubId),life=humanLifeState(world);
+  const club=world.clubs.find(c=>c.id===clubId),training=clubTraining(world,clubId),room=ensureRoomPlayers(world,clubId,date),life=humanLifeState(world);
   if(!club||!training||!room)return;
   for(const player of club.players){
     const state=training.players.get(player.id),status=room.players.get(player.id),plan=state?.individual;
     if(!state||!status)continue;
-    const reaction=reactionFor(world,clubId,player.id),beforeHappiness=status.overallHappiness;
-    status.overallHappiness=clamp(status.overallHappiness+reaction.delta);
+    const human=mutableHumanState(state),reaction=reactionFor(world,clubId,player.id),beforeHappiness=status.overallHappiness,beforeTraining=human.trainingSatisfaction!;
+    human.trainingSatisfaction=clamp(human.trainingSatisfaction!+reaction.delta);
+    human.trainingLastReactionDate=date;
     if(reaction.reason&&reaction.delta<0){
-      status.grievanceDays=Math.min(30,status.grievanceDays+1);
+      human.trainingGrievanceDays=Math.min(30,human.trainingGrievanceDays!+1);
+      human.trainingConcernReason=reaction.reason;
+      status.overallHappiness=clamp(status.overallHappiness+reaction.delta*.35);
       status.conflictRisk=clamp(status.conflictRisk+Math.max(.15,reaction.severity*.12));
     }else{
-      status.grievanceDays=Math.max(0,status.grievanceDays-1);
+      human.trainingGrievanceDays=Math.max(0,human.trainingGrievanceDays!-1);
+      if(human.trainingGrievanceDays===0)human.trainingConcernReason=undefined;
+      status.overallHappiness=clamp(status.overallHappiness+reaction.delta*.2);
       status.conflictRisk=clamp(status.conflictRisk-.12);
     }
     const person=life.people.get(player.id),profile=life.profiles.get(player.id),persistentOverload=state.load.overloadDays>=3||state.load.readiness<42;
     const severeIndividual=!!plan&&plan.satisfaction<38;
-    const persistentHumanConcern=!!reaction.reason&&status.grievanceDays>=3&&(status.overallHappiness<58||reaction.severity>=4);
+    const persistentHumanConcern=!!reaction.reason&&human.trainingGrievanceDays!>=3&&(human.trainingSatisfaction!<58||reaction.severity>=4);
     if(!persistentOverload&&!severeIndividual&&!persistentHumanConcern)continue;
     if(alreadyRaised(world,clubId,player.id,date))continue;
-    const reason:TrainingConcernReason=severeIndividual&&!persistentOverload?'individual-plan':reaction.reason??'overload';
-    const importance=state.load.overloadDays>=5||state.load.readiness<35||status.overallHappiness<38||reaction.severity>=7?3:2;
+    const reason:TrainingConcernReason=severeIndividual&&!persistentOverload?'individual-plan':reaction.reason??human.trainingConcernReason??'overload';
+    const importance=state.load.overloadDays>=5||state.load.readiness<35||human.trainingSatisfaction!<38||reaction.severity>=7?3:2;
     status.managerTrust=clamp(status.managerTrust-(importance===3?1.1:.55));
-    emitWorldEvent(world,{type:'DressingRoomConcern',date,clubIds:[clubId],playerIds:[player.id],importance,tags:['training','training-load',reason],summary:concernSummary(player.name,reason),payload:{reason,readiness:Math.round(state.load.readiness),overloadDays:state.load.overloadDays,strain:Math.round(state.load.strain),monotony:Number(state.load.monotony.toFixed(2)),individualSatisfaction:plan?Math.round(plan.satisfaction):undefined,overallHappinessBefore:Math.round(beforeHappiness),overallHappiness:Math.round(status.overallHappiness),grievanceDays:status.grievanceDays,professionalism:person?.professionalism,temperament:person?.temperament,stressResilience:profile?.stressResilience,managerTrust:Math.round(status.managerTrust),reactionSummary:reaction.summary}});
+    emitWorldEvent(world,{type:'DressingRoomConcern',date,clubIds:[clubId],playerIds:[player.id],importance,tags:['training','training-load',reason],summary:concernSummary(player.name,reason),payload:{reason,readiness:Math.round(state.load.readiness),overloadDays:state.load.overloadDays,strain:Math.round(state.load.strain),monotony:Number(state.load.monotony.toFixed(2)),individualSatisfaction:plan?Math.round(plan.satisfaction):undefined,trainingSatisfactionBefore:Math.round(beforeTraining),trainingSatisfaction:Math.round(human.trainingSatisfaction!),trainingGrievanceDays:human.trainingGrievanceDays,overallHappinessBefore:Math.round(beforeHappiness),overallHappiness:Math.round(status.overallHappiness),professionalism:person?.professionalism,temperament:person?.temperament,stressResilience:profile?.stressResilience,managerTrust:Math.round(status.managerTrust),reactionSummary:reaction.summary}});
   }
+}
+
+function resolutionEffect(reason:TrainingConcernReason|undefined,optionId:string){
+  if(optionId==='encourage'||optionId==='private_support')return{satisfaction:5,relief:3};
+  if(optionId==='professional_support')return{satisfaction:6,relief:4};
+  if(optionId==='firm_private')return reason==='undertraining'?{satisfaction:5,relief:3}:reason==='overload'?{satisfaction:-2,relief:0}:{satisfaction:1,relief:1};
+  if(optionId==='challenge')return reason==='undertraining'?{satisfaction:6,relief:4}:reason==='overload'?{satisfaction:-5,relief:0}:{satisfaction:-2,relief:0};
+  if(optionId==='bench')return reason==='overload'?{satisfaction:4,relief:3}:reason==='undertraining'?{satisfaction:-4,relief:0}:{satisfaction:1,relief:1};
+  return{satisfaction:1,relief:1};
+}
+
+function applyResolvedTrainingConversation(world:World,interactionId:string,date:string):void{
+  const interaction=managerInteractionState(world).interactions.find(item=>item.id===interactionId&&item.status==='resolved');
+  if(!interaction?.playerId||!interaction.chosenOptionId)return;
+  const source=recentWorldEvents(world,300,{clubId:interaction.clubId,playerId:interaction.playerId,types:['DressingRoomConcern']}).find(event=>event.id===interaction.sourceEventId&&event.tags.includes('training-load'));
+  if(!source)return;
+  const state=clubTraining(world,interaction.clubId)?.players.get(interaction.playerId);if(!state)return;
+  const human=mutableHumanState(state),reason=String(source.payload.reason??human.trainingConcernReason??'') as TrainingConcernReason|undefined,effect=resolutionEffect(reason,interaction.chosenOptionId);
+  human.trainingSatisfaction=clamp(human.trainingSatisfaction!+effect.satisfaction);
+  human.trainingGrievanceDays=Math.max(0,human.trainingGrievanceDays!-effect.relief);
+  human.trainingLastResolvedDate=date;
+  if(human.trainingGrievanceDays===0)human.trainingConcernReason=undefined;
+  if(reason==='individual-plan'&&state.individual&&effect.satisfaction>0)state.individual.satisfaction=clamp(state.individual.satisfaction+Math.min(4,effect.satisfaction*.5));
+  const status=ensureRoomPlayers(world,interaction.clubId,date)?.players.get(interaction.playerId);
+  if(status){status.overallHappiness=clamp(status.overallHappiness+effect.satisfaction*.18);status.conflictRisk=clamp(status.conflictRisk-Math.max(0,effect.relief*.35));}
+  emitWorldEvent(world,{type:'TrainingConcernResponded',date,clubIds:[interaction.clubId],playerIds:[interaction.playerId],importance:2,tags:['training','training-response',reason??'unknown'],summary:'A conversa do treinador alterou a percepção do atleta sobre o treinamento.',payload:{interactionId,sourceEventId:interaction.sourceEventId,reason,optionId:interaction.chosenOptionId,trainingSatisfaction:Math.round(human.trainingSatisfaction!),trainingGrievanceDays:human.trainingGrievanceDays}});
 }
 
 export function wireTrainingLoadConcerns(world:World):void{
   if(wired.has(world))return;
   wired.add(world);
+  managerInteractionState(world);
   onWorldEvent(world,'TrainingCompleted',event=>{
     if(event.payload?.restDay===true)return;
     for(const clubId of event.clubIds)evaluateClub(world,clubId,event.date);
+  });
+  onWorldEvent(world,'ManagerInteractionResolved',event=>{
+    const interactionId=String(event.payload.interactionId??'');
+    if(interactionId)applyResolvedTrainingConversation(world,interactionId,event.date);
   });
 }
 
