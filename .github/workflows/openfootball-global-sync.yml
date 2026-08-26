@@ -1,0 +1,52 @@
+name: OpenFootball Global Sync
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '41 5 * * 0'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/sync-openfootball-global.mjs'
+      - 'src/openfootball-people-source-v1.ts'
+      - '.github/workflows/openfootball-global-sync.yml'
+
+concurrency:
+  group: openfootball-global-main
+  cancel-in-progress: true
+permissions:
+  contents: write
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Sync complete CC0 world database
+        run: npm run sync:data:global
+      - name: Validate manifest
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs/promises';
+          const m=JSON.parse(await fs.readFile('public/data/openfootball-global/manifest.json','utf8'));
+          if(m.license!=='CC0-1.0') throw new Error('global data must remain CC0');
+          for(const k of ['playersFiles','clubFiles','leagueFiles','tournamentFiles']) if(!(m.counts[k]>0)) throw new Error(`missing ${k}`);
+          if(m.counts.files<100) throw new Error(`unexpectedly small global dataset: ${m.counts.files}`);
+          console.log(m.counts);
+          NODE
+      - name: Publish global snapshot
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/data/openfootball-global
+          if git diff --cached --quiet; then echo 'Global snapshot unchanged.'; exit 0; fi
+          git commit -m 'data: refresh OpenFootball global snapshot'
+          for attempt in 1 2 3; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep $((attempt * 3))
+          done
+          exit 1
