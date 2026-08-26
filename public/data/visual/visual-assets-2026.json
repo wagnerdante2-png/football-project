@@ -1,6 +1,6 @@
 {
   "version": 4,
-  "generatedAt": "2026-08-26T00:12:01.125Z",
+  "generatedAt": "2026-08-26T00:35:01.884Z",
   "sources": {
     "structured": [
       "OpenFootball CC0",
@@ -13,7 +13,7 @@
   "counts": {
     "clubTargets": 20,
     "clubCrests": 9,
-    "stadiumImages": 13,
+    "stadiumImages": 12,
     "playerTargets": 20,
     "playerPortraits": 14,
     "activeRosterPlayerTargets": 20
@@ -114,10 +114,10 @@
     {
       "name": "CA Mineiro",
       "wikidataId": "Q270995",
-      "primaryColor": "hsl(156 58% 34%)",
-      "secondaryColor": "hsl(293 58% 42%)",
-      "accentColor": "hsl(226 72% 58%)",
-      "kitSource": "procedural",
+      "primaryColor": "#facf00",
+      "secondaryColor": "#1f1a17",
+      "accentColor": "#1f1a17",
+      "kitSource": "derived-from-crest",
       "crest": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/2/27/Clube_Atl%C3%A9tico_Mineiro_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
         "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Clube_Atl%C3%A9tico_Mineiro_logo.svg/500px-Clube_Atl%C3%A9tico_Mineiro_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -137,7 +137,12 @@
         "sourcePage": "https://commons.wikimedia.org/wiki/File:Mineir%C3%A3o_A%C3%A9rea.jpg",
         "freeToRedistribute": true
       },
-      "sourceConfidence": 96
+      "sourceConfidence": 96,
+      "paletteProvenance": {
+        "source": "verified-free-crest",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Clube_Atl%C3%A9tico_Mineiro_logo.svg",
+        "method": "dominant-svg-colors"
+      }
     },
     {
       "name": "Fortaleza EC",
@@ -145,7 +150,7 @@
       "secondaryColor": "hsl(324 58% 42%)",
       "accentColor": "hsl(257 72% 58%)",
       "kitSource": "procedural",
-      "sourceConfidence": 10
+      "sourceConfidence": 20
     },
     {
       "name": "Fluminense FC",
@@ -177,22 +182,11 @@
     },
     {
       "name": "EC Juventude",
-      "wikidataId": "Q910453",
       "primaryColor": "hsl(135 58% 34%)",
       "secondaryColor": "hsl(272 58% 42%)",
       "accentColor": "hsl(205 72% 58%)",
       "kitSource": "procedural",
-      "stadiumName": "Estádio Alfredo Jaconi",
-      "stadiumImage": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/8/82/EstadioAlfredoJaconi22.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/EstadioAlfredoJaconi22.jpg/960px-EstadioAlfredoJaconi22.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-        "source": "Wikimedia Commons",
-        "license": "Public domain",
-        "attribution": "Tetraktys",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:EstadioAlfredoJaconi22.jpg",
-        "freeToRedistribute": true
-      },
-      "sourceConfidence": 96
+      "sourceConfidence": 10
     },
     {
       "name": "EC Vitória",
@@ -238,7 +232,8 @@
       "secondaryColor": "hsl(325 58% 42%)",
       "accentColor": "hsl(258 72% 58%)",
       "kitSource": "procedural",
-      "sourceConfidence": 10
+      "sourceConfidence": 20,
+      "identityRejected": "Expected Q80845; rejected ambiguous candidate"
     },
     {
       "name": "SE Palmeiras",
@@ -275,22 +270,11 @@
     },
     {
       "name": "Botafogo FR",
-      "wikidataId": "Q80958",
       "primaryColor": "hsl(264 58% 34%)",
       "secondaryColor": "hsl(41 58% 42%)",
       "accentColor": "hsl(334 72% 58%)",
       "kitSource": "procedural",
-      "crest": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/5/52/Botafogo_de_Futebol_e_Regatas_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Botafogo_de_Futebol_e_Regatas_logo.svg/500px-Botafogo_de_Futebol_e_Regatas_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-        "source": "Wikimedia Commons",
-        "license": "Public domain",
-        "attribution": "Botafogo de Futebol e Regatas",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Botafogo_de_Futebol_e_Regatas_logo.svg",
-        "freeToRedistribute": true
-      },
-      "stadiumName": "Estádio Nilton Santos",
-      "sourceConfidence": 96
+      "sourceConfidence": 10
     },
     {
       "name": "CR Vasco da Gama",
@@ -341,11 +325,22 @@
     },
     {
       "name": "EC Bahia",
+      "wikidataId": "Q198032",
       "primaryColor": "hsl(168 58% 34%)",
       "secondaryColor": "hsl(305 58% 42%)",
       "accentColor": "hsl(238 72% 58%)",
       "kitSource": "procedural",
-      "sourceConfidence": 10
+      "stadiumName": "Arena Fonte Nova",
+      "stadiumImage": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/9/98/Salvador_aerea_arenafontenova.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/9/98/Salvador_aerea_arenafontenova.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "source": "Wikimedia Commons",
+        "license": "CC BY",
+        "attribution": "ME/ Portal da Copa/",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Salvador_aerea_arenafontenova.jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 96
     },
     {
       "name": "SC Corinthians Paulista",
@@ -377,22 +372,11 @@
     },
     {
       "name": "RB Bragantino",
-      "wikidataId": "Q541744",
       "primaryColor": "hsl(128 58% 34%)",
       "secondaryColor": "hsl(265 58% 42%)",
       "accentColor": "hsl(198 72% 58%)",
       "kitSource": "procedural",
-      "stadiumName": "Estádio Nabi Abi Chedid",
-      "stadiumImage": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/3/37/Est%C3%A1dio_Nabi_Abi_Chedid.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Est%C3%A1dio_Nabi_Abi_Chedid.jpg/960px-Est%C3%A1dio_Nabi_Abi_Chedid.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-        "source": "Wikimedia Commons",
-        "license": "CC BY",
-        "attribution": "Renato Patinhas",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Est%C3%A1dio_Nabi_Abi_Chedid.jpg",
-        "freeToRedistribute": true
-      },
-      "sourceConfidence": 96
+      "sourceConfidence": 10
     },
     {
       "name": "Ceará SC",
@@ -460,17 +444,7 @@
       "name": "Dudu",
       "dateOfBirth": "1992-01-07",
       "clubName": "Cruzeiro EC",
-      "wikidataId": "Q1341709",
-      "portrait": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/0/00/DuduPalmeiras2018.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/DuduPalmeiras2018.jpg/330px-DuduPalmeiras2018.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-        "source": "Wikimedia Commons",
-        "license": "CC BY",
-        "attribution": "Renato Gizzi from Guarulhos",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:DuduPalmeiras2018.jpg",
-        "freeToRedistribute": true
-      },
-      "sourceConfidence": 96
+      "sourceConfidence": 5
     },
     {
       "name": "Matheus Cunha Queiroz",
@@ -483,7 +457,8 @@
       "name": "Lucas Villalba",
       "dateOfBirth": "1994-08-18",
       "clubName": "Cruzeiro EC",
-      "sourceConfidence": 5
+      "wikidataId": "Q5981950",
+      "sourceConfidence": 70
     },
     {
       "name": "Gabigol",
@@ -553,14 +528,23 @@
       "name": "Fabrizio Peralta",
       "dateOfBirth": "2002-08-02",
       "clubName": "Cruzeiro EC",
-      "wikidataId": "Q124838357",
-      "sourceConfidence": 70
+      "sourceConfidence": 5
     },
     {
       "name": "Wesley Gassova",
       "dateOfBirth": "2005-03-05",
       "clubName": "Cruzeiro EC",
-      "sourceConfidence": 5
+      "wikidataId": "Q112620020",
+      "portrait": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/CORINTHIANS_X_NEWELL%27S_OLD_BOYS%E2%80%93_COPA_SUL-AMERICANA_2023_-_Wesley_Gassova.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/CORINTHIANS_X_NEWELL%27S_OLD_BOYS%E2%80%93_COPA_SUL-AMERICANA_2023_-_Wesley_Gassova.jpg/330px-CORINTHIANS_X_NEWELL%27S_OLD_BOYS%E2%80%93_COPA_SUL-AMERICANA_2023_-_Wesley_Gassova.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "CC0",
+        "attribution": "SOCCER DIGITAL",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:CORINTHIANS_X_NEWELL%27S_OLD_BOYS%E2%80%93_COPA_SUL-AMERICANA_2023_-_Wesley_Gassova.jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 96
     },
     {
       "name": "Renan Lodi",
@@ -630,23 +614,23 @@
       "name": "Thiago Silva",
       "dateOfBirth": "1984-09-22",
       "clubName": "Fluminense FC",
-      "wikidataId": "Q210453",
-      "portrait": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/c/c8/20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Thiago_Silva_850_1582.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Thiago_Silva_850_1582.jpg/330px-20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Thiago_Silva_850_1582.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-        "source": "Wikimedia Commons",
-        "license": "CC BY-SA",
-        "attribution": "Granada",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Thiago_Silva_850_1582.jpg",
-        "freeToRedistribute": true
-      },
-      "sourceConfidence": 96
+      "sourceConfidence": 5
     },
     {
       "name": "Hulk",
       "dateOfBirth": "1986-07-25",
       "clubName": "Fluminense FC",
-      "sourceConfidence": 5
+      "wikidataId": "Q62786",
+      "portrait": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Bayer-04_-_Zenit_%2814%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Bayer-04_-_Zenit_%2814%29.jpg/330px-Bayer-04_-_Zenit_%2814%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "CC BY-SA",
+        "attribution": "Вячеслав Евдокимов",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Bayer-04_-_Zenit_(14).jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 96
     },
     {
       "name": "Jefferson Savarino",
@@ -700,11 +684,11 @@
     "Kit/UI palettes may be derived from verified free SVG crest colors; this is a visual approximation, not a claim that the generated shirt reproduces an official kit design."
   ],
   "identitySanitization": {
-    "rejectedAmbiguousClubMatches": 0,
-    "generatedAt": "2026-08-26T00:12:01.221Z"
+    "rejectedAmbiguousClubMatches": 1,
+    "generatedAt": "2026-08-26T00:35:02.020Z"
   },
   "colorEnrichment": {
-    "derivedFromVerifiedCrests": 3,
-    "generatedAt": "2026-08-26T00:12:01.580Z"
+    "derivedFromVerifiedCrests": 4,
+    "generatedAt": "2026-08-26T00:35:02.275Z"
   }
 }
