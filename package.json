@@ -24,6 +24,7 @@
     "smoke:training-individual": "tsx scripts/smoke-training-individual.ts",
     "smoke:training-weekly": "tsx scripts/smoke-training-weekly.ts",
     "smoke:training-periodization": "tsx scripts/smoke-training-periodization.ts",
+    "smoke:training-human": "tsx scripts/smoke-training-human-response.ts",
     "test:e2e:stress": "node scripts/e2e-stress.mjs",
     "test:e2e:ui-bridge": "node scripts/e2e-ui-event-bridge.mjs",
     "audit:coverage": "node scripts/audit-module-coverage.mjs",
