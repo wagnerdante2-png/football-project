@@ -13,14 +13,20 @@ async function click(selector, timeout = 8000) {
   await el.click({ timeout });
 }
 async function clickCreatorNext(timeout = 8000) {
-  const el = page.locator('[data-next]').first();
+  const selector = '[data-next]';
+  const marker = (await page.locator('.v2-creator main>header span').first().textContent()) || '';
+  const el = page.locator(selector).first();
   await el.waitFor({ state: 'visible', timeout });
-  if (await el.isDisabled()) throw new Error('Creator next button is disabled');
-  try { await el.click({ timeout }); }
-  catch (error) {
+  try {
+    await el.click({ timeout });
+  } catch (error) {
     if (!(error instanceof Error) || !error.message.includes('Timeout')) throw error;
-    if (!(await el.isVisible()) || await el.isDisabled()) throw error;
-    await el.evaluate(button => button.click());
+    const progressed = await page.waitForFunction(previous => {
+      if (document.querySelector('.game-sidebar')) return true;
+      const current = document.querySelector('.v2-creator main>header span')?.textContent || '';
+      return Boolean(current && current !== previous);
+    }, marker, { timeout: 1200 }).then(() => true).catch(() => false);
+    if (!progressed) throw error;
   }
 }
 async function assertResponsive(label) {
