@@ -1,0 +1,26 @@
+import { createBrazilRealWorld2026 } from '../src/real-world-v1';
+import { ensureActiveWorldFootballFoundation } from '../src/world-football-foundation-runtime-v1';
+import { loadPublicPeople2026 } from '../src/real-world-2026-loader-v1';
+import { realPlayersV2 } from '../src/real-world-player-import-v2';
+import { scoutingMarketStatus, submitScoutedPlayerToRecruitment } from '../src/scouting-recruitment-bridge-v1';
+import { recruitmentWorkflowState } from '../src/recruitment-workflow';
+import { scoutingReport, toggleShortlist, isShortlisted } from '../src/scouting';
+
+const world=createBrazilRealWorld2026();
+ensureActiveWorldFootballFoundation(world);
+const [buyer,seller]=world.clubs;
+if(!buyer||!seller)throw new Error('Bridge smoke requires buyer and seller clubs');
+const provenance=[{source:'bridge-smoke',sourceId:'bridge-player-001',snapshotDate:'2026-08-26',confidence:100,license:'test-only'}];
+loadPublicPeople2026(world,{players:[{externalIds:{smoke:'bridge-player-001'},name:'Scouting Bridge Player',dateOfBirth:'2001-03-04',position:'CM',nationalityCountryIds:['BRA'],clubId:seller.id,currentAbility:74,potentialAbility:82,provenance}],staff:[]});
+const record=realPlayersV2(world).find(r=>r.externalIds.smoke==='bridge-player-001');
+if(!record)throw new Error('Mapped bridge player was not imported');
+const id=record.id;
+const report=scoutingReport(world,buyer.id,id);if(!report||report.playerId!==id)throw new Error('Scouting report did not preserve mapped player identity');
+const market=scoutingMarketStatus(world,buyer.id,id);if(!market.transactionReady||market.kind!=='transfer'||market.sellerClubId!==seller.id)throw new Error(`Mapped player not transaction ready: ${JSON.stringify(market)}`);
+if(!toggleShortlist(world,buyer.id,id)||!isShortlisted(world,buyer.id,id))throw new Error('Mapped player could not enter shortlist');
+const submitted=submitScoutedPlayerToRecruitment(world,buyer.id,id);if(!submitted.ok||!submitted.proposal)throw new Error(`Committee submission failed: ${submitted.reason??submitted.status.reason}`);if(submitted.proposal.playerId!==id||submitted.proposal.buyerClubId!==buyer.id||submitted.proposal.sellerClubId!==seller.id)throw new Error('Committee proposal diverged from canonical scouting identity');
+const proposalId=submitted.proposal.id,countBefore=recruitmentWorkflowState(world).proposals.length;
+const resubmitted=submitScoutedPlayerToRecruitment(world,buyer.id,id);if(resubmitted.proposal?.id!==proposalId||recruitmentWorkflowState(world).proposals.length!==countBefore)throw new Error('Repeated scouting submission duplicated recruitment proposal');
+loadPublicPeople2026(world,{players:[{externalIds:{smoke:'unmapped-player-001'},name:'Unmapped External Player',dateOfBirth:'2002-05-06',position:'RW',nationalityCountryIds:['ARG'],currentAbility:70,potentialAbility:80,sourceAssignment:{clubId:'external-club-not-in-runtime',clubResolution:'unresolved'},provenance}],staff:[]});
+const unmapped=realPlayersV2(world).find(r=>r.externalIds.smoke==='unmapped-player-001');if(!unmapped)throw new Error('Unmapped player missing');const blocked=scoutingMarketStatus(world,buyer.id,unmapped.id);if(blocked.transactionReady||blocked.kind!=='external-unmapped')throw new Error('Unmapped external player was incorrectly exposed as transaction ready');const blockedSubmit=submitScoutedPlayerToRecruitment(world,buyer.id,unmapped.id);if(blockedSubmit.ok)throw new Error('Unmapped external player incorrectly entered committee workflow');
+console.log(`[smoke-scouting-recruitment] player=${id} · seller=${seller.id} · proposal=${proposalId} · status=${submitted.proposal.status} · duplicateProposal=0 · unmappedBlocked=OK`);
