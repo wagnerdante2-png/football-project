@@ -11,6 +11,7 @@
     "smoke:advance": "tsx scripts/smoke-advance-day.ts",
     "smoke:season": "tsx scripts/smoke-season-transition.ts",
     "smoke:match": "tsx scripts/smoke-match-integration.ts",
+    "smoke:context": "tsx scripts/smoke-match-context.ts",
     "smoke:foundation": "tsx scripts/smoke-world-foundation.ts",
     "test:e2e:stress": "node scripts/e2e-stress.mjs",
     "test:e2e:ui-bridge": "node scripts/e2e-ui-event-bridge.mjs",
