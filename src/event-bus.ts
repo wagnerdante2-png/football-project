@@ -11,6 +11,7 @@ export type WorldEventType =
   | 'SupporterMoodChanged' | 'MediaStoryPublished' | 'SportNewsWeeklyPublished' | 'ClubSupporterBaseShift'
   | 'PersonalLifeEvent' | 'PersonalDecisionMade' | 'RelationshipChanged'
   | 'CaptaincyChanged' | 'MentorshipStarted' | 'SquadTurnover' | 'DressingRoomConcern' | 'DressingRoomCrisis'
+  | 'TeamTalkOpened' | 'TeamTalkDelivered' | 'TeamMeetingHeld'
   | 'ManagerInteractionOpened' | 'ManagerInteractionResolved' | 'ManagerInteractionExpired' | 'PlayerManagerRelationshipChanged'
   | 'ManagerEducationStarted' | 'ManagerEducationCompleted' | 'ManagerLicenceUpgraded'
   | 'ManagerIdentityShift' | 'ManagerSpecialisationUnlocked'
