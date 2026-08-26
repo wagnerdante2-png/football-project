@@ -61,8 +61,18 @@ jobs:
             echo 'Visual manifest unchanged.'
           else
             git commit -m 'data: refresh verified visual assets 2026'
+            # sync:people/sync:visual can regenerate additional local artifacts. Only
+            # the verified visual manifest belongs in this publication commit.
+            # Clean residual worktree changes so rebase is safe when main advanced.
+            git reset --hard HEAD
+            git clean -fd
             for attempt in 1 2 3; do
-              git pull --rebase origin main
+              if ! git pull --rebase origin main; then
+                echo "Rebase race on attempt ${attempt}; aborting and retrying."
+                git rebase --abort || true
+                sleep $((attempt * 2))
+                continue
+              fi
               if git push origin HEAD:main; then exit 0; fi
               echo "Push race on attempt ${attempt}; retrying."
               sleep $((attempt * 2))
