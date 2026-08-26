@@ -13,11 +13,12 @@ function syncLegacyNavigation(){
     if(native&&legacy){legacy.hidden=true;legacy.dataset.v2Proxy=id}
   }
   const buttons=[...nav.querySelectorAll<HTMLButtonElement>('button')];
-  buttons.forEach((b,i)=>{
+  buttons.forEach(b=>{
+    if(b.dataset.view||b.dataset.saveView)return;
     const label=b.textContent?.trim().replace(/\s+/g,' ').toLowerCase();
     if(!label)return;
-    const first=buttons.findIndex((x:HTMLButtonElement)=>x.textContent?.trim().replace(/\s+/g,' ').toLowerCase()===label&&!x.hidden);
-    if(first>=0&&first<i&&!b.dataset.saveView)b.hidden=true;
+    const canonical=buttons.find(x=>x.dataset.view&&x.textContent?.trim().replace(/\s+/g,' ').toLowerCase()===label);
+    if(canonical)b.hidden=true;
   });
 }
 function schedule(){if(scheduled)return;scheduled=true;queueMicrotask(()=>{scheduled=false;syncLegacyNavigation()})}
