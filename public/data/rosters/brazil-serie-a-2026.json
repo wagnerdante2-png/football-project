@@ -1,6 +1,6 @@
 {
   "version": 6,
-  "generatedAt": "2026-08-26T10:54:47.681Z",
+  "generatedAt": "2026-08-26T12:57:59.954Z",
   "season": 2026,
   "source": {
     "name": "Wikidata",
@@ -15,8 +15,7 @@
     "Generic defender, midfielder and forward data are preserved as factual roleGroup and are never promoted to CB/CM/ST facts.",
     "Specific engine positions are factual only when a source names a specific role; OpenFootball G may map to GK, while D/M/F remain broad role groups.",
     "Nationality and height are included only when explicitly available as Wikidata P27/P2048 statements; neither field is inferred.",
-    "The runtime may choose an internal tactical slot for a factual broad role, but that slot must be marked estimated rather than factual.",
-    "Club identities come from the already-verified visual manifest; no second club identity registry is maintained."
+    "Club identities come from the already-verified visual manifest; no second playable-club registry is maintained."
   ],
   "counts": {
     "clubs": 16,
@@ -52,6 +51,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "sao-paulo-fc",
           "clubName": "São Paulo FC",
+          "clubWikidataId": "Q38568",
           "membershipStart": "2025-01-01",
           "membershipRank": "PreferredRank",
           "provenance": {
@@ -80,6 +80,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "sao-paulo-fc",
           "clubName": "São Paulo FC",
+          "clubWikidataId": "Q38568",
           "membershipStart": "2023-06-08",
           "membershipRank": "PreferredRank",
           "provenance": {
@@ -133,6 +134,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "cruzeiro-ec",
           "clubName": "Cruzeiro EC",
+          "clubWikidataId": "Q188277",
           "membershipStart": "2025-01-01",
           "membershipRank": "NormalRank",
           "provenance": {
@@ -160,6 +162,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "cruzeiro-ec",
           "clubName": "Cruzeiro EC",
+          "clubWikidataId": "Q188277",
           "membershipStart": "2026-01-01",
           "membershipRank": "NormalRank",
           "provenance": {
@@ -188,6 +191,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "cruzeiro-ec",
           "clubName": "Cruzeiro EC",
+          "clubWikidataId": "Q188277",
           "membershipStart": "2024-01-01",
           "membershipRank": "NormalRank",
           "provenance": {
@@ -214,6 +218,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "cruzeiro-ec",
           "clubName": "Cruzeiro EC",
+          "clubWikidataId": "Q188277",
           "membershipStart": "2025-01-01",
           "membershipRank": "NormalRank",
           "provenance": {
@@ -241,6 +246,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "cruzeiro-ec",
           "clubName": "Cruzeiro EC",
+          "clubWikidataId": "Q188277",
           "membershipStart": "2025-01-01",
           "membershipRank": "NormalRank",
           "provenance": {
@@ -269,6 +275,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "cruzeiro-ec",
           "clubName": "Cruzeiro EC",
+          "clubWikidataId": "Q188277",
           "membershipStart": "2025-01-01",
           "membershipRank": "NormalRank",
           "provenance": {
@@ -297,6 +304,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "cruzeiro-ec",
           "clubName": "Cruzeiro EC",
+          "clubWikidataId": "Q188277",
           "membershipStart": "2025-01-01",
           "membershipRank": "NormalRank",
           "provenance": {
@@ -325,6 +333,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "cruzeiro-ec",
           "clubName": "Cruzeiro EC",
+          "clubWikidataId": "Q188277",
           "membershipStart": "2024-01-01",
           "membershipRank": "NormalRank",
           "provenance": {
@@ -353,6 +362,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "cruzeiro-ec",
           "clubName": "Cruzeiro EC",
+          "clubWikidataId": "Q188277",
           "membershipStart": "2026-01-01",
           "membershipRank": "NormalRank",
           "provenance": {
@@ -395,6 +405,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "ca-mineiro",
           "clubName": "CA Mineiro",
+          "clubWikidataId": "Q270995",
           "membershipStart": "2026-01-01",
           "membershipRank": "PreferredRank",
           "provenance": {
@@ -423,6 +434,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "ca-mineiro",
           "clubName": "CA Mineiro",
+          "clubWikidataId": "Q270995",
           "membershipStart": "2025-08-01",
           "membershipRank": "PreferredRank",
           "provenance": {
@@ -451,6 +463,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "ca-mineiro",
           "clubName": "CA Mineiro",
+          "clubWikidataId": "Q270995",
           "membershipStart": "2024-01-01",
           "membershipRank": "PreferredRank",
           "provenance": {
@@ -477,6 +490,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "ca-mineiro",
           "clubName": "CA Mineiro",
+          "clubWikidataId": "Q270995",
           "membershipStart": "2026-08-14",
           "membershipRank": "PreferredRank",
           "provenance": {
@@ -516,6 +530,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "fortaleza-ec",
           "clubName": "Fortaleza EC",
+          "clubWikidataId": "Q188841",
           "membershipStart": "2024-10-02",
           "membershipRank": "NormalRank",
           "provenance": {
@@ -557,6 +572,7 @@
           "roleGroupSource": "OpenFootball CC0",
           "clubId": "fluminense-fc",
           "clubName": "Fluminense FC",
+          "clubWikidataId": "Q80987",
           "membershipStart": "2026-06-22",
           "membershipRank": "PreferredRank",
           "provenance": {
@@ -585,6 +601,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "fluminense-fc",
           "clubName": "Fluminense FC",
+          "clubWikidataId": "Q80987",
           "membershipStart": "2026-07-01",
           "membershipRank": "PreferredRank",
           "provenance": {
@@ -613,6 +630,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "fluminense-fc",
           "clubName": "Fluminense FC",
+          "clubWikidataId": "Q80987",
           "membershipStart": "2026-01-01",
           "membershipRank": "NormalRank",
           "provenance": {
@@ -639,6 +657,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "fluminense-fc",
           "clubName": "Fluminense FC",
+          "clubWikidataId": "Q80987",
           "membershipStart": "2025-08-01",
           "membershipRank": "PreferredRank",
           "provenance": {
@@ -666,6 +685,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "fluminense-fc",
           "clubName": "Fluminense FC",
+          "clubWikidataId": "Q80987",
           "membershipStart": "2025-02-01",
           "membershipRank": "NormalRank",
           "provenance": {
@@ -708,6 +728,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "ec-juventude",
           "clubName": "EC Juventude",
+          "clubWikidataId": "Q910453",
           "membershipStart": "2021-01-01",
           "membershipRank": "PreferredRank",
           "provenance": {
@@ -763,6 +784,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "cr-flamengo",
           "clubName": "CR Flamengo",
+          "clubWikidataId": "Q17479",
           "membershipStart": "2024-08-26",
           "membershipRank": "PreferredRank",
           "provenance": {
@@ -791,6 +813,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "cr-flamengo",
           "clubName": "CR Flamengo",
+          "clubWikidataId": "Q17479",
           "membershipStart": "2025-01-01",
           "membershipRank": "PreferredRank",
           "provenance": {
@@ -819,6 +842,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "cr-flamengo",
           "clubName": "CR Flamengo",
+          "clubWikidataId": "Q17479",
           "membershipStart": "2025-07-01",
           "membershipRank": "PreferredRank",
           "provenance": {
@@ -847,6 +871,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "cr-flamengo",
           "clubName": "CR Flamengo",
+          "clubWikidataId": "Q17479",
           "membershipStart": "2025-08-02",
           "membershipRank": "NormalRank",
           "provenance": {
@@ -873,6 +898,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "cr-flamengo",
           "clubName": "CR Flamengo",
+          "clubWikidataId": "Q17479",
           "membershipStart": "2025-06-01",
           "membershipRank": "PreferredRank",
           "provenance": {
@@ -900,6 +926,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "cr-flamengo",
           "clubName": "CR Flamengo",
+          "clubWikidataId": "Q17479",
           "membershipStart": "2024-01-01",
           "membershipRank": "NormalRank",
           "provenance": {
@@ -928,6 +955,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "cr-flamengo",
           "clubName": "CR Flamengo",
+          "clubWikidataId": "Q17479",
           "membershipStart": "2024-01-01",
           "membershipRank": "NormalRank",
           "provenance": {
@@ -956,6 +984,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "cr-flamengo",
           "clubName": "CR Flamengo",
+          "clubWikidataId": "Q17479",
           "membershipStart": "2026-01-01",
           "membershipRank": "PreferredRank",
           "provenance": {
@@ -980,6 +1009,7 @@
           "heightCm": 185,
           "clubId": "cr-flamengo",
           "clubName": "CR Flamengo",
+          "clubWikidataId": "Q17479",
           "membershipStart": "2024-01-01",
           "membershipRank": "NormalRank",
           "provenance": {
@@ -1006,6 +1036,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "cr-flamengo",
           "clubName": "CR Flamengo",
+          "clubWikidataId": "Q17479",
           "membershipStart": "2025-01-29",
           "membershipRank": "PreferredRank",
           "provenance": {
@@ -1032,6 +1063,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "cr-flamengo",
           "clubName": "CR Flamengo",
+          "clubWikidataId": "Q17479",
           "membershipStart": "2025-01-01",
           "membershipRank": "PreferredRank",
           "provenance": {
@@ -1071,6 +1103,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "se-palmeiras",
           "clubName": "SE Palmeiras",
+          "clubWikidataId": "Q80964",
           "membershipStart": "2025-01-01",
           "membershipRank": "NormalRank",
           "provenance": {
@@ -1096,6 +1129,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "se-palmeiras",
           "clubName": "SE Palmeiras",
+          "clubWikidataId": "Q80964",
           "membershipStart": "2026-01-01",
           "membershipRank": "NormalRank",
           "provenance": {
@@ -1121,6 +1155,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "se-palmeiras",
           "clubName": "SE Palmeiras",
+          "clubWikidataId": "Q80964",
           "membershipStart": "2024-01-01",
           "membershipRank": "NormalRank",
           "provenance": {
@@ -1148,6 +1183,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "se-palmeiras",
           "clubName": "SE Palmeiras",
+          "clubWikidataId": "Q80964",
           "membershipStart": "2025-02-28",
           "membershipRank": "PreferredRank",
           "provenance": {
@@ -1190,6 +1226,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "botafogo-fr",
           "clubName": "Botafogo FR",
+          "clubWikidataId": "Q80958",
           "membershipStart": "2024-01-01",
           "membershipRank": "NormalRank",
           "provenance": {
@@ -1216,6 +1253,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "botafogo-fr",
           "clubName": "Botafogo FR",
+          "clubWikidataId": "Q80958",
           "membershipStart": "2026-01-01",
           "membershipRank": "NormalRank",
           "provenance": {
@@ -1243,6 +1281,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "botafogo-fr",
           "clubName": "Botafogo FR",
+          "clubWikidataId": "Q80958",
           "membershipStart": "2025-08-01",
           "membershipRank": "PreferredRank",
           "provenance": {
@@ -1271,6 +1310,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "botafogo-fr",
           "clubName": "Botafogo FR",
+          "clubWikidataId": "Q80958",
           "membershipStart": "2024-09-03",
           "membershipRank": "PreferredRank",
           "provenance": {
@@ -1311,6 +1351,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "cr-vasco-da-gama",
           "clubName": "CR Vasco da Gama",
+          "clubWikidataId": "Q5014111",
           "membershipStart": "2024-02-01",
           "membershipRank": "NormalRank",
           "provenance": {
@@ -1338,6 +1379,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "cr-vasco-da-gama",
           "clubName": "CR Vasco da Gama",
+          "clubWikidataId": "Q5014111",
           "membershipStart": "2025-07-01",
           "membershipRank": "PreferredRank",
           "provenance": {
@@ -1366,6 +1408,7 @@
           "roleGroupSource": "OpenFootball CC0",
           "clubId": "cr-vasco-da-gama",
           "clubName": "CR Vasco da Gama",
+          "clubWikidataId": "Q5014111",
           "membershipStart": "2025-01-01",
           "membershipRank": "NormalRank",
           "provenance": {
@@ -1393,6 +1436,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "cr-vasco-da-gama",
           "clubName": "CR Vasco da Gama",
+          "clubWikidataId": "Q5014111",
           "membershipStart": "2025-01-01",
           "membershipRank": "NormalRank",
           "provenance": {
@@ -1419,6 +1463,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "cr-vasco-da-gama",
           "clubName": "CR Vasco da Gama",
+          "clubWikidataId": "Q5014111",
           "membershipStart": "2025-01-01",
           "membershipRank": "NormalRank",
           "provenance": {
@@ -1446,6 +1491,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "cr-vasco-da-gama",
           "clubName": "CR Vasco da Gama",
+          "clubWikidataId": "Q5014111",
           "membershipStart": "2024-01-01",
           "membershipRank": "NormalRank",
           "provenance": {
@@ -1488,6 +1534,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "santos-fc",
           "clubName": "Santos FC",
+          "clubWikidataId": "Q80955",
           "membershipStart": "2025-01-01",
           "membershipRank": "PreferredRank",
           "provenance": {
@@ -1514,6 +1561,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "santos-fc",
           "clubName": "Santos FC",
+          "clubWikidataId": "Q80955",
           "membershipStart": "2026-01-01",
           "membershipRank": "NormalRank",
           "provenance": {
@@ -1541,6 +1589,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "santos-fc",
           "clubName": "Santos FC",
+          "clubWikidataId": "Q80955",
           "membershipStart": "2025-07-01",
           "membershipRank": "NormalRank",
           "provenance": {
@@ -1583,6 +1632,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "sc-corinthians-paulista",
           "clubName": "SC Corinthians Paulista",
+          "clubWikidataId": "Q35933",
           "membershipStart": "2024-01-01",
           "membershipRank": "PreferredRank",
           "provenance": {
@@ -1611,6 +1661,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "sc-corinthians-paulista",
           "clubName": "SC Corinthians Paulista",
+          "clubWikidataId": "Q35933",
           "membershipStart": "2024-09-01",
           "membershipRank": "PreferredRank",
           "provenance": {
@@ -1639,6 +1690,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "sc-corinthians-paulista",
           "clubName": "SC Corinthians Paulista",
+          "clubWikidataId": "Q35933",
           "membershipStart": "2026-01-01",
           "membershipRank": "PreferredRank",
           "provenance": {
@@ -1665,6 +1717,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "sc-corinthians-paulista",
           "clubName": "SC Corinthians Paulista",
+          "clubWikidataId": "Q35933",
           "membershipStart": "2019-01-01",
           "membershipRank": "PreferredRank",
           "provenance": {
@@ -1692,6 +1745,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "sc-corinthians-paulista",
           "clubName": "SC Corinthians Paulista",
+          "clubWikidataId": "Q35933",
           "membershipStart": "2026-01-01",
           "membershipRank": "NormalRank",
           "provenance": {
@@ -1720,6 +1774,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "sc-corinthians-paulista",
           "clubName": "SC Corinthians Paulista",
+          "clubWikidataId": "Q35933",
           "membershipStart": "2024-08-01",
           "membershipRank": "NormalRank",
           "provenance": {
@@ -1748,6 +1803,7 @@
           "roleGroupSource": "Wikidata P413",
           "clubId": "sc-corinthians-paulista",
           "clubName": "SC Corinthians Paulista",
+          "clubWikidataId": "Q35933",
           "membershipStart": "2024-01-01",
           "membershipRank": "NormalRank",
           "provenance": {
@@ -1776,6 +1832,7 @@
           "roleGroupSource": "OpenFootball CC0",
           "clubId": "sc-corinthians-paulista",
           "clubName": "SC Corinthians Paulista",
+          "clubWikidataId": "Q35933",
           "membershipStart": "2026-01-01",
           "membershipRank": "PreferredRank",
           "provenance": {
@@ -1804,6 +1861,7 @@
           "roleGroupSource": "OpenFootball CC0",
           "clubId": "sc-corinthians-paulista",
           "clubName": "SC Corinthians Paulista",
+          "clubWikidataId": "Q35933",
           "membershipStart": "2024-01-01",
           "membershipRank": "NormalRank",
           "provenance": {
