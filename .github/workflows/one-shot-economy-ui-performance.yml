@@ -1,5 +1,6 @@
 name: One-shot economy UI performance migration
 
+# Second commit intentionally triggers this workflow after it exists on main.
 on:
   push:
     paths:
