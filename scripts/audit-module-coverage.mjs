@@ -36,8 +36,23 @@ const knownLegacy=new Set([
   // history/diagnostics, but wiring them would duplicate match resolution.
   'src/match-contact-resolution-v2.ts','src/match-set-piece-execution-v2.ts'
 ]);
+const deliberatelyGated=new Set([
+  // This orchestrator intentionally creates the heavy football universe:
+  // imports history, materializes domestic runtimes, creates qualifier cycles
+  // and can reschedule fixtures. It must never become an automatic UI entry.
+  'src/world-football-bootstrap-v1.ts'
+]);
+const manualUtilities=new Set([
+  // Explicit data loaders/importers mutate the world or fetch external/bundled
+  // datasets. They are tools invoked by controlled data workflows, not runtime UI.
+  'src/real-world-2026-loader-v1.ts',
+  'src/openfootball-importer-v1.ts','src/openfootball-results-importer-v1.ts',
+  'src/openfootball-tournament-importer-v1.ts','src/openfootball-people-source-v1.ts'
+]);
 const legacy=unreachable.filter(f=>knownLegacy.has(f));
-const initiallyClassified=new Set([...diagnostics,...legacy]);
+const gated=unreachable.filter(f=>deliberatelyGated.has(f));
+const manual=unreachable.filter(f=>manualUtilities.has(f));
+const initiallyClassified=new Set([...diagnostics,...legacy,...gated,...manual]);
 const supportOnly=[];
 let changed=true;
 while(changed){
@@ -64,17 +79,23 @@ console.log(`Unreachable root modules (zero importers): ${roots.length}`);
 console.log(`Actionable unreachable candidates: ${actionable.length}`);
 console.log(`Diagnostics/test-only unreachable: ${diagnostics.length}`);
 console.log(`Known legacy/superseded unreachable: ${legacy.length}`);
-console.log(`Support-only for diagnostics/legacy: ${supportOnly.length}`);
+console.log(`Deliberately gated heavy runtimes: ${gated.length}`);
+console.log(`Manual/import utilities: ${manual.length}`);
+console.log(`Support-only for classified inactive paths: ${supportOnly.length}`);
 console.log(`Other unreachable: ${other.length}`);
 console.log('\n--- ACTIONABLE ENGINE / DOMAIN CANDIDATES ---');
 for(const f of engineLike)console.log(`${f} | imported-by=${[...(importedBy.get(f)||[])].join(',')||'NONE'}`);
 console.log('\n--- ACTIONABLE UI / BOOTSTRAP CANDIDATES ---');
 for(const f of uiLike)console.log(`${f} | imported-by=${[...(importedBy.get(f)||[])].join(',')||'NONE'}`);
+console.log('\n--- DELIBERATELY GATED HEAVY RUNTIMES ---');
+for(const f of gated)console.log(f);
+console.log('\n--- MANUAL / IMPORT UTILITIES ---');
+for(const f of manual)console.log(f);
 console.log('\n--- DIAGNOSTICS / TEST-ONLY UNREACHABLE ---');
 for(const f of diagnostics)console.log(f);
 console.log('\n--- KNOWN LEGACY / SUPERSEDED UNREACHABLE ---');
 for(const f of legacy)console.log(f);
-console.log('\n--- SUPPORT-ONLY FOR DIAGNOSTICS / LEGACY ---');
+console.log('\n--- SUPPORT-ONLY FOR CLASSIFIED INACTIVE PATHS ---');
 for(const f of supportOnly.sort())console.log(f);
 console.log('\n--- OTHER UNREACHABLE ---');
 for(const f of other)console.log(f);
@@ -84,6 +105,6 @@ console.log('\n--- ACTIVE REACHABLE MODULES ---');
 for(const f of [...reachable].sort())console.log(f);
 console.log(`\nDesktop entry exists: ${fs.existsSync(path.join(root,desktopMain))?'YES':'NO'} (${desktopMain})`);
 
-const report={generatedAt:new Date().toISOString(),sourceModules:srcSet.size,entrypoints:entries,reachable:[...reachable].sort(),unreachable,roots,actionable,engineLike,uiLike,diagnostics,legacy,supportOnly: supportOnly.sort(),other,referencedOnlyByUnreachable};
+const report={generatedAt:new Date().toISOString(),sourceModules:srcSet.size,entrypoints:entries,reachable:[...reachable].sort(),unreachable,roots,actionable,engineLike,uiLike,diagnostics,legacy,gated,manual,supportOnly: supportOnly.sort(),other,referencedOnlyByUnreachable};
 fs.mkdirSync(path.join(root,'tmp'),{recursive:true});
 fs.writeFileSync(path.join(root,'tmp/module-coverage-audit.json'),JSON.stringify(report,null,2));
