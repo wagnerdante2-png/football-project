@@ -25,8 +25,9 @@ function stateFor(index:number){
   return{player,state,status,person,profile};
 }
 function setTrainingMemory(state:(typeof training.players extends Map<string,infer T>?T:never),patch:HumanTrainingMemory){Object.assign(state,patch);}
-function completePersistentConcern(target:ReturnType<typeof stateFor>,startDay:number,tag:string){
-  for(let offset=0;offset<3;offset++)emitWorldEvent(world,{type:'TrainingCompleted',date:`${world.season}-08-${String(startDay+offset).padStart(2,'0')}`,clubIds:[club.id],summary:`Persistent ${tag} training response smoke.`,payload:{restDay:false}});
+function addDays(startDate:string,offset:number){const d=new Date(`${startDate}T12:00:00Z`);d.setUTCDate(d.getUTCDate()+offset);return d.toISOString().slice(0,10);}
+function completePersistentConcern(target:ReturnType<typeof stateFor>,startDate:string,tag:string){
+  for(let offset=0;offset<3;offset++)emitWorldEvent(world,{type:'TrainingCompleted',date:addDays(startDate,offset),clubIds:[club.id],summary:`Persistent ${tag} training response smoke.`,payload:{restDay:false}});
   return recentWorldEvents(world,80,{clubId:club.id,playerId:target.player.id,types:['DressingRoomConcern']}).find(e=>e.tags.includes(tag));
 }
 
@@ -78,7 +79,7 @@ const under=stateFor(1);
 under.person.professionalism=95;under.person.temperament=45;under.profile.stressResilience=82;
 setTrainingMemory(under.state,{trainingSatisfaction:52,trainingGrievanceDays:0});
 under.state.load.acuteLoad=8;under.state.load.chronicLoad=20;under.state.load.readiness=92;under.state.load.overloadDays=0;under.state.load.strain=260;under.state.load.monotony=1.1;
-const underConcern=completePersistentConcern(under,28,'undertraining');
+const underConcern=completePersistentConcern(under,`${world.season}-08-28`,'undertraining');
 if(!underConcern)throw new Error('Highly professional undertrained player did not raise persistent concern');
 const underInteraction=pendingManagerInteractions(world,club.id).find(item=>item.sourceEventId===underConcern.id);
 if(!underInteraction?.options.some(option=>option.id==='increase_training_load'))throw new Error('Undertraining concern did not receive higher-load response options');
@@ -87,7 +88,7 @@ const monotony=stateFor(2);
 monotony.person.temperament=72;monotony.profile.stressResilience=55;
 setTrainingMemory(monotony.state,{trainingSatisfaction:52,trainingGrievanceDays:0});
 monotony.state.load.acuteLoad=20;monotony.state.load.chronicLoad=20;monotony.state.load.readiness=72;monotony.state.load.overloadDays=0;monotony.state.load.strain=1050;monotony.state.load.monotony=2.9;
-const monotonyConcern=completePersistentConcern(monotony,31,'monotony');
+const monotonyConcern=completePersistentConcern(monotony,`${world.season}-08-31`,'monotony');
 if(!monotonyConcern)throw new Error('Persistent monotonous training did not raise concern');
 const monotonyInteraction=pendingManagerInteractions(world,club.id).find(item=>item.sourceEventId===monotonyConcern.id);
 if(!monotonyInteraction?.options.some(option=>option.id==='vary_training_sessions'))throw new Error('Monotony concern did not receive session-variation response options');
