@@ -39,6 +39,8 @@ jobs:
         run: npm run smoke:foundation
       - name: Smoke world population identity integrity
         run: npm run smoke:population
+      - name: Smoke scouting to recruitment bridge
+        run: npm run smoke:scouting-recruitment
       - name: Validate bundled people when present
         run: |
           if [ -f public/data/people/manifest-2026.json ]; then npm run validate:people; else echo 'People bundle pending data workflow publication.'; fi
