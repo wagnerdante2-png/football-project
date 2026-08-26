@@ -1,6 +1,7 @@
 import './manager-human-decisions-ui-v1.css';
 import type { World } from './engine';
 import { userManager } from './manager-character';
+import { dailyCalendar } from './daily-simulation';
 import { eventBusState } from './event-bus';
 import { pendingManagerInteractions, resolveManagerInteraction, type ManagerInteraction } from './manager-interactions';
 
@@ -20,19 +21,17 @@ function render(){
   const world=currentWorld();if(!world)return;
   const clubId=managedClubId(world);if(!clubId)return;
   document.querySelectorAll('[data-manager-human-decisions]').forEach(node=>node.remove());
-  const pending=pendingManagerInteractions(world,clubId).filter(item=>!item.aiControlled||item.status==='pending').sort((a,b)=>b.severity-a.severity||a.deadlineDate.localeCompare(b.deadlineDate));
+  const pending=pendingManagerInteractions(world,clubId).filter(item=>item.status==='pending').sort((a,b)=>b.severity-a.severity||a.deadlineDate.localeCompare(b.deadlineDate));
   if(!pending.length)return;
   const host=document.querySelector<HTMLElement>('.game-stage main.view');if(!host)return;
-  const home=host.querySelector<HTMLElement>('.manager-center-v10'),inbox=host.querySelector<HTMLElement>('.manager-inbox-v10');
-  if(!home&&!inbox)return;
+  const home=host.querySelector<HTMLElement>('.manager-center-v10'),inbox=host.querySelector<HTMLElement>('.manager-inbox-v10'),target=inbox??home;
+  if(!target)return;
   const section=document.createElement('section');section.className='mhd-panel';section.dataset.managerHumanDecisions='1';
   section.innerHTML=`<header class="mhd-title"><div><span>DECISÕES HUMANAS</span><h2>${pending.length===1?'1 conversa precisa da sua resposta':`${pending.length} conversas precisam da sua resposta`}</h2><p>As opções abaixo são as decisões reais do motor. A resposta altera relação, moral e, quando a origem é treinamento, volta à percepção do atleta sobre a rotina.</p></div><b>${pending.length}</b></header><div class="mhd-list">${pending.slice(0,inbox?8:4).map(item=>card(world,item)).join('')}</div>`;
-  if(inbox)inbox.insertBefore(section,inbox.children[1]??null);else home.insertBefore(section,home.querySelector('.mc10-grid')??null);
+  if(inbox)target.insertBefore(section,target.children[1]??null);else target.insertBefore(section,target.querySelector('.mc10-grid')??null);
   section.querySelectorAll<HTMLButtonElement>('[data-human-interaction-id]').forEach(button=>button.onclick=()=>{
     const interactionId=button.dataset.humanInteractionId,optionId=button.dataset.humanOptionId;if(!interactionId||!optionId)return;
-    const interaction=pending.find(item=>item.id===interactionId);if(!interaction)return;
-    const date=(window as any).__touchlineDate??interaction.date;
-    if(resolveManagerInteraction(world,interactionId,optionId,String(date)))render();
+    if(resolveManagerInteraction(world,interactionId,optionId,dailyCalendar(world).date))render();
   });
 }
 
