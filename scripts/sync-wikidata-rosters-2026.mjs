@@ -9,8 +9,9 @@ const OUT=path.resolve('public','data','rosters');
 const UA='the-touchline-roster-sync/2.0 (educational football simulation; CC0 sources)';
 const SNAPSHOT=new Date().toISOString();
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const TRANSIENT_HTTP=new Set([429,502,503,504]);
 
-async function request(url){for(let i=0;i<5;i++){const r=await fetch(url,{headers:{'user-agent':UA,accept:'application/sparql-results+json'}});if(r.status===429||r.status===503){const retry=Math.min(30,Number(r.headers.get('retry-after')||0));await sleep(Math.max(retry*1000,1500*2**i));continue}if(!r.ok)throw new Error(`${r.status} ${url}`);return r.json()}throw new Error(`rate limit exhausted: ${url}`)}
+async function request(url){let lastStatus=0;for(let i=0;i<6;i++){const r=await fetch(url,{headers:{'user-agent':UA,accept:'application/sparql-results+json'}});lastStatus=r.status;if(TRANSIENT_HTTP.has(r.status)){const retry=Math.min(30,Number(r.headers.get('retry-after')||0));await sleep(Math.max(retry*1000,1500*2**i));continue}if(!r.ok)throw new Error(`${r.status} ${url}`);return r.json()}throw new Error(`transient HTTP ${lastStatus||'unknown'} exhausted after 6 attempts: ${url}`)}
 const norm=s=>String(s??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
 const qidFromUri=u=>String(u??'').match(/Q\d+$/)?.[0];
 const isoDate=v=>String(v??'').slice(0,10)||undefined;
