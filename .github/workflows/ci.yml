@@ -42,6 +42,8 @@ jobs:
       - name: Validate bundled people when present
         run: |
           if [ -f public/data/people/manifest-2026.json ]; then npm run validate:people; else echo 'People bundle pending data workflow publication.'; fi
+      - name: Load full licensed offline people bundle
+        run: npm run smoke:people-bundle
       - name: Install Chromium for E2E
         run: npx playwright install --with-deps chromium
       - name: Start preview server
