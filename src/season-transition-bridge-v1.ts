@@ -9,18 +9,16 @@ export type IntegratedSeasonTransitionResult={
 };
 
 /**
- * Advances the canonical season exactly once. When the richer world-football
- * layer has been seeded, use its full club transition (pyramid, continental
- * qualification, supporter culture, reputation and institutional memory).
- * A lightweight career that has not loaded that layer keeps the legacy season
- * number transition without inventing empty competitions.
+ * Advances the canonical season exactly once. The rich club transition only
+ * becomes authoritative after domestic competitions have actually been seeded.
+ * International metadata alone (World Cup, Copa América, continental cups)
+ * must not accidentally create a parallel domestic season.
  */
 export function advanceIntegratedSeasonTransition(world:World,targetSeason=world.season+1):IntegratedSeasonTransitionResult{
   const football=footballDataSnapshot(world);
-  const hasClubWorld=football.competitions.some(c=>c.scope==='domestic'||c.scope==='continental');
-  if(!hasClubWorld){world.season=targetSeason;return{targetSeason,usedClubWorldTransition:false}}
+  const hasDomesticClubWorld=football.competitions.some(c=>c.scope==='domestic'&&c.kind==='league'&&c.active!==false);
+  if(!hasDomesticClubWorld){world.season=targetSeason;return{targetSeason,usedClubWorldTransition:false}}
   const report=transitionClubWorldSeason(world,{force:true});
-  // Defensive compatibility: the lifecycle owns the intended target season.
   if(world.season!==targetSeason)world.season=targetSeason;
   return{targetSeason,usedClubWorldTransition:true,report};
 }
