@@ -11,7 +11,9 @@ on:
     branches: [main]
     paths:
       - 'scripts/sync-wikidata-rosters-2026.mjs'
+      - 'scripts/sanitize-roster-fallback-2026.mjs'
       - 'scripts/sync-people-2026.mjs'
+      - 'package.json'
       - '.github/workflows/roster-data-sync.yml'
 
 concurrency:
