@@ -11,6 +11,7 @@ import { decayPartnerships } from './player-partnerships-v2';
 import { gentlyCorrectAttributeBudget } from './player-attribute-budget-v2';
 import { medicalProfile } from './injuries';
 import { syncWorldDate, worldRandom } from './world-core-v2';
+import { advanceIntegratedSeasonTransition } from './season-transition-bridge-v1';
 
 export type RetiredPlayer = { id:string; name:string; clubId:string; position:Position; age:number; currentAbility:number; retiredSeason:number };
 export type YouthIntakeRecord = { season:number; clubId:string; playerId:string; name:string; position:Position; age:number; currentAbility:number; potentialAbility:number };
@@ -39,5 +40,5 @@ function youthIntakeV2(world:World):void{const state=careerState(world);for(cons
 function squadValue(player:Player):number{const ageFactor=player.age<=21?Math.max(0,player.potentialAbility-player.currentAbility)*.7:player.age>=32?-8:0;return player.currentAbility+ageFactor}
 function trimSquads(world:World):void{const state=careerState(world);for(const club of world.clubs){if(club.players.length<=30)continue;const sorted=[...club.players].sort((a,b)=>squadValue(b)-squadValue(a)),keep=new Set(sorted.slice(0,30).map(p=>p.id));for(const player of club.players)if(!keep.has(player.id))state.releasedPlayers.push({id:player.id,name:player.name,clubId:club.id,position:player.position,age:player.age,currentAbility:player.currentAbility,retiredSeason:world.season+1});club.players=club.players.filter(player=>keep.has(player.id))}}
 export function seasonFinished(world:World):boolean{return world.fixtures.length>0&&world.fixtures.every(fixture=>fixture.played)}
-export function advanceToNextSeason(world:World):void{if(!seasonFinished(world))return;recordSeason(world);ageAndDevelopV2(world);retirePlayersV2(world);youthIntakeV2(world);processOffseasonMarket(world,world.season+1);trimSquads(world);decayPartnerships(world);world.season+=1;world.round=1;world.fixtures=roundRobin(world.clubs);world.standings=standings(world.clubs);syncWorldDate(world,`${world.season}-07-25`)}
+export function advanceToNextSeason(world:World):void{if(!seasonFinished(world))return;const targetSeason=world.season+1;recordSeason(world);ageAndDevelopV2(world);retirePlayersV2(world);youthIntakeV2(world);processOffseasonMarket(world,targetSeason);trimSquads(world);decayPartnerships(world);advanceIntegratedSeasonTransition(world,targetSeason);world.round=1;world.fixtures=roundRobin(world.clubs);world.standings=standings(world.clubs);syncWorldDate(world,`${world.season}-07-25`)}
 export function simulateSeasons(world:World,count:number,playRound:(world:World)=>void):void{const target=Math.max(0,Math.floor(count));for(let seasonIndex=0;seasonIndex<target;seasonIndex+=1){while(!seasonFinished(world))playRound(world);advanceToNextSeason(world)}}
