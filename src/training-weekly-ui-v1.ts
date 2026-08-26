@@ -1,0 +1,27 @@
+import './training-weekly-ui-v1.css';
+import type { World } from './engine';
+import type { SessionIntensity, SessionType } from './training-engine';
+import { userManager } from './manager-character';
+import { clubWeeklyTrainingSchedule,setWeeklyTrainingEnabled,setWeeklyTrainingSlot,type TrainingPeriod } from './training-weekly-schedule-v1';
+
+const days=['DOM','SEG','TER','QUA','QUI','SEX','SÁB'];
+const periods:TrainingPeriod[]=['am','pm'];
+const periodLabel:Record<TrainingPeriod,string>={am:'MANHÃ',pm:'TARDE'};
+const types:SessionType[]=['rest','recovery','endurance','speed','technical','passing','finishing','defending','positioning','pressing','transition','teamShape','attackingUnit','defensiveUnit','setPieces','videoAnalysis','opponentSpecific','roleWork'];
+const typeLabel:Partial<Record<SessionType,string>>={rest:'Descanso',recovery:'Recuperação',endurance:'Resistência',speed:'Velocidade',technical:'Técnica',passing:'Passe',finishing:'Finalização',defending:'Defesa',positioning:'Posicionamento',pressing:'Pressão',transition:'Transição',teamShape:'Forma da equipe',attackingUnit:'Unidade ofensiva',defensiveUnit:'Unidade defensiva',setPieces:'Bolas paradas',videoAnalysis:'Vídeo',opponentSpecific:'Adversário',roleWork:'Função'};
+const intensities:SessionIntensity[]=['veryLow','low','medium','high','veryHigh'];
+const intensityLabel:Record<SessionIntensity,string>={veryLow:'Muito baixa',low:'Baixa',medium:'Média',high:'Alta',veryHigh:'Muito alta'};
+function currentWorld(){return window.__touchlineWorld as World|undefined;}
+function renderWeeklySchedule(){
+ const world=currentWorld(),host=document.querySelector<HTMLElement>('.game-stage main.view');if(!world||!host||!host.querySelector('.training-v2-cycle'))return;
+ const manager=userManager(world),club=world.clubs.find(c=>c.id===manager?.currentClubId);if(!club)return;
+ host.querySelector('[data-training-weekly]')?.remove();
+ const schedule=clubWeeklyTrainingSchedule(world,club.id),section=document.createElement('section');section.className='glass training-weekly';section.dataset.trainingWeekly='1';
+ section.innerHTML=`<header><div><span>PLANEJAMENTO SEMANAL</span><h2>Manhã · tarde · descanso</h2><p>Quando ativada, esta grade substitui o microciclo automático apenas nas sessões de cada dia. Desative para voltar à adaptação automática por calendário e partidas.</p></div><button data-weekly-toggle class="${schedule.enabled?'active':''}">${schedule.enabled?'GRADE ATIVA':'USAR GRADE'}</button></header><div class="training-weekly-grid">${Array.from({length:7},(_,day)=>`<article><strong>${days[day]}</strong>${periods.map(period=>{const slot=schedule.slots[day][period];return`<div class="training-weekly-slot ${slot.type==='rest'?'rest':''}"><span>${periodLabel[period]}</span><select data-weekly-type data-day="${day}" data-period="${period}">${types.map(type=>`<option value="${type}" ${slot.type===type?'selected':''}>${typeLabel[type]??type}</option>`).join('')}</select><select data-weekly-intensity data-day="${day}" data-period="${period}" ${slot.type==='rest'?'disabled':''}>${intensities.map(intensity=>`<option value="${intensity}" ${slot.intensity===intensity?'selected':''}>${intensityLabel[intensity]}</option>`).join('')}</select><label><input data-weekly-duration data-day="${day}" data-period="${period}" type="number" min="30" max="120" step="5" value="${slot.type==='rest'?0:slot.durationMinutes}" ${slot.type==='rest'?'disabled':''}/> min</label></div>`}).join('')}</article>`).join('')}</div><footer><b>${schedule.enabled?'Controle manual ativo':'Microciclo automático ativo'}</b><span>${schedule.enabled?'As duas sessões do dia serão lidas diretamente desta grade.':'A grade fica salva, mas o motor continua adaptando o treino automaticamente.'}</span></footer>`;
+ const anchor=host.querySelector('.training-v2-cycle');anchor?.insertAdjacentElement('afterend',section);
+ section.querySelector<HTMLButtonElement>('[data-weekly-toggle]')!.onclick=()=>{setWeeklyTrainingEnabled(world,club.id,!schedule.enabled);renderWeeklySchedule()};
+ section.querySelectorAll<HTMLSelectElement>('[data-weekly-type]').forEach(select=>select.onchange=()=>{const day=Number(select.dataset.day),period=select.dataset.period as TrainingPeriod;setWeeklyTrainingSlot(world,club.id,day,period,{type:select.value as SessionType});renderWeeklySchedule()});
+ section.querySelectorAll<HTMLSelectElement>('[data-weekly-intensity]').forEach(select=>select.onchange=()=>{setWeeklyTrainingSlot(world,club.id,Number(select.dataset.day),select.dataset.period as TrainingPeriod,{intensity:select.value as SessionIntensity});renderWeeklySchedule()});
+ section.querySelectorAll<HTMLInputElement>('[data-weekly-duration]').forEach(input=>input.onchange=()=>{setWeeklyTrainingSlot(world,club.id,Number(input.dataset.day),input.dataset.period as TrainingPeriod,{durationMinutes:Number(input.value)});renderWeeklySchedule()});
+}
+document.addEventListener('touchline:view-rendered',event=>{if((event as CustomEvent).detail?.view==='training')queueMicrotask(renderWeeklySchedule)});
