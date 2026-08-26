@@ -50,11 +50,15 @@ jobs:
             if((p.positionSource?.startsWith('OpenFootball')||p.roleGroupSource?.startsWith('OpenFootball'))&&!p.dateOfBirth) throw new Error(`OpenFootball join without DOB: ${p.name}`);
           }
           const world=JSON.parse(await fs.readFile('public/data/rosters/world-tier-a-2026.json','utf8'));
-          if(world.tier!=='A'||world.version<1) throw new Error('invalid world Tier A roster snapshot');
+          if(world.tier!=='A'||world.version<3) throw new Error('invalid or pre-sanitization world Tier A roster snapshot');
           if(!world.sources?.some(s=>s.name==='Wikidata'&&s.license==='CC0')) throw new Error('Tier A Wikidata source must remain CC0');
           if(!world.sources?.some(s=>s.name==='OpenFootball clubs'&&s.license==='CC0-1.0')) throw new Error('Tier A club registry must remain CC0-1.0');
-          if((world.counts?.countriesResolved??0)<5) throw new Error(`too few Tier A countries resolved: ${world.counts?.countriesResolved}`);
-          if((world.counts?.clubs??0)<20||(world.counts?.players??0)<100) throw new Error(`Tier A roster coverage too small: clubs=${world.counts?.clubs} players=${world.counts?.players}`);
+          if((world.counts?.countriesResolved??0)<8) throw new Error(`too few Tier A countries resolved: ${world.counts?.countriesResolved}`);
+          if((world.counts?.clubs??0)<100||(world.counts?.players??0)<500) throw new Error(`Tier A roster coverage too small: clubs=${world.counts?.clubs} players=${world.counts?.players}`);
+          for(const country of world.countries??[]){
+            const catalog=country.counts?.openFootballClubs,matched=country.counts?.matchedClubs;
+            if(Number.isFinite(catalog)&&Number.isFinite(matched)&&matched>catalog) throw new Error(`club identity expansion in ${country.countryId}: matched=${matched} catalog=${catalog}`);
+          }
           const ids=new Set();for(const p of world.players??[]){if(!p.wikidataId||!p.name||!p.clubName) throw new Error('invalid Tier A player membership');if(p.provenance?.clubStatement!=='P54') throw new Error(`unverified Tier A membership ${p.name}`);if(ids.has(p.wikidataId))throw new Error(`duplicate Tier A player ${p.wikidataId}`);ids.add(p.wikidataId)}
           console.log({brazil:br.counts,tierA:world.counts});
           NODE
