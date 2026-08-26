@@ -10,6 +10,7 @@
     "preview": "vite preview --host 0.0.0.0",
     "smoke:advance": "tsx scripts/smoke-advance-day.ts",
     "test:e2e:stress": "node scripts/e2e-stress.mjs",
+    "audit:coverage": "node scripts/audit-module-coverage.mjs",
     "sync:data": "node scripts/sync-openfootball-data.mjs",
     "sync:people": "node scripts/sync-people-2026.mjs",
     "sync:people:reference": "node scripts/sync-people-2026.mjs --include-reference-only",
