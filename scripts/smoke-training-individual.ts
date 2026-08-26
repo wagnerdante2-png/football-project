@@ -1,6 +1,7 @@
 import { createBrazilRealWorld2026 } from '../src/real-world-v1';
 import { createDefaultManagerCharacter } from '../src/manager-character';
 import { clubTraining, executeTrainingDay, setIndividualTraining, setMicrocyclePreset } from '../src/training-engine';
+import { clearIndividualTraining } from '../src/training-individual-actions-v1';
 import { createSaveSnapshot, restoreSave, serializeSave } from '../src/save-game';
 
 const world=createBrazilRealWorld2026();
@@ -33,4 +34,7 @@ if(Math.abs(restoredPlayer.load.acuteLoad-after.load.acuteLoad)>1e-9||Math.abs(r
 setIndividualTraining(restored,club.id,player.id,{focus:'roleWork',intensity:'low'},`${world.season}-08-27`);
 const replaced=clubTraining(restored,club.id)?.players.get(player.id)?.individual;
 if(!replaced||replaced.focus!=='roleWork'||replaced.progress!==0)throw new Error('Replacing individual plan did not reset the new plan cleanly');
-console.log(`[smoke-training-individual] player=${player.name} · progress=${after.individual.progress.toFixed(2)} · weakFoot=${after.weakFootProgress.toFixed(2)} · load=${after.load.acuteLoad.toFixed(2)} · save=OK · replace=OK · OK`);
+if(!clearIndividualTraining(restored,club.id,player.id))throw new Error('Could not cancel active individual plan');
+if(clubTraining(restored,club.id)?.players.get(player.id)?.individual)throw new Error('Individual plan remained active after cancellation');
+if(clearIndividualTraining(restored,club.id,player.id))throw new Error('Cancelling an already empty individual plan should return false');
+console.log(`[smoke-training-individual] player=${player.name} · progress=${after.individual.progress.toFixed(2)} · weakFoot=${after.weakFootProgress.toFixed(2)} · load=${after.load.acuteLoad.toFixed(2)} · save=OK · replace=OK · cancel=OK · OK`);
