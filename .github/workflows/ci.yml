@@ -27,6 +27,8 @@ jobs:
         run: npm run smoke:season
       - name: Smoke match weather and tactical learning
         run: npm run smoke:match
+      - name: Smoke safe world football foundation
+        run: npm run smoke:foundation
       - name: Install Chromium for E2E
         run: npx playwright install --with-deps chromium
       - name: Start preview server
