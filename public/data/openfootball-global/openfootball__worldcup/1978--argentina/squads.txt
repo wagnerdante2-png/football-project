@@ -1,0 +1,465 @@
+= World Cup 1978    # 16 Teams
+
+== Argentina (ARG)   # 22 players
+
+ (3)  GK  Héctor Baley                       ##    -, Huracán 
+ (5)  GK  Ubaldo Fillol                      ##    -, River Plate 
+(13)  GK  Ricardo La Volpe                   ##    -, San Lorenzo 
+
+ (7)  DF  Luis Galván                        ##    -, Talleres de Córdoba 
+(11)  DF  Daniel Killer                      ##    -, Racing Club 
+(15)  DF  Jorge Olguín                       ##    -, San Lorenzo 
+(18)  DF  Rubén Pagnanini                    ##    -, Independiente 
+(19)  DF  Daniel Passarella                  ##    -, River Plate 
+(20)  DF  Alberto Tarantini                  ##    -, Boca Juniors 
+
+ (1)  MF  Norberto Alonso                    ##    -, River Plate 
+ (2)  MF  Osvaldo Ardiles                    ##    -, Huracán 
+ (4)  MF  Daniel Bertoni                     ##    -, Independiente 
+ (6)  MF  Américo Gallego                    ##    -, Newell's Old Boys 
+ (8)  MF  Rubén Galván                       ##    -, Independiente 
+ (9)  MF  René Houseman                      ##    -, Huracán 
+(12)  MF  Omar Larrosa                       ##    -, Independiente 
+(16)  MF  Oscar Ortiz                        ##    -, River Plate 
+(17)  MF  Miguel Oviedo                      ##    -, Talleres de Córdoba 
+(21)  MF  José Daniel Valencia               ##    -, Talleres de Córdoba 
+(22)  MF  Ricardo Villa                      ##    -, Racing Club 
+
+(10)  FW  Mario Kempes                       ##    -, Valencia 
+(14)  FW  Leopoldo Luque                     ##    -, River Plate 
+
+
+== Austria (AUT)   # 22 players
+
+ (1)  GK  Friedrich Koncilia                 ##   37, SSW Innsbruck 
+(21)  GK  Erwin Fuchsbichler                 ##    2, VÖEST Linz 
+(22)  GK  Hubert Baumgartner                 ##    1, Austria Wien 
+
+ (2)  DF  Robert Sara                        ##   37, Austria Wien 
+ (3)  DF  Erich Obermayer                    ##   10, Austria Wien 
+ (4)  DF  Gerhard Breitenberger              ##   11, VÖEST Linz 
+ (5)  DF  Bruno Pezzey                       ##   25, SSW Innsbruck 
+(14)  DF  Heinrich Strasser                  ##   20, Admira/Wacker 
+(15)  DF  Heribert Weber                     ##    7, SK Sturm Graz 
+(16)  DF  Peter Persidis                     ##    7, Rapid Wien 
+
+ (6)  MF  Roland Hattenberger                ##   23, VfB Stuttgart 
+ (7)  MF  Josef Hickersberger                ##   33, Fortuna Düsseldorf 
+ (8)  MF  Herbert Prohaska                   ##   27, Austria Wien 
+(11)  MF  Kurt Jara                          ##   29, MSV Duisburg 
+(12)  MF  Eduard Krieger                     ##   20, Club Brugge 
+(13)  MF  Günther Happich                    ##    4, Wiener Sportclub 
+(20)  MF  Ernst Baumeister                   ##    1, Austria Wien 
+
+ (9)  FW  Hans Krankl                        ##   34, Rapid Wien 
+(10)  FW  Wilhelm Kreuz                      ##   35, Feyenoord 
+(17)  FW  Franz Oberacher                    ##    3, SSW Innsbruck 
+(18)  FW  Walter Schachner                   ##    6, DSV Alpine Donawitz 
+(19)  FW  Hans Pirkner                       ##   18, Austria Wien 
+
+
+== Brazil (BRA)   # 22 players
+
+ (1)  GK  Leão                               ##   50, Palmeiras 
+(12)  GK  Carlos                             ##    0, Ponte Preta 
+(22)  GK  Valdir Peres                       ##    5, São Paulo 
+
+ (2)  DF  Toninho                            ##    4, Flamengo 
+ (3)  DF  Oscar                              ##    4, Ponte Preta 
+ (4)  DF  Amaral                             ##   22, Corinthians 
+ (6)  DF  Edinho                             ##   12, Fluminense 
+(13)  DF  Nelinho                            ##   13, Cruzeiro 
+(14)  DF  Abel                               ##    1, Vasco da Gama 
+(15)  DF  Polozzi                            ##    0, Ponte Preta 
+(16)  DF  Rodrigues Neto                     ##    7, Botafogo 
+
+ (5)  MF  Toninho Cerezo                     ##   16, Atlético Mineiro 
+ (8)  MF  Zico                               ##   21, Flamengo 
+(11)  MF  Dirceu                             ##   14, Vasco da Gama 
+(17)  MF  Batista                            ##    4, Internacional 
+(21)  MF  Chicão                             ##    5, São Paulo 
+
+ (7)  FW  Zé Sérgio                          ##    2, São Paulo 
+ (9)  FW  Reinaldo                           ##   12, Atlético Mineiro 
+(10)  FW  Rivelino                           ##   88, Fluminense 
+(18)  FW  Gil                                ##   22, Botafogo 
+(19)  FW  Jorge Mendonça                     ##    0, Palmeiras 
+(20)  FW  Roberto Dinamite                   ##   20, Vasco da Gama 
+
+
+== Spain (ESP)   # 22 players
+
+ (1)  GK  Luis Arconada                      ##    -, Real Sociedad 
+(13)  GK  Miguel Ángel                       ##    -, Real Madrid 
+(22)  GK  Urruti                             ##    -, RCD Español 
+
+ (2)  DF  Antonio de la Cruz                 ##    -, FC Barcelona 
+ (5)  DF  Migueli                            ##    -, FC Barcelona 
+ (6)  DF  Antonio Biosca                     ##    -, Real Betis 
+(16)  DF  Antonio Olmo                       ##    -, FC Barcelona 
+(17)  DF  Marcelino                          ##    -, Atlético Madrid 
+(18)  DF  Pirri                              ##    -, Real Madrid 
+
+ (3)  MF  Francisco Javier Uría              ##    -, Sporting de Gijón 
+ (4)  MF  Juan Manuel Asensi                 ##    -, FC Barcelona 
+(11)  MF  Julio Cardeñosa                    ##    -, Real Betis 
+(12)  MF  Antonio Guzmán                     ##    -, Rayo Vallecano 
+(14)  MF  Eugenio Leal                       ##    -, Atlético Madrid 
+(21)  MF  Isidoro San José                   ##    -, Real Madrid 
+
+ (7)  FW  Dani                               ##    -, Athletic Bilbao 
+ (8)  FW  Juanito                            ##    -, Real Madrid 
+ (9)  FW  Quini                              ##    -, Sporting de Gijón 
+(10)  FW  Santillana                         ##    -, Real Madrid 
+(15)  FW  Marañón                            ##    -, RCD Español 
+(19)  FW  Carles Rexach                      ##    -, FC Barcelona 
+(20)  FW  Rubén Cano                         ##    -, Atlético Madrid 
+
+
+== France (FRA)   # 22 players
+
+ (1)  GK  Dominique Baratelli                ##   18, Nice 
+(21)  GK  Jean-Paul Bertrand-Demanes         ##    9, Nantes 
+(22)  GK  Dominique Dropsy                   ##    0, Strasbourg 
+
+ (2)  DF  Patrick Battiston                  ##    5, Metz 
+ (3)  DF  Maxime Bossis                      ##   11, Nantes 
+ (4)  DF  Gérard Janvion                     ##   15, Saint-Étienne 
+ (5)  DF  François Bracci                    ##   15, Marseille 
+ (6)  DF  Christian Lopez                    ##   12, Saint-Étienne 
+ (7)  DF  Patrice Rio                        ##   15, Nantes 
+ (8)  DF  Marius Trésor                      ##   36, Marseille 
+
+ (9)  MF  Dominique Bathenay                 ##   12, Saint-Étienne 
+(10)  MF  Jean-Marc Guillou                  ##   18, Nice 
+(11)  MF  Henri Michel                       ##   52, Nantes 
+(12)  MF  Claude Papi                        ##    2, Bastia 
+(13)  MF  Jean Petit                         ##    3, AS Monaco 
+(15)  MF  Michel Platini                     ##   15, Nancy 
+(18)  MF  Dominique Rocheteau                ##   10, Saint-Étienne 
+(19)  MF  Didier Six                         ##   15, Lens 
+
+(14)  FW  Marc Berdoll                       ##   10, Marseille 
+(16)  FW  Christian Dalger                   ##    5, AS Monaco 
+(17)  FW  Bernard Lacombe                    ##   14, Lyon 
+(20)  FW  Olivier Rouyer                     ##    9, Nancy 
+
+
+== West Germany (FRG)   # 22 players
+
+ (1)  GK  Sepp Maier                         ##    -, Bayern Munich 
+(21)  GK  Rudolf Kargus                      ##    -, Hamburger SV 
+(22)  GK  Dieter Burdenski                   ##    -, Werder Bremen 
+
+ (2)  DF  Berti Vogts                        ##    -, Borussia Mönchengladbach 
+ (3)  DF  Bernard Dietz                      ##    -, MSV Duisburg 
+ (5)  DF  Manfred Kaltz                      ##    -, Hamburger SV 
+(12)  DF  Hans-Georg Schwarzenbeck           ##    -, Bayern Munich 
+(13)  DF  Harald Konopka                     ##    -, FC Köln 
+
+ (4)  MF  Rolf Rüssmann                      ##    -, Schalke 04 
+ (6)  MF  Rainer Bonhof                      ##    -, Borussia Mönchengladbach 
+(10)  MF  Heinz Flohe                        ##    -, FC Köln 
+(15)  MF  Erich Beer                         ##    -, Hertha Berlin 
+(16)  MF  Bernhard Cullmann                  ##    -, FC Köln 
+(18)  MF  Gerd Zewe                          ##    -, Fortuna Düsseldorf 
+(20)  MF  Hansi Müller                       ##    -, VfB Stuttgart 
+
+ (7)  FW  Rüdiger Abramczik                  ##    -, Schalke 04 
+ (8)  FW  Herbert Zimmermann                 ##    -, FC Köln 
+ (9)  FW  Klaus Fischer                      ##    -, Schalke 04 
+(11)  FW  Karl-Heinz Rummenigge              ##    -, Bayern Munich 
+(14)  FW  Dieter Müller                      ##    -, FC Köln 
+(17)  FW  Bernd Hölzenbein                   ##    -, Eintracht Frankfurt 
+(19)  FW  Ronald Worm                        ##    -, MSV Duisburg 
+
+
+== Hungary (HUN)   # 22 players
+
+ (1)  GK  Sándor Gujdár                      ##   19, Budapest Honvéd FC 
+(21)  GK  Ferenc Mészáros                    ##   13, Vasas SC 
+(22)  GK  László Kovács                      ##   12, Videoton FCF 
+
+ (2)  DF  Péter Török                        ##   29, Vasas SC 
+ (3)  DF  István Kocsis                      ##    6, Budapest Honvéd FC 
+ (6)  DF  Zoltán Kereki                      ##   24, Haladás VSE 
+(12)  DF  Győző Martos                       ##   11, Ferencvárosi TC 
+(14)  DF  László Bálint                      ##   54, Ferencvárosi TC 
+(15)  DF  Tibor Rab                          ##   11, Ferencvárosi TC 
+
+ (4)  MF  József Tóth                        ##   25, Újpesti Dózsa FC 
+ (5)  MF  Sándor Zombori                     ##   16, Vasas SC 
+(10)  MF  Sándor Pintér                      ##   32, Budapest Honvéd FC 
+(13)  MF  Károly Csapó                       ##    5, Tatabányai BSK 
+(16)  MF  István Halász                      ##    3, Tatabányai BSK 
+(18)  MF  László Nagy                        ##   21, Újpesti Dózsa FC 
+(20)  MF  Ferenc Fülöp                       ##    0, MTK FC 
+
+ (7)  FW  László Fazekas                     ##   71, Újpesti Dózsa FC 
+ (8)  FW  Tibor Nyilasi                      ##   26, Ferencvárosi TC 
+ (9)  FW  András Törőcsik                    ##   11, Újpesti Dózsa FC 
+(11)  FW  Béla Várady                        ##   28, Vasas SC 
+(17)  FW  László Pusztai                     ##   22, Ferencvárosi TC 
+(19)  FW  András Tóth                        ##   14, Újpesti Dózsa FC 
+
+
+== Iran (IRN)   # 22 players
+
+ (1)  GK  Nasser Hejazi                      ##    -, Shahbaz 
+(12)  GK  Bahram Mavaddat                    ##    -, Sepahan 
+(22)  GK  Rasoul Korbekandi                  ##    -, Zob Ahan 
+
+ (5)  DF  Javad Allahverdi                   ##    -, Persepolis 
+(11)  DF  Ali Reza Ghesghayan                ##    -, Bargh Shiraz 
+(14)  DF  Hassan Nazari                      ##    -, Taj 
+(15)  DF  Andranik Eskandarian               ##    -, Taj 
+(20)  DF  Nasrollah Abdollahi                ##    -, Shahbaz 
+(21)  DF  Hossein Kazerani                   ##    -, Pas 
+
+ (2)  MF  Iraj Danaeifard                    ##    -, Taj 
+ (6)  MF  Hassan Nayebagha                   ##    -, Homa 
+ (7)  MF  Ali Parvin                         ##    -, Persepolis 
+ (8)  MF  Ebrahim Ghasempour                 ##    -, Shahbaz 
+ (9)  MF  Mohammad Sadeghi                   ##    -, Pas 
+(19)  MF  Ali Shojaei                        ##    -, Sepahan 
+
+ (3)  FW  Behtash Fariba                     ##    -, Pas 
+ (4)  FW  Majid Bishkar                      ##    -, Shahbaz 
+(10)  FW  Hassan Roshan                      ##    -, Taj 
+(13)  FW  Hamid Majd Teymouri                ##    -, Shahbaz 
+(16)  FW  Nasser Nouraei                     ##    -, Homa 
+(17)  FW  Ghafour Jahani                     ##    -, Malavan 
+(18)  FW  Hossein Faraki                     ##    -, Pas 
+
+
+== Italy (ITA)   # 22 players
+
+ (1)  GK  Dino Zoff                          ##    -, Juventus 
+(12)  GK  Paolo Conti                        ##    -, Roma 
+(22)  GK  Ivano Bordon                       ##    -, Internazionale 
+
+ (2)  DF  Mauro Bellugi                      ##    -, Bologna 
+ (3)  DF  Antonio Cabrini                    ##    -, Juventus 
+ (4)  DF  Antonello Cuccureddu               ##    -, Juventus 
+ (5)  DF  Claudio Gentile                    ##    -, Juventus 
+ (6)  DF  Aldo Maldera                       ##    -, Milan 
+ (7)  DF  Lionello Manfredonia               ##    -, Lazio 
+ (8)  DF  Gaetano Scirea                     ##    -, Juventus 
+
+ (9)  MF  Giancarlo Antognoni                ##    -, Fiorentina 
+(10)  MF  Romeo Benetti                      ##    -, Juventus 
+(11)  MF  Eraldo Pecci                       ##    -, Torino 
+(13)  MF  Patrizio Sala                      ##    -, Torino 
+(14)  MF  Marco Tardelli                     ##    -, Juventus 
+(15)  MF  Renato Zaccarelli                  ##    -, Torino 
+(16)  MF  Franco Causio                      ##    -, Juventus 
+(17)  MF  Claudio Sala                       ##    -, Torino 
+
+(18)  FW  Roberto Bettega                    ##    -, Juventus 
+(19)  FW  Francesco Graziani                 ##    -, Torino 
+(20)  FW  Paolo Pulici                       ##    -, Torino 
+(21)  FW  Paolo Rossi                        ##    -, Vicenza 
+
+
+== Mexico (MEX)   # 22 players
+
+ (1)  GK  José Pilar Reyes                   ##    -, UANL Tigres 
+(22)  GK  Pedro Soto                         ##    -, Club América 
+
+ (2)  DF  Manuel Nájera                      ##    -, Leones Negros 
+ (3)  DF  Alfredo Tena                       ##    -, Club América 
+ (4)  DF  Eduardo Ramos                      ##    -, CD Guadalajara 
+ (5)  DF  Arturo Vázquez Ayala               ##    -, Club UNAM 
+(12)  DF  Jesús Martínez                     ##    -, Club América 
+(13)  DF  Rigoberto Cisneros                 ##    -, CD Toluca 
+(14)  DF  Carlos Gómez                       ##    -, CSD León 
+(15)  DF  Ignacio Flores Ocaranza            ##    -, Cruz Azul 
+
+ (6)  MF  Guillermo Mendizábal               ##    -, Cruz Azul 
+ (7)  MF  Antonio de la Torre                ##    -, Club América 
+(10)  MF  Cristóbal Ortega                   ##    -, Club América 
+(16)  MF  Javier Cárdenas                    ##    -, CD Toluca 
+(17)  MF  Leonardo Cuéllar                   ##    -, Club UNAM 
+(18)  MF  Gerardo Lugo                       ##    -, Atlante F.C. 
+
+ (8)  FW  Enrique López Zarza                ##    -, Club UNAM 
+ (9)  FW  Víctor Rangel                      ##    -, CD Guadalajara 
+(11)  FW  Hugo Sánchez                       ##    -, Club UNAM 
+(19)  FW  Hugo René Rodríguez                ##    -, Santos Laguna 
+(20)  FW  Mario Medina                       ##    -, CD Toluca 
+(21)  FW  Raúl Isiordia                      ##    -, Atlético Español 
+
+
+== Netherlands (NED)   # 22 players
+
+ (1)  GK  Piet Schrijvers                    ##   16, Ajax 
+ (8)  GK  Jan Jongbloed                      ##   19, Roda JC 
+(19)  GK  Pim Doesburg                       ##    2, Sparta Rotterdam 
+
+ (2)  DF  Jan Poortvliet                     ##    1, PSV Eindhoven 
+ (4)  DF  Adrie van Kraay                    ##   13, PSV Eindhoven 
+ (5)  DF  Ruud Krol                          ##   52, Ajax 
+ (7)  DF  Piet Wildschut                     ##    1, Twente 
+(15)  DF  Hugo Hovenkamp                     ##    7, AZ 
+(17)  DF  Wim Rijsbergen                     ##   25, Feyenoord 
+(20)  DF  Wim Suurbier                       ##   56, Schalke 04 
+(22)  DF  Ernie Brandts                      ##    1, PSV Eindhoven 
+
+ (3)  MF  Dick Schoenaker                    ##    0, Ajax 
+ (6)  MF  Wim Jansen                         ##   50, Feyenoord 
+ (9)  MF  Arie Haan                          ##   24, Anderlecht 
+(10)  MF  René van de Kerkhof                ##   20, PSV Eindhoven 
+(11)  MF  Willy van de Kerkhof               ##   18, PSV Eindhoven 
+(13)  MF  Johan Neeskens                     ##   38, Barcelona 
+(14)  MF  Johan Boskamp                      ##    1, Molenbeek 
+
+(12)  FW  Rob Rensenbrink                    ##   34, Anderlecht 
+(16)  FW  Johnny Rep                         ##   23, SEC Bastia 
+(18)  FW  Dick Nanninga                      ##    1, Roda JC 
+(21)  FW  Harry Lubse                        ##    1, PSV Eindhoven 
+
+
+== Peru (PER)   # 22 players
+
+ (1)  GK  Ottorino Sartor                    ##    -, Colegio Nacional de Iquitos 
+(13)  GK  Juan Cáceres                       ##    -, Alianza Lima 
+(21)  GK  Ramón Quiroga                      ##    -, Sporting Cristal 
+
+ (2)  DF  Jaime Duarte                       ##    -, Alianza Lima 
+ (3)  DF  Rodolfo Manzo                      ##    -, Deportivo Municipal 
+ (4)  DF  Héctor Chumpitaz                   ##    -, Sporting Cristal 
+ (5)  DF  Rubén Toribio Díaz                 ##    -, Sporting Cristal 
+(14)  DF  José Navarro                       ##    -, Sporting Cristal 
+(22)  DF  Roberto Rojas                      ##    -, Alianza Lima 
+
+ (6)  MF  José Velásquez                     ##    -, Alianza Lima 
+ (8)  MF  César Cueto                        ##    -, Alianza Lima 
+ (9)  MF  Percy Rojas                        ##    -, Sporting Cristal 
+(10)  MF  Teófilo Cubillas                   ##    -, Alianza Lima 
+(15)  MF  Germán Leguía                      ##    -, Deportivo Municipal 
+(16)  MF  Raúl Gorriti                       ##    -, Sporting Cristal 
+(17)  MF  Alfredo Quesada                    ##    -, Sporting Cristal 
+(18)  MF  Ernesto Labarthe                   ##    -, Sport Boys 
+
+ (7)  FW  Juan Muñante                       ##    -, Club UNAM 
+(11)  FW  Juan Carlos Oblitas                ##    -, Sporting Cristal 
+(12)  FW  Roberto Mosquera                   ##    -, Sporting Cristal 
+(19)  FW  Guillermo La Rosa                  ##    -, Alianza Lima 
+(20)  FW  Hugo Sotil                         ##    -, Alianza Lima 
+
+
+== Poland (POL)   # 22 players
+
+ (1)  GK  Jan Tomaszewski                    ##    -, ŁKS Łódź 
+(21)  GK  Zygmunt Kukla                      ##    -, Stal Mielec 
+(22)  GK  Zdzisław Kostrzewa                 ##    -, Zagłębie Sosnowiec 
+
+ (3)  DF  Henryk Maculewicz                  ##    -, Wisła Kraków 
+ (4)  DF  Antoni Szymanowski                 ##    -, Wisła Kraków 
+ (6)  DF  Jerzy Gorgoń                       ##    -, Górnik Zabrze 
+ (9)  DF  Władysław Żmuda                    ##    -, Śląsk Wrocław 
+(10)  DF  Wojciech Rudy                      ##    -, Zagłębie Sosnowiec 
+(13)  DF  Janusz Kupcewicz                   ##    -, Arka Gdynia 
+(14)  DF  Mirosław Justek                    ##    -, Lech Poznań 
+(20)  DF  Roman Wójcicki                     ##    -, Odra Opole 
+
+ (5)  MF  Adam Nawałka                       ##    -, Wisła Kraków 
+ (8)  MF  Henryk Kasperczak                  ##    -, Stal Mielec 
+(11)  MF  Bohdan Masztaler                   ##    -, ŁKS Łódź 
+(12)  MF  Kazimierz Deyna                    ##    -, Legia Warszawa 
+(15)  MF  Marek Kusto                        ##    -, Legia Warszawa 
+(18)  MF  Zbigniew Boniek                    ##    -, Widzew Łódź 
+
+ (2)  FW  Włodzimierz Mazur                  ##    -, Zagłębie Sosnowiec 
+ (7)  FW  Andrzej Iwan                       ##    -, Wisła Kraków 
+(16)  FW  Grzegorz Lato                      ##    -, Stal Mielec 
+(17)  FW  Andrzej Szarmach                   ##    -, Stal Mielec 
+(19)  FW  Włodzimierz Lubański               ##    -, KSC Lokeren 
+
+
+== Scotland (SCO)   # 22 players
+
+ (1)  GK  Alan Rough                         ##    -, Partick Thistle 
+(12)  GK  Jim Blyth                          ##    -, Coventry City 
+(20)  GK  Bobby Clark                        ##    -, Aberdeen 
+
+ (2)  DF  Sandy Jardine                      ##    -, Rangers 
+ (3)  DF  Willie Donachie                    ##    -, Manchester City 
+ (4)  DF  Martin Buchan                      ##    -, Manchester United 
+ (5)  DF  Gordon McQueen                     ##    -, Manchester United 
+(13)  DF  Stuart Kennedy                     ##    -, Aberdeen 
+(14)  DF  Tom Forsyth                        ##    -, Rangers 
+(22)  DF  Kenny Burns                        ##    -, Nottingham Forest 
+
+ (6)  MF  Bruce Rioch                        ##    -, Derby County 
+ (7)  MF  Don Masson                         ##    -, Derby County 
+(10)  MF  Asa Hartford                       ##    -, Manchester City 
+(11)  MF  Willie Johnston                    ##    -, West Bromwich 
+(15)  MF  Archie Gemmill                     ##    -, Nottingham Forest 
+(18)  MF  Graeme Souness                     ##    -, Liverpool 
+
+ (8)  FW  Kenny Dalglish                     ##    -, Liverpool 
+ (9)  FW  Joe Jordan                         ##    -, Manchester United 
+(16)  FW  Lou Macari                         ##    -, Manchester United 
+(17)  FW  Derek Johnstone                    ##    -, Rangers 
+(19)  FW  John Robertson                     ##    -, Nottingham Forest 
+(21)  FW  Joe Harper                         ##    -, Aberdeen 
+
+
+== Sweden (SWE)   # 22 players
+
+ (1)  GK  Ronnie Hellström                   ##    -, 1. FC Kaiserslautern 
+(12)  GK  Göran Hagberg                      ##    -, Östers IF 
+(17)  GK  Jan Möller                         ##    -, Malmö FF 
+
+ (2)  DF  Hasse Borg                         ##    -, Eintracht Braunschweig 
+ (3)  DF  Roy Andersson                      ##    -, Malmö FF 
+ (5)  DF  Ingemar Erlandsson                 ##    -, Malmö FF 
+(13)  DF  Magnus Andersson                   ##    -, Malmö FF 
+(19)  DF  Kent Karlsson                      ##    -, IFK Eskilstuna 
+(20)  DF  Roland Andersson                   ##    -, Malmö FF 
+
+ (4)  MF  Björn Nordqvist                    ##    -, IFK Göteborg 
+ (6)  MF  Staffan Tapper                     ##    -, Malmö FF 
+ (7)  MF  Anders Linderoth                   ##    -, Olympique de Marseille 
+ (9)  MF  Lennart Larsson                    ##    -, FC Schalke 04 
+(14)  MF  Ronald Åhman                       ##    -, Örebro SK 
+(18)  MF  Olle Nordin                        ##    -, IFK Göteborg 
+
+ (8)  FW  Bo Larsson                         ##    -, Malmö FF 
+(10)  FW  Thomas Sjöberg                     ##    -, Malmö FF 
+(11)  FW  Benny Wendt                        ##    -, 1. FC Kaiserslautern 
+(15)  FW  Torbjörn Nilsson                   ##    -, IFK Göteborg 
+(16)  FW  Conny Torstensson                  ##    -, FC Zürich 
+(21)  FW  Sanny Åslund                       ##    -, AIK Fotboll 
+(22)  FW  Ralf Edström                       ##    -, IFK Göteborg 
+
+
+== Tunisia (TUN)   # 22 players
+
+ (1)  GK  Sadok Sassi                        ##    -, Club Africain 
+(21)  GK  Lamine Ben Aziza                   ##    -, Étoile Sportive du Sahel 
+(22)  GK  Mokhtar Naili                      ##    -, Club Africain 
+
+ (2)  DF  Mokhtar Dhouib                     ##    -, CS Sfaxien 
+ (3)  DF  Ali Kaabi                          ##    -, COT Tunis 
+ (5)  DF  Mohsen Labidi                      ##    -, Stade Tunis 
+(17)  DF  Ridha El Louze                     ##    -, Sfax Railways Sports 
+(18)  DF  Kamel Chebli                       ##    -, Club Africain 
+(20)  DF  Amor Jebali                        ##    -, AS Marsa 
+
+ (4)  MF  Khaled Gasmi                       ##    -, Club Bizerta 
+ (6)  MF  Néjib Ghommidh                     ##    -, Club Africain 
+ (8)  MF  Mohamed Ben Rehaiem                ##    -, CS Sfaxien 
+(10)  MF  Tarak Dhiab                        ##    -, Espérance 
+(12)  MF  Khemais Labidi                     ##    -, JS Kairouan 
+
+ (7)  FW  Témime Lahzami                     ##    -, Al-Ittihad 
+ (9)  FW  Mohamed Akid                       ##    -, CS Sfaxien 
+(11)  FW  Abderraouf Ben Aziza               ##    -, Étoile Sportive du Sahel 
+(13)  FW  Néjib Liman                        ##    -, Stade Tunis 
+(14)  FW  Slah Karoui                        ##    -, Étoile Sportive du Sahel 
+(15)  FW  Mohamed Ben Mouza                  ##    -, Club Africain 
+(16)  FW  Ohman Chehaibi                     ##    -, JS Kairouan 
+(19)  FW  Mokhtar Hasni                      ##    -, La Louviére 
+

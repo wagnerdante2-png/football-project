@@ -1,0 +1,36 @@
+=  RCD Mallorca - Primera División de España 2023/24
+
+  1,  Predrag Rajković (SRB),            GK,   b. 1995,   Reims
+ 13,  Dominik Greif (SVN),               GK,   b. 1997,   Slovan Bratislava
+ 25,  Iván Cuéllar,                      GK,   b. 1984,   Sporting Gijón
+ 36,  Álex Quevedo,                      GK,   b. 2004,   Mallorca B
+
+  2,  Matija Nastasić (SRB),             DF,   b. 1993,   Fiorentina
+  3,  Toni Lato,                         DF,   b. 1997,   Valencia
+  4,  Siebe Van Der Heyden (BEL),        DF,   b. 1998,   Union St-Gilloise
+  6,  Copete,                            DF,   b. 1999,   Ponferradina
+ 11,  Jaume Costa,                       DF,   b. 1988,   Villarreal
+ 15,  Pablo Maffeo,                      DF,   b. 1997,   Stuttgart
+ 20,  Giovanni González (URU),           DF,   b. 1994,   Peñarol
+ 21,  Antonio Raíllo,                    DF,   b. 1991,   Espanyol
+ 22,  Nacho Vidal,                       DF,   b. 1995,   Osasuna
+ 24,  Martin Valjent (SVK),              DF,   b. 1995,   Chievo Verona
+ 29,  Miguelito,                         DF,   b. 2001,   Mallorca B
+ 31,  Yuzún Ley,                         DF,   b. 2004,   Mallorca B
+ 32,  Marcos Fernández,                  DF,   b. 2003,   Mallorca B
+ 37,  Carles Sogorb,                     DF,   b. 2005,   Mallorca B
+
+  5,  Omar Mascarell,                    MF,   b. 1993,   Elche
+  8,  Manu Morlanes,                     MF,   b. 1999,   Villarreal
+ 10,  Sergi Darder,                      MF,   b. 1993,   Espanyol
+ 12,  Samú Costa (POR),                  MF,   b. 2000,   Almería
+ 14,  Dani Rodríguez,                    MF,   b. 1988,   Albacete
+ 18,  Antonio Sánchez,                   MF,   b. 1997,   Mallorca B
+ 23,  Nemanja Radonjić (SRB),            MF,   b. 1996,   Torino
+ 26,  Rubén Quintanilla,                 MF,   b. 2002,   Damm
+
+  7,  Vedat Muriqi (KVX),                FW,   b. 1994,   Lazio
+  9,  Abdón Prats,                       FW,   b. 1992,   Racing Santander
+ 17,  Cyle Larin (CAN),                  FW,   b. 1995,   Valladolid
+ 19,  Javi Llabrés,                      FW,   b. 2002,   Mallorca B
+ 34,  Pau Mascaró,                       FW,   b. 2004,   Mallorca B

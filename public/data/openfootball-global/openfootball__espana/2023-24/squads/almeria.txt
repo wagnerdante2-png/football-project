@@ -1,0 +1,36 @@
+=  UD Almería - Primera División de España 2023/24
+
+  1,  Diego Mariño,                      GK,   b. 1990,   Sporting Gijón
+ 13,  Fernando,                          GK,   b. 1990,   UCAM Murcia
+ 25,  Luís Maximiano (POR),              GK,   b. 1999,   Lazio
+ 37,  Bruno Iribarne,                    GK,   b. 2004,   Real Madrid B
+
+  3,  Edgar,                             DF,   b. 1997,   Betis
+ 16,  Aleksandar Radovanović (SRB),      DF,   b. 1993,   Kortrijk
+ 17,  Álex Pozo,                         DF,   b. 1999,   Sevilla
+ 18,  Marc Pubill,                       DF,   b. 2003,   Levante B
+ 20,  Álex Centelles,                    DF,   b. 1999,   Valencia B
+ 21,  Chumi,                             DF,   b. 1999,   Barcelona B
+ 22,  César Montes (MEX),                DF,   b. 1997,   Espanyol
+ 24,  Bruno Langa (MOZ),                 DF,   b. 1997,   Chaves
+ 27,  Paco Sanz,                         DF,   b. 2004,   Almería B
+ 30,  Carlos Ballestero,                 DF,   b. 2004,   Atlético Madrid B
+ 32,  Miguel Peña,                       DF,   b. 2001,   Levante B
+
+  4,  Iddrisu Baba (GHA),                MF,   b. 1996,   Mallorca
+  5,  Lucas Robertone (ARG),             MF,   b. 1997,   Vélez Sarsfield
+  6,  Dion Lopy (SEN),                   MF,   b. 2002,   Reims
+  8,  Jonathan Viera,                    MF,   b. 1989,   Las Palmas
+ 11,  Gonzalo Melero,                    MF,   b. 1994,   Levante
+ 19,  Sergio Arribas,                    MF,   b. 2001,   Real Madrid B
+ 26,  Marcos Peña,                       MF,   b. 2005,   Almería B
+ 38,  Luka Romero (ARG),                 MF,   b. 2004,   Milan
+
+  7,  Largie Ramazani (BEL),             FW,   b. 2001,   Manchester U
+  9,  Luis Suárez (COL),                 FW,   b. 1997,   Marseille
+ 10,  Adri Embarba,                      FW,   b. 1992,   Espanyol
+ 12,  Léo Baptistão (BRA),               FW,   b. 1992,   Santos
+ 15,  Anthony Lozano (HON),              FW,   b. 1993,   Getafe
+ 23,  Ibrahima Koné (MLI),               FW,   b. 1999,   Lorient
+ 28,  Rachad Fettal (MAR),               FW,   b. 2005,   Almería B
+ 29,  Marko Milovanović (SRB),           FW,   b. 2003,   Partizan Belgrade

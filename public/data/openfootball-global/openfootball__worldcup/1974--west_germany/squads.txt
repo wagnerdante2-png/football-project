@@ -1,0 +1,465 @@
+= World Cup 1974    # 16 Teams
+
+== Argentina (ARG)   # 22 players
+
+ (1)  GK  Daniel Carnevali                   ##    -, Las Palmas 
+(12)  GK  Ubaldo Fillol                      ##    -, River Plate 
+(21)  GK  Miguel Ángel Santoro               ##    -, Independiente 
+
+ (5)  DF  Ángel Bargas                       ##    -, Nantes 
+ (7)  DF  Jorge Carrascosa                   ##    -, Huracán 
+ (9)  DF  Rubén Glaria                       ##    -, San Lorenzo 
+(10)  DF  Ramón Heredia                      ##    -, Atlético Madrid 
+(14)  DF  Roberto Perfumo                    ##    -, Cruzeiro 
+(16)  DF  Francisco Sá                       ##    -, Independiente 
+(20)  DF  Enrique Wolff                      ##    -, River Plate 
+
+ (3)  MF  Carlos Babington                   ##    -, Huracán 
+ (6)  MF  Miguel Ángel Brindisi              ##    -, Huracán 
+ (8)  MF  Enrique Chazarreta                 ##    -, San Lorenzo 
+(11)  MF  René Houseman                      ##    -, Huracán 
+(17)  MF  Carlos Squeo                       ##    -, Racing 
+(18)  MF  Roberto Telch                      ##    -, San Lorenzo 
+(19)  MF  Néstor Togneri                     ##    -, Estudiantes 
+
+ (2)  FW  Rubén Ayala                        ##    -, Atlético Madrid 
+ (4)  FW  Agustín Balbuena                   ##    -, Independiente 
+(13)  FW  Mario Kempes                       ##    -, Rosario Central 
+(15)  FW  Aldo Poy                           ##    -, Rosario Central 
+(22)  FW  Héctor Yazalde                     ##    -, Sporting CP 
+
+
+== Australia (AUS)   # 22 players
+
+ (1)  GK  Jack Reilly                        ##   15, Melbourne Hakoah 
+(21)  GK  Jim Milisavljevic                  ##    0, Footscray JUST 
+(22)  GK  Allan Maher                        ##    0, Sutherland Shire 
+
+ (2)  DF  Doug Utjesenovic                   ##   19, St George-Budapest 
+ (3)  DF  Peter Wilson                       ##   34, Safeway United 
+ (4)  DF  Manfred Schäfer                    ##   49, St George-Budapest 
+ (5)  DF  Colin Curran                       ##   13, Western Suburbs SC (NSW) 
+(15)  DF  Harry Williams                     ##    3, St George-Budapest 
+(16)  DF  Ivo Rudic                          ##    0, Pan-Hellenic 
+(17)  DF  Dave Harding                       ##    1, Pan-Hellenic 
+
+ (6)  MF  Ray Richards                       ##   31, Marconi Fairfield 
+ (7)  MF  Jimmy Rooney                       ##   20, APIA Leichhardt 
+ (8)  MF  Jimmy Mackay                       ##   30, Sydney Hakoah 
+ (9)  MF  Johnny Warren                      ##   44, St George-Budapest 
+(13)  MF  Peter Ollerton                     ##    4, APIA Leichhardt 
+(14)  MF  Max Tolson                         ##   16, Safeway United 
+(18)  MF  Johnny Watkiss                     ##   23, Sydney Hakoah 
+(19)  MF  Ernie Campbell                     ##    8, Marconi Fairfield 
+
+(10)  FW  Gary Manuel                        ##    4, Pan-Hellenic 
+(11)  FW  Attila Abonyi                      ##   39, St George-Budapest 
+(12)  FW  Adrian Alston                      ##   34, Safeway United 
+(20)  FW  Branko Buljevic                    ##   19, Footscray JUST 
+
+
+== Bulgaria (BUL)   # 22 players
+
+ (1)  GK  Rumyancho Goranov                  ##   20, Lokomotiv Sofia 
+(21)  GK  Stefan Staykov                     ##    5, Levski-Spartak Sofia 
+(22)  GK  Simeon Simeonov                    ##   32, Slavia Sofia 
+
+ (2)  DF  Ivan Zafirov                       ##   23, CSKA SZ Sofia 
+ (3)  DF  Dobromir Zhechev                   ##   67, Levski-Spartak Sofia 
+ (5)  DF  Bozhil Kolev                       ##   30, CSKA SZ Sofia 
+ (6)  DF  Dimitar Penev                      ##   75, CSKA SZ Sofia 
+(12)  DF  Stefan Aladzhov                    ##   25, Levski-Spartak Sofia 
+(13)  DF  Mladen Vasilev                     ##   19, Akademik Sofia 
+
+ (4)  MF  Stefan Velichkov                   ##   18, Etar Veliko Tarnovo 
+(10)  MF  Ivan Stoyanov                      ##   17, Levski-Spartak Sofia 
+(11)  MF  Georgi Denev                       ##   24, CSKA SZ Sofia 
+(17)  MF  Asparuh Nikodimov                  ##   17, CSKA SZ Sofia 
+(18)  MF  Tsonyo Vasilev                     ##    6, CSKA SZ Sofia 
+(19)  MF  Kiril Ivkov                        ##   20, Levski-Spartak Sofia 
+
+ (7)  FW  Voyn Voynov                        ##   11, Levski-Spartak Sofia 
+ (8)  FW  Hristo Bonev                       ##   60, DFS Lokomotiv Plovdiv 
+ (9)  FW  Atanas Mihailov                    ##   31, Lokomotiv Sofia 
+(14)  FW  Kiril Milanov                      ##    9, Levski-Spartak Sofia 
+(15)  FW  Pavel Panov                        ##    8, Levski-Spartak Sofia 
+(16)  FW  Bozhidar Grigorov                  ##    3, Slavia Sofia 
+(20)  FW  Krasimir Borisov                   ##    7, Levski-Spartak Sofia 
+
+
+== Brazil (BRA)   # 22 players
+
+ (1)  GK  Leão                               ##   19, Palmeiras 
+(12)  GK  Renato                             ##    2, Flamengo 
+(22)  GK  Waldir Peres                       ##    0, São Paulo 
+
+ (2)  DF  Luís Pereira                       ##   15, Palmeiras 
+ (3)  DF  Marinho Peres                      ##    5, Santos 
+ (6)  DF  Marinho Chagas                     ##    9, Botafogo 
+(14)  DF  Nelinho                            ##    2, Cruzeiro 
+(15)  DF  Alfredo                            ##    1, Palmeiras 
+(16)  DF  Marco Antônio                      ##   27, Fluminense 
+
+ (4)  MF  Zé Maria                           ##   28, Corinthians 
+ (5)  MF  Piazza                             ##   44, Cruzeiro 
+ (7)  MF  Jairzinho                          ##   73, Botafogo 
+(10)  MF  Rivellino                          ##   55, Corinthians 
+(11)  MF  Paulo Cézar                        ##   42, Flamengo 
+(17)  MF  Carpegiani                         ##    5, Internacional 
+(18)  MF  Ademir da Guia                     ##    8, Palmeiras 
+(21)  MF  Dirceu                             ##    4, Botafogo 
+
+ (8)  FW  Leivinha                           ##   18, Palmeiras 
+ (9)  FW  César                              ##    8, Palmeiras 
+(13)  FW  Valdomiro                          ##    9, Internacional 
+(19)  FW  Mirandinha                         ##    3, São Paulo 
+(20)  FW  Edu                                ##   41, Santos 
+
+
+== Chile (CHI)   # 22 players
+
+ (1)  GK  Leopoldo Vallejos                  ##   13, Universidad Católica 
+(21)  GK  Juan Olivares                      ##   32, Unión Española 
+(22)  GK  Adolfo Nef                         ##   26, Colo Colo 
+
+ (2)  DF  Rolando García                     ##   14, Colo Colo 
+ (3)  DF  Alberto Quintano                   ##   33, Universidad de Chile 
+ (4)  DF  Antonio Arias                      ##   25, Unión Española 
+ (5)  DF  Elías Figueroa                     ##   19, Internacional 
+ (6)  DF  Juan Rodríguez                     ##   24, Atlético Español 
+(12)  DF  Juan Machuca                       ##   18, Unión Española 
+(13)  DF  Rafael González                    ##   10, Colo Colo 
+(15)  DF  Mario Galindo                      ##    6, Colo Colo 
+
+ (8)  MF  Francisco Valdés                   ##   44, Colo Colo 
+(10)  MF  Carlos Reinoso                     ##   25, América 
+(14)  MF  Alfonso Lara                       ##   27, Colo Colo 
+(16)  MF  Guillermo Páez                     ##   11, Colo Colo 
+(18)  MF  Jorge Socías                       ##    2, Universidad de Chile 
+(19)  MF  Rogelio Farías                     ##   10, Unión Española 
+
+ (7)  FW  Carlos Caszely                     ##   20, Levante 
+ (9)  FW  Sergio Ahumada                     ##   12, Colo Colo 
+(11)  FW  Leonardo Véliz                     ##   18, Colo Colo 
+(17)  FW  Guillermo Yávar                    ##   24, Universidad de Chile 
+(20)  FW  Osvaldo Castro                     ##   24, América 
+
+
+== West Germany (FRG)   # 22 players
+
+ (1)  GK  Sepp Maier                         ##   50, Bayern Munich 
+(21)  GK  Norbert Nigbur                     ##    2, Schalke 
+(22)  GK  Wolfgang Kleff                     ##    6, Borussia M'gladbach 
+
+ (2)  DF  Berti Vogts                        ##   24, Borussia M'gladbach 
+ (3)  DF  Paul Breitner                      ##   19, Bayern Munich 
+ (4)  DF  Hans-Georg Schwarzenbeck           ##   23, Bayern Munich 
+ (5)  DF  Franz Beckenbauer                  ##   78, Bayern Munich 
+ (6)  DF  Horst-Dieter Höttges               ##   65, Werder Bremen 
+(20)  DF  Helmut Kremers                     ##    5, Schalke 
+
+ (7)  MF  Herbert Wimmer                     ##   23, Borussia M'gladbach 
+ (8)  MF  Bernhard Cullmann                  ##   12, FC Köln 
+(10)  MF  Günter Netzer                      ##   34, Real Madrid 
+(12)  MF  Wolfgang Overath                   ##   74, FC Köln 
+(15)  MF  Heinz Flohe                        ##   14, FC Köln 
+(16)  MF  Rainer Bonhof                      ##    4, Borussia M'gladbach 
+(19)  MF  Jupp Kapellmann                    ##    3, Bayern Munich 
+
+ (9)  FW  Jürgen Grabowski                   ##   38, Eintracht Frankfurt 
+(11)  FW  Jupp Heynckes                      ##   28, Borussia M'gladbach 
+(13)  FW  Gerd Müller                        ##   55, Bayern Munich 
+(14)  FW  Uli Hoeneß                         ##   23, Bayern Munich 
+(17)  FW  Bernd Hölzenbein                   ##    4, Eintracht Frankfurt 
+(18)  FW  Dieter Herzog                      ##    2, Fortuna Düsseldorf 
+
+
+== East Germany (GDR)   # 22 players
+
+ (1)  GK  Jürgen Croy                        ##   43, Sachsenring Zwickau 
+(21)  GK  Wolfgang Blochwitz                 ##   17, Carl Zeiss Jena 
+(22)  GK  Werner Friese                      ##    0, Lokomotiv Leipzig 
+
+ (2)  DF  Lothar Kurbjuweit                  ##   30, Carl Zeiss Jena 
+ (3)  DF  Bernd Bransch                      ##   52, Carl Zeiss Jena 
+ (4)  DF  Konrad Weise                       ##   23, Carl Zeiss Jena 
+ (5)  DF  Joachim Fritsche                   ##    7, Lokomotiv Leipzig 
+(12)  DF  Siegmar Wätzlich                   ##    9, Dynamo Dresden 
+(18)  DF  Gerd Kische                        ##   13, Hansa Rostock 
+
+ (6)  MF  Rüdiger Schnuphase                 ##    4, Rot-Weiss Erfurt 
+ (7)  MF  Jürgen Pommerenke                  ##   10, FC Magdeburg 
+(10)  MF  Hans-Jürgen Kreische               ##   36, Dynamo Dresden 
+(13)  MF  Reinhard Lauck                     ##   14, Dynamo Berlin 
+(16)  MF  Harald Irmscher                    ##   29, Carl Zeiss Jena 
+(17)  MF  Erich Hamann                       ##    1, FC Vorwärts Frankfurt/Oder 
+(19)  MF  Wolfgang Seguin                    ##   13, FC Magdeburg 
+
+ (8)  FW  Wolfram Löwe                       ##   33, Lokomotiv Leipzig 
+ (9)  FW  Peter Ducke                        ##   57, Carl Zeiss Jena 
+(11)  FW  Joachim Streich                    ##   26, Hansa Rostock 
+(14)  FW  Jürgen Sparwasser                  ##   28, FC Magdeburg 
+(15)  FW  Eberhard Vogel                     ##   53, Carl Zeiss Jena 
+(20)  FW  Martin Hoffmann                    ##    3, FC Magdeburg 
+
+
+== Haiti (HAI)   # 22 players
+
+ (1)  GK  Henri Françillon                   ##    -, Victory FC 
+(21)  GK  Wilner Piquant                     ##    -, Violette 
+(22)  GK  Gérard Joseph                      ##    -, Racing Club Haïtien 
+
+ (2)  DF  Wilfried Louis                     ##    -, Don Bosco 
+ (3)  DF  Arsène Auguste                     ##    -, Racing Club Haïtien 
+ (4)  DF  Fritz André                        ##    -, Violette 
+ (5)  DF  Serge Ducosté                      ##    -, Aigle Noir AC 
+ (6)  DF  Pierre Bayonne                     ##    -, Violette 
+(13)  DF  Serge Racine                       ##    -, Aigle Noir AC 
+(14)  DF  Wilner Nazaire                     ##    -, Valenciennes 
+(19)  DF  Jean-Herbert Austin                ##    -, Violette 
+
+ (7)  MF  Philippe Vorbe                     ##    -, Violette 
+ (8)  MF  Jean-Claude Désir                  ##    -, Aigle Noir AC 
+ (9)  MF  Eddy Antoine                       ##    -, Racing Club Haïtien 
+(10)  MF  Guy François                       ##    -, Violette 
+(12)  MF  Ernst Jean-Joseph                  ##    -, Violette 
+(17)  MF  Joseph-Marion Leandré              ##    -, Racing Club Haïtien 
+
+(11)  FW  Guy Saint-Vil                      ##    -, Racing Club Haïtien 
+(15)  FW  Roger Saint-Vil                    ##    -, Archibald FC 
+(16)  FW  Fritz Leandré                      ##    -, Racing Club Haïtien 
+(18)  FW  Claude Barthélemy                  ##    -, Racing Club Haïtien 
+(20)  FW  Emmanuel Sanon                     ##    -, Don Bosco 
+
+
+== Italy (ITA)   # 22 players
+
+ (1)  GK  Dino Zoff                          ##   32, Juventus 
+(12)  GK  Enrico Albertosi                   ##   34, Cagliari 
+(22)  GK  Luciano Castellini                 ##    0, Torino 
+
+ (2)  DF  Luciano Spinosi                    ##   16, Juventus 
+ (3)  DF  Giacinto Facchetti                 ##   73, Internazionale 
+ (5)  DF  Francesco Morini                   ##    6, Juventus 
+ (6)  DF  Tarcisio Burgnich                  ##   63, Internazionale 
+(13)  DF  Giuseppe Sabadini                  ##    4, Milan 
+(14)  DF  Mauro Bellugi                      ##    7, Internazionale 
+(15)  DF  Giuseppe Wilson                    ##    1, Lazio 
+
+ (4)  MF  Romeo Benetti                      ##   15, Milan 
+ (7)  MF  Sandro Mazzola                     ##   67, Internazionale 
+ (8)  MF  Fabio Capello                      ##   16, Juventus 
+(10)  MF  Gianni Rivera                      ##   58, Milan 
+(16)  MF  Antonio Juliano                    ##   17, Napoli 
+(17)  MF  Luciano Re Cecconi                 ##    0, Lazio 
+(18)  MF  Franco Causio                      ##   10, Juventus 
+
+ (9)  FW  Giorgio Chinaglia                  ##    9, Lazio 
+(11)  FW  Luigi Riva                         ##   40, Cagliari 
+(19)  FW  Pietro Anastasi                    ##   20, Juventus 
+(20)  FW  Roberto Boninsegna                 ##   18, Internazionale 
+(21)  FW  Paolo Pulici                       ##    3, Torino 
+
+
+== Netherlands (NED)   # 22 players
+
+ (8)  GK  Jan Jongbloed                      ##    2, F.C. Amsterdam 
+(18)  GK  Piet Schrijvers                    ##    5, F.C. Twente 
+(21)  GK  Eddy Treijtel                      ##    4, SC Feyenoord 
+
+ (4)  DF  Kees van Ierssel                   ##    4, F.C. Twente 
+ (5)  DF  Rinus Israël                       ##   44, SC Feyenoord 
+ (6)  DF  Wim Jansen                         ##   25, SC Feyenoord 
+(12)  DF  Ruud Krol                          ##   20, Ajax Amsterdam 
+(17)  DF  Wim Rijsbergen                     ##    1, SC Feyenoord 
+(19)  DF  Pleun Strik                        ##    8, PSV Eindhoven 
+(20)  DF  Wim Suurbier                       ##   27, Ajax Amsterdam 
+(22)  DF  Harry Vos                          ##    0, SC Feyenoord 
+
+ (1)  MF  Ruud Geels                         ##    3, Club Brugge 
+ (2)  MF  Arie Haan                          ##   10, Ajax Amsterdam 
+ (3)  MF  Willem van Hanegem                 ##   29, SC Feyenoord 
+ (7)  MF  Theo de Jong                       ##    8, SC Feyenoord 
+(10)  MF  René van de Kerkhof                ##    5, PSV Eindhoven 
+(11)  MF  Willy van de Kerkhof               ##    1, PSV Eindhoven 
+(13)  MF  Johan Neeskens                     ##   17, Ajax Amsterdam 
+(14)  MF  Johan Cruyff                       ##   28, CF Barcelona 
+
+ (9)  FW  Piet Keizer                        ##   33, Ajax Amsterdam 
+(15)  FW  Rob Rensenbrink                    ##   13, RSC Anderlechtois 
+(16)  FW  Johnny Rep                         ##    5, Ajax Amsterdam 
+
+
+== Poland (POL)   # 22 players
+
+ (1)  GK  Andrzej Fischer                    ##    1, Górnik Zabrze 
+ (2)  GK  Jan Tomaszewski                    ##   14, ŁKS Łódź 
+ (3)  GK  Zygmunt Kalinowski                 ##    4, Śląsk Wrocław 
+
+ (4)  DF  Antoni Szymanowski                 ##   28, Wisła Kraków 
+ (5)  DF  Zbigniew Gut                       ##    9, Odra Opole 
+ (6)  DF  Jerzy Gorgoń                       ##   31, Górnik Zabrze 
+ (8)  DF  Mirosław Bulzacki                  ##   16, ŁKS Łódź 
+ (9)  DF  Władysław Żmuda                    ##    2, Gwardia Warszawa 
+(10)  DF  Adam Musiał                        ##   25, Wisła Kraków 
+
+ (7)  MF  Henryk Wieczorek                   ##    3, Górnik Zabrze 
+(11)  MF  Lesław Ćmikiewicz                  ##   32, Legia Warszawa 
+(12)  MF  Kazimierz Deyna                    ##   49, Legia Warszawa 
+(13)  MF  Henryk Kasperczak                  ##   17, Stal Mielec 
+(14)  MF  Zygmunt Maszczyk                   ##   16, Ruch Chorzów 
+
+(15)  FW  Roman Jakóbczak                    ##    1, Lech Poznań 
+(16)  FW  Grzegorz Lato                      ##   13, Stal Mielec 
+(17)  FW  Andrzej Szarmach                   ##    6, Górnik Zabrze 
+(18)  FW  Robert Gadocha                     ##   49, Legia Warszawa 
+(19)  FW  Jan Domarski                       ##   13, Stal Mielec 
+(20)  FW  Zdzisław Kapka                     ##    2, Wisła Kraków 
+(21)  FW  Kazimierz Kmiecik                  ##    9, Wisła Kraków 
+(22)  FW  Marek Kusto                        ##    1, Wisła Kraków 
+
+
+== Scotland (SCO)   # 22 players
+
+ (1)  GK  David Harvey                       ##    7, Leeds United 
+(12)  GK  Thomson Allan                      ##    2, Dundee 
+(13)  GK  Jim Stewart                        ##    0, Kilmarnock 
+
+ (2)  DF  Sandy Jardine                      ##   16, Rangers 
+ (3)  DF  Danny McGrain                      ##   12, Celtic 
+ (5)  DF  Jim Holton                         ##   11, Manchester United 
+ (6)  DF  John Blackley                      ##    3, Hibernian 
+(14)  DF  Martin Buchan                      ##   13, Manchester United 
+(16)  DF  Willie Donachie                    ##   11, Manchester City 
+(21)  DF  Gordon McQueen                     ##    1, Leeds United 
+(22)  DF  Erich Schaedler                    ##    1, Hibernian 
+
+ (4)  MF  Billy Bremner                      ##   48, Leeds United 
+ (7)  MF  Jimmy Johnstone                    ##   21, Celtic 
+(10)  MF  David Hay                          ##   24, Celtic 
+(15)  MF  Peter Cormack                      ##    9, Liverpool 
+(17)  MF  Donald Ford                        ##    3, Hearts 
+(18)  MF  Tommy Hutchison                    ##    8, Coventry City 
+
+ (8)  FW  Kenny Dalglish                     ##   19, Celtic 
+ (9)  FW  Joe Jordan                         ##   11, Leeds United 
+(11)  FW  Peter Lorimer                      ##   14, Leeds United 
+(19)  FW  Denis Law                          ##   54, Manchester City 
+(20)  FW  Willie Morgan                      ##   19, Manchester United 
+
+
+== Sweden (SWE)   # 22 players
+
+ (1)  GK  Ronnie Hellström                   ##    -, Hammarby 
+(12)  GK  Sven-Gunnar Larsson                ##    -, Örebro 
+(17)  GK  Göran Hagberg                      ##    -,  
+
+ (2)  DF  Jan Olsson                         ##    -, Åtvidaberg 
+ (3)  DF  Kent Karlsson                      ##    -, Åtvidaberg 
+ (4)  DF  Björn Nordqvist                    ##    -, PSV Eindhoven 
+ (5)  DF  Björn Andersson                    ##    -,  
+(13)  DF  Roland Grip                        ##    -, AIK 
+(18)  DF  Jörgen Augustsson                  ##    -, Åtvidaberg 
+
+ (6)  MF  Ove Grahn                          ##    -, Grasshoppers 
+ (7)  MF  Bo Larsson                         ##    -, Malmö 
+ (8)  MF  Conny Torstensson                  ##    -, Bayern Munich 
+(14)  MF  Staffan Tapper                     ##    -, Malmö 
+(15)  MF  Benno Magnusson                    ##    -, Kaiserslautern 
+(16)  MF  Inge Ejderstedt                    ##    -,  
+(19)  MF  Claes Cronqvist                    ##    -, Landskrona BoIS 
+(20)  MF  Sven Lindman                       ##    -, Djurgården 
+(21)  MF  Örjan Persson                      ##    -, Örgryte 
+
+ (9)  FW  Ove Kindvall                       ##    -, IFK Norrköping 
+(10)  FW  Ralf Edström                       ##    -, PSV Eindhoven 
+(11)  FW  Roland Sandberg                    ##    -, Kaiserslautern 
+(22)  FW  Thomas Ahlström                    ##    -, Elfsborg 
+
+
+== Uruguay (URU)   # 22 players
+
+ (1)  GK  Ladislao Mazurkiewicz              ##    -, Atlético Mineiro 
+(12)  GK  Héctor Santos                      ##    -, Alianza Lima 
+(22)  GK  Gustavo Fernández                  ##    -, Rentistas 
+
+ (2)  DF  Baudilio Jáuregui                  ##    -, River Plate 
+ (3)  DF  Juan Carlos Masnik                 ##    -, Nacional 
+ (4)  DF  Pablo Forlán                       ##    -, São Paulo 
+ (5)  DF  Julio Montero Castillo             ##    -, Nacional 
+ (6)  DF  Ricardo Pavoni                     ##    -, Independiente 
+(13)  DF  Gustavo de Simone                  ##    -, Defensor Sporting 
+(14)  DF  Luis Garisto                       ##    -, Peñarol 
+(15)  DF  Mario González                     ##    -, Peñarol 
+
+ (7)  MF  Luis Cubilla                       ##    -, Nacional 
+ (8)  MF  Víctor Espárrago                   ##    -, Sevilla 
+(10)  MF  Pedro Rocha                        ##    -, São Paulo 
+(16)  MF  Alberto Cardaccio                  ##    -, Danubio 
+(17)  MF  Julio César Jiménez                ##    -, Peñarol 
+(18)  MF  Walter Mantegazza                  ##    -, Nacional 
+
+ (9)  FW  Fernando Morena                    ##    -, Peñarol 
+(11)  FW  Rubén Corbo                        ##    -, Peñarol 
+(19)  FW  Denis Milar                        ##    -, Liverpool 
+(20)  FW  Juan Silva                         ##    -, Peñarol 
+(21)  FW  José Gómez                         ##    -, Cerro 
+
+
+== Yuguslavia (YUG)   # 22 players
+
+ (1)  GK  Enver Marić                        ##    -, Velež Mostar (SFR)
+(21)  GK  Ognjen Petrović                    ##    -, Red Star Belgrade (SFR)
+(22)  GK  Rizah Mešković                     ##    -, Hajduk Split (SFR)
+
+ (2)  DF  Ivan Buljan                        ##    -, Hajduk Split (SFR)
+ (3)  DF  Enver Hadžiabdić                   ##    -, FK Željezničar (SFR)
+ (5)  DF  Josip Katalinski                   ##    -, FK Željezničar (SFR)
+ (6)  DF  Vladislav Bogićević                ##    -, Red Star Belgrade (SFR)
+(14)  DF  Luka Peruzović                     ##    -, Hajduk Split (SFR)
+(15)  DF  Kiril Dojčinovski                  ##    -, Red Star Belgrade (SFR)
+
+ (4)  MF  Dražen Mužinić                     ##    -, Hajduk Split (SFR)
+ (8)  MF  Branko Oblak                       ##    -, Hajduk Split (SFR)
+(10)  MF  Jovan Aćimović                     ##    -, Red Star Belgrade (SFR)
+(12)  MF  Jurica Jerković                    ##    -, Hajduk Split (SFR)
+(13)  MF  Miroslav Pavlović                  ##    -, Red Star Belgrade (SFR)
+(16)  MF  Franjo Vladić                      ##    -, Velež Mostar (SFR)
+
+ (7)  FW  Ilija Petković                     ##    -, Troyes 
+ (9)  FW  Ivica Šurjak                       ##    -, Hajduk Split (SFR)
+(11)  FW  Dragan Džajić                      ##    -, Red Star Belgrade (SFR)
+(17)  FW  Danilo Popivoda                    ##    -, Olimpija Ljubljana (SFR)
+(18)  FW  Stanislav Karasi                   ##    -, Red Star Belgrade (SFR)
+(19)  FW  Dušan Bajević                      ##    -, Velež Mostar (SFR)
+(20)  FW  Vladimir Petrović                  ##    -, Red Star Belgrade (SFR)
+
+
+== Zaire (ZAI)   # 22 players
+
+ (1)  GK  Kazadi Mwamba                      ##    -, TP Mazembe 
+(12)  GK  Tubilandu Ndimbi                   ##    -, AS Vita Club 
+(22)  GK  Kalambay Otepa                     ##    -, TP Mazembe 
+
+ (2)  DF  Mwepu Ilunga                       ##    -, TP Mazembe 
+ (3)  DF  Mwanza Mukombo                     ##    -, TP Mazembe 
+ (4)  DF  Bwanga Tshimen                     ##    -, TP Mazembe 
+ (5)  DF  Lobilo Boba                        ##    -, AS Vita Club 
+(11)  DF  Kabasu Babo                        ##    -, AS Bilima 
+(16)  DF  Mwape Mialo                        ##    -, Nyiki Lubumbashi 
+
+ (6)  MF  Kilasu Massamba                    ##    -, AS Bilima 
+ (7)  MF  Tshinabu Wa Munda                  ##    -, TP Mazembe 
+ (8)  MF  Mana Mamuwene                      ##    -, CS Imana 
+ (9)  MF  Kembo Uba Kembo                    ##    -, AS Vita Club 
+(10)  MF  Kidumu Mantantu                    ##    -, CS Imana 
+(13)  MF  Ndaye Mulamba                      ##    -, AS Vita Club 
+(15)  MF  Kibonge Mafu                       ##    -, AS Vita Club 
+(17)  MF  Kafula Ngoie                       ##    -, TP Mazembe 
+
+(14)  FW  Mayanga Maku                       ##    -, AS Vita Club 
+(18)  FW  Mavuba Mafuila                     ##    -, AS Vita Club 
+(19)  FW  Mbungu Ekofa                       ##    -, CS Imana 
+(20)  FW  Jean Kalala N'Tumba                ##    -, AS Vita Club 
+(21)  FW  Kakoko Etepé                       ##    -, CS Imana 
+

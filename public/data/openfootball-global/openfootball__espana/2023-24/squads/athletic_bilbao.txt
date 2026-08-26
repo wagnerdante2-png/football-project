@@ -1,0 +1,35 @@
+=  Athletic Club Bilbao - Primera División de España 2023/24
+
+  1,  Unai Simón,                        GK,   b. 1997,   Athletic Bilbao B
+ 13,  Julen Agirrezabala,                GK,   b. 2000,   Athletic Bilbao B
+ 26,  Álex Padilla,                      GK,   b. 2003,   Athletic Bilbao B
+
+  3,  Daniel Vivian,                     DF,   b. 1999,   Athletic Bilbao B
+  4,  Aitor Paredes,                     DF,   b. 2000,   Athletic Bilbao B
+  5,  Yeray,                             DF,   b. 1995,   Athletic Bilbao B
+ 15,  Íñigo Lekue,                       DF,   b. 1993,   Athletic Bilbao B
+ 17,  Yuri Berchiche,                    DF,   b. 1990,   Paris St-Germain
+ 18,  Óscar de Marcos,                   DF,   b. 1989,   Alavés
+ 19,  Imanol García,                     DF,   b. 2000,   Athletic Bilbao B
+ 27,  Unai Eguíluz,                      DF,   b. 2002,   Athletic Bilbao B
+ 32,  Hugo Rincón,                       DF,   b. 2003,   Athletic Bilbao B
+
+  6,  Mikel Vesga,                       MF,   b. 1993,   Alavés B
+  7,  Alex Berenguer,                    MF,   b. 1995,   Torino
+  8,  Oihan Sancet,                      MF,   b. 2000,   Athletic Bilbao B
+ 14,  Dani García,                       MF,   b. 1990,   Eibar
+ 16,  Iñigo Ruiz de Galarreta,           MF,   b. 1993,   Mallorca
+ 21,  Ander Herrera,                     MF,   b. 1989,   Paris St-Germain
+ 22,  Raúl García,                       MF,   b. 1986,   Atlético Madrid
+ 24,  Beñat Prados,                      MF,   b. 2001,   Athletic Bilbao B
+ 28,  Junior Bita,                       MF,   b. 2005,   Athletic Bilbao B
+ 30,  Unai Gómez,                        MF,   b. 2003,   Athletic Bilbao B
+ 31,  Mikel Jauregizar,                  MF,   b. 2003,   Athletic Bilbao B
+
+  9,  Iñaki Williams (GHA),              FW,   b. 1994,   Athletic Bilbao B
+ 10,  Iker Muniain,                      FW,   b. 1992,   Athletic Bilbao B
+ 11,  Nico Williams,                     FW,   b. 2002,   Athletic Bilbao B
+ 12,  Gorka Guruzeta,                    FW,   b. 1996,   Amorebieta
+ 20,  Asier Villalibre,                  FW,   b. 1997,   Basconia
+ 23,  Malcom Adu Ares,                   FW,   b. 2001,   Athletic Bilbao B
+ 33,  Aingeru Olabarrieta,               FW,   b. 2005,   Athletic Bilbao B

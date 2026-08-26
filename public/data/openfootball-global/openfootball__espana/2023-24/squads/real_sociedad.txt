@@ -1,0 +1,42 @@
+=  Real Sociedad - Primera División de España 2023/24
+
+  1,  Alejandro Remiro,                  GK,   b. 1995,   Athletic Bilbao
+ 13,  Unai Marrero,                      GK,   b. 2001,   Real Sociedad B
+ 30,  Gaizka Ayesa,                      GK,   b. 2001,   Real Sociedad B
+ 37,  Aitor Fraga,                       GK,   b. 2003,   Real Sociedad B
+
+  2,  Álvaro Odriozola,                  DF,   b. 1995,   Real Madrid
+  3,  Aihen Muñoz,                       DF,   b. 1997,   Real Sociedad B
+  5,  Igor Zubeldia,                     DF,   b. 1997,   Real Sociedad B
+  6,  Aritz Elustondo,                   DF,   b. 1994,   Real Sociedad B
+ 15,  Urko González de Zárate,           DF,   b. 2001,   Real Sociedad B
+ 17,  Kieran Tierney (SCO),              DF,   b. 1997,   Arsenal
+ 18,  Hamary Traoré (MLI),               DF,   b. 1992,   Rennes
+ 20,  Jon Pacheco,                       DF,   b. 2001,   Real Sociedad B
+ 24,  Robin Le Normand (FRA),            DF,   b. 1996,   Brest
+ 25,  Javi Galán,                        DF,   b. 1994,   Atlético Madrid
+ 33,  Eneko Astigarraga,                 DF,   b. 2004,   Real Sociedad B
+ 36,  Jon Martín,                        DF,   b. 2006,   Real Sociedad B
+ 39,  Jon Mikel Aramburu (VEN),          DF,   b. 2002,   Real Unión
+ 41,  Iñaki Rupérez,                     DF,   b. 2003,   Real Sociedad B
+
+  4,  Martín Zubimendi,                  MF,   b. 1999,   Real Sociedad B
+  8,  Mikel Merino,                      MF,   b. 1996,   Newcastle U
+ 10,  Mikel Oyarzabal,                   MF,   b. 1997,   Real Sociedad B
+ 12,  Arsen Zakharyan (RUS),             MF,   b. 2003,   Dynamo Moscow
+ 14,  Takefusa Kubo (JPN),               MF,   b. 2001,   Real Madrid
+ 16,  Jon Ander Olasagasti,              MF,   b. 2000,   Real Sociedad B
+ 22,  Beñat Turrientes,                  MF,   b. 2002,   Real Sociedad B
+ 28,  Jon Magunazelaia,                  MF,   b. 2001,   Real Sociedad B
+ 29,  Pablo Marín,                       MF,   b. 2003,   Real Sociedad B
+ 34,  Jon Gorrotxategi,                  MF,   b. 2002,   Real Sociedad B
+ 35,  Alex Lebarbier (FRA),              MF,   b. 2004,   Real Sociedad B
+ 38,  Alberto Dadie,                     MF,   b. 2002,   Real Sociedad B
+
+  7,  Ander Barrenetxea,                 FW,   b. 2001,   Real Sociedad B
+  9,  Carlos Fernández,                  FW,   b. 1996,   Sevilla
+ 11,  Sheraldo Becker (NED),             FW,   b. 1995,   Union Berlin
+ 19,  Umar Sadiq (NGA),                  FW,   b. 1997,   Almería
+ 21,  André Silva (POR),                 FW,   b. 1995,   RB Leipzig
+ 23,  Brais Méndez,                      FW,   b. 1997,   Celta Vigo
+ 40,  Bryan Fiabema (NOR),               FW,   b. 2003,   Chelsea

@@ -1,0 +1,47 @@
+=  Villarreal CF - Primera División de España 2023/24
+
+  1,  Pepe Reina,                        GK,   b. 1982,   Lazio
+ 13,  Filip Jörgensen (DEN),             GK,   b. 2002,   Villarreal B
+ 31,  Iker Álvarez (AND),                GK,   b. 2001,   Villarreal B
+ 35,  Miguel Ángel Morro,                GK,   b. 2000,   Rayo Vallecano B
+
+  2,  Yerson Mosquera (COL),             DF,   b. 2001,   Wolverhampton W
+  3,  Raúl Albiol,                       DF,   b. 1985,   Napoli
+  5,  Jorge Cuenca,                      DF,   b. 1999,   Barcelona B
+  8,  Juan Foyth (ARG),                  DF,   b. 1998,   Tottenham H
+ 12,  Eric Bailly (CIV),                 DF,   b. 1994,   Beşiktaş
+ 17,  Kiko Femenía,                      DF,   b. 1991,   Watford
+ 18,  Alberto Moreno,                    DF,   b. 1992,   Liverpool
+ 23,  Aïssa Mandi (ALG),                 DF,   b. 1991,   Betis
+ 26,  Adrià Altimira,                    DF,   b. 2001,   Andorra
+ 29,  Abraham del Moral,                 DF,   b. 2001,   Villarreal B
+ 37,  Carlos Romero,                     DF,   b. 2001,   Villarreal B
+ 39,  Antonio Espigares,                 DF,   b. 2004,   Villarreal B
+ 42,  Stefan Leković (SRB),              DF,   b. 2004,   Crvena Zvezda
+ 44,  Daniel Budesca,                    DF,   b. 2006,   Roda
+
+  4,  Santi Comesaña,                    MF,   b. 1996,   Rayo Vallecano
+  6,  Étienne Capoue (FRA),              MF,   b. 1988,   Watford
+  9,  Gonçalo Guedes (POR),              MF,   b. 1996,   Wolverhampton W
+ 10,  Daniel Parejo,                     MF,   b. 1989,   Valencia
+ 14,  Manu Trigueros,                    MF,   b. 1991,   Villarreal B
+ 15,  José Luis Morales,                 MF,   b. 1987,   Levante
+ 16,  Álex Baena,                        MF,   b. 2001,   Villarreal B
+ 19,  Francis Coquelin (FRA),            MF,   b. 1991,   Valencia
+ 20,  Ramon Terrats,                     MF,   b. 2000,   Girona
+ 22,  Denis Suárez,                      MF,   b. 1994,   Celta Vigo
+ 24,  Alfonso Pedraza,                   MF,   b. 1996,   Villarreal B
+ 32,  Aitor Gelardo,                     MF,   b. 2002,   Villarreal B
+ 33,  Rodri Alonso,                      MF,   b. 2003,   Villarreal B
+ 34,  Tiago Geralnik (ARG),              MF,   b. 2003,   River Plate
+ 36,  Victor Moreno,                     MF,   b. 2005,   Roda
+ 38,  Dani Requena,                      MF,   b. 2004,   Roda
+
+  7,  Gerard Moreno,                     FW,   b. 1992,   Espanyol
+ 11,  Alexander Sørloth (NOR),           FW,   b. 1995,   RB Leipzig
+ 21,  Yéremi Pino,                       FW,   b. 2002,   Villarreal B
+ 25,  Bertrand Traoré (BFA),             FW,   b. 1995,   Aston Villa
+ 27,  Ilias Akhomach (MAR),              FW,   b. 2004,   Barcelona B
+ 30,  Jorge Pascual,                     FW,   b. 2003,   Villarreal B
+ 40,  Alex Forés,                        FW,   b. 2001,   Villarreal B
+ 43,  Diego Collado,                     FW,   b. 2001,   Villarreal B

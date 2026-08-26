@@ -1,0 +1,42 @@
+=  FC Barcelona - Primera División de España 2023/24
+
+  1,  Marc-André ter Stegen (GER),       GK,   b. 1992,   B Mönchengladbach
+ 13,  Iñaki Peña,                        GK,   b. 1999,   Barcelona B
+ 26,  Ander Astralaga,                   GK,   b. 2004,   Barcelona B
+ 31,  Diego Kochen (USA),                GK,   b. 2006,   Barcelona B
+ 36,  Áron Yaakobishvili (HUN),          GK,   b. 2006,   Barcelona B
+
+  2,  João Cancelo (POR),                DF,   b. 1994,   Manchester C
+  3,  Alejandro Balde,                   DF,   b. 2003,   Barcelona B
+  4,  Ronald Araújo (URU),               DF,   b. 1999,   Boston River
+  5,  Íñigo Martínez,                    DF,   b. 1991,   Athletic Bilbao
+ 15,  Andreas Christensen (DEN),         DF,   b. 1996,   Chelsea
+ 17,  Marcos Alonso,                     DF,   b. 1990,   Chelsea
+ 20,  Sergi Roberto,                     DF,   b. 1992,   Barcelona B
+ 23,  Jules Koundé (FRA),                DF,   b. 1998,   Sevilla
+ 33,  Pau Cubarsí,                       DF,   b. 2007,   Barcelona B
+ 39,  Héctor Fort,                       DF,   b. 2006,   Barcelona B
+ 41,  Mikayil Faye (SEN),                DF,   b. 2004,   Kustošija
+ 42,  Gerard Martín,                     DF,   b. 2002,   Cornellà
+ 43,  Mamadou Fall (SEN),                DF,   b. 2002,   Los Angeles FC
+
+  6,  Gavi,                              MF,   b. 2004,   Barcelona B
+  8,  Pedri,                             MF,   b. 2002,   Las Palmas B
+ 11,  Raphinha (BRA),                    MF,   b. 1996,   Leeds U
+ 16,  Fermín López,                      MF,   b. 2003,   Barcelona B
+ 18,  Oriol Romeu,                       MF,   b. 1991,   Girona
+ 21,  Frenkie de Jong (NED),             MF,   b. 1997,   Ajax
+ 22,  İlkay Gündoğan (GER),              MF,   b. 1990,   Manchester C
+ 30,  Marc Casadó,                       MF,   b. 2003,   Barcelona B
+ 34,  Aleix Garrido,                     MF,   b. 2004,   Barcelona B
+ 35,  Unai Hernández,                    MF,   b. 2004,   Girona B
+ 37,  Pau Victor,                        MF,   b. 2001,   Girona B
+ 40,  Pau Prim,                          MF,   b. 2006,   Barcelona B
+
+  7,  Ferrán Torres,                     FW,   b. 2000,   Manchester C
+  9,  Robert Lewandowski (POL),          FW,   b. 1988,   Bayern Munich
+ 14,  João Félix (POR),                  FW,   b. 1999,   Atlético Madrid
+ 19,  Vitor Roque (BRA),                 FW,   b. 2005,   Athletico Paranaense
+ 27,  Lamine Yamal,                      FW,   b. 2007,   Barcelona B
+ 29,  Ángel Alarcón,                     FW,   b. 2004,   Barcelona B
+ 38,  Marc Guiu,                         FW,   b. 2006,   Barcelona B

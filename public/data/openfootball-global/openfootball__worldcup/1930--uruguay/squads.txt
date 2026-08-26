@@ -1,0 +1,333 @@
+= World Cup 1930    # 13 Teams
+
+== Argentina (ARG)   # 22 players
+
+   -  GK  Ángel Bossio                       ##    -, Talleres 
+   -  GK  Juan Botasso                       ##    -, Argentino de Quilmes 
+
+   -  DF  Rodolfo Orlandini                  ##    -, Estudiantil Porteño 
+   -  DF  Alberto Chividini                  ##    -, Estudiantil Porteño 
+   -  DF  Adolfo Zumelzú                     ##    -, Estudiantil Porteño 
+   -  DF  José Della Torre                   ##    -, Racing 
+   -  DF  Juan Evaristo                      ##    -, Sportivo Barracas 
+   -  DF  Edmundo Piaggio                    ##    -, Lanús 
+   -  DF  Ramón Muttis                       ##    -, Boca Juniors 
+   -  DF  Fernando Paternoster               ##    -, Racing 
+
+   -  MF  Luis Monti                         ##    -, San Lorenzo 
+   -  MF  Pedro Suárez                       ##    -, Boca Juniors 
+
+   -  FW  Alejandro Scopelli                 ##    -, Estudiantes de La Plata 
+   -  FW  Natalio Perinetti                  ##    -, Racing 
+   -  FW  Carlos Peucelle                    ##    -, Sportivo Buenos Aires 
+   -  FW  Mario Evaristo                     ##    -, Boca Juniors 
+   -  FW  Manuel Ferreira                    ##    -, Estudiantes de La Plata 
+   -  FW  Carlos Spadaro                     ##    -, Lanús 
+   -  FW  Guillermo Stábile                  ##    -, Huracán 
+   -  FW  Roberto Cherro                     ##    -, Boca Juniors 
+   -  FW  Francisco Varallo                  ##    -, Gimnasia y Esgrima La Plata 
+   -  FW  Attilio Demaría                    ##    -, Gimnasia de La Plata 
+
+
+== Belgium (BEL)   # 16 players
+
+   -  GK  Arnold Badjou                      ##    3, Daring Club de Bruxelles Societe Royale 
+   -  GK  Jean De Bie                        ##   37, Royal Racing Club de Bruxelles 
+
+   -  DF  Theodore Nouwens                   ##   10, RC de Malines Societe Royale 
+   -  DF  Nic Hoydonckx                      ##   19, FC Excelsior Hasselt 
+   -  DF  Henri De Deken                     ##    0, Royal Antwerp FC 
+
+   -  MF  Jean De Clercq                     ##    5, Royal Antwerp FC 
+   -  MF  Pierre Braine                      ##   42, Royal Beerschot AC 
+   -  MF  Alexis Chantraine                  ##    0, Royal FC Liegeois 
+   -  MF  August Hellemans                   ##    4, Royal FC Malinois 
+
+   -  FW  Jan Diddens                        ##   21, RC de Malines Societe Royale 
+   -  FW  Gérard Delbeke                     ##    0, Royal FC Brugeois 
+   -  FW  Jacques Moeschal                   ##   15, Royal Racing Club de Bruxelles 
+   -  FW  Ferdinand Adams                    ##   21, SC Anderlechtois 
+   -  FW  André Saeys                        ##    0, Royal CS Brugeois 
+   -  FW  Louis Versyp                       ##    7, Royal FC Brugeois 
+   -  FW  Bernard Voorhoof                   ##    6, Liersche Sportkring 
+
+
+== Bolivia (BOL)   # 17 players
+
+   -  GK  Miguel Murillo                     ##    0, Club Bolívar 
+   -  GK  Jesús Bermúdez                     ##    6, Oruro Royal 
+
+   -  DF  Luis Reyes Peñaranda               ##    0, Universitario La Paz 
+   -  DF  Segundo Durandal                   ##    0, CS San Jose Oruro 
+   -  DF  Casiano Chavarría                  ##    6, Calavera La Paz 
+
+   -  MF  Renato Sáinz                       ##    -, The Strongest 
+   -  MF  Miguel Brito                       ##    0, Oruro Royal 
+   -  MF  Juan Argote                        ##    0, Club Bolívar 
+   -  MF  Constantino Noya                   ##    0, Oruro Royal 
+   -  MF  Diógenes Lara                      ##    7, Club Bolívar 
+   -  MF  Jorge Valderrama                   ##    5, Oruro Royal 
+
+   -  FW  Gumersindo Gómez                   ##    0, Oruro Royal 
+   -  FW  Rafael Méndez                      ##    7, Universitario La Paz 
+   -  FW  Eduardo Reyes Ortíz                ##    0, The Strongest 
+   -  FW  René Fernández                     ##    0, Alianza Oruro 
+   -  FW  José Bustamante                    ##    7, Litoral 
+   -  FW  Mario Alborta                      ##    7, Club Bolívar 
+
+
+== Brazil (BRA)   # 22 players
+
+   -  GK  Velloso                            ##    -, Fluminense 
+   -  GK  Joel                               ##    -, América-RJ 
+
+   -  DF  Brilhante                          ##    -, Vasco da Gama 
+   -  DF  Zé Luiz                            ##    -, São Cristóvão 
+   -  DF  Itália                             ##    -, Vasco da Gama 
+   -  DF  Oscarino                           ##    -, Ypiranga Niterói 
+
+   -  MF  Fernando                           ##    -, Fluminense 
+   -  MF  Hermógenes                         ##    -, America-RJ 
+   -  MF  Fausto                             ##    -, Vasco da Gama 
+   -  MF  Ivan Mariz                         ##    -, Fluminense 
+   -  MF  Pamplona                           ##    -, Botafogo 
+   -  MF  Fortes                             ##    -, Fluminense 
+
+   -  FW  Manoelzinho                        ##    -, Ypiranga Niterói 
+   -  FW  Nilo                               ##    -, Botafogo 
+   -  FW  Moderato                           ##    -, Flamengo 
+   -  FW  Carvalho Leite                     ##    -, Botafogo 
+   -  FW  Poly                               ##    -, Americano 
+   -  FW  Preguinho                          ##    -, Fluminense 
+   -  FW  Russinho                           ##    -, Vasco da Gama 
+   -  FW  Teóphilo                           ##    -, São Cristóvão 
+   -  FW  Benedicto                          ##    -, Botafogo 
+   -  FW  Araken                             ##    -, Flamengo 
+
+
+== Chile (CHI)   # 19 players
+
+   -  GK  Roberto Cortés                     ##    -, Colo-Colo 
+   -  GK  Cesar Espinoza                     ##    -, Santiago Wanderers 
+
+   -  DF  Víctor Morales                     ##    -, Colo-Colo 
+   -  DF  Guillermo Riveros                  ##    -, La Cruz Valparaiso 
+   -  DF  Ernesto Chaparro                   ##    -, Colo-Colo 
+   -  DF  Ulises Poirier                     ##    -, La Cruz Valparaiso 
+
+   -  MF  Guillermo Saavedra                 ##    -, Colo-Colo 
+   -  MF  Arturo Torres                      ##    -, Colo-Colo 
+   -  MF  Casimiro Torres                    ##    -, Everton 
+   -  MF  Humberto Elgueta                   ##    -, Santiago Wanderers 
+
+   -  FW  Tomás Ojeda                        ##    -, Boca Juniors Antofagasta 
+   -  FW  Horacio Muñoz                      ##    -, Arturo Fernández Vial 
+   -  FW  Arturo Coddou                      ##    -, Arturo Fernández Vial 
+   -  FW  Carlos Schneeberger                ##    -, Colo-Colo 
+   -  FW  Guillermo Subiabre                 ##    -, Colo-Colo 
+   -  FW  Juan Aguilera                      ##    -, Audax Italiano 
+   -  FW  Guillermo Arellano                 ##    -, Colo-Colo 
+   -  FW  Carlos Vidal                       ##    -, Audax Italiano 
+   -  FW  Eberardo Villalobos                ##    -, Rangers 
+
+
+== France (FRA)   # 16 players
+
+   -  GK  Alex Thépot                        ##   12, Red Star Paris 
+   -  GK  André Tassin                       ##    0, Racing Club de France 
+
+   -  DF  Marcel Capelle                     ##    4, Racing Club de France 
+   -  DF  Numa Andoire                       ##    0, FC Antibes 
+   -  DF  Étienne Mattler                    ##    1, FC Sochaux 
+
+   -  MF  Augustin Chantrel                  ##    8, CASG Paris 
+   -  MF  Jean Laurent                       ##    3, FC Sochaux 
+   -  MF  Marcel Pinel                       ##    3, Red Star Paris 
+   -  MF  Célestin Delmer                    ##    2, Amiens AC 
+   -  MF  Alexandre Villaplane               ##   22, Racing Club de France 
+
+   -  FW  André Maschinot                    ##    3, FC Sochaux 
+   -  FW  Lucien Laurent                     ##    2, FC Sochaux 
+   -  FW  Marcel Langiller                   ##    8, Excelsior AC Roubaix 
+   -  FW  Edmond Delfour                     ##    6, Racing Club de France 
+   -  FW  Émile Veinante                     ##    3, Racing Club de France 
+   -  FW  Ernest Libérati                    ##    3, Amiens AC 
+
+
+== Mexico (MEX)   # 17 players
+
+   -  GK  Isidoro Sota                       ##    -, América 
+   -  GK  Oscar Bonfiglio                    ##    -, Marte 
+
+   -  DF  Francisco Garza Gutiérrez          ##    -, América 
+   -  DF  Manuel Rosas                       ##    -, Atlante 
+   -  DF  Rafael Garza Gutiérrez             ##    -, América 
+
+   -  MF  Alfredo Sánchez                    ##    -, América 
+   -  MF  Felipe Rosas                       ##    -, Atlante 
+   -  MF  Raymundo Rodríguez                 ##    -, Marte 
+   -  MF  Efraín Amézcua                     ##    -, Atlante 
+
+   -  FW  Felipe Olivares                    ##    -, Atlante 
+   -  FW  Luis Pérez                         ##    -, Necaxa 
+   -  FW  Hilario López                      ##    -, Marte 
+   -  FW  Roberto Gayón                      ##    -, América 
+   -  FW  Jesús Castro                       ##    -, Deportivo Mexico 
+   -  FW  José Ruíz                          ##    -, Necaxa 
+   -  FW  Juan Carreño                       ##    -, Atlante 
+   -  FW  Dionisio Mejía                     ##    -, Atlante 
+
+
+== Peru (PER)   # 20 players
+
+   -  GK  Jorge Pardon                       ##    -, Sporting Tabaco 
+   -  GK  Juan Valdivieso                    ##    -, Alianza Lima 
+
+   -  DF  Antonio Maquilón                   ##    -, Tarapacá Ferroviario 
+   -  DF  Mario de las Casas                 ##    -, Lawn Tennis de la Exposición 
+   -  DF  Arturo Fernández                   ##    -, Universitario de Deportes 
+   -  DF  Alberto Soria                      ##    -, Alianza Lima 
+
+   -  MF  Plácido Galindo                    ##    -, Universitario de Deportes 
+   -  MF  Domingo García                     ##    -, Alianza Lima 
+   -  MF  Julio Quintana                     ##    -, Alianza Lima 
+   -  MF  Alberto Denegri                    ##    -, Alianza Lima 
+   -  MF  Eduardo Astengo                    ##    -, Universitario de Deportes 
+
+   -  FW  Demetrio Neyra                     ##    -, Alianza Lima 
+   -  FW  Pablo Pacheco                      ##    -, Universitario de Deportes 
+   -  FW  Julio Lores                        ##    -, Association FBC 
+   -  FW  Lizardo Rodríguez Nue              ##    -, Sport Progreso 
+   -  FW  Jorge Sarmiento                    ##    -, Alianza Lima 
+   -  FW  José María Lavalle                 ##    -, Alianza Lima 
+   -  FW  Luis Souza Ferreira                ##    -, Universitario de Deportes 
+   -  FW  Carlos Cillóniz                    ##    -, Universitario de Deportes 
+   -  FW  Alejandro Villanueva               ##    -, Alianza Lima 
+
+
+== Paraguay (PAR)   # 22 players
+
+   -  GK  Pedro Benítez                      ##    -, Libertad 
+   -  GK  Modesto Denis                      ##    -, Nacional 
+
+   -  DF  José Miracca                       ##    -, Nacional 
+   -  DF  Quiterio Olmedo                    ##    -, Nacional 
+   -  DF  Salvador Flores                    ##    -, Cerro Porteño 
+   -  DF  Eustacio Chamorro                  ##    -, Presidente Hayes 
+
+   -  MF  Francisco Aguirre                  ##    -, Olimpia 
+   -  MF  Eusebio Díaz                       ##    -, Guaraní 
+   -  MF  Santiago Benítez                   ##    -, Olimpia 
+   -  MF  Romildo Etcheverry                 ##    -, Olimpia 
+   -  MF  Diego Florentín                    ##    -, River Plate 
+   -  MF  Tranquilino Garcete                ##    -, Libertad 
+
+   -  FW  Delfín Benítez Cáceres             ##    -, Libertad 
+   -  FW  Aurelio González                   ##    -, Olimpia 
+   -  FW  Saguier Carreras                   ##    -, Sportivo Luqueño 
+   -  FW  Lino Nessi                         ##    -, Libertad 
+   -  FW  Diógenes Domínguez                 ##    -, Sportivo Luqueño 
+   -  FW  Amadeo Ortega                      ##    -, River Plate 
+   -  FW  Bernabé Rivera                     ##    -, Sportivo Luqueño 
+   -  FW  Gerardo Romero                     ##    -, Libertad 
+   -  FW  Luis Vargas Peña                   ##    -, Olimpia 
+   -  FW  Jacinto Villalba                   ##    -, Cerro Porteño 
+
+
+== Romania (ROU)   # 15 players
+
+   -  GK  Samuel Zauber                      ##    0, Maccabi Bucureşti 
+   -  GK  Ion Lǎpuşneanu                     ##    3, Sportul Studenţesc 
+
+   -  DF  Iosif Czako                        ##    1, UDR Reşiţa 
+   -  DF  Rudolf Bürger                      ##    4,  Chinezul Timişoara 
+   -  DF  Adalbert Steiner                   ##    9, Chinezul Timişoara 
+
+   -  MF  Alfred Eisenbeisser                ##    0, Dragoş Vodă Cernăuţi 
+   -  MF  Emerich Vogl                       ##   10, Juventus Bucureşti 
+   -  MF  Corneliu Robe                      ##    0, Olympia Bucureşti 
+   -  MF  Ladislau Raffinsky                 ##    4, Juventus Bucuresti 
+
+   -  FW  Constantin Stanciu                 ##    4, Venus Bucureşti 
+   -  FW  Miklós Kovács                      ##    3, Banatul Timişoara 
+   -  FW  Ilie Subăşeanu                     ##    2, Olympia Bucureşti 
+   -  FW  Adalbert Deşu                      ##    4, UDR Reşiţa 
+   -  FW  Rudolf Wetzer                      ##   12, Juventus Bucureşti 
+   -  FW  Ştefan Barbu                       ##    4, Gloria Arad 
+
+
+== United States (USA)   # 16 players
+
+   -  GK  Jimmy Douglas                      ##    5, New York Nationals 
+
+   -  DF  Alexander Wood                     ##    0, Detroit Holley Carburetor 
+   -  DF  George Moorhouse                   ##    1, New York Giants 
+   -  DF  Frank Vaughn                       ##    0, Ben Millers 
+   -  DF  Raphael Tracey                     ##    0, Ben Millers 
+   -  DF  James Gentle                       ##    0, Philadelphia Cricket Club 
+   -  DF  Jimmy Gallagher                    ##    2, New York Nationals 
+
+   -  MF  Billy Gonsalves                    ##    0, Fall River Marksmen 
+   -  MF  Philip Slone                       ##    0, New York Giants 
+   -  MF  Jim Brown                          ##    3, New York Giants 
+   -  MF  Arnie Oliver                       ##    0, Providence Gold Bugs 
+   -  MF  Andy Auld                          ##    1, Providence Gold Bugs 
+
+   -  FW  Bert Patenaude                     ##    0, Fall River Marksmen 
+   -  FW  Tom Florie                         ##    2, New Bedford Whalers 
+   -  FW  Mike Bookie                        ##    0, Cleveland Slavia 
+   -  FW  Bart McGhee                        ##    0, New York Nationals 
+
+
+== Uruguay (URU)   # 22 players
+
+   -  GK  Enrique Ballestrero                ##    1, Rampla Juniors 
+   -  GK  Miguel Capuccini                   ##    6, Peñarol 
+
+   -  DF  Emilio Recoba                      ##    5, Nacional 
+   -  DF  Ernesto Mascheroni                 ##    -, Olimpia 
+   -  DF  Domingo Tejera                     ##   15, Montevideo Wanderers 
+   -  DF  José Nasazzi                       ##   28, Bella Vista 
+
+   -  MF  José Andrade                       ##   30, Nacional 
+   -  MF  Lorenzo Fernández                  ##   20, Peñarol 
+   -  MF  Carlos Riolfo                      ##    2, Peñarol 
+   -  MF  Álvaro Gestido                     ##   10, Peñarol 
+   -  MF  Conduelo Píriz                     ##    7, Nacional 
+   -  MF  Ángel Melogno                      ##    5, Bella Vista 
+
+   -  FW  Pedro Petrone                      ##   28, Nacional 
+   -  FW  Héctor Castro                      ##   17, Nacional 
+   -  FW  Pedro Cea                          ##   21, Nacional 
+   -  FW  Santos Iriarte                     ##    -, Racing Club 
+   -  FW  Juan Carlos Calvo                  ##    -, Miramar Misiones 
+   -  FW  Pablo Dorado                       ##    2, Bella Vista 
+   -  FW  Zoilo Saldombide                   ##   14, Nacional 
+   -  FW  Héctor Scarone                     ##   49, Nacional 
+   -  FW  Peregrino Anselmo                  ##    8, Peñarol 
+   -  FW  Santos Urdinarán                   ##   19, Nacional 
+
+
+== Yuguslavia (YUG)   # 17 players
+
+   -  GK  Milan Stojanović                   ##    0, BSK Beograd 
+   -  GK  Milovan Jakšić                     ##    2, SK Soko 
+
+   -  DF  Dragoslav Mihajlović               ##    1, BSK Beograd 
+   -  DF  Dragomir Tošić                     ##    0, BSK Beograd 
+   -  DF  Milutin Ivković                    ##   22, SK Soko 
+
+   -  MF  Milorad Arsenijević                ##   16, SK Beograd 
+   -  MF  Teofilo Spasojević                 ##    1, Jugoslavija Beograd 
+   -  MF  Momčilo Đokić                      ##    2, Jugoslavija Beograd 
+   -  MF  Ljubiša Stefanović                 ##    0, FC Sète 
+
+   -  FW  Blagoje Marjanović                 ##   15, SK Beograd 
+   -  FW  Branislav Sekulić                  ##    3, SC Montpellier 
+   -  FW  Dragutin Najdanović                ##    3, BSK Beograd 
+   -  FW  Branislav Hrnjiček                 ##    4, Jugoslavija Beograd 
+   -  FW  Bozidar Marković                   ##    0, Vojvodina Novi Sad 
+   -  FW  Aleksandar Tirnanić                ##    5, BSK Beograd 
+   -  FW  Ivan Bek                           ##    2, FC Sète 
+   -  FW  Đorđe Vujadinović                  ##    4, BSK Beograd 
+

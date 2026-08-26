@@ -1,0 +1,53 @@
+=  Real Betis - Primera División de España 2023/24
+
+  1,  Claudio Bravo (CHI),               GK,   b. 1983,   Manchester C
+ 13,  Rui Silva (POR),                   GK,   b. 1994,   Granada
+ 30,  Fran Vieites,                      GK,   b. 1999,   Lugo
+ 31,  Guilherme Fernandes (POR),         GK,   b. 2001,   Estrela da Amadora
+ 41,  Josán Gordo,                       GK,   b. 2005,   Betis B
+ 50,  Germán García,                     GK,   b. 2004,   Betis B
+
+  2,  Héctor Bellerín,                   DF,   b. 1995,   Sporting CP
+  3,  Juan Miranda,                      DF,   b. 2000,   Barcelona B
+  6,  Germán Pezzella (ARG),             DF,   b. 1991,   Fiorentina
+ 15,  Marc Bartra,                       DF,   b. 1991,   Trabzonspor
+ 19,  Sokratis Papastathopoulos (GRE),   DF,   b. 1988,   Olympiakos
+ 20,  Abner (BRA),                       DF,   b. 2000,   Ponte Preta
+ 23,  Youssouf Sabaly (SEN),             DF,   b. 1993,   Bordeaux
+ 28,  Chadi Riad (MAR),                  DF,   b. 2003,   Barcelona B
+ 32,  Nobel Mendy (SEN),                 DF,   b. 2004,   Paris FC
+ 33,  Xavi Pleguezuelo,                  DF,   b. 2003,   Betis B
+ 34,  Ricardo Visus,                     DF,   b. 2001,   Betis B
+ 42,  Pablo Busto,                       DF,   b. 2005,   Betis B
+ 44,  Marcos Solís,                      DF,   b. 2005,   Betis B
+ 45,  Antonio Salguero,                  DF,   b. 2005,   Betis B
+
+  4,  Johnny Cardoso (USA),              MF,   b. 2001,   Internacional
+  5,  Guido Rodríguez (ARG),             MF,   b. 1994,   América
+  8,  Nabil Fekir (FRA),                 MF,   b. 1993,   Lyon
+ 14,  William Carvalho (POR),            MF,   b. 1992,   Sporting CP
+ 17,  Rodri,                             MF,   b. 2000,   Betis B
+ 18,  Pablo Fornals,                     MF,   b. 1996,   West Ham U
+ 21,  Marc Roca,                         MF,   b. 1996,   Leeds U
+ 22,  Isco,                              MF,   b. 1992,   Sevilla
+ 27,  Sergi Altimira,                    MF,   b. 2001,   Getafe
+ 29,  Ángel Ortiz,                       MF,   b. 2004,   Betis B
+ 37,  Dani Pérez,                        MF,   b. 2005,   Betis B
+ 39,  Ginés Sorroche,                    MF,   b. 2004,   Betis B
+ 40,  Enrique Fernández,                 MF,   b. 2003,   Betis B
+ 46,  Mateo Flores,                      MF,   b. 2004,   Betis B
+ 47,  Carlos Reina,                      MF,   b. 2004,   Betis B
+ 48,  Iván Corralejo,                    MF,   b. 2007,   Betis B
+
+  7,  Abde Ezzalzouli (MAR),             FW,   b. 2001,   Barcelona
+  9,  Ezequiel Ávila (ARG),              FW,   b. 1994,   Osasuna
+ 10,  Ayoze Pérez,                       FW,   b. 1993,   Leicester C
+ 11,  Cédric Bakambu (COD),              FW,   b. 1991,   Galatasaray
+ 12,  Willian José (BRA),                FW,   b. 1991,   Real Sociedad
+ 24,  Aitor Ruibal,                      FW,   b. 1996,   Betis B
+ 38,  Assane Diao,                       FW,   b. 2005,   Betis B
+ 43,  Marcos Fernández,                  FW,   b. 2003,   Betis B
+ 49,  Manu Morillo,                      FW,   b. 2003,   Betis B
+ 54,  Álvaro Gómez,                      FW,   b. 2005,   Betis B
+ 55,  Rodrigo Marina,                    FW,   b. 2006,   Betis B
+ 56,  Pablo García,                      FW,   b. 2006,   Betis B

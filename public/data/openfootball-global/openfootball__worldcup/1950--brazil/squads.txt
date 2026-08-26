@@ -1,0 +1,374 @@
+= World Cup 1950    # 13 Teams
+
+== Bolivia (BOL)   # 22 players
+
+   -  GK  Vicente Arraya                     ##   26, Ferroviario La Paz 
+   -  GK  Eduardo Gutiérrez                  ##   12, CD Ingavi 
+
+   -  DF  José Bustamante                    ##   31, Club Litoral 
+   -  DF  Alberto Figueroa de Acha           ##   23, The Strongest 
+   -  DF  Antonio Greco                      ##    0, Club Litoral 
+
+   -  MF  Juan Arricio                       ##    0, Ayacucho La Paz 
+   -  MF  Duberty Aráoz                      ##   10, Club Litoral 
+   -  MF  Alberto Aparicio                   ##    0, Ferroviario La Paz 
+   -  MF  René Cabrera                       ##    8, Club Jorge Wilstermann 
+   -  MF  Eulogio Sandoval                   ##    0, Club Litoral 
+   -  MF  Leonardo Ferrel                    ##   18, The Strongest 
+   -  MF  Humberto Saavedra                  ##    0, The Strongest 
+   -  MF  Antonio Valencia                   ##    9, Club Bolívar 
+
+   -  FW  Juan Guerra                        ##    9, Ferroviario La Paz 
+   -  FW  Benigno Gutiérrez                  ##   15, Club Litoral 
+   -  FW  Roberto Capparelli                 ##    0, The Strongest 
+   -  FW  Benjamin Maldonado                 ##    4, San Jose de Oruro 
+   -  FW  Mario Mena                         ##    9, Club Bolívar 
+   -  FW  Víctor Brown                       ##    2, Club Litoral 
+   -  FW  Víctor Celestino Algarañaz         ##    8, Club Litoral 
+   -  FW  Víctor Agustín Ugarte              ##   16, Club Bolívar 
+   -  FW  Benedicto Godoy Véizaga            ##    9, Ferroviario La Paz 
+
+
+== Brazil (BRA)   # 22 players
+
+   -  GK  Barbosa                            ##   13, Vasco da Gama 
+   -  GK  Castilho                           ##    2, Fluminense 
+
+   -  DF  Nílton Santos                      ##    5, Botafogo 
+   -  DF  Ely                                ##    8, Vasco da Gama 
+   -  DF  Juvenal                            ##    4, Flamengo 
+   -  DF  Augusto                            ##   12, Vasco da Gama 
+   -  DF  Nena                               ##    5, Internacional 
+
+   -  MF  Noronha                            ##   15, São Paulo 
+   -  MF  Danilo                             ##   15, Vasco da Gama 
+   -  MF  Bauer                              ##    6, São Paulo 
+   -  MF  Bigode                             ##    5, Flamengo 
+   -  MF  Rui                                ##   27, São Paulo 
+
+   -  FW  Alfredo                            ##    0, Vasco da Gama 
+   -  FW  Baltazar                           ##    4, Corinthians 
+   -  FW  Chico                              ##   15, Vasco da Gama 
+   -  FW  Jair                               ##   32, Palmeiras 
+   -  FW  Ademir                             ##   25, Vasco da Gama 
+   -  FW  Maneca                             ##    3, Vasco da Gama 
+   -  FW  Zizinho                            ##   30, Bangu 
+   -  FW  Friaça                             ##    6, São Paulo 
+   -  FW  Rodrigues                          ##    2, Fluminense 
+   -  FW  Adãozinho                          ##    2, Internacional 
+
+
+== Switzerland (SUI)   # 22 players
+
+   -  GK  Adolphe Hug                        ##    -, Urania Genf 
+   -  GK  Georges Stuber                     ##    -, Lausanne-Sport 
+   -  GK  Eugen Corrodi                      ##    -, FC Lugano 
+
+   -  DF  Roger Bocquet                      ##    -, Lausanne-Sport 
+   -  DF  Kurt Rey                           ##    -, SC Young Fellows 
+   -  DF  Willi Steffen                      ##    -, Cantonal Neuchâtel 
+   -  DF  André Neury                        ##    -, FC Locarno 
+   -  DF  Rudolf Gyger                       ##    -, Cantonal Neuchâtel 
+   -  DF  Willy Kernen                       ##    -, FC La Chaux-de-Fonds 
+
+   -  MF  Roger Quinche                      ##    -, Young Boys Bern 
+   -  MF  Robert Hasler                      ##    -, FC Lugano 
+   -  MF  Oliver Eggimann                    ##    -, Servette FC 
+
+   -  FW  Charles Antenen                    ##    -, FC La Chaux-de-Fonds 
+   -  FW  Gerhard Lusenti                    ##    -, AC Bellinzona 
+   -  FW  Hans-Peter Friedländer             ##    -, Lausanne-Sport 
+   -  FW  Jacques Fatton                     ##    -, Servette FC 
+   -  FW  Alfred Bickel                      ##    -, Grasshoppers Club Zurich 
+   -  FW  Walter Schneiter                   ##    -, FC Zurich 
+   -  FW  Hans Siegenthaler                  ##    -, SC Young Fellows 
+   -  FW  Walter Beerli                      ##    -, Young Boys Bern 
+   -  FW  René Bader                         ##    -, FC Basel 
+   -  FW  Jean Tamini                        ##    -, Servette FC 
+
+
+== Chile (CHI)   # 22 players
+
+   -  GK  René Quitral                       ##    0, Santiago Wanderers 
+   -  GK  Sergio Livingstone                 ##   31, Universidad Católica 
+
+   -  DF  Manuel Álvarez Jiménez             ##    3, Universidad Católica 
+   -  DF  Fernando Roldán                    ##    0, Universidad Católica 
+   -  DF  Miguel Flores                      ##    0, Universidad de Chile 
+   -  DF  Francisco Urroz                    ##   10, Colo-Colo 
+   -  DF  Arturo Farías                      ##    4, Colo-Colo 
+   -  DF  Manuel Machuca                     ##    -,  
+
+   -  MF  Miguel Busquets                    ##   15, Universidad de Chile 
+   -  MF  Osvaldo Saez                       ##   11, Colo-Colo 
+   -  MF  Fernando Campos                    ##    5, Colo-Colo 
+   -  MF  Carlos Rojas                       ##    5, Unión Española 
+   -  MF  Hernán Carvallo                    ##    5, Universidad Católica 
+
+   -  FW  Manuel Muñoz                       ##    0, Colo-Colo 
+   -  FW  Andrés Prieto                      ##    9, Universidad Católica 
+   -  FW  Luis Mayanés                       ##    0, Universidad de Chile 
+   -  FW  Fernando Riera                     ##   16, Universidad Católica 
+   -  FW  George Robledo                     ##    0, Newcastle United 
+   -  FW  Atilio Cremaschi                   ##   10, Unión Española 
+   -  FW  Guillermo Díaz                     ##    4, Santiago Wanderers 
+   -  FW  Raimundo Infante                   ##   13, Universidad Católica 
+   -  FW  Carlos Ibáñez                      ##    0, Magallanes 
+
+
+== England (ENG)   # 21 players
+
+   -  GK  Bert Williams                      ##    7, Wolverhampton Wanderers 
+   -  GK  Ted Ditchburn                      ##    2, Tottenham Hotspur 
+
+   -  DF  Laurie Scott                       ##   17, Arsenal 
+   -  DF  Jim Taylor                         ##    0, Fulham 
+   -  DF  Alf Ramsey                         ##    5, Tottenham Hotspur 
+   -  DF  John Aston                         ##   14, Manchester United 
+   -  DF  Bill Eckersley                     ##    0, Blackburn Rovers 
+   -  DF  Billy Wright                       ##   29, Wolverhampton Wanderers 
+
+   -  MF  Laurie Hughes                      ##    0, Liverpool 
+   -  MF  Eddie Baily                        ##    0, Tottenham Hotspur 
+   -  MF  Willie Watson                      ##    2, Sunderland 
+   -  MF  Henry Cockburn                     ##   10, Manchester United 
+   -  MF  Jimmy Dickinson                    ##    7, Portsmouth 
+   -  MF  Bill Nicholson                     ##    0, Tottenham Hotspur 
+
+   -  FW  Jimmy Mullen                       ##    4, Wolverhampton Wanderers 
+   -  FW  Stan Mortensen                     ##   18, Blackpool 
+   -  FW  Jackie Milburn                     ##    7, Newcastle United 
+   -  FW  Roy Bentley                        ##    4, Chelsea 
+   -  FW  Tom Finney                         ##   25, Preston North End 
+   -  FW  Wilf Mannion                       ##   19, Middlesbrough 
+   -  FW  Stanley Matthews                   ##   30, Blackpool 
+
+
+== Spain (ESP)   # 22 players
+
+   -  GK  Juan Acuña                         ##    1, Deportivo de La Coruña 
+   -  GK  Antoni Ramallets                   ##    0, CF Barcelona 
+   -  GK  Ignacio Eizaguirre                 ##   14, Valencia CF 
+
+   -  DF  Vicente Asensi                     ##    5, Valencia CF 
+   -  DF  Alfonso Silva                      ##    3, Atlético Madrid 
+   -  DF  Gabriel Alonso                     ##    4, Celta de Vigo 
+   -  DF  Francisco Antúnez                  ##    2, CF Sevilla 
+   -  DF  Josep Gonzalvo                     ##    3, CF Barcelona 
+   -  DF  José Parra                         ##    1, RCD Espanyol 
+   -  DF  Rafael Lesmes                      ##    0, Valladolid 
+
+   -  MF  Nando                              ##    5, Atlético Bilbao 
+   -  MF  Antonio Puchades                   ##    6, Valencia CF 
+   -  MF  Marià Gonzalvo                     ##    8, CF Barcelona 
+
+   -  FW  José Juncosa                       ##    1, Atlético Madrid 
+   -  FW  Luis Molowny                       ##    2, Real Madrid 
+   -  FW  Silvestre Igoa                     ##    5, Valencia CF 
+   -  FW  José Luis Panizo                   ##    6, Atlético Bilbao 
+   -  FW  Rosendo Hernández                  ##    2, RCD Espanyol 
+   -  FW  Agustín Gaínza                     ##   14, Atlético Bilbao 
+   -  FW  César                              ##    8, CF Barcelona 
+   -  FW  Estanislao Basora                  ##    4, CF Barcelona 
+   -  FW  Zarra                              ##   11, Atlético Bilbao 
+
+
+== Italy (ITA)   # 22 players
+
+   -  GK  Giuseppe Moro                      ##    2, Torino 
+   -  GK  Giuseppe Casari                    ##    2, Atalanta 
+   -  GK  Lucidio Sentimenti                 ##    7, Lazio 
+
+   -  DF  Attilio Giovannini                 ##    4, Internazionale 
+   -  DF  Carlo Annovazzi                    ##   10, Milan 
+   -  DF  Zeffiro Furiassi                   ##    0, Lazio 
+   -  DF  Ivano Blason                       ##    0, Triestina 
+   -  DF  Osvaldo Fattori                    ##    3, Internazionale 
+
+   -  MF  Leandro Remondini                  ##    0, Lazio 
+   -  MF  Giacomo Mari                       ##    3, Juventus 
+   -  MF  Carlo Parola                       ##    9, Juventus 
+   -  MF  Augusto Magli                      ##    0, Fiorentina 
+   -  MF  Omero Tognon                       ##    4, Milan 
+
+   -  FW  Benito Lorenzi                     ##    5, Internazionale 
+   -  FW  Riccardo Carapellese               ##   11, Torino 
+   -  FW  Emilio Caprile                     ##    2, Atalanta 
+   -  FW  Ermes Muccinelli                   ##    2, Juventus 
+   -  FW  Egisto Pandolfini                  ##    0, Fiorentina 
+   -  FW  Gino Cappello                      ##    3, Bologna 
+   -  FW  Aldo Campatelli                    ##    6, Internazionale 
+   -  FW  Giampiero Boniperti                ##    6, Juventus 
+   -  FW  Amedeo Amadei                      ##    6, Internazionale 
+
+
+== Mexico (MEX)   # 22 players
+
+   -  GK  Antonio Carbajal                   ##    -, España FC 
+   -  GK  Raúl Córdoba                       ##    -, San Sebastian Leon 
+
+   -  DF  José Antonio Roca                  ##    -, Necaxa 
+   -  DF  Felipe Zetter                      ##    -, Atlas 
+   -  DF  Rodrígo Ruíz                       ##    -, Deportivo Guadalajara 
+   -  DF  Alfonso Montemayor                 ##    -, FC Leon 
+   -  DF  Gregorio Gómez                     ##    -, Deportivo Guadalajara 
+   -  DF  Manuel Gutiérrez                   ##    -, Club América 
+
+   -  MF  Carlos Guevara                     ##    -, Asturias F.C. 
+   -  MF  Francisco Hernández                ##    -, Asturias F.C. 
+   -  MF  Antonio Flores                     ##    -, Atlas 
+   -  MF  Samuel Cuburu                      ##    -, FC Puebla 
+   -  MF  Mario Pérez                        ##    -, CD Marte 
+   -  MF  Mario Ochoa                        ##    -, Club América 
+   -  MF  Héctor Ortiz                       ##    -, CD Marte 
+
+   -  FW  José Naranjo                       ##    -, Oro Guadalajara 
+   -  FW  Max Prieto                         ##    -, Deportivo Guadalajara 
+   -  FW  Leonardo Navarro                   ##    -, FC Atlante 
+   -  FW  Horacio Casarín                    ##    -, España FC 
+   -  FW  Carlos Septién                     ##    -, España FC 
+   -  FW  José Velázquez                     ##    -, FC Veracruz 
+   -  FW  José Luis Borbolla                 ##    -, Club América 
+
+
+== Paraguay (PAR)   # 22 players
+
+   -  GK  Marcelino Vargas                   ##    -, Libertad 
+   -  GK  Pablo Centurión                    ##    -, Cerro Porteño 
+
+   -  DF  Manuel Gavilán                     ##    -, Libertad 
+   -  DF  Elioro Paredes                     ##    -, Sportivo Luqueño 
+   -  DF  Antonio Cabrera                    ##    -, Libertad 
+   -  DF  Casiano Céspedes                   ##    -, Olimpia 
+   -  DF  Alberto González                   ##    -, Olimpia 
+
+   -  MF  Castor Cantero                     ##    -, Olimpia 
+   -  MF  Victoriano Leguizamón              ##    -, Olimpia 
+   -  MF  Armando González                   ##    -, Guaraní 
+   -  MF  Melanio Baez                       ##    -, Nacional 
+
+   -  FW  Atilio López                       ##    -, Nacional 
+   -  FW  Lorenzo Calonga                    ##    -, Guaraní 
+   -  FW  Juan Cañete                        ##    -, Presidente Hayes 
+   -  FW  Ángel Berni                        ##    -, Sportivo Luqueño 
+   -  FW  César López Fretes                 ##    -, Olimpia 
+   -  FW  Hilarión Osorio                    ##    -, Sportivo Luqueño 
+   -  FW  Marcial Avalos                     ##    -, Cerro Porteño 
+   -  FW  Darío Saguier                      ##    -, Cerro Porteño 
+   -  FW  Francisco Sosa                     ##    -, Cerro Porteño 
+   -  FW  Leongino Unzaim                    ##    -, Olimpia 
+   -  FW  Enrique Avalos                     ##    -, Cerro Porteño 
+
+
+== Sweden (SWE)   # 22 players
+
+   -  GK  Kalle Svensson                     ##    4, Helsingborgs IF 
+   -  GK  Torsten Lindberg                   ##   18, IFK Norrköping 
+   -  GK  Tore Svensson                      ##    0, Malmö FF 
+
+   -  DF  Lennart Samuelsson                 ##    1, IF Elfsborg Borås 
+   -  DF  Ivan Bodin                         ##    0, AIK Stockholm 
+   -  DF  Gunnar Johansson                   ##    0, GAIS 
+   -  DF  Arne Månsson                       ##    1, Malmö FF 
+   -  DF  Erik Nilsson                       ##   28, Malmö FF 
+
+   -  MF  Olle Åhlund                        ##   15, Degerfors IF 
+   -  MF  Ingvar Gärd                        ##    1, Malmö FF 
+   -  MF  Sune Andersson                     ##   23, AIK Stockholm 
+   -  MF  Knut Nordahl                       ##   22, IFK Norrköping 
+
+   -  FW  Stellan Nilsson                    ##   15, Malmö FF 
+   -  FW  Karl-Erik Palmér                   ##    5, Malmö FF 
+   -  FW  Ingvar Rydell                      ##    2, Malmö FF 
+   -  FW  Bror Mellberg                      ##    1, AIK Stockholm 
+   -  FW  Lennart Skoglund                   ##    1, AIK Stockholm 
+   -  FW  Stig Sundqvist                     ##    6, IFK Norrköping 
+   -  FW  Egon Jönsson                       ##    7, Malmö FF 
+   -  FW  Kurt Svensson                      ##    0, IS Halmia 
+   -  FW  Hasse Jeppson                      ##    1, Djurgårdens IF Stockholm 
+   -  FW  Börje Tapper                       ##    4, Malmö FF 
+
+
+== United States (USA)   # 19 players
+
+   -  GK  Frank Borghi                       ##    4, St. Louis Simpkins-Ford 
+   -  GK  Gino Gardassanich                  ##    0, Chicago Slovaks 
+
+   -  DF  Robert Annis                       ##    1, St. Louis Simpkins-Ford 
+   -  DF  Joe Maca                           ##    0, Brooklyn Hispano 
+   -  DF  Geoff Coombes                      ##    0, Chicago Vikings 
+   -  DF  Harry Keough                       ##    3, St. Louis McMahon 
+
+   -  MF  Charlie Colombo                    ##    7, St. Louis Simpkins-Ford 
+   -  MF  Ed McIlvenny                       ##    0, Philadelphia Nationals 
+   -  MF  Walter Bahr                        ##    7, Philadelphia Nationals 
+
+   -  FW  Benny McLaughlin                   ##    0, Philadelphia Nationals 
+   -  FW  Robert Craddock                    ##    0, Pittsburgh Harmarville S.C. 
+   -  FW  Joe Gaetjens                       ##    0, Brookhattan 
+   -  FW  Nicholas DiOrio                    ##    0, Pittsburgh Harmarville S.C. 
+   -  FW  Frank Moniz                        ##    0, Ponta Delgada S.C. 
+   -  FW  Gino Pariani                       ##    2, St. Louis Simpkins-Ford 
+   -  FW  Ed Souza                           ##    2, Ponta Delgada S.C. 
+   -  FW  John Souza                         ##    9, Ponta Delgada S.C. 
+   -  FW  Frank Wallace                      ##    4, St. Louis Simpkins-Ford 
+   -  FW  Adam Wolanin                       ##    0, Chicago Eagles 
+
+
+== Uruguay (URU)   # 22 players
+
+   -  GK  Aníbal Paz                         ##   23, Nacional 
+   -  GK  Roque Máspoli                      ##   27, Peñarol 
+
+   -  DF  Schubert Gambetta                  ##   39, Nacional 
+   -  DF  Eusebio Tejera                     ##   28, Nacional 
+   -  DF  Juan Carlos González               ##    3, Peñarol 
+   -  DF  Matías González                    ##    7, Cerro 
+   -  DF  William Martínez                   ##    3, Rampla Juniors 
+   -  DF  Héctor Vilches                     ##    5, Cerro 
+
+   -  MF  Víctor Rodríguez Andrade           ##   11, Central 
+   -  MF  Obdulio Varela                     ##   39, Peñarol 
+   -  MF  Washington Ortuño                  ##    0, Peñarol 
+   -  MF  Rodolfo Pini                       ##    6, Nacional 
+
+   -  FW  Oscar Míguez                       ##    5, Peñarol 
+   -  FW  Alcides Ghiggia                    ##    3, Peñarol 
+   -  FW  Luis Rijo                          ##    0, Central 
+   -  FW  Julio Pérez                        ##    7, Nacional 
+   -  FW  Carlos Romero                      ##    3, Danubio 
+   -  FW  Juan Alberto Schiaffino            ##    9, Peñarol 
+   -  FW  Juan Burgueño                      ##    4, Danubio 
+   -  FW  Rubén Morán                        ##    2, Cerro 
+   -  FW  Ernesto Vidal                      ##    0, Peñarol 
+   -  FW  Julio César Britos                 ##   10, Peñarol 
+
+
+== Yuguslavia (YUG)   # 22 players
+
+   -  GK  Srđan Mrkušić                      ##    4, Red Star Belgrade (SFR)
+   -  GK  Vladimir Beara                     ##    0, Hajduk Split (SFR)
+
+   -  DF  Siniša Zlatković                   ##    -, Nasa Krila (SFR)
+   -  DF  Božo Broketa                       ##    3, Hajduk Split (SFR)
+   -  DF  Branko Stanković                   ##   19, Red Star Belgrade (SFR)
+   -  DF  Miodrag Jovanović                  ##   18, Partizan Belgrade (SFR)
+   -  DF  Ratko Čolić                        ##    6, Partizan Belgrade (SFR)
+   -  DF  Ivica Horvat                       ##   13, Dinamo Zagreb (SFR)
+   -  DF  Vladimir Firm                      ##    3, Partizan Belgrade (SFR)
+
+   -  MF  Ervin Katnić                       ##    -, Hajduk Split (SFR)
+   -  MF  Zlatko Čajkovski                   ##   25, Partizan Belgrade (SFR)
+   -  MF  Predrag Đajić                      ##    5, Red Star Belgrade (SFR)
+   -  MF  Aleksandar Atanacković             ##   15, Partizan Belgrade (SFR)
+   -  MF  Ivo Radovniković                   ##    -, Hajduk Split (SFR)
+   -  MF  Bela Palfi                         ##    1, Red Star Belgrade (SFR)
+
+   -  FW  Tihomir Ognjanov                   ##    2, Red Star Belgrade (SFR)
+   -  FW  Željko Čajkovski                   ##   16, Dinamo Zagreb (SFR)
+   -  FW  Rajko Mitić                        ##   19, Red Star Belgrade (SFR)
+   -  FW  Stjepan Bobek                      ##   26, Partizan Belgrade (SFR)
+   -  FW  Kosta Tomašević                    ##    6, Red Star Belgrade (SFR)
+   -  FW  Bernard Vukas                      ##    6, Hajduk Split (SFR)
+   -  FW  Prvoslav Mihajlović                ##   12, Partizan Belgrade (SFR)
+

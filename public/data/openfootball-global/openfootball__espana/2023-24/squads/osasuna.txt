@@ -1,0 +1,32 @@
+=  CA Osasuna - Primera División de España 2023/24
+
+  1,  Sergio Herrera,                    GK,   b. 1993,   Huesca
+ 13,  Aitor Fernández,                   GK,   b. 1991,   Levante
+ 31,  Pablo Valencia,                    GK,   b. 2001,   Osasuna B
+ 32,  Dimitrios Stamatakis (GRE),        GK,   b. 2003,   Atlético Madrid B
+
+  3,  Juan Cruz,                         DF,   b. 1992,   Elche
+  4,  Unai García,                       DF,   b. 1992,   Osasuna B
+  5,  David García,                      DF,   b. 1994,   Osasuna B
+ 12,  Jesús Areso,                       DF,   b. 1999,   Athletic Bilbao B
+ 15,  Rubén Peña,                        DF,   b. 1991,   Villarreal
+ 22,  Johan Mojica (COL),                DF,   b. 1992,   Villarreal
+ 24,  Alejandro Catena,                  DF,   b. 1994,   Rayo Vallecano
+ 28,  Jorge Herrando,                    DF,   b. 2001,   Osasuna B
+ 44,  Íñigo Arguibide,                   DF,   b. 2005,   Osasuna B
+ 45,  Jorge Moreno,                      DF,   b. 2001,   Rayo Vallecano B
+
+  6,  Lucas Torró,                       MF,   b. 1994,   Eintracht Frankfurt
+  7,  Jon Moncayola,                     MF,   b. 1998,   Osasuna B
+ 10,  Aimar Oroz,                        MF,   b. 2001,   Osasuna B
+ 11,  Kike Barja,                        MF,   b. 1997,   Osasuna B
+ 14,  Rubén García,                      MF,   b. 1993,   Levante
+ 16,  Moi Gómez,                         MF,   b. 1994,   Villarreal
+ 19,  Pablo Ibáñez,                      MF,   b. 1998,   Mutilvera
+ 34,  Iker Muñoz,                        MF,   b. 2002,   Osasuna B
+ 41,  Asier Osambela,                    MF,   b. 2004,   Osasuna B
+
+ 17,  Ante Budimir (CRO),                FW,   b. 1991,   Mallorca
+ 20,  José Arnáiz,                       FW,   b. 1995,   Leganés
+ 23,  Raúl García,                       FW,   b. 2000,   Betis B
+ 43,  Max Svensson,                      FW,   b. 2001,   Espanyol B

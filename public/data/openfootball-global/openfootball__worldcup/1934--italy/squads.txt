@@ -1,0 +1,460 @@
+= World Cup 1934    # 16 Teams
+
+== Argentina (ARG)   # 18 players
+
+   -  GK  Héctor Freschi                     ##    -, Sarmiento de Resistencia 
+   -  GK  Ángel Grippa                       ##    -, Club Sportivo Alsina 
+
+   -  DF  Enrique Chimento                   ##    -, Barracas Central 
+   -  DF  Ernesto Belis                      ##    -, Defensores de Belgrano 
+   -  DF  Ramón Astudillo                    ##    -, Colón de Santa Fe 
+   -  DF  Juan Pedevilla                     ##    -, Club Atletico Estudiantil Porteño 
+
+   -  MF  Ernesto Albarracín                 ##    -, Club Sportivo Buenos Aires 
+   -  MF  Constantino Urbieta Sosa           ##    -, Godoy Cruz 
+   -  MF  José Nehin                         ##    -, Sportivo Desamparados 
+   -  MF  Alfonso Lorenzo                    ##    -, Barracas Central 
+   -  MF  Arcadio López                      ##    -, Club Sportivo Buenos Aires 
+
+   -  FW  Luis Izzeta                        ##    -, Defensores de Belgrano 
+   -  FW  Roberto Irañeta                    ##    -, Gimnasia y Esgrima de Mendoza 
+   -  FW  Alberto Galateo                    ##    -, Unión de Santa Fe 
+   -  FW  Francisco Pérez                    ##    -, Almagro 
+   -  FW  Francisco Rúa                      ##    -, Sportivo Dock Sud 
+   -  FW  Alfredo Devincenzi                 ##    -, Club Atlético Estudiantil Porteño 
+   -  FW  Federico Wilde                     ##    -, Unión de Santa Fe 
+
+
+== Austria (AUT)   # 22 players
+
+   -  GK  Rudolf Raftl                       ##    1, Rapid Wien 
+   -  GK  Peter Platzer                      ##   10, Admira Wien 
+   -  GK  Friederich Franzl                  ##   13, Wiener SC 
+
+   -  DF  Willibald Schmaus                  ##    0, First Vienna 
+   -  DF  Anton Janda                        ##    9, Admira Wien 
+   -  DF  Karl Sesta                         ##   16, Wiener SC 
+   -  DF  Franz Cisar                        ##    5, Wiener SC 
+
+   -  MF  Josef Smistik                      ##   28, Rapid Wien 
+   -  MF  Johann Urbanek                     ##    0, Admira Wien 
+   -  MF  Franz Wagner                       ##    7, Rapid Wien 
+   -  MF  Leopold Hofmann                    ##   19, First Vienna 
+
+   -  FW  Anton Schall                       ##   26, Admira Wien 
+   -  FW  Matthias Kaburek                   ##    2, Rapid Wien 
+   -  FW  Johann Horvath                     ##   41, First Vienna 
+   -  FW  Matthias Sindelar                  ##   29, Austria Wien 
+   -  FW  Josef Hassmann                     ##    0, First Vienna 
+   -  FW  Josef Stroh                        ##    0, Austria Wien 
+   -  FW  Josef Bican                        ##    6, Rapid Wien 
+   -  FW  Rudolf Viertl                      ##    9, Austria Wien 
+   -  FW  Georg Braun                        ##    6, Wiener SC 
+   -  FW  Hans Walzhofer                     ##    4, Wacker Wien 
+   -  FW  Karl Zischek                       ##   20, Wacker Wien 
+
+
+== Belgium (BEL)   # 22 players
+
+   -  GK  Arnold Badjou                      ##   12, Daring Club de Bruxelles Societe Royale 
+   -  GK  André Vandeweyer                   ##    4, R. Union Saint-Gilloise 
+
+   -  DF  Constant Joacim                    ##    2, Royal Berchem Sport 
+   -  DF  Philibert Smellinckx               ##    5, R. Union Saint-Gilloise 
+   -  DF  Jules Pappaert                     ##    4, R. Union Saint-Gilloise 
+
+   -  MF  Jean Claessens                     ##   12, R. Union Saint-Gilloise 
+   -  MF  Joseph Van Ingelgem                ##   11, Daring Club Bruxelles 
+   -  MF  August Hellemans                   ##   28, Royal FC Malinois 
+   -  MF  Victor Putmans                     ##    -, Union Hutoise  
+   -  MF  Désiré Bourgeois                   ##    2, Royal FC Malinois 
+   -  MF  Frans Peeraer                      ##    2, Royal Antwerp FC 
+   -  MF  Rene Simons                        ##    -, Koninklijke Lierse 
+   -  MF  Félix Welkenhuysen                 ##    3, R. Union Saint-Gilloise 
+
+   -  FW  Robert Lamoot                      ##    1, Daring Club de Bruxelles Societe Royale 
+   -  FW  Albert Heremans                    ##    6, Daring Club de Bruxelles Societe Royale 
+   -  FW  Laurent Grimmonprez                ##    9, Royal Racing Club de Gand 
+   -  FW  François Devries                   ##    0, Royal Antwerp FC 
+   -  FW  Jean Capelle                       ##   14, Royal Standard Club Liege 
+   -  FW  Jean Brichaut                      ##   11, Royal Standard Club Liege 
+   -  FW  Louis Versyp                       ##   33, Royal FC Brugeois 
+   -  FW  Bernard Voorhoof                   ##   31, KSK Liersche 
+   -  FW  Francois Ledent                    ##    -, Royal Standard Club Liege 
+
+
+== Brazil (BRA)   # 20 players
+
+   -  GK  Germano                            ##    -, Botafogo 
+   -  GK  Pedrosa                            ##    -, Botafogo 
+
+   -  DF  Luiz Luz                           ##    -, Americano Rio Grande (BRA)
+   -  DF  Pamplona                           ##    -, Botafogo 
+   -  DF  Octacílio                          ##    -, Botafogo 
+   -  DF  Sylvio Hoffman                     ##    -, São Paulo da Floresta 
+
+   -  MF  Canalli                            ##    -, Botafogo (BRA)
+   -  MF  Bile                               ##    -, Ypiranga (BRA)
+   -  MF  Tinoco                             ##    -, Vasco da Gama 
+   -  MF  Waldyr                             ##    -, Botafogo 
+   -  MF  Almeida                            ##    -, EC Bahia 
+   -  MF  Martim                             ##    -, Botafogo 
+   -  MF  Ariel                              ##    -, Botafogo 
+
+   -  FW  Luisinho                           ##    -, São Paulo da Floresta 
+   -  FW  Patesko                            ##    -, Nacional 
+   -  FW  Leônidas                           ##    -, Vasco da Gama 
+   -  FW  Carvalho Leite                     ##    -, Botafogo 
+   -  FW  Áttila                             ##    -, Botafogo 
+   -  FW  Armandinho                         ##    -, São Paulo da Floresta 
+   -  FW  Waldemar de Britto                 ##    -, São Paulo da Floresta 
+
+
+== Switzerland (SUI)   # 22 players
+
+   -  GK  Renato Bizzozero                   ##    -, FC Lugano 
+   -  GK  Willy Huber                        ##    -, Grasshopper Club Zürich 
+   -  GK  Frank Séchehaye                    ##   31, Servette FC 
+
+   -  DF  Arnaldo Ortelli                    ##    -, FC Lugano 
+   -  DF  Severino Minelli                   ##   27, Grasshopper Club Zürich 
+   -  DF  Walter Weiler                      ##    -, Grasshopper Club Zürich 
+   -  DF  Louis Gobet                        ##    -, FC Bern 
+
+   -  MF  Ernst Frick                        ##    -, FC Luzern 
+   -  MF  Edmond Loichot                     ##    -, Servette FC 
+   -  MF  Albert Guinchard                   ##    2, Servette FC 
+   -  MF  Ernst Hufschmid                    ##    6, FC Basel 
+   -  MF  Fernand Jaccard                    ##    0, FC La Tour-de-Peilz 
+
+   -  FW  Alfred Jaeck                       ##   17, FC Basel 
+   -  FW  Willy Jäggi                        ##   15, Lausanne Sports 
+   -  FW  Leopold Kielholz                   ##    4, Servette FC 
+   -  FW  Erwin Hochsträsser                 ##    -, Lausanne Sports 
+   -  FW  Otto Bühler                        ##    -, Grasshopper Club Zürich 
+   -  FW  Albert Büche                       ##    -, FC Nordstern Basel 
+   -  FW  Raymond Passello                   ##   17, Servette FC 
+   -  FW  Joseph Bossi                       ##    3, FC Bern 
+   -  FW  Willy von Känel                    ##   16, FC Bienne-Biel 
+   -  FW  André Abegglen                     ##   30, Grasshopper Club Zürich 
+
+
+== Deutschland (GER)   # 22 players
+
+   -  GK  Hans Jakob                         ##    8, Jahn Regensburg 
+   -  GK  Willibald Kreß                     ##   13, Rot-Weiss Frankfurt 
+   -  GK  Fritz Buchloh                      ##    5, VfB Speldorf 
+
+   -  DF  Willy Busch                        ##    2, TuS Duisburg 
+   -  DF  Sigmund Haringer                   ##    8, FC Bayern München 
+   -  DF  Hans Schwartz                      ##    0, SpVgg Viktoria Hamburg 
+
+   -  MF  Rudolf Gramlich                    ##    7, Eintracht Frankfurt 
+   -  MF  Fritz Szepan                       ##    4, FC Schalke 04 
+   -  MF  Reinhold Münzenberg                ##    4, Alemannia Aachen 
+   -  MF  Paul Zielinski                     ##    0, SV Union Hamborn 
+   -  MF  Ernst Albrecht                     ##   17, Fortuna Düsseldorf 
+   -  MF  Paul Janes                         ##    5, Fortuna Düsseldorf 
+
+   -  FW  Stanislaus Kobierski               ##   12, Fortuna Düsseldorf 
+   -  FW  Karl Hohmann                       ##    8, VfL Benrath 
+   -  FW  Ernst Lehner                       ##    3, TSV Schwaben Augsburg 
+   -  FW  Matthias Heidemann                 ##    1, SC Bonn 
+   -  FW  Rudolf Noack                       ##    1, SV Hamburg 
+   -  FW  Franz Dienert                      ##    0, VfB Mühlburg 
+   -  FW  Otto Siffling                      ##    0, Waldhof Mannheim 
+   -  FW  Josef Streb                        ##    0, Wacker München 
+   -  FW  Edmund Conen                       ##    1, FV Saarbrücken 
+   -  FW  Jakob Bender                       ##    3, Fortuna Düsseldorf 
+
+
+== Egypt (EGY)   # 20 players
+
+   -  GK  Aziz Fahmy                         ##    1, Al-Ahly National SC 
+   -  GK  Mustafa Mansour                    ##    -, Al-Ahly National SC 
+
+   -  DF  Hamidu                             ##    2, Al-Olympi Alexandria 
+   -  DF  Ali El-Said                        ##    2, Zamalek Mokhtalat 
+   -  DF  Yacout El-Soury                    ##    4, Al-Ittihad 
+
+   -  MF  Mohammed Bakhati                   ##    1, Zamalek Mokhtalat 
+   -  MF  Hemli Moustafa                     ##    0, Al-Masry AC Port Said 
+   -  MF  Hassan Raghab                      ##    2, Union Recreation Ithad 
+   -  MF  Ismail Rafaat                      ##    0, Zamalek Mokhtalat 
+   -  MF  Ahmed Halim Ibrahim                ##    -, Zamalek Mokhtalat 
+   -  MF  Hassan El-Far                      ##    2, Zamalek Mokhtalat 
+   -  MF  Hafez Kasseb                       ##    0, Al-Olympi Alexandria 
+
+   -  FW  Mohamed Latif                      ##    2, Zamalek Mokhtalat 
+   -  FW  Mohammed Hassan                    ##    -, Al-Masry AC Port Said 
+   -  FW  Hany Kamel Mahmoud                 ##    0, Al-Ahly National SC 
+   -  FW  Mahmoud 'El-Tetsh' Mokhtar         ##    5, Al-Ahly National SC 
+   -  FW  Kamel Mosaoud                      ##    -, Al-Ahly National SC 
+   -  FW  Abdelrahman Fawzi                  ##    2, Al-Masry AC Port Said 
+   -  FW  Mahmoud El-Nigero                  ##    0, Cairo Shourta Police 
+   -  FW  Mostafa Taha                       ##    -, Zamalek Mokhtalat 
+
+
+== Spain (ESP)   # 22 players
+
+   -  GK  Ricardo Zamora                     ##   42, Real Madrid 
+   -  GK  Juan José Nogués                   ##    0, FC Barcelona 
+
+   -  DF  Ramón Zabalo                       ##    5, FC Barcelona 
+   -  DF  Hilario                            ##    1, Real Madrid 
+   -  DF  Jacinto Quincoces                  ##   19, Real Madrid 
+   -  DF  Ciriaco                            ##   11, Real Madrid 
+
+   -  MF  José Muguerza                      ##    1, Athletic Bilbao 
+   -  MF  Leonardo Cilaurren                 ##    8, Athletic Bilbao 
+   -  MF  Martín Marculeta                   ##   13, Real Sociedad 
+
+   -  FW  Simón Lecue                        ##    0, Real Betis 
+   -  FW  Isidro Lángara                     ##    3, Real Oviedo 
+   -  FW  Lafuente                           ##    5, Athletic Bilbao 
+   -  FW  José Iraragorri                    ##    1, Athletic Bilbao 
+   -  FW  Luis Marín                         ##    0, Atletico de Madrid 
+   -  FW  Guillermo Gorostiza                ##    9, Athletic Bilbao 
+   -  FW  Fede                               ##    2, Sevilla FC 
+   -  FW  Chacho                             ##    2, Deportivo de La Coruña 
+   -  FW  Luis Regueiro                      ##   16, Real Madrid 
+   -  FW  Pedro Solé                         ##    3, Espanyol 
+   -  FW  Martí Ventolrà                     ##    5, FC Barcelona 
+   -  FW  Campanal                           ##    0, Sevilla FC 
+   -  FW  Crisant Bosch                      ##    7, Espanyol 
+
+
+== France (FRA)   # 22 players
+
+   -  GK  René Llense                        ##    0, FC Sete 
+   -  GK  Robert Défossé                     ##    8, Lille OSC 
+   -  GK  Alex Thépot                        ##   28, Red Star Paris 
+
+   -  DF  Jacques Mairesse                   ##    5, Red Star Paris 
+   -  DF  Jules Vandooren                    ##    7, OC Lillois 
+   -  DF  Étienne Mattler                    ##   22, FC Sochaux 
+   -  DF  Joseph Gonzales                    ##    0, Fives 
+
+   -  MF  Louis Gabrillargues                ##    0, FC Sete 
+   -  MF  Célestin Delmer                    ##   12, Amiens SC 
+   -  MF  Roger Rio                          ##   10, FC Rouen 
+   -  MF  Edmond Delfour                     ##   25, RC Paris 
+   -  MF  Georges Beaucourt                  ##    0, Lille OSC 
+   -  MF  Noël Lietaer                       ##    5, Excelsior Roubaix 
+   -  MF  Georges Verriest                   ##    4, RC Roubaix 
+
+   -  FW  Lucien Laurent                     ##    9, CA Paris 
+   -  FW  Pierre Korb                        ##   12, FC Mulhouse 
+   -  FW  Jean Nicolas                       ##   11, FC Rouen 
+   -  FW  Fritz Keller                       ##    1, Strasbourg 
+   -  FW  Roger Courtois                     ##    1, FC Sochaux 
+   -  FW  Alfred Aston                       ##    4, Red Star Paris 
+   -  FW  Émile Veinante                     ##   11, RC Paris 
+   -  FW  Joseph Alcazar                     ##    9, Olympique de Marseille 
+
+
+== Hungary (HUN)   # 22 players
+
+   -  GK  Antal Szabó                        ##   10, Hungária FC 
+   -  GK  József Háda                        ##   11, Ferencváros FC 
+
+   -  DF  Gyula Futó                         ##    0, Újpest FC 
+   -  DF  László Sternberg                   ##    7, Újpest FC 
+   -  DF  Sándor Bíró                        ##   13, Hungária FC 
+   -  DF  József Vágó                        ##    1, Debreceni Bocskai FC 
+
+   -  MF  Gyula Lázár                        ##   19, Ferencváros FC 
+   -  MF  György Szűcs                       ##    3, Újpest FC 
+   -  MF  István Palotás                     ##    4, Debreceni Bocskai FC 
+   -  MF  Gyula Polgár                       ##    5, Ferencváros FC 
+   -  MF  Antal Szalay                       ##    8, Újpest FC 
+   -  MF  János Dudás                        ##    0, Hungária FC 
+   -  MF  Rezső Somlai                       ##    0, Kispest FC 
+
+   -  FW  István Avar                        ##   17, Újpest FC 
+   -  FW  Gábor P. Szabó                     ##   10, Újpest FC 
+   -  FW  György Sárosi                      ##   22, Ferencváros FC 
+   -  FW  Imre Markos                        ##   13, Debreceni Bocskai FC 
+   -  FW  István Tamássy                     ##    1, Újpest FC 
+   -  FW  Pál Teleki                         ##    6, Debreceni Bocskai FC 
+   -  FW  Géza Toldi                         ##   21, Ferencváros FC 
+   -  FW  Tibor Kemény                       ##    5, Ferencváros FC 
+   -  FW  Jenő Vincze                        ##    5, Debreceni Bocskai FC 
+
+
+== Italy (ITA)   # 22 players
+
+   -  GK  Giuseppe Cavanna                   ##    0, Napoli 
+   -  GK  Guido Masetti                      ##    0, Roma 
+   -  GK  Gianpiero Combi                    ##   42, Juventus 
+
+   -  DF  Luigi Allemandi                    ##    9, Ambrosiana-Inter 
+   -  DF  Umberto Caligaris                  ##   59, Juventus 
+   -  DF  Virginio Rosetta                   ##   51, Juventus 
+   -  DF  Eraldo Monzeglio                   ##   12, Bologna 
+
+   -  MF  Luigi Bertolini                    ##   19, Juventus 
+   -  MF  Mario Pizziolo                     ##    8, Fiorentina 
+   -  MF  Luis Monti                         ##   10, Juventus 
+   -  MF  Attilio Ferraris                   ##   22, Roma 
+   -  MF  Armando Castellazzi                ##    2, Ambrosiana-Inter 
+   -  MF  Giuseppe Meazza                    ##   22, Ambrosiana-Inter 
+   -  MF  Mario Varglien                     ##    0, Juventus 
+
+   -  FW  Anfilogino Guarisi                 ##    5, Lazio 
+   -  FW  Giovanni Ferrari                   ##   19, Juventus 
+   -  FW  Attilio Demaria                    ##    1, Ambrosiana-Inter 
+   -  FW  Raimundo Orsi                      ##   27, Juventus 
+   -  FW  Felice Borel                       ##    2, Juventus 
+   -  FW  Pietro Arcari                      ##    0, Milan 
+   -  FW  Angelo Schiavio                    ##   17, Bologna 
+   -  FW  Enrique Guaita                     ##    2, Roma 
+
+
+== Netherlands (NED)   # 22 players
+
+   -  GK  Gejus van der Meulen               ##   53, HFC Haarlem 
+   -  GK  Adri van Male                      ##    4, SC Feijenoord Rotterdam 
+   -  GK  Leo Halle                          ##    2, Go Ahead Eagles Deventer 
+
+   -  DF  Sjef van Run                       ##   19, PSV Eindhoven 
+   -  DF  Mauk Weber                         ##   14, ADO Den Haag 
+   -  DF  Jan van Diepenbeek                 ##    2, Ajax Amsterdam 
+
+   -  MF  Puck van Heel                      ##   41, SC Feijenoord Rotterdam 
+   -  MF  Toon Oprinsen                      ##    1, NOAD Breda 
+   -  MF  Bas Paauwe                         ##    1, SC Feijenoord Rotterdam 
+   -  MF  Henk Pellikaan                     ##   10, Longa Tilburg 
+   -  MF  Wim Anderiesen                     ##   20, Ajax Amsterdam 
+
+   -  FW  Kick Smit                          ##    4, HFC Haarlem 
+   -  FW  Arend Schoemaker                   ##    1, Quick Den Haag 
+   -  FW  Jaap Mol                           ##    5, KFC Koog 
+   -  FW  Kees Mijnders                      ##    3, DFC Dordrecht 
+   -  FW  Wim Langendaal                     ##    0, Xerxes Rotterdam 
+   -  FW  Joop van Nellen                    ##   17, DHC 
+   -  FW  Jan Graafland                      ##    0, HBS Craeyenhout 
+   -  FW  Leen Vente                         ##    5, Neptunus Rotterdam 
+   -  FW  Manus Vrauwdeunt                   ##    0, SC Feijenoord Rotterdam 
+   -  FW  Beb Bakhuys                        ##    7, ZAC 
+   -  FW  Frank Wels                         ##   14, Unitas Gorinchem 
+
+
+== Romania (ROU)   # 22 players
+
+   -  GK  Vilmos Zombori                     ##    3, Ripensia Timişoara 
+   -  GK  Stanislau Konrad                   ##    0, CA Timişoara 
+   -  GK  Adalbert Püllöck                   ##    5, Crişana Oradea 
+
+   -  DF  Lazăr Sfera                        ##    2, Venus Bucureşti 
+   -  DF  Rudolf Bürger                      ##   14, Ripensia Timişoara 
+   -  DF  Emerich Vogl                       ##   27, Juventus Bucureşti 
+   -  DF  Alexandru Cuedan                   ##    0, Rapid Bucureşti 
+   -  DF  Gheorghe Albu                      ##   20, Venus Bucureşti 
+
+   -  MF  Rudolf Kotormány                   ##    6, Ripensia Timişoara 
+   -  MF  Gusztáv Juhász                     ##    0, Juventus Bucureşti 
+   -  MF  Károly Weichelt                    ##    1, CAO Oradea 
+   -  MF  Vasile Deheleanu                   ##    1, Ripensia Timişoara 
+   -  MF  József Moravetz                    ##    8, RGM Timişoara 
+
+   -  FW  Iuliu Bodola                       ##   20, CAO Oradea 
+   -  FW  Gheorghe Ciolac                    ##   14, Ripensia Timişoara 
+   -  FW  Nicolae Kovács                     ##   19, CAO Oradea 
+   -  FW  Sándor Schwartz                    ##    4, Ripensia Timişoara 
+   -  FW  Graţian Sepi                       ##   18, Universitatea Cluj 
+   -  FW  Silviu Bindea                      ##    8, Ripensia Timişoara 
+   -  FW  Iuliu Barátky                      ##    1, Crişana Oradea 
+   -  FW  István Klimek                      ##    0, ILSA Timişoara 
+   -  FW  Ştefan Dobay                       ##   12, Ripensia Timişoara 
+
+
+== Sweden (SWE)   # 17 players
+
+   -  GK  Anders Rydberg                     ##   18, IFK Göteborg 
+   -  GK  Eivar Widlund                      ##    5, AIK Solna 
+
+   -  DF  Otto Andersson                     ##    9, Örgryte IS 
+   -  DF  Sven Andersson                     ##   15, AIK Solna 
+   -  DF  Nils Axelsson                      ##    7, Hälsingborgs IF 
+
+   -  MF  Victor Carlund                     ##    6, Örgryte IS 
+   -  MF  Ernst Andersson                    ##   11, IFK Göteborg 
+   -  MF  Rune Carlsson                      ##    5, IFK Eskilstuna 
+   -  MF  Nils Rosén                         ##   20, Hälsingborgs IF 
+   -  MF  Helge Liljebjorn                   ##    -, GAIS 
+
+   -  FW  Ragnar Gustavsson                  ##    6, GAIS 
+   -  FW  Gosta Dunker                       ##    -, Sandvikens IF  
+   -  FW  Sven Jonasson                      ##    2, IF Elfsborg 
+   -  FW  Tore Keller                        ##   18, IK Sleipner 
+   -  FW  Knut Kroon                         ##   31, Hälsingborgs IF 
+   -  FW  Gunnar Olsson                      ##    6, GAIS 
+   -  FW  Arvid Thörn                        ##    2, IFK Grängesberg 
+
+##############################
+# Sweden (SWE) Reserves in Standby 
+#   - 5 players
+
+   -  GK  Sture Hult                         ##    -, IFK Eskilstuna 
+
+   -  FW  Lennart Bunke                      ##    -, Hälsingborgs IF 
+   -  FW  Gunnar Jansson                     ##    1, Gefle IF 
+   -  FW  Carl-Erik Holmberg                 ##   14, Örgryte IS 
+   -  FW  Harry Lundahl                      ##   14, IFK Eskilstuna 
+
+
+== Czechoslovakia (TCH)   # 22 players
+
+   -  GK  Čestmír Patzel                     ##    0, Teplitzer FK 
+   -  GK  František Plánička                 ##   48, SK Slavia Prague 
+
+   -  DF  Jaroslav Burgr                     ##   31, AC Sparta Prague 
+   -  DF  Josef Čtyřoký                      ##   18, AC Sparta Prague 
+   -  DF  Ferdinand Daučík                   ##    1, CSK Bratilavia 
+   -  DF  Ladislav Ženíšek                   ##   15, SK Slavia Prague 
+
+   -  MF  Jaroslav Bouček                    ##    1, AC Sparta Prague 
+   -  MF  Vlastimil Kopecký                  ##    4, SK Slavia Prague 
+   -  MF  Josef Košťálek                     ##   11, AC Sparta Prague 
+   -  MF  Rudolf Krčil                       ##   12, SK Slavia Prague 
+   -  MF  Antonín Vodička                    ##   14, SK Slavia Prague 
+   -  MF  František Šterc                    ##    0, SK Židenice 
+   -  MF  Štefan Čambal                      ##   14, SK Slavia Prague 
+   -  MF  Erich Srbek                        ##    6, AC Sparta Prague 
+   -  MF  Adolf Šimperský                    ##   10, SK Slavia Prague 
+
+   -  FW  Josef Silný                        ##   49, AC Nimes 
+   -  FW  Jiří Sobotka                       ##    3, SK Slavia Prague 
+   -  FW  Antonín Puč                        ##   42, SK Slavia Prague 
+   -  FW  František Junek                    ##   26, SK Slavia Prague 
+   -  FW  František Svoboda                  ##   39, SK Slavia Prague 
+   -  FW  Oldřich Nejedlý                    ##   14, AC Sparta Prague 
+   -  FW  Géza Kalocsay                      ##    1, AC Sparta Prague 
+
+
+== United States (USA)   # 19 players
+
+   -  GK  Julius Hjulian                     ##    1, Chicago Wonderbolts 
+
+   -  DF  George Moorhouse                   ##    6, New York Americans 
+   -  DF  Herman Rapp                        ##    0, Philadelphia German-Americans 
+   -  DF  Ed Czerkiewicz                     ##    1, Pawtucket Rangers 
+   -  DF  Joe Martinelli                     ##    0, Pawtucket Rangers 
+   -  DF  Al Harker                          ##    0, Philadelphia German-Americans 
+
+   -  MF  Tom Amrhein                        ##    0, Baltimore Canton 
+   -  MF  Billy Gonsalves                    ##    5, St. Louis Stix, Baer & Fuller 
+   -  MF  Tom Florie                         ##    7, Pawtucket Rangers 
+   -  MF  Jimmy Gallagher                    ##    7, Cleveland Slavia 
+   -  MF  William Lehman                     ##    1, St. Louis Stix, Baer & Fuller 
+   -  MF  Tom Lynch                          ##    0, Brooklyn Celtic 
+   -  MF  Bill Fiedler                       ##    0, Philadelphia German-Americans 
+   -  MF  Peter Pietras                      ##    1, Philadelphia German-Americans 
+
+   -  FW  Willie McLean                      ##    1, St. Louis Stix, Baer & Fuller 
+   -  FW  Werner Nilsen                      ##    1, St. Louis Stix, Baer & Fuller 
+   -  FW  Aldo Donelli                       ##    1, Pittsburgh Curry Silver Tops 
+   -  FW  Walter Dick                        ##    0, Pawtucket Rangers 
+   -  FW  Francis Ryan                       ##    2, Philadelphia German-Americans 
+

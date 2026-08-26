@@ -1,0 +1,48 @@
+=  Atlético Madrid - Primera División de España 2023/24
+
+  1,  Horaţiu Moldovan (ROU),            GK,   b. 1998,   Rapid București
+ 13,  Jan Oblak (SVN),                   GK,   b. 1993,   Benfica
+ 31,  Antonio Gomis,                     GK,   b. 2003,   Atlético Madrid B
+ 33,  Alejandro Iturbe,                  GK,   b. 2003,   Atlético Madrid B
+ 35,  Sergio Mestre,                     GK,   b. 2005,   Atlético Madrid B
+ 51,  Salvi Esquivel,                    GK,   b. 2005,   Atlético Madrid B
+
+  2,  José Giménez (URU),                DF,   b. 1995,   Danubio
+  3,  César Azpilicueta,                 DF,   b. 1989,   Chelsea
+  4,  Gabriel Paulista (BRA),            DF,   b. 1990,   Valencia
+ 15,  Stefan Savić (MNE),                DF,   b. 1991,   Fiorentina
+ 16,  Nahuel Molina (ARG),               DF,   b. 1997,   Udinese
+ 22,  Mario Hermoso,                     DF,   b. 1995,   Espanyol
+ 23,  Reinildo Mandava (MOZ),            DF,   b. 1994,   Lille
+ 27,  Ilias Kostis (GRE),                DF,   b. 2003,   APOEL
+ 28,  Marco Moreno,                      DF,   b. 2001,   Atlético Madrid B
+ 29,  Javier Boñar,                      DF,   b. 2005,   Atlético Madrid B
+ 49,  Darío Frey,                        DF,   b. 2005,   Atlético Madrid B
+ 53,  Javier Díaz,                       DF,   b. 2006,   Atlético Madrid B
+
+  5,  Rodrigo De Paul (ARG),             MF,   b. 1994,   Udinese
+  6,  Koke,                              MF,   b. 1992,   Atlético Madrid B
+  8,  Saúl Ñiguez,                       MF,   b. 1994,   Atlético Madrid B
+ 11,  Thomas Lemar (FRA),                MF,   b. 1995,   Monaco
+ 14,  Marcos Llorente,                   MF,   b. 1995,   Real Madrid
+ 18,  Arthur Vermeeren (BEL),            MF,   b. 2005,   Royal Antwerp
+ 20,  Axel Witsel (BEL),                 MF,   b. 1989,   Borussia Dortmund
+ 24,  Pablo Barrios,                     MF,   b. 2003,   Atlético Madrid B
+ 26,  Aitor Gismera,                     MF,   b. 2004,   Atlético Madrid B
+ 40,  Mini,                              MF,   b. 1999,   Málaga
+ 46,  Julio Díaz,                        MF,   b. 2005,   Atlético Madrid B
+ 48,  Jorge Castellanos,                 MF,   b. 2005,   Atlético Madrid B
+ 50,  Dani Muñoz,                        MF,   b. 2006,   Atlético Madrid B
+
+  7,  Antoine Griezmann (FRA),           FW,   b. 1991,   Barcelona
+  9,  Memphis Depay (NED),               FW,   b. 1994,   Barcelona
+ 10,  Ángel Correa (ARG),                FW,   b. 1995,   San Lorenzo
+ 12,  Samuel Lino (BRA),                 FW,   b. 1999,   Gil Vicente
+ 17,  Rodrigo Riquelme,                  FW,   b. 2000,   Atlético Madrid B
+ 19,  Álvaro Morata,                     FW,   b. 1992,   Chelsea
+ 30,  Salim El Jebari,                   FW,   b. 2004,   Atlético Madrid B
+ 32,  Adrián Niño,                       FW,   b. 2004,   Atlético Madrid B
+ 36,  Álex Calatrava,                    FW,   b. 2000,   Costa Brava
+ 39,  Abde Raihani (MAR),                FW,   b. 2004,   Damm
+ 45,  Rayane Belaid (ALG),               FW,   b. 2005,   Atlético Madrid B
+ 47,  Paco Esteban,                      FW,   b. 2006,   Atlético Madrid B

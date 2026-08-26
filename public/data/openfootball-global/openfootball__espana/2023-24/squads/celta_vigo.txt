@@ -1,0 +1,39 @@
+=  RC Celta Vigo - Primera División de España 2023/24
+
+ 13,  Iván Villar,                       GK,   b. 1997,   Celta B
+ 25,  Vicente Guaita,                    GK,   b. 1987,   Crystal Palace
+ 26,  Coke Carrillo,                     GK,   b. 2002,   Barcelona B
+ 27,  Raúl García,                       GK,   b. 2000,   Celta B
+ 37,  César Fernández,                   GK,   b. 2004,   Celta B
+
+  2,  Carl Starfelt (SWE),               DF,   b. 1995,   Celtic
+  3,  Óscar Mingueza,                    DF,   b. 1999,   Barcelona
+  4,  Unai Núñez,                        DF,   b. 1997,   Athletic Bilbao
+ 15,  Joseph Aidoo (GHA),                DF,   b. 1995,   KRC Genk
+ 20,  Kevin Vázquez,                     DF,   b. 1993,   Celta B
+ 21,  Mihailo Ristić (SRB),              DF,   b. 1995,   Benfica
+ 22,  Javi Manquillo,                    DF,   b. 1994,   Newcastle U
+ 23,  Manu Sánchez,                      DF,   b. 2000,   Atlético Madrid
+ 28,  Carlos Domínguez,                  DF,   b. 2001,   Celta B
+ 31,  Javi Domínguez,                    DF,   b. 2001,   Talavera
+ 32,  Javi Rodríguez,                    DF,   b. 2003,   Celta B
+ 35,  Joel López,                        DF,   b. 2002,   Cultural Leonesa
+
+  5,  Renato Tapia (PER),                MF,   b. 1995,   Feyenoord
+  6,  Carlos Dotor,                      MF,   b. 2001,   Real Madrid B
+  8,  Fran Beltrán,                      MF,   b. 1999,   Rayo Vallecano
+ 11,  Franco Cervi (ARG),                MF,   b. 1994,   Benfica
+ 14,  Luca De La Torre (USA),            MF,   b. 1998,   Heracles Almelo
+ 16,  Jailson (BRA),                     MF,   b. 1995,   Palmeiras
+ 19,  Williot Swedberg (SWE),            MF,   b. 2004,   Hammarby IF
+ 30,  Hugo Sotelo,                       MF,   b. 2003,   Celta B
+ 33,  Hugo Álvarez,                      MF,   b. 2003,   Celta B
+ 34,  Damián Rodríguez,                  MF,   b. 2003,   Celta B
+
+  7,  Carles Pérez,                      FW,   b. 1998,   Roma
+  9,  Tadeo Allende (ARG),               FW,   b. 1999,   Godoy Cruz (Mendoza)
+ 10,  Iago Aspas,                        FW,   b. 1987,   Sevilla
+ 12,  Tasos Douvikas (GRE),              FW,   b. 1999,   FC Utrecht
+ 17,  Jonathan Bamba (CIV),              FW,   b. 1996,   Lille
+ 18,  Jörgen Strand Larsen (NOR),        FW,   b. 2000,   FC Groningen
+ 24,  Miguel Rodríguez,                  FW,   b. 2003,   Celta B

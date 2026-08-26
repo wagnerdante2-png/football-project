@@ -1,0 +1,40 @@
+=  Cádiz CF - Primera División de España 2023/24
+
+  1,  Jeremias Ledesma (ARG),            GK,   b. 1993,   Rosario Central
+ 13,  David Gil,                         GK,   b. 1994,   Getafe B
+ 26,  Víctor Aznar (BRA),                GK,   b. 2002,   Verona
+
+  2,  Joseba Zaldúa,                     DF,   b. 1992,   Real Sociedad
+  3,  Fali,                              DF,   b. 1993,   Nàstic
+  5,  Víctor Chust,                      DF,   b. 2000,   Real Madrid B
+ 14,  Momo Mbaye (SEN),                  DF,   b. 1998,   Watford
+ 15,  Javi Hernández,                    DF,   b. 1998,   Leganés
+ 20,  Isaac Carcelén,                    DF,   b. 1993,   Rayo Majadahonda
+ 22,  Jorge Meré,                        DF,   b. 1997,   América
+ 24,  Aiham Ousou (SWE),                 DF,   b. 2000,   Slavia Prague
+ 30,  Alejandro Morata,                  DF,   b. 2006,   Cádiz B
+ 31,  Adrián Miranda,                    DF,   b. 2003,   Peña
+ 32,  Julio Cabrera,                     DF,   b. 2003,   Cádiz B
+ 33,  Lucas Pires (BRA),                 DF,   b. 2001,   Santos
+ 35,  Adrían Salguero,                   DF,   b. 2003,   Ibiza
+
+  4,  Rubén Alcaraz,                     MF,   b. 1991,   Valladolid
+  6,  Diadie Samassékou (MLI),           MF,   b. 1996,   1899 Hoffenheim
+  8,  Álex Fernández,                    MF,   b. 1992,   Elche
+ 11,  Iván Alejo,                        MF,   b. 1995,   Getafe
+ 12,  Rominigue Kouamé (MLI),            MF,   b. 1996,   Troyes
+ 17,  Gonzalo Escalante (ARG),           MF,   b. 1993,   Lazio
+ 27,  Robert Navarro,                    MF,   b. 2002,   Real Sociedad
+ 28,  Moussa Diakité (MLI),              MF,   b. 2003,   Étoiles du Mandé
+ 29,  Nico Njalla (CMR),                 MF,   b. 2003,   Cádiz B
+ 36,  Etta Eyong (CMR),                  MF,   b. 2003,   Cádiz B
+
+  7,  Rubén Sobrino,                     FW,   b. 1992,   Valencia
+  9,  Juanmi,                            FW,   b. 1993,   Betis
+ 10,  Brian Ocampo (URU),                FW,   b. 1999,   Nacional [URU]
+ 16,  Chris Ramos,                       FW,   b. 1997,   Lugo
+ 18,  Darwin Machís (VEN),               FW,   b. 1993,   Valladolid
+ 19,  Sergi Guardiola,                   FW,   b. 1991,   Valladolid
+ 21,  Roger,                             FW,   b. 1991,   Elche
+ 25,  Maximiliano Gómez (URU),           FW,   b. 1996,   Trabzonspor
+ 40,  Borja Vázquez,                     FW,   b. 2005,   Cádiz B

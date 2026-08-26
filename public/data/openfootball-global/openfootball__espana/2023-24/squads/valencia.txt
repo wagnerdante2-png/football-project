@@ -1,0 +1,39 @@
+=  Valencia CF - Primera División de España 2023/24
+
+  1,  Jaume Domènech,                    GK,   b. 1990,   Huracán Valencia
+ 13,  Cristian Rivero,                   GK,   b. 1998,   Valencia B
+ 25,  Giorgi Mamardashvili (GEO),        GK,   b. 2000,   Dinamo Tbilisi
+ 49,  Vicent Abril,                      GK,   b. 2005,   Valencia B
+
+  3,  Cristhian Mosquera (COL),          DF,   b. 2004,   Valencia B
+  4,  Mouctar Diakhaby (GUI),            DF,   b. 1996,   Lyon
+  6,  Hugo Guillamón,                    DF,   b. 2000,   Valencia B
+ 12,  Thierry Correia (POR),             DF,   b. 1999,   Sporting CP
+ 14,  José Luis Gayà,                    DF,   b. 1995,   Valencia B
+ 15,  Cenk Özkaçar (TUR),                DF,   b. 2000,   Lyon
+ 20,  Dimitri Foulquier (FRA),           DF,   b. 1993,   Granada
+ 21,  Jesús Vázquez,                     DF,   b. 2003,   Valencia B
+ 31,  Rubén Iranzo,                      DF,   b. 2003,   Valencia B
+ 34,  Yarek Gasiorowski,                 DF,   b. 2005,   Valencia B
+
+  8,  Javi Guerra,                       MF,   b. 2003,   Valencia B
+ 10,  André Almeida (POR),               MF,   b. 2000,   Vitória Guimarães
+ 11,  Peter (DOM),                       MF,   b. 2002,   Real Madrid B
+ 18,  Pepelu,                            MF,   b. 1998,   Levante
+ 19,  Selim Amallah (MAR),               MF,   b. 1996,   Valladolid
+ 26,  Javi Navarro,                      MF,   b. 2004,   Valencia B
+ 27,  Pablo Gozálbez,                    MF,   b. 2001,   Valencia B
+ 30,  Hugo González,                     MF,   b. 2003,   Valencia B
+ 32,  Martín Tejón,                      MF,   b. 2004,   Valencia B
+ 37,  Ali Fadal (GHA),                   MF,   b. 2004,   Montverde Academy
+ 39,  Marco Camus,                       MF,   b. 2001,   Racing Santander
+
+  7,  Sergi Canós,                       FW,   b. 1997,   Brentford
+  9,  Hugo Duro,                         FW,   b. 1999,   Getafe
+ 16,  Diego López,                       FW,   b. 2002,   Barcelona B
+ 17,  Roman Yaremchuk (UKR),             FW,   b. 1995,   Club Brugge
+ 22,  Alberto Marí,                      FW,   b. 2001,   Vitoria
+ 23,  Fran Pérez,                        FW,   b. 2002,   Valencia B
+ 36,  Mario Dominguez,                   FW,   b. 2004,   Valencia B
+ 38,  Joselu,                            FW,   b. 2004,   Valencia B
+ 47,  David Otorbi,                      FW,   b. 2007,   Valencia B

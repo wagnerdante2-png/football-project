@@ -1,0 +1,37 @@
+=  Girona FC - Primera División de España 2023/24
+
+  1,  Juan Carlos,                       GK,   b. 1988,   Lugo
+ 13,  Paulo Gazzaniga (ARG),             GK,   b. 1992,   Fulham
+ 26,  Toni Fuidias,                      GK,   b. 2001,   Real Madrid B
+
+  3,  Miguel Gutiérrez,                  DF,   b. 2001,   Real Madrid B
+  4,  Arnau Martínez,                    DF,   b. 2003,   Girona B
+ 11,  Valery Fernández,                  DF,   b. 1999,   Girona B
+ 15,  Juanpe,                            DF,   b. 1991,   Granada
+ 17,  Daley Blind (NED),                 DF,   b. 1990,   Bayern Munich
+ 20,  Yan Couto (BRA),                   DF,   b. 2002,   Manchester C
+ 25,  Eric García,                       DF,   b. 2001,   Barcelona
+ 35,  Antal Yaakobishvili (HUN),         DF,   b. 2004,   Atlètic Sant Just
+
+  5,  David López,                       MF,   b. 1989,   Espanyol
+  8,  Viktor Tsyhankov (UKR),            MF,   b. 1997,   Dynamo Kyiv
+ 10,  Borja,                             MF,   b. 1990,   Huesca
+ 14,  Aleix García,                      MF,   b. 1997,   Eibar
+ 18,  Pablo Torre,                       MF,   b. 2003,   Barcelona B
+ 19,  Toni Villa,                        MF,   b. 1995,   Valladolid
+ 21,  Yangel Herrera (VEN),              MF,   b. 1998,   Manchester C
+ 22,  Jhon Solís (COL),                  MF,   b. 2004,   Atlético Nacional
+ 23,  Iván Martín,                       MF,   b. 1999,   Villarreal B
+ 28,  Selvi,                             MF,   b. 2005,   Girona B
+ 30,  Iker Almena,                       MF,   b. 2004,   Girona B
+ 36,  Ricard Artero,                     MF,   b. 2003,   Girona B
+
+  7,  Cristhian Stuani (URU),            FW,   b. 1986,   Middlesbrough
+  9,  Artem Dovbyk (UKR),                FW,   b. 1997,   Dnipro-1
+ 16,  Sávio (BRA),                       FW,   b. 2004,   Troyes
+ 24,  Portu,                             FW,   b. 1992,   Getafe
+ 29,  Álex Almansa,                      FW,   b. 2003,   Girona B
+ 31,  Jastin García,                     FW,   b. 2004,   Girona B
+ 32,  Enric García,                      FW,   b. 2006,   Girona B
+ 34,  Juan Arango Jr (VEN),              FW,   b. 2006,   Girona B
+ 40,  Carles Garrido,                    FW,   b. 2004,   Cornellà

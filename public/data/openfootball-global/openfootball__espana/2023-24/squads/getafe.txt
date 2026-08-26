@@ -1,0 +1,39 @@
+=  Getafe CF - Primera División de España 2023/24
+
+  1,  Daniel Fuzato (BRA),               GK,   b. 1997,   Ibiza
+ 13,  David Soria,                       GK,   b. 1993,   Sevilla
+ 35,  Jorge Benito,                      GK,   b. 2006,   Getafe B
+ 40,  Djordjije Medenica (CZE),          GK,   b. 2006,   Dukla Prague
+
+  2,  Dakonam Djené (TOG),               DF,   b. 1991,   Sint-Truiden
+  3,  Fabrizio Angileri (ARG),           DF,   b. 1994,   River Plate
+  4,  Gastón Álvarez (URU),              DF,   b. 2000,   Boston River
+  6,  Domingos Duarte (POR),             DF,   b. 1995,   Granada
+ 15,  Omar Alderete (PAR),               DF,   b. 1996,   Hertha Berlin
+ 16,  Diego Rico,                        DF,   b. 1993,   Real Sociedad
+ 18,  José Ángel Carmona,                DF,   b. 2002,   Sevilla B
+ 21,  Juan Iglesias,                     DF,   b. 1998,   Logroñés
+ 27,  Gorka Rivera,                      DF,   b. 2004,   Getafe B
+ 30,  Nabil Aberdin (FRA),               DF,   b. 2002,   Rayo Majadahonda
+ 32,  Jordi Martín,                      DF,   b. 2001,   Real Madrid B
+ 33,  Alejandro Herranz,                 DF,   b. 2004,   Getafe B
+ 34,  Sergio Gimeno,                     DF,   b. 2001,   Sanse
+
+  5,  Luis Milla,                        MF,   b. 1994,   Granada
+  8,  Mauro Arambarri (URU),             MF,   b. 1995,   Boston River
+  9,  Óscar,                             MF,   b. 1998,   Sevilla
+ 11,  Carles Aleñà,                      MF,   b. 1998,   Barcelona
+ 20,  Nemanja Maksimović (SRB),          MF,   b. 1995,   Valencia
+ 24,  Ilaix Moriba (GUI),                MF,   b. 2003,   RB Leipzig
+ 25,  Yellu,                             MF,   b. 2004,   Valencia B
+ 26,  John Patrick Finn,                 MF,   b. 2003,   Getafe B
+ 28,  Santi García,                      MF,   b. 2001,   Getafe B
+ 29,  Facundo Esnaider,                  MF,   b. 2001,   Rayo Majadahonda
+ 36,  Diego López,                       MF,   b. 2001,   Torrejón
+ 37,  Alberto Risco,                     MF,   b. 2005,   Getafe B
+
+  7,  Jaime Mata,                        FW,   b. 1988,   Valladolid
+ 12,  Mason Greenwood (ENG),             FW,   b. 2001,   Manchester U
+ 14,  Juanmi Latasa,                     FW,   b. 2001,   Real Madrid B
+ 19,  Borja Mayoral,                     FW,   b. 1997,   Real Madrid
+ 31,  Yassin Tallal (MAR),               FW,   b. 2005,   Rayo Majadahonda

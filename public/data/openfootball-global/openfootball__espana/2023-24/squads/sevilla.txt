@@ -1,0 +1,47 @@
+=  Sevilla FC - Primera División de España 2023/24
+
+  1,  Marko Dmitrović (SRB),             GK,   b. 1992,   Eibar
+ 13,  Ørjan Nyland (NOR),                GK,   b. 1990,   RB Leipzig
+ 31,  Alberto Flores,                    GK,   b. 2003,   Sevilla B
+ 32,  Rafa Romero,                       GK,   b. 2003,   Granada B
+ 33,  Matías Árbol,                      GK,   b. 2002,   Sevilla B
+
+  2,  Kike Salas,                        DF,   b. 2002,   Sevilla B
+  3,  Adrià Pedrosa,                     DF,   b. 1998,   Espanyol
+  4,  Sergio Ramos,                      DF,   b. 1986,   Paris St-Germain
+ 14,  Tanguy Nianzou (FRA),              DF,   b. 2002,   Bayern Munich
+ 16,  Jesús Navas,                       DF,   b. 1985,   Manchester C
+ 19,  Marcos Acuña (ARG),                DF,   b. 1991,   Sporting CP
+ 22,  Loïc Badé (FRA),                   DF,   b. 2000,   Rennes
+ 23,  Marcão (BRA),                      DF,   b. 1996,   Galatasaray
+ 29,  Darío Benavides,                   DF,   b. 2003,   Sevilla B
+ 38,  Diego Hormigo,                     DF,   b. 2003,   Sevilla B
+
+  5,  Lucas Ocampos (ARG),               MF,   b. 1994,   Marseille
+  6,  Nemanja Gudelj (SRB),              MF,   b. 1991,   Guangzhou Evergrande
+  7,  Suso,                              MF,   b. 1993,   Milan
+  8,  Joan Jordán,                       MF,   b. 1993,   Eibar
+ 11,  Dodi Lukebakio (BEL),              MF,   b. 1997,   Hertha Berlin
+ 17,  Erik Lamela (ARG),                 MF,   b. 1992,   Tottenham H
+ 18,  Djibril Sow (SUI),                 MF,   b. 1997,   Eintracht Frankfurt
+ 21,  Óliver Torres,                     MF,   b. 1994,   FC Porto
+ 24,  Boubakary Soumaré (FRA),           MF,   b. 1999,   Leicester C
+ 25,  Adnan Januzaj (BEL),               MF,   b. 1995,   Real Sociedad
+ 26,  Juanlu Sánchez,                    MF,   b. 2003,   Sevilla B
+ 28,  Manu Bueno,                        MF,   b. 2004,   Sevilla B
+ 35,  Xavi Sintes,                       MF,   b. 2001,   Real Madrid B
+ 37,  Alberto Collado,                   MF,   b. 2005,   Sevilla B
+ 39,  Lulo Dasilva,                      MF,   b. 2002,   Sevilla B
+ 41,  Stanis Idumbo Muzambo (BEL),       MF,   b. 2005,   Ajax
+ 42,  Lucien Agoumé (FRA),               MF,   b. 2002,   Internazionale
+ 46,  Hannibal Mejbri (TUN),             MF,   b. 2003,   Manchester U
+
+  9,  Rafa Mir,                          FW,   b. 1997,   Wolverhampton W
+ 10,  Alejo Véliz (ARG),                 FW,   b. 2003,   Tottenham H
+ 12,  Mariano (DOM),                     FW,   b. 1993,   Real Madrid
+ 15,  Yousseff En-Nesyri (MAR),          FW,   b. 1997,   Leganés
+ 20,  Isaac Romero,                      FW,   b. 2000,   Sevilla B
+ 30,  Ibrahima Sow (SEN),                FW,   b. 2007,   Sevilla B
+ 34,  Isra Domínguez,                    FW,   b. 2003,   Antequera
+ 36,  Oso,                               FW,   b. 2003,   Sevilla B
+ 40,  Miguel Capi,                       FW,   b. 2001,   Sevilla B
