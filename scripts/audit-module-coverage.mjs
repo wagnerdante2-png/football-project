@@ -31,7 +31,10 @@ const knownLegacy=new Set([
   'src/transfer-beta-ui-v1.ts','src/staff-ui.ts','src/manager-creation-preview.ts','src/manager-creation-ui.ts',
   'src/manager-job-market.ts','src/manager-career-profile.ts','src/manager-onboarding.ts','src/manager-origin-prologue.ts',
   'src/world-weather-v2.ts','src/world-geography-v2.ts','src/world-save-v2.ts','src/world-scheduler-v2.ts',
-  'src/world-time-v2.ts','src/season-transition.ts','src/tactics.ts'
+  'src/world-time-v2.ts','src/season-transition.ts','src/tactics.ts',
+  // Superseded by richer active V2 runtimes. Keeping these files is useful for
+  // history/diagnostics, but wiring them would duplicate match resolution.
+  'src/match-contact-resolution-v2.ts','src/match-set-piece-execution-v2.ts'
 ]);
 const legacy=unreachable.filter(f=>knownLegacy.has(f));
 const initiallyClassified=new Set([...diagnostics,...legacy]);
