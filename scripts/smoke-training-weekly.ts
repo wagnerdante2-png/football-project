@@ -3,6 +3,7 @@ import { clubTraining, executeTrainingDay } from '../src/training-engine';
 import { clubWeeklyTrainingSchedule,setWeeklyTrainingEnabled,setWeeklyTrainingSlot } from '../src/training-weekly-schedule-v1';
 import { createSaveSnapshot,restoreSave,serializeSave } from '../src/save-game';
 import { recentWorldEvents } from '../src/event-bus';
+import { advanceOneDay,dailyCalendar } from '../src/daily-simulation';
 
 const world=createBrazilRealWorld2026(),club=world.clubs[0];
 const date='2026-08-26'; // quarta-feira
@@ -27,4 +28,14 @@ if(automaticEvent?.payload.weeklySchedule!==false)throw new Error('Disabling wee
 const legacy=JSON.parse(JSON.stringify(snapshot)) as any;delete legacy.weeklyTraining;
 const legacyWorld=restoreSave(JSON.stringify(legacy));
 if(clubWeeklyTrainingSchedule(legacyWorld,club.id).enabled)throw new Error('Legacy V15 save without weeklyTraining should restore with automatic schedule');
-console.log(`[smoke-training-weekly] club=${club.name} · AM=speed/high/60 · PM=setPieces/low/45 · override=OK · save=OK · automatic=OK · legacy=OK · OK`);
+
+const dailyWorld=createBrazilRealWorld2026(),manualClub=dailyWorld.clubs[0],automaticClub=dailyWorld.clubs[1];
+const calendar=dailyCalendar(dailyWorld);calendar.date=date;calendar.matchDates.set(dailyWorld.round,'2026-09-02');
+setWeeklyTrainingSlot(dailyWorld,manualClub.id,3,'am',{type:'speed',intensity:'high',unit:'all',durationMinutes:60});
+setWeeklyTrainingSlot(dailyWorld,manualClub.id,3,'pm',{type:'setPieces',intensity:'low',unit:'all',durationMinutes:45});
+setWeeklyTrainingEnabled(dailyWorld,manualClub.id,true);
+advanceOneDay(dailyWorld);
+const manualRecord=clubTraining(dailyWorld,manualClub.id)?.trainingHistory.at(-1),automaticRecord=clubTraining(dailyWorld,automaticClub.id)?.trainingHistory.at(-1);
+if(!manualRecord||manualRecord.sessions.map(s=>s.type).join(',')!=='speed,setPieces')throw new Error(`Daily simulation ignored manual Wednesday schedule: ${manualRecord?.sessions.map(s=>s.type).join(',')}`);
+if(!automaticRecord||automaticRecord.sessions.length!==1||automaticRecord.sessions[0]?.type!=='rest')throw new Error('Automatic club did not keep Wednesday recovery while another club used manual schedule');
+console.log(`[smoke-training-weekly] club=${club.name} · AM=speed/high/60 · PM=setPieces/low/45 · override=OK · save=OK · automatic=OK · legacy=OK · daily-routing=OK · OK`);
