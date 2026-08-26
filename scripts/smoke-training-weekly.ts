@@ -1,0 +1,30 @@
+import { createBrazilRealWorld2026 } from '../src/real-world-v1';
+import { clubTraining, executeTrainingDay } from '../src/training-engine';
+import { clubWeeklyTrainingSchedule,setWeeklyTrainingEnabled,setWeeklyTrainingSlot } from '../src/training-weekly-schedule-v1';
+import { createSaveSnapshot,restoreSave,serializeSave } from '../src/save-game';
+import { recentWorldEvents } from '../src/event-bus';
+
+const world=createBrazilRealWorld2026(),club=world.clubs[0];
+const date='2026-08-26'; // quarta-feira
+setWeeklyTrainingSlot(world,club.id,3,'am',{type:'speed',intensity:'high',unit:'all',durationMinutes:60});
+setWeeklyTrainingSlot(world,club.id,3,'pm',{type:'setPieces',intensity:'low',unit:'all',durationMinutes:45});
+setWeeklyTrainingEnabled(world,club.id,true);
+executeTrainingDay(world,date,{daysToNextMatch:1,daysSinceLastMatch:2,matchesNext7:2});
+const record=clubTraining(world,club.id)?.trainingHistory.at(-1);
+if(!record)throw new Error('Weekly training did not create a training record');
+if(record.sessions.length!==2||record.sessions[0]?.type!=='speed'||record.sessions[1]?.type!=='setPieces')throw new Error(`Weekly grid did not override automatic microcycle: ${record.sessions.map(s=>s.type).join(',')}`);
+if(!record.notes.some(note=>note.includes('Grade semanal personalizada')))throw new Error('Weekly training record lacks explicit schedule note');
+const event=recentWorldEvents(world,10,{clubId:club.id,types:['TrainingCompleted']})[0];
+if(!event?.tags.includes('weekly-schedule')||event.payload.weeklySchedule!==true)throw new Error('TrainingCompleted did not identify weekly schedule execution');
+const snapshot=createSaveSnapshot(world);
+if(!snapshot.weeklyTraining?.clubs.some(([id,s])=>id===club.id&&s.enabled&&s.slots[3].am.type==='speed'&&s.slots[3].pm.type==='setPieces'))throw new Error('Save snapshot omitted weekly schedule');
+const restored=restoreSave(serializeSave(world)),restoredSchedule=clubWeeklyTrainingSchedule(restored,club.id);
+if(!restoredSchedule.enabled||restoredSchedule.slots[3].am.type!=='speed'||restoredSchedule.slots[3].am.durationMinutes!==60||restoredSchedule.slots[3].pm.type!=='setPieces')throw new Error('Weekly schedule changed after save/restore');
+setWeeklyTrainingEnabled(restored,club.id,false);
+executeTrainingDay(restored,'2026-08-27',{daysToNextMatch:4,daysSinceLastMatch:2,matchesNext7:1});
+const automaticEvent=recentWorldEvents(restored,10,{clubId:club.id,types:['TrainingCompleted']})[0];
+if(automaticEvent?.payload.weeklySchedule!==false)throw new Error('Disabling weekly grid did not restore automatic microcycle');
+const legacy=JSON.parse(JSON.stringify(snapshot)) as any;delete legacy.weeklyTraining;
+const legacyWorld=restoreSave(JSON.stringify(legacy));
+if(clubWeeklyTrainingSchedule(legacyWorld,club.id).enabled)throw new Error('Legacy V15 save without weeklyTraining should restore with automatic schedule');
+console.log(`[smoke-training-weekly] club=${club.name} · AM=speed/high/60 · PM=setPieces/low/45 · override=OK · save=OK · automatic=OK · legacy=OK · OK`);
