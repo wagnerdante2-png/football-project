@@ -37,11 +37,13 @@ if(!fixture)throw new Error('No active league fixture available for canonical br
 fixture.played=true;
 fixture.homeGoals=2;
 fixture.awayGoals=1;
-emitWorldEvent(world,{type:'MatchCompleted',date:'2026-07-25',clubIds:[fixture.home,fixture.away],importance:2,summary:'Canonical bridge smoke match.',payload:{round:fixture.round,homeGoals:2,awayGoals:1}});
-emitWorldEvent(world,{type:'MatchCompleted',date:'2026-07-25',clubIds:[fixture.home,fixture.away],importance:2,summary:'Duplicate canonical bridge smoke event.',payload:{round:fixture.round,homeGoals:2,awayGoals:1}});
+const completedRound=fixture.round;
+world.round=completedRound+1;
+emitWorldEvent(world,{type:'MatchCompleted',date:'2026-07-25',clubIds:[fixture.home,fixture.away],importance:2,summary:'Canonical bridge smoke match.',payload:{round:completedRound,homeGoals:2,awayGoals:1}});
+emitWorldEvent(world,{type:'MatchCompleted',date:'2026-07-25',clubIds:[fixture.home,fixture.away],importance:2,summary:'Duplicate canonical bridge smoke event.',payload:{round:completedRound,homeGoals:2,awayGoals:1}});
 const mirrored=footballDataSnapshot(world).matches.filter(m=>m.competitionId===ACTIVE_BRAZIL_LEAGUE_ID&&m.homeTeamId===fixture.home&&m.awayTeamId===fixture.away);
 if(mirrored.length!==1)throw new Error(`Expected exactly one mirrored active-league result, got ${mirrored.length}`);
-if(mirrored[0]?.homeGoals!==2||mirrored[0]?.awayGoals!==1)throw new Error('Mirrored active-league result has wrong score');
+if(mirrored[0]?.homeGoals!==2||mirrored[0]?.awayGoals!==1||mirrored[0]?.round!==String(completedRound))throw new Error('Mirrored active-league result has wrong score or round');
 if(world.fixtures.length!==fixturesBefore)throw new Error('Canonical result mirroring changed playable fixture count');
 if(allDomesticSeasons(world).length!==0)throw new Error('Canonical result mirroring created a parallel DomesticSeasonState');
 
