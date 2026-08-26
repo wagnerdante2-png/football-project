@@ -88,6 +88,14 @@ try {
     if (await player.count()) {
       await player.click({ timeout: 5000 });
       await page.locator('.v2-profile-backdrop').waitFor({ state: 'visible', timeout: 3000 });
+      if (i === 0) {
+        const rolePanel = page.locator('[data-role-insights]');
+        await rolePanel.waitFor({ state: 'visible', timeout: 3000 });
+        const roleCount = await rolePanel.locator('.v2-role-list article').count();
+        if (roleCount !== 3) throw new Error(`Expected 3 tactical role insights, got ${roleCount}`);
+        const scores = await rolePanel.locator('.v2-role-list article > strong').allTextContents();
+        if (scores.some(x => !Number.isFinite(Number(x)))) throw new Error(`Invalid tactical role scores: ${scores.join(', ')}`);
+      }
       await click('.v2-profile-close');
     }
     await click('.game-sidebar [data-view="home"]');
@@ -138,7 +146,7 @@ try {
   });
   if (runtimeErrors.length) failures.push(...runtimeErrors.map(x => `runtime: ${x.message || JSON.stringify(x)}`));
   if (failures.length) throw new Error(failures.join('\n'));
-  console.log('E2E stress passed: navigation, inbox interaction, 5 day advances, matchday, profiles, canonical systems, media, school and IndexedDB save/load remained responsive.');
+  console.log('E2E stress passed: navigation, inbox interaction, player role insights, 5 day advances, matchday, profiles, canonical systems, media, school and IndexedDB save/load remained responsive.');
 } finally {
   await browser.close();
 }
