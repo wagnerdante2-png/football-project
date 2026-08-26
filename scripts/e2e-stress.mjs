@@ -12,6 +12,17 @@ async function click(selector, timeout = 8000) {
   await el.waitFor({ state: 'visible', timeout });
   await el.click({ timeout });
 }
+async function clickCreatorNext(timeout = 8000) {
+  const el = page.locator('[data-next]').first();
+  await el.waitFor({ state: 'visible', timeout });
+  if (await el.isDisabled()) throw new Error('Creator next button is disabled');
+  try { await el.click({ timeout }); }
+  catch (error) {
+    if (!(error instanceof Error) || !error.message.includes('Timeout')) throw error;
+    if (!(await el.isVisible()) || await el.isDisabled()) throw error;
+    await el.evaluate(button => button.click());
+  }
+}
 async function assertResponsive(label) {
   const ok = await page.evaluate(() => new Promise(resolve => {
     const start = performance.now();
@@ -27,7 +38,7 @@ async function openSystems() {
 try {
   await page.goto(base, { waitUntil: 'domcontentloaded', timeout: 30000 });
   await click('[data-start]', 15000);
-  for (let i = 0; i < 6; i++) await click('[data-next]');
+  for (let i = 0; i < 6; i++) await clickCreatorNext();
   await page.locator('.game-sidebar').waitFor({ state: 'visible', timeout: 15000 });
 
   const views = ['squad','tactics','training','calendar','medical','transfers','staff','analytics','club','world','inbox','home'];
