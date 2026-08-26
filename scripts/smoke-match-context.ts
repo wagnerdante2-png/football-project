@@ -1,0 +1,45 @@
+import { createBrazilRealWorld2026 } from '../src/real-world-v1';
+import { createMatchCore } from '../src/match-core-v2';
+import { applyWorldWeatherToMatch } from '../src/match-weather-runtime-v1';
+import { prepareMatchContext, stepMatchContext, maybeResolveHandball } from '../src/match-context-bridge-v2';
+import { startAdvantage } from '../src/match-advantage-v2';
+
+const world=createBrazilRealWorld2026();
+const fixture=world.fixtures[0];
+const home=world.clubs.find(c=>c.id===fixture.home),away=world.clubs.find(c=>c.id===fixture.away);
+if(!home||!away)throw new Error('Context smoke fixture clubs missing');
+const state=createMatchCore(home,away,{seed:0x51a7c0de});
+const weather=applyWorldWeatherToMatch(world,state,home,'2026-07-25');
+const seededEnvironment={...(state as any).__environment};
+const prepared=prepareMatchContext(state);
+if(prepared.weather!==seededEnvironment.weather||prepared.moisture!==seededEnvironment.moisture)throw new Error('prepareMatchContext replaced world weather environment');
+if(prepared.temperature!==weather.temperature)throw new Error('prepareMatchContext changed world temperature');
+const effects=stepMatchContext(state,home,away,()=>0.5);
+if(!Number.isFinite(effects.homePressure)||!Number.isFinite(effects.awayPressure))throw new Error('Environment pressure effects are invalid');
+if(state.memory.homePressure!==effects.homePressure||state.memory.awayPressure!==effects.awayPressure)throw new Error('Environment pressure did not reach match memory');
+
+const homeLive=state.home.players.find(p=>p.onPitch&&!p.sentOff),awayLive=state.away.players.find(p=>p.onPitch&&!p.sentOff);
+if(!homeLive||!awayLive)throw new Error('Live players missing for context smoke');
+state.restart=undefined;
+state.possessionClubId=home.id;
+startAdvantage(state,{offendingPlayerId:awayLive.playerId,victimId:homeLive.playerId,beneficiaryClubId:home.id,foulPosition:{...homeLive.position},severity:'careless',promisingAttack:64});
+state.possessionClubId=away.id;
+state.seconds+=1;
+stepMatchContext(state,home,away,()=>0.5);
+if(state.restart?.type!=='freeKick'||state.restart.clubId!==home.id)throw new Error('Lost early advantage was not recalled to the beneficiary club');
+
+state.restart=undefined;
+state.ball.ownerId=undefined;
+state.possessionClubId=undefined;
+const handCandidate=state.away.players.find(p=>p.onPitch&&!p.sentOff&&p.role!=='goalkeeper'&&p.role!=='sweeperKeeper')??awayLive;
+handCandidate.currentIntent='holdShape';
+state.ball.position={...handCandidate.position};
+state.ball.height=1.05;
+state.ball.velocity={x:12,y:0};
+const sequence=[.95,.95,.9,.1,0,.5,.5,.5,.5,.5,.5];let cursor=0;
+const rng=()=>sequence[cursor++]??.5;
+const handled=maybeResolveHandball(state,home,away,rng);
+if(!handled||!state.restart)throw new Error('Deterministic punishable handball did not create a restart');
+if(state.restart.clubId===handCandidate.clubId)throw new Error('Handball restart was awarded to offending club');
+if(state.restart.type!=='freeKick'&&state.restart.type!=='penalty')throw new Error(`Illegal handball restart type: ${state.restart.type}`);
+console.log(`[smoke-context] ${weather.condition} ${weather.temperature}C · pressure=${Math.round(effects.homePressure)}/${Math.round(effects.awayPressure)} · advantage=freeKick · handball=${state.restart.type} · OK`);
