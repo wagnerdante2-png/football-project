@@ -1,7 +1,7 @@
 import type { Player, Position, World } from './engine';
 import { registerPlayerProfile, addEligibility } from './player-profile-v2';
 
-export type PublicDataSource='openfootball-players'|'world-cup-player-tracker-2026'|'worldcup2026-fifa-snapshot'|'manual-public-fact';
+export type PublicDataSource='openfootball-players'|'wikidata-membership'|'world-cup-player-tracker-2026'|'worldcup2026-fifa-snapshot'|'manual-public-fact';
 export type PersonProvenance={source:PublicDataSource;sourceId?:string;snapshotDate:string;license:'CC0'|'public-fact-reference'|'unknown';confidence:number;url?:string};
 export type RealPlayerSeed={id?:string;name:string;dateOfBirth?:string;age?:number;heightCm?:number;position:Position;secondaryPositions?:Position[];nationalityCountryIds:string[];birthCountryId?:string;clubId?:string;nationalTeamId?:string;shirtNumber?:number;captain?:boolean;currentAbility?:number;potentialAbility?:number;provenance:PersonProvenance[]};
 export type ImportedRealPlayer={player:Player;provenance:PersonProvenance[];realWorld:true;dateOfBirth?:string;heightCm?:number;secondaryPositions:Position[];nationalTeamId?:string;shirtNumber?:number;captain:boolean};
