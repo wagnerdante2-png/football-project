@@ -25,6 +25,7 @@ if(players.length<30000)throw new Error(`Expected broad global population, got $
 const world=createBrazilRealWorld2026();
 ensureActiveWorldFootballFoundation(world);
 const started=Date.now(),report=loadPublicPeople2026(world,{players,staff,manifest}),elapsed=Date.now()-started;
+if(elapsed>60000)throw new Error(`Global population hydration exceeded 60s budget: ${elapsed}ms for ${players.length} players`);
 const real=realPlayersV2(world),ids=real.map(x=>x.id),identityKeys=real.map(x=>x.identityKey);
 if(new Set(ids).size!==ids.length)throw new Error('Duplicate persistent IDs after loading licensed bundle');
 if(new Set(identityKeys).size!==identityKeys.length)throw new Error('Duplicate identity keys after loading licensed bundle');
