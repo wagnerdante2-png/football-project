@@ -77,7 +77,7 @@ for(const [key,{text,file}] of byModule){
 }
 rng.sort((a,b)=>b.count-a.count||a.file.localeCompare(b.file));
 const rngCalls=rng.reduce((a,x)=>a+x.count,0);
-const maxDirectRandomCalls=39;
+const maxDirectRandomCalls=30;
 const snapshotWithoutRestore=[...snapshots].filter(x=>!restores.has(x)).sort();
 const restoreWithoutSnapshot=[...restores].filter(x=>!snapshots.has(x)).sort();
 
