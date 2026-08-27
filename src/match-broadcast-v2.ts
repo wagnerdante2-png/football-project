@@ -2,6 +2,7 @@ import type { Club } from './engine';
 import type { MatchCoreState, Vec2 } from './match-core-v2';
 import { matchActionMap } from './match-action-map-v2';
 import { matchEventLedger } from './match-event-ledger-v2';
+import { lifecycleEvents } from './match-lifecycle-v2';
 
 export type BroadcastActionType='kickoff'|'receive'|'pass'|'progressivePass'|'throughBall'|'switchPlay'|'longBall'|'cross'|'carry'|'dribble'|'press'|'tackle'|'intercept'|'foul'|'shot'|'save'|'goal'|'frameHit'|'turnover'|'assist'|'restart'|'fulltime';
 export type BroadcastAction={second:number;type:BroadcastActionType;clubId?:string;playerId?:string;targetPlayerId?:string;from?:Vec2;to?:Vec2;position?:Vec2;success?:boolean;value?:number;detail?:string};
@@ -16,6 +17,10 @@ const normalizeChoice=(choice:string):BroadcastActionType|undefined=>({shortPass
  */
 export function buildMatchBroadcastTape(state:MatchCoreState,home:Club,away:Club):MatchBroadcastTape{
   const actions:BroadcastAction[]=[];
+  for(const event of lifecycleEvents(state)){
+    const type:BroadcastActionType=event.type==='kickoff'?'kickoff':event.type==='fulltimeWhistle'?'fulltime':'restart';
+    actions.push({second:event.second,type,clubId:event.clubId,position:event.type==='kickoff'||event.type==='secondHalfKickoff'||event.type==='extraTimeKickoff'||event.type==='extraTimeSecondKickoff'?{x:state.pitch.length/2,y:state.pitch.width/2}:undefined,detail:event.text});
+  }
   const raw=state as any;
   const decisions=Array.isArray(raw.__decisionTrace)?raw.__decisionTrace as any[]:[];
   for(const row of decisions){
@@ -37,7 +42,7 @@ export function buildMatchBroadcastTape(state:MatchCoreState,home:Club,away:Club
   }
   actions.sort((a,b)=>a.second-b.second||order(a.type)-order(b.type));
   const deduped:BroadcastAction[]=[];
-  for(const a of actions){const prev=deduped.at(-1);if(prev&&Math.abs(prev.second-a.second)<.01&&prev.type===a.type&&prev.playerId===a.playerId)continue;deduped.push(a)}
+  for(const a of actions){const prev=deduped.at(-1);if(prev&&Math.abs(prev.second-a.second)<.01&&prev.type===a.type&&prev.playerId===a.playerId&&prev.detail===a.detail)continue;deduped.push(a)}
   return{version:2,pitch:{length:state.pitch.length,width:state.pitch.width},homeClubId:home.id,awayClubId:away.id,actions:deduped};
 }
-function order(t:BroadcastActionType){return t==='receive'?1:['pass','progressivePass','throughBall','switchPlay','longBall','cross','carry','dribble'].includes(t)?2:['press','tackle','intercept','foul','turnover'].includes(t)?3:t==='assist'?4:t==='shot'?5:t==='frameHit'||t==='save'?6:t==='goal'?7:8}
+function order(t:BroadcastActionType){return t==='kickoff'||t==='restart'?0:t==='receive'?1:['pass','progressivePass','throughBall','switchPlay','longBall','cross','carry','dribble'].includes(t)?2:['press','tackle','intercept','foul','turnover'].includes(t)?3:t==='assist'?4:t==='shot'?5:t==='frameHit'||t==='save'?6:t==='goal'?7:t==='fulltime'?9:8}
