@@ -55,6 +55,15 @@
 .tl-interaction-scene b{display:block;font-size:clamp(18px,2.3vw,28px);font-weight:760;letter-spacing:-.015em}
 .tl-interaction-scene small{display:block;margin-top:7px;font-size:11px;line-height:1.45;opacity:.55;max-width:68ch}
 
+/* A decision should leave a visible trace before the player returns to routine. */
+.tl-decision-outcome{position:fixed;right:22px;top:86px;z-index:138;width:min(390px,calc(100% - 44px));padding:14px 17px 15px;border:1px solid rgba(255,255,255,.1);border-left:2px solid rgba(255,255,255,.28);background:rgba(11,15,22,.96);box-shadow:0 16px 42px rgba(0,0,0,.28);opacity:0;transform:translate3d(12px,0,0);pointer-events:none;transition:opacity var(--tl-motion-base) ease,transform var(--tl-motion-base) var(--tl-motion-ease);}
+.tl-decision-outcome.is-visible{opacity:1;transform:none}
+.tl-decision-outcome.is-leaving{opacity:0;transform:translate3d(8px,-3px,0)}
+.tl-decision-outcome span{display:block;font-size:9px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;opacity:.48;margin-bottom:6px}
+.tl-decision-outcome b{display:block;font-size:12px;line-height:1.45;font-weight:650;letter-spacing:.005em}
+.tl-decision-outcome.tone-positive{border-left-color:rgba(255,255,255,.46)}
+.tl-decision-outcome.tone-negative{border-left-style:dashed;border-left-color:rgba(255,255,255,.2)}
+
 .tl-date-pulse{animation:tl-date-pulse 420ms var(--tl-motion-ease);}
 @keyframes tl-date-pulse{0%{opacity:.45;transform:translateY(2px)}45%{opacity:1;transform:translateY(-1px)}100%{transform:none}}
 
@@ -102,7 +111,7 @@
 .tl-matchday-moment.result-vitória .tl-matchday-copy{box-shadow:inset 0 2px 0 rgba(255,255,255,.22)}
 .tl-matchday-moment.result-derrota .tl-matchday-copy{box-shadow:inset 0 2px 0 rgba(255,255,255,.08)}
 
-@media (max-width:700px){.tl-matchday-pair{gap:10px}.tl-matchday-pair b{font-size:18px}.tl-matchday-copy{padding-inline:16px}.tl-interaction-scene>div{width:calc(100% - 36px);padding:18px 20px}}
+@media (max-width:700px){.tl-matchday-pair{gap:10px}.tl-matchday-pair b{font-size:18px}.tl-matchday-copy{padding-inline:16px}.tl-interaction-scene>div{width:calc(100% - 36px);padding:18px 20px}.tl-decision-outcome{right:14px;top:72px;width:calc(100% - 28px)}}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
   .tl-advance-layer,.tl-career-moment,.tl-matchday-moment,.tl-interaction-scene{backdrop-filter:none}
