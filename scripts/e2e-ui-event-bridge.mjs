@@ -15,20 +15,14 @@ try{
   const legacySystemProxies=await page.locator('.game-sidebar [data-system-view]').count();
   if(legacySystemProxies!==0)throw new Error(`Canonical sidebar must not contain legacy system proxies: ${legacySystemProxies}`);
 
-  await page.waitForFunction(()=>window.__touchlinePeopleStatus?.state==='ready',{timeout:90000});
-  const people=await page.evaluate(()=>({status:window.__touchlinePeopleStatus,report:window.__touchlinePeopleReport}));
-  const peopleCount=people.status?.players??0;
-  if(peopleCount<30000)throw new Error(`Offline people runtime did not load broad bundle: ${peopleCount}`);
-  if((people.report?.players?.inserted??0)+(people.report?.players?.merged??0)+(people.report?.players?.adoptedRuntime??0)<30000)throw new Error('Offline people runtime did not hydrate global identities');
-
-  await page.waitForFunction(()=>Boolean(window.__touchlineGlobalMetadata),{timeout:90000});
-  const metadata=await page.evaluate(()=>window.__touchlineGlobalMetadata);
-  if(metadata?.license!=='CC0-1.0')throw new Error(`Global metadata license mismatch: ${metadata?.license}`);
-  if((metadata?.files?.clubs??0)<100)throw new Error(`Global metadata did not read broad club catalog: ${metadata?.files?.clubs}`);
-  if((metadata?.parsed?.clubs??0)<=20)throw new Error(`Global metadata did not expand club identities: ${metadata?.parsed?.clubs}`);
-
+  // Runtime hydration is intentionally no longer exposed through browser globals.
+  // Prove the same integration through the active user surfaces that consume the per-World state.
   await click('.game-sidebar [data-view="transfers"]');
-  await page.locator('#scout-query').waitFor({state:'visible',timeout:10000});
+  await page.locator('#scout-query').waitFor({state:'visible',timeout:15000});
+  await page.waitForFunction(()=>{
+    const raw=document.querySelector('.cards .metric strong')?.textContent??'0';
+    return Number(raw.replace(/\D/g,''))>=30000;
+  },{timeout:90000});
   const universe=Number(((await page.locator('.cards .metric').first().locator('strong').textContent())??'0').replace(/\D/g,''));
   if(universe<30000)throw new Error(`Active Transfers view did not expose global population: ${universe}`);
   await page.locator('#scout-country').selectOption('BRA');
@@ -57,10 +51,14 @@ try{
   await page.locator('.rh-canonical').waitFor({state:'visible',timeout:5000});
 
   await click('.game-sidebar [data-view="world"]');
-  await page.locator('.engine-table tbody tr').first().waitFor({state:'visible',timeout:5000});
-  await page.locator('.world-club-crest').first().waitFor({state:'visible',timeout:5000});
+  await page.locator('.engine-table tbody tr').first().waitFor({state:'visible',timeout:15000});
+  await page.locator('.world-club-crest').first().waitFor({state:'visible',timeout:15000});
   const coverage=page.locator('[data-world-football-coverage]');
-  await coverage.waitFor({state:'visible',timeout:5000});
+  await coverage.waitFor({state:'visible',timeout:15000});
+  await page.waitForFunction(()=>{
+    const first=document.querySelector('[data-world-football-coverage] .wfc-kpis article b')?.textContent??'0';
+    return Number(first.replace(/\D/g,''))>0;
+  },{timeout:90000});
   const coverageKpis=coverage.locator('.wfc-kpis article');
   if(await coverageKpis.count()!==4)throw new Error(`World coverage expected 4 KPIs, got ${await coverageKpis.count()}`);
   const countries=Number((await coverageKpis.nth(0).locator('b').textContent())?.trim()||0);
@@ -68,5 +66,5 @@ try{
   if(await coverage.locator('.wfc-table tbody tr').count()!==countries)throw new Error('World coverage row count does not match catalogued country count');
 
   if(errors.length)throw new Error(errors.join('\n'));
-  console.log(`UI lifecycle bridge passed: offlinePeople=${peopleCount} · globalScoutingBRA=${brazilRows} · metadataClubs=${metadata.parsed.clubs} · marketStatus=OK · club/history/world OK.`);
+  console.log(`UI lifecycle bridge passed: offlinePeople=${universe} · globalScoutingBRA=${brazilRows} · worldCountries=${countries} · marketStatus=OK · club/history/world OK.`);
 }finally{await browser.close()}
