@@ -4,6 +4,7 @@ import { negotiationState, type NegotiationCase, type LeakState } from './negoti
 import { economyState } from './economy';
 import { recruitmentWorkflowState } from './recruitment-workflow';
 import { emitWorldEvent } from './event-bus';
+import { worldRandom } from './world-core-v2';
 
 export type MedicalTimeline = {
   injuryId:string;
@@ -128,11 +129,11 @@ function processNegotiations(world:World,date:string):void{
     if(!hasPassed(date,t.nextActionDate))continue;
     const daysOpen=diffDays(date,t.openedDate);const patiencePressure=clamp((100-c.agent.patience)*.5+daysOpen*4,0,100);
     const leakChance=(c.agent.mediaUse/100)*.24+(daysOpen/20)*.16+(c.sentiment.buyerPressure+c.sentiment.sellerPressure)/1000;
-    if(Math.random()<leakChance&&c.leakState!=='public'){
+    if(worldRandom(world,'transfers',`${c.id}:${date}:leak`)<leakChance&&c.leakState!=='public'){
       c.leakState=nextLeak(c.leakState);t.publicEscalations++;
       emitWorldEvent(world,{type:'NegotiationLeaked',date,clubIds:[c.buyerClubId,...(c.sellerClubId?[c.sellerClubId]:[])],playerIds:[c.playerId],importance:c.leakState==='public'?4:3,summary:`Negociação por ${c.playerName} avançou para exposição ${c.leakState}.`,payload:{caseId:c.id,leakState:c.leakState,agent:c.agent.name}});
     }
-    if(patiencePressure>82&&Math.random()<.36){
+    if(patiencePressure>82&&worldRandom(world,'transfers',`${c.id}:${date}:ultimatum`)<.36){
       c.rounds.push({round:c.rounds.length+1,actor:'agent',action:'ultimatum',message:`${c.agent.name} exige avanço concreto nas próximas 48 horas.`,leverageBuyer:0,leverageSeller:0,playerInterest:0,leakState:c.leakState});
       t.deadlineDate=addDays(date,2);
       emitWorldEvent(world,{type:'NegotiationUpdated',date,clubIds:[c.buyerClubId,...(c.sellerClubId?[c.sellerClubId]:[])],playerIds:[c.playerId],importance:4,summary:`Agente de ${c.playerName} impôs ultimato.`,payload:{caseId:c.id,deadlineDate:t.deadlineDate}});
