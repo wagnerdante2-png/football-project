@@ -33,6 +33,7 @@ const reviewedHighRisk=new Map([
   ['engine-ui-bridge-v1:activeSystem','UI-only active panel selector; simulation state remains keyed by World.'],
   ['media-hub-v7:activeTab','UI-only selected media tab.'],
   ['game-ui-v2:rosterReport','UI hydration/report cache; canonical roster state lives in World-bound engines.'],
+  ['game-feel-v1:statusTimer','UI-only interval handle used to rotate advance-day status copy; it stores no career or simulation state.'],
   ['club-governance:last','Static surname source array populated during module initialization, not career state.'],
   ['domestic-club-runtime-bridge-v1:last','Static name/source array populated during module initialization.'],
   ['engine:lastNames','Static generated-player surname source array.'],
