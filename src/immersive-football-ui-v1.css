@@ -1,0 +1,84 @@
+:root{--iv-bg:#081015;--iv-panel:#0e181e;--iv-panel-2:#13212a;--iv-edge:rgba(201,226,236,.12);--iv-edge-strong:rgba(224,244,251,.2);--iv-glow:rgba(94,210,255,.18);--iv-red:#ed2446;--iv-green:#72e7a8;--iv-amber:#efbd59;--iv-blue:#58a7ff}
+.game-stage main.view.immersive-football-view{position:relative;isolation:isolate;background:radial-gradient(circle at 82% 8%,rgba(44,102,128,.12),transparent 25%),linear-gradient(180deg,#091116 0%,#081015 100%)}
+.game-stage main.view.immersive-football-view:before{content:"";position:fixed;pointer-events:none;inset:72px 0 0 200px;z-index:-2;background:linear-gradient(115deg,rgba(255,255,255,.018),transparent 28%),radial-gradient(circle at 50% 120%,rgba(34,118,162,.10),transparent 42%)}
+.immersive-football-view .view-hero,.immersive-football-view .media-hub-head,.immersive-football-view .tactics-head,.immersive-football-view>header{position:relative;overflow:hidden;border:1px solid var(--iv-edge);background:linear-gradient(145deg,rgba(18,31,39,.96),rgba(8,15,20,.96));box-shadow:0 18px 45px rgba(0,0,0,.24),inset 0 1px rgba(255,255,255,.04);padding:22px 26px!important;border-radius:16px}
+.immersive-football-view .immersive-header-shine{position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 0 48%,rgba(255,255,255,.035) 50%,transparent 52%);transform:translateX(-65%);animation:iv-shine 9s ease-in-out infinite}
+@keyframes iv-shine{0%,70%{transform:translateX(-65%)}88%,100%{transform:translateX(75%)}}
+.immersive-view-symbol{position:absolute;right:28px;top:50%;width:112px;height:112px;transform:translateY(-50%) rotate(-6deg);display:grid;place-items:center;border-radius:28px;background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.08);box-shadow:0 18px 35px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.06);opacity:.9}
+.immersive-view-symbol svg{width:58px;height:58px;fill:none;stroke:var(--club-accent,#dce8ee);stroke-width:3;filter:drop-shadow(0 7px 14px rgba(0,0,0,.45))}
+.immersive-surface,.immersive-football-view .glass,.immersive-football-view .engine-table,.immersive-football-view .daily-feed,.immersive-football-view .media-side{border:1px solid var(--iv-edge)!important;background:linear-gradient(145deg,rgba(19,32,40,.95),rgba(10,18,23,.96))!important;box-shadow:0 16px 38px rgba(0,0,0,.2),inset 0 1px rgba(255,255,255,.025)!important;border-radius:14px!important}
+.immersive-football-view button,.immersive-football-view select,.immersive-football-view input{transition:.18s ease!important}
+.immersive-football-view button:hover{transform:translateY(-1px);filter:brightness(1.08)}
+.immersive-football-view select,.immersive-football-view input{appearance:none;background:linear-gradient(180deg,#15232b,#0d171d)!important;border:1px solid rgba(211,235,244,.14)!important;color:#edf7fa!important;border-radius:10px!important;box-shadow:inset 0 1px rgba(255,255,255,.035),0 7px 16px rgba(0,0,0,.12)}
+.immersive-football-view table tbody tr{transition:background .16s ease,transform .16s ease,box-shadow .16s ease}.immersive-football-view table tbody tr:hover{background:rgba(86,171,211,.055)!important;box-shadow:inset 3px 0 var(--club-accent,#58a7ff)}
+
+/* mídia: redação + sala de coletiva + jornal */
+.immersive-football-view[data-immersive-view="media"]{background:radial-gradient(circle at 72% 10%,rgba(205,31,54,.12),transparent 25%),linear-gradient(180deg,#090f13,#071015)}
+[data-immersive-view="media"] .media-daily-grid{gap:18px!important}
+[data-immersive-view="media"] .daily-feed{position:relative;overflow:hidden;background:linear-gradient(160deg,#111c23,#0a1217)!important}
+[data-immersive-view="media"] .daily-feed:before{content:"SPORTS NEWSROOM";position:absolute;right:18px;top:10px;font-size:8px;letter-spacing:.22em;color:rgba(255,255,255,.18)}
+[data-immersive-view="media"] .daily-story{grid-template-columns:78px 1fr auto!important;padding:18px!important;background:linear-gradient(90deg,transparent,rgba(255,255,255,.012));position:relative}
+[data-immersive-view="media"] .daily-story:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(var(--iv-red),transparent);opacity:.45}
+[data-immersive-view="media"] .press-room-stage{min-height:520px!important;border-radius:16px!important;background:linear-gradient(180deg,rgba(7,13,17,.18),#081014 70%),repeating-linear-gradient(90deg,#15242c 0 155px,#111d24 155px 310px)!important;box-shadow:inset 0 -90px 120px rgba(0,0,0,.45),0 22px 55px rgba(0,0,0,.3)!important;perspective:1100px}
+[data-immersive-view="media"] .press-room-stage:before{height:170px!important;background:repeating-linear-gradient(90deg,color-mix(in srgb,var(--club-primary,#8b1124) 72%,#101820) 0 125px,#17242b 125px 250px)!important;box-shadow:inset 0 -24px 40px rgba(0,0,0,.3)}
+[data-immersive-view="media"] .press-room-stage:after{content:"";position:absolute;left:12%;right:12%;bottom:0;height:70px;background:linear-gradient(180deg,#1b2429,#080d10);clip-path:polygon(7% 0,93% 0,100% 100%,0 100%);box-shadow:0 -12px 30px rgba(0,0,0,.3)}
+[data-immersive-view="media"] .press-beta{border-radius:16px!important;box-shadow:0 25px 55px rgba(0,0,0,.32)!important}
+[data-immersive-view="media"] .newspaper-stage{background:linear-gradient(135deg,#e6dfcb,#cfc5a9)!important;border:0!important;border-radius:8px!important;box-shadow:0 24px 55px rgba(0,0,0,.34),inset 0 0 0 1px rgba(70,55,30,.22)!important;transform:perspective(1100px) rotateX(.7deg);color:#1c1b18}
+[data-immersive-view="media"] .media-side{background:linear-gradient(180deg,#111e25,#0b151a)!important}
+
+/* elenco: cartões e sensação de vestiário */
+[data-immersive-view="squad"]{background:radial-gradient(circle at 78% 6%,rgba(38,113,78,.14),transparent 28%),linear-gradient(180deg,#091317,#081015)!important}
+[data-immersive-view="squad"] .engine-table{overflow:hidden}
+[data-immersive-view="squad"] tbody tr{background:linear-gradient(90deg,rgba(255,255,255,.012),transparent 55%)}
+[data-immersive-view="squad"] tbody tr td:first-child,[data-immersive-view="squad"] tbody tr td:nth-child(2){position:relative}
+[data-immersive-view="squad"] tbody tr td:nth-child(2):before{content:"";display:inline-block;width:8px;height:34px;border-radius:5px;margin-right:10px;vertical-align:middle;background:linear-gradient(var(--club-accent,#72e7a8),color-mix(in srgb,var(--club-primary,#14392c) 70%,#000));box-shadow:0 0 14px color-mix(in srgb,var(--club-accent,#72e7a8) 35%,transparent)}
+[data-immersive-view="squad"] .engine-metrics .glass{min-height:88px;display:flex;flex-direction:column;justify-content:center}
+
+/* treino: centro de performance */
+[data-immersive-view="training"]{background:radial-gradient(circle at 80% 8%,rgba(69,181,133,.12),transparent 25%),linear-gradient(180deg,#091314,#071013)!important}
+[data-immersive-view="training"] .training-v2-summary article,[data-immersive-view="training"] .training-card{position:relative;overflow:hidden;border-radius:16px!important;background:linear-gradient(145deg,#13221f,#0b1515)!important;box-shadow:0 14px 30px rgba(0,0,0,.21)!important}
+[data-immersive-view="training"] .training-v2-summary article:after{content:"";position:absolute;width:80px;height:80px;right:-22px;bottom:-30px;border-radius:50%;border:16px solid rgba(114,231,168,.04)}
+[data-immersive-view="training"] .training-v2-presets button{min-height:104px!important;background:linear-gradient(180deg,#111c1c,#0b1415)!important;position:relative;overflow:hidden}
+[data-immersive-view="training"] .training-v2-presets button.active{background:linear-gradient(180deg,rgba(83,179,128,.22),rgba(28,74,51,.18))!important;box-shadow:inset 0 -3px var(--iv-green),inset 0 1px rgba(255,255,255,.05)!important}
+.training-glyph{display:block;font-size:19px;color:var(--iv-green);font-style:normal;margin-bottom:8px;filter:drop-shadow(0 5px 8px rgba(57,219,139,.17))}
+[data-immersive-view="training"] .training-individual{border-radius:16px!important;overflow:hidden;box-shadow:0 20px 48px rgba(0,0,0,.25)}
+
+/* calendário: broadcast esportivo */
+[data-immersive-view="calendar"]{background:radial-gradient(circle at 78% 8%,rgba(35,99,172,.15),transparent 27%),linear-gradient(180deg,#081117,#071016)!important}
+[data-immersive-view="calendar"] .broadcast-fixture,[data-immersive-view="calendar"] .calendar-match{border-radius:12px!important;box-shadow:0 14px 28px rgba(0,0,0,.18);background:linear-gradient(135deg,rgba(23,42,53,.96),rgba(10,19,25,.96))!important}
+[data-immersive-view="calendar"] .broadcast-fixture:hover{box-shadow:0 18px 38px rgba(0,0,0,.26),inset 0 0 0 1px rgba(88,167,255,.17)}
+[data-immersive-view="calendar"] [class*="next"],[data-immersive-view="calendar"] [class*="hero"]{background:linear-gradient(120deg,#0d1a24,#102b3c 55%,#09131a)!important;box-shadow:0 22px 50px rgba(0,0,0,.3),inset 0 1px rgba(255,255,255,.045)!important;border-radius:16px!important}
+[data-immersive-view="calendar"] [class*="next"]:before{content:"MATCHDAY";position:absolute;right:24px;top:18px;font-size:9px;letter-spacing:.2em;color:rgba(117,186,255,.42)}
+
+/* departamento médico */
+[data-immersive-view="medical"]{background:radial-gradient(circle at 80% 8%,rgba(27,179,156,.12),transparent 28%),linear-gradient(180deg,#081316,#071014)!important}
+[data-immersive-view="medical"] .engine-metrics .glass{position:relative;overflow:hidden;background:linear-gradient(145deg,#102327,#0a171a)!important}
+[data-immersive-view="medical"] .engine-metrics .glass:after{content:"+";position:absolute;right:12px;bottom:-16px;font-size:74px;font-weight:900;color:rgba(80,225,205,.035)}
+[data-immersive-view="medical"] tbody tr.risk-low{box-shadow:inset 3px 0 #4bcf93}[data-immersive-view="medical"] tbody tr.risk-mid{box-shadow:inset 3px 0 #e7ba5e}[data-immersive-view="medical"] tbody tr.risk-high{box-shadow:inset 3px 0 #e45867}
+[data-immersive-view="medical"] .medical-detail,[data-immersive-view="medical"] aside{background:linear-gradient(160deg,#122329,#0b1519)!important;border-radius:16px!important;box-shadow:0 18px 38px rgba(0,0,0,.24)}
+
+/* scouting / transferências: radar + semáforo neon */
+[data-immersive-view="scouting"]{background:radial-gradient(circle at 78% 9%,rgba(32,206,146,.12),transparent 25%),linear-gradient(180deg,#071115,#071014)!important}
+[data-immersive-view="scouting"] .engine-metrics .glass{background:linear-gradient(145deg,#112029,#0a151a)!important}
+[data-immersive-view="scouting"] tbody tr{position:relative}
+[data-immersive-view="scouting"] tbody tr:after{content:"";position:absolute;right:10px;top:50%;width:9px;height:9px;transform:translateY(-50%);border-radius:50%;background:#52616a;box-shadow:0 0 10px rgba(82,97,106,.35)}
+[data-immersive-view="scouting"] tbody tr[data-market-signal="green"]:after{background:#67f0a9;box-shadow:0 0 14px rgba(103,240,169,.75),0 0 28px rgba(103,240,169,.28)}
+[data-immersive-view="scouting"] tbody tr[data-market-signal="amber"]:after{background:#ffc75a;box-shadow:0 0 14px rgba(255,199,90,.72),0 0 28px rgba(255,199,90,.25)}
+[data-immersive-view="scouting"] tbody tr[data-market-signal="red"]:after{background:#ff5d72;box-shadow:0 0 14px rgba(255,93,114,.72),0 0 28px rgba(255,93,114,.25)}
+[data-immersive-view="scouting"] .scouting-report{border-radius:16px!important;background:linear-gradient(150deg,#142129,#0b151a)!important;box-shadow:0 22px 46px rgba(0,0,0,.26)!important}
+
+/* comissão técnica: war room */
+[data-immersive-view="staff"]{background:radial-gradient(circle at 80% 7%,rgba(78,130,193,.13),transparent 28%),linear-gradient(180deg,#081117,#071016)!important}
+[data-immersive-view="staff"] .engine-metrics{grid-template-columns:repeat(4,1fr)!important;gap:12px!important}
+[data-immersive-view="staff"] .engine-metrics .glass{background:linear-gradient(145deg,#12202a,#0b151c)!important;min-height:92px}
+[data-immersive-view="staff"] tbody tr td:first-child{display:flex;align-items:center;gap:10px}
+.staff-persona{flex:0 0 36px;width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(145deg,#35566b,#172b37);border:1px solid rgba(255,255,255,.14);color:#eef7fb;font-size:10px;font-weight:900;box-shadow:0 8px 18px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.05)}
+[data-immersive-view="staff"] tbody tr:hover .staff-persona{box-shadow:0 0 0 1px rgba(99,180,255,.22),0 10px 22px rgba(0,0,0,.3)}
+
+/* inbox mais próximo de central de decisões */
+[data-immersive-view="inbox"]{background:radial-gradient(circle at 76% 8%,rgba(67,102,134,.13),transparent 26%),linear-gradient(180deg,#081117,#071016)!important}
+[data-immersive-view="inbox"] [class*="inbox"],[data-immersive-view="inbox"] .glass{border-radius:14px!important}
+[data-immersive-view="inbox"] [class*="message"]:hover{background:linear-gradient(90deg,rgba(88,167,255,.07),transparent)!important}
+
+@media(max-width:980px){.immersive-view-symbol{width:78px;height:78px;right:15px}.immersive-view-symbol svg{width:42px;height:42px}.immersive-football-view .view-hero,.immersive-football-view .media-hub-head{padding-right:105px!important}[data-immersive-view="staff"] .engine-metrics{grid-template-columns:1fr 1fr!important}}
+@media(prefers-reduced-motion:reduce){.immersive-header-shine{animation:none!important}.immersive-football-view *{scroll-behavior:auto!important}}
