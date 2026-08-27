@@ -14,8 +14,8 @@ permissions:
   contents: read
 
 concurrency:
-  group: windows-portable-beta
-  cancel-in-progress: true
+  group: windows-portable-beta-${{ github.event_name }}
+  cancel-in-progress: false
 
 jobs:
   portable:
