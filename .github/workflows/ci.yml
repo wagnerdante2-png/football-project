@@ -38,6 +38,8 @@ jobs:
         run: npm run smoke:match-causality
       - name: Smoke match history save roundtrip
         run: npm run smoke:save-match-history
+      - name: Smoke institution runtime save roundtrip
+        run: npm run smoke:save-institution
       - name: Smoke isolated match context
         run: npm run smoke:context
       - name: Smoke commercial matchday idempotency
