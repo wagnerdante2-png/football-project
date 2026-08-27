@@ -18,7 +18,7 @@ assert(beforeArchive.length===1,'Completed match was not archived before save');
 assert(beforeHome?.played===1&&beforeAway?.played===1,'Club season history missing before save');
 
 const snapshot=createSaveSnapshot(world);
-assert(snapshot.schemaVersion===16,'Central save schema did not advance to V16');
+assert(snapshot.schemaVersion>=16,'Central save schema regressed below match-history support');
 assert(snapshot.matchHistory.matches.length===beforeArchive.length,'Central save omitted match archive');
 const restored=restoreSave(serializeSave(world));
 const afterArchive=matchArchive(restored);
@@ -29,12 +29,18 @@ assert(afterArchive[0]?.homeGoals===state.home.score&&afterArchive[0]?.awayGoals
 assert(afterHome?.played===beforeHome.played&&afterHome.goalsFor===beforeHome.goalsFor&&afterHome.goalsAgainst===beforeHome.goalsAgainst,'Home season history changed after central save/load');
 assert(afterAway?.played===beforeAway.played&&afterAway.goalsFor===beforeAway.goalsFor&&afterAway.goalsAgainst===beforeAway.goalsAgainst,'Away season history changed after central save/load');
 
-// Backward compatibility: V15 saves must remain loadable even though they cannot contain the new match-history state.
+// Backward compatibility: V15 saves must remain loadable even though they cannot contain the later match-history state.
 const legacy:any=createSaveSnapshot(world);
 legacy.schemaVersion=15;
 delete legacy.matchHistory;
+delete legacy.clubGovernance;
+delete legacy.clubAssets;
+delete legacy.commercial;
+delete legacy.staffCareer;
+delete legacy.humanVoices;
+delete legacy.realWorldPeople;
 const legacyWorld=restoreSave(JSON.stringify(legacy));
 assert(legacyWorld.season===world.season,'V15 compatibility restore failed');
 assert(matchArchive(legacyWorld).length===0,'V15 restore unexpectedly invented match history');
 
-console.log(`[smoke-save-match-history] ${home.name} ${state.home.score}-${state.away.score} ${away.name} · archive=${afterArchive.length} · baseV16=OK · v15-compat=OK`);
+console.log(`[smoke-save-match-history] ${home.name} ${state.home.score}-${state.away.score} ${away.name} · archive=${afterArchive.length} · schemaV${snapshot.schemaVersion}=OK · v15-compat=OK`);
