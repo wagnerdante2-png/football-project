@@ -1,4 +1,6 @@
-const esc=(v:unknown)=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]!));
+import type { MatchStory, MatchStoryAction } from './matchday-story-v1';
+
+const speakers=new WeakMap<HTMLElement,(copy:string,tone?:string)=>void>();
 
 function narratorTone(type:string){
   const t=type.toLowerCase();
@@ -33,8 +35,7 @@ function ensureBar(center:HTMLElement){
   bar.className='md-narrator-bar neutral';
   bar.setAttribute('aria-live','polite');
   bar.innerHTML='<div class="md-narrator-badge"><span>AO VIVO</span><b>NARRAÇÃO</b></div><div class="md-narrator-copy"><p data-narrator-current>A bola vai rolar.</p><small data-narrator-previous>O narrador acompanha cada mudança importante da partida.</small></div><div class="md-narrator-pulse" aria-hidden="true"><i></i><i></i><i></i><i></i></div>';
-  const stage=center.querySelector('.md-live-stage');
-  stage?.insertAdjacentElement('afterend',bar);
+  center.querySelector('.md-live-stage')?.insertAdjacentElement('afterend',bar);
   return bar;
 }
 
@@ -46,27 +47,20 @@ function bindCenter(center:HTMLElement){
   const minute=center.querySelector<HTMLElement>('[data-replay-minute]')??center.querySelector<HTMLElement>('[data-live-clock]');
   if(!type||!text)return;
   center.dataset.narratorBound='1';
-  const bar=ensureBar(center);
-  const current=bar.querySelector<HTMLElement>('[data-narrator-current]')!;
-  const previous=bar.querySelector<HTMLElement>('[data-narrator-previous]')!;
+  const bar=ensureBar(center),current=bar.querySelector<HTMLElement>('[data-narrator-current]')!,previous=bar.querySelector<HTMLElement>('[data-narrator-previous]')!;
   let last='';
-  const update=()=>{
-    const eventType=(type.textContent??'PARTIDA').trim().toUpperCase();
-    const narration=enrich(eventType,(headline?.textContent??'').trim(),(text.textContent??'').trim(),(minute?.textContent??'').trim(),text.dataset.liveNarration);
-    if(!narration||narration===last)return;
-    if(last)previous.textContent=last;
-    last=narration;
-    current.textContent=narration;
-    bar.className=`md-narrator-bar ${narratorTone(eventType)}`;
-    bar.classList.remove('is-speaking');
-    void bar.offsetWidth;
-    bar.classList.add('is-speaking');
-  };
+  const speak=(copy:string,tone='neutral')=>{if(!copy||copy===last)return;if(last)previous.textContent=last;last=copy;current.textContent=copy;bar.className=`md-narrator-bar ${tone}`;bar.classList.remove('is-speaking');void bar.offsetWidth;bar.classList.add('is-speaking')};
+  speakers.set(center,speak);
+  const update=()=>{const eventType=(type.textContent??'PARTIDA').trim().toUpperCase();speak(enrich(eventType,(headline?.textContent??'').trim(),(text.textContent??'').trim(),(minute?.textContent??'').trim(),text.dataset.liveNarration),narratorTone(eventType))};
   const observer=new MutationObserver(update);
   [type,headline,minute].filter(Boolean).forEach(node=>observer.observe(node!,{subtree:true,childList:true,characterData:true}));
   observer.observe(text,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['data-live-narration']});
   update();
 }
+
+function actionCopy(story:MatchStory,action:MatchStoryAction,index:number,total:number){const minute=`${story.event.minute}'`;const beat=action.label.trim();if(action.type==='goal')return`${minute} · ${beat} GOOOOOL!`;if(action.type==='shot')return`${minute} · ${beat} Vai a finalização!`;if(action.type==='cross')return`${minute} · ${beat} Bola na área!`;if(action.type==='through')return`${minute} · ${beat} A defesa precisa correr para trás.`;if(action.type==='save')return`${minute} · ${beat} O goleiro segura a equipe.`;return`${minute} · ${beat}${index===total-1?'':' A jogada continua...'}`}
+
+document.addEventListener('touchline:match-action',e=>{const detail=(e as CustomEvent<{center:HTMLElement;story:MatchStory;action:MatchStoryAction;index:number;total:number}>).detail;if(!detail?.center)return;const speak=speakers.get(detail.center);if(!speak)return;speak(actionCopy(detail.story,detail.action,detail.index,detail.total),detail.action.type==='goal'?'goal':detail.action.type==='shot'||detail.action.type==='cross'||detail.action.type==='through'?'attack':detail.action.type==='save'?'save':'neutral')});
 
 function scan(root:ParentNode=document){root.querySelectorAll<HTMLElement>('.matchday-center').forEach(bindCenter)}
 const observer=new MutationObserver(records=>{for(const record of records)for(const node of record.addedNodes)if(node instanceof HTMLElement){if(node.matches('.matchday-center'))bindCenter(node);scan(node)}});
