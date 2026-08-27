@@ -13,6 +13,10 @@ function walk(dir){
 }
 walk(srcRoot);
 
+const HIDDEN_CALL_CEILING=64;
+const ALIAS_DEFINITION_CEILING=6;
+const FILES_WITH_ALIASES_CEILING=6;
+
 const escapeRegExp=value=>value.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
 const findings=[];
 
@@ -51,15 +55,21 @@ const hiddenCalls=findings.reduce((sum,item)=>sum+item.hiddenCalls,0);
 const filesWithAliases=new Set(findings.map(item=>item.file)).size;
 
 console.log('=== TOUCHLINE ALIASED RNG AUDIT ===');
-console.log(`Files with Math.random aliases/wrappers: ${filesWithAliases}`);
-console.log(`Alias definitions: ${findings.length}`);
-console.log(`Observed calls hidden behind aliases/wrappers: ${hiddenCalls}`);
+console.log(`Files with Math.random aliases/wrappers: ${filesWithAliases} (ceiling=${FILES_WITH_ALIASES_CEILING})`);
+console.log(`Alias definitions: ${findings.length} (ceiling=${ALIAS_DEFINITION_CEILING})`);
+console.log(`Observed calls hidden behind aliases/wrappers: ${hiddenCalls} (ceiling=${HIDDEN_CALL_CEILING})`);
 for(const item of findings)console.log(`  ${item.file}: ${item.alias} [${item.kind}] => ${item.hiddenCalls} call(s)`);
 if(!findings.length)console.log('  No aliased Math.random usage detected.');
 
-const report={generatedAt:new Date().toISOString(),filesWithAliases,aliasDefinitions:findings.length,hiddenCalls,findings};
+const report={generatedAt:new Date().toISOString(),ceilings:{filesWithAliases:FILES_WITH_ALIASES_CEILING,aliasDefinitions:ALIAS_DEFINITION_CEILING,hiddenCalls:HIDDEN_CALL_CEILING},filesWithAliases,aliasDefinitions:findings.length,hiddenCalls,findings};
 fs.mkdirSync(path.join(root,'tmp'),{recursive:true});
 fs.writeFileSync(path.join(root,'tmp/rng-alias-audit.json'),JSON.stringify(report,null,2));
 
-// Baseline discovery gate: this audit intentionally reports the current hidden debt first.
-// Once the baseline is observed in CI, a ceiling is ratcheted to that exact value so new debt fails.
+const regressions=[];
+if(filesWithAliases>FILES_WITH_ALIASES_CEILING)regressions.push(`files with aliases ${filesWithAliases} > ${FILES_WITH_ALIASES_CEILING}`);
+if(findings.length>ALIAS_DEFINITION_CEILING)regressions.push(`alias definitions ${findings.length} > ${ALIAS_DEFINITION_CEILING}`);
+if(hiddenCalls>HIDDEN_CALL_CEILING)regressions.push(`hidden calls ${hiddenCalls} > ${HIDDEN_CALL_CEILING}`);
+if(regressions.length){
+  console.error(`Aliased RNG regression detected: ${regressions.join('; ')}`);
+  process.exitCode=1;
+}else console.log('Aliased RNG debt is at or below the locked baseline.');
