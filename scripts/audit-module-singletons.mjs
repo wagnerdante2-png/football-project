@@ -32,6 +32,9 @@ const highRisk=candidates.filter(x=>x.mutations>0&&x.suspicious);
 const reviewedHighRisk=new Map([
   ['engine-ui-bridge-v1:activeSystem','UI-only active panel selector; simulation state remains keyed by World.'],
   ['media-hub-v7:activeTab','UI-only selected media tab.'],
+  ['manager-profile-experience-v2:activeTab','UI-only selected manager-profile subtab; it carries no manager or career simulation state.'],
+  ['continue-flow-v1:running','UI-only re-entrancy guard for Continue/Assumir Controle; canonical world progression remains in the World-bound daily engine.'],
+  ['immersive-football-ui-v1:queued','UI-only decoration scheduling/debounce flag; it contains no football or career state.'],
   ['game-ui-v2:rosterReport','UI hydration/report cache; canonical roster state lives in World-bound engines.'],
   ['game-feel-v1:statusTimer','UI-only interval handle used to rotate advance-day status copy; it stores no career or simulation state.'],
   ['club-governance:last','Static surname source array populated during module initialization, not career state.'],
