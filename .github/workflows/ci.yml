@@ -28,6 +28,8 @@ jobs:
         run: npm run audit:coverage
       - name: Audit ecosystem integration contracts
         run: npm run audit:ecosystem
+      - name: Audit match ecosystem contracts
+        run: npm run audit:match-ecosystem
       - name: Audit aliased random debt
         run: npm run audit:rng-aliases
       - name: Audit critical event causality
