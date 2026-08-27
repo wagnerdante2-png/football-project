@@ -40,6 +40,8 @@ jobs:
         run: npm run smoke:save-match-history
       - name: Smoke institution runtime save roundtrip
         run: npm run smoke:save-institution
+      - name: Smoke human voice and real-person save roundtrip
+        run: npm run smoke:save-human-state
       - name: Smoke isolated match context
         run: npm run smoke:context
       - name: Smoke commercial matchday idempotency
