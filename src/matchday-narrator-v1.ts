@@ -1,4 +1,4 @@
-const esc=(v:unknown)=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
+const esc=(v:unknown)=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]!));
 
 function narratorTone(type:string){
   const t=type.toLowerCase();
@@ -11,9 +11,10 @@ function narratorTone(type:string){
   return'neutral';
 }
 
-function enrich(type:string,headline:string,text:string,minute:string){
-  const who=headline&&headline.toLowerCase()!==type.toLowerCase()?headline:'';
+function enrich(type:string,headline:string,text:string,minute:string,story?:string){
   const m=minute?`${minute} · `:'';
+  if(story?.trim())return `${m}${story.trim()}`;
+  const who=headline&&headline.toLowerCase()!==type.toLowerCase()?headline:'';
   const clean=text.trim();
   if(type==='GOAL')return `${m}${who?`${who} aparece no momento decisivo! `:''}${clean||'É gol! A rede balança e o estádio explode.'}`;
   if(type==='SHOT')return `${m}${who?`${who} chega para finalizar. `:''}${clean||'A equipe encontra espaço e conclui a jogada.'}`;
@@ -51,7 +52,7 @@ function bindCenter(center:HTMLElement){
   let last='';
   const update=()=>{
     const eventType=(type.textContent??'PARTIDA').trim().toUpperCase();
-    const narration=enrich(eventType,(headline?.textContent??'').trim(),(text.textContent??'').trim(),(minute?.textContent??'').trim());
+    const narration=enrich(eventType,(headline?.textContent??'').trim(),(text.textContent??'').trim(),(minute?.textContent??'').trim(),text.dataset.liveNarration);
     if(!narration||narration===last)return;
     if(last)previous.textContent=last;
     last=narration;
@@ -62,7 +63,8 @@ function bindCenter(center:HTMLElement){
     bar.classList.add('is-speaking');
   };
   const observer=new MutationObserver(update);
-  [type,headline,text,minute].filter(Boolean).forEach(node=>observer.observe(node!,{subtree:true,childList:true,characterData:true}));
+  [type,headline,minute].filter(Boolean).forEach(node=>observer.observe(node!,{subtree:true,childList:true,characterData:true}));
+  observer.observe(text,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['data-live-narration']});
   update();
 }
 
