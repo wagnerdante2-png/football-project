@@ -28,6 +28,8 @@ jobs:
         run: npm run audit:coverage
       - name: Audit ecosystem integration contracts
         run: npm run audit:ecosystem
+      - name: Audit critical event causality
+        run: npm run audit:events
       - name: Audit browser-global state inventory
         run: node scripts/audit-global-state.mjs
       - name: Audit module singleton state inventory
