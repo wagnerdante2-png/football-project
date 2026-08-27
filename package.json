@@ -15,6 +15,7 @@
     "smoke:save-match-history": "tsx scripts/smoke-save-match-history.ts",
     "smoke:save-institution": "tsx scripts/smoke-save-institution-runtime.ts",
     "smoke:save-human-state": "tsx scripts/smoke-save-human-state.ts",
+    "smoke:world-isolation": "tsx scripts/smoke-world-isolation.ts",
     "smoke:context": "tsx scripts/smoke-match-context.ts",
     "profile:match": "tsx scripts/profile-active-match-distribution.ts",
     "smoke:foundation": "tsx scripts/smoke-world-foundation.ts",
