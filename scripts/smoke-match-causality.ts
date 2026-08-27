@@ -49,4 +49,10 @@ const archived=matchArchive(world).at(-1);
 assert(archived&&archived.homeGoals===state.home.score&&archived.awayGoals===state.away.score,'Season archive diverged from completed match');
 assert(clubSeasonStats(world,home.id)?.goalsFor===state.home.score,'Home season history did not consume match score');
 assert(clubSeasonStats(world,away.id)?.goalsFor===state.away.score,'Away season history did not consume match score');
-console.log(`[smoke-match-causality] ${home.name} ${state.home.score}-${state.away.score} ${away.name} · ledger goals=${goals.length} shots=${shots.length} · standings=OK · archive=OK · penalty accumulation=OK · history roundtrip=OK`);
+const playedBeforeDuplicate=afterHome.played,archiveBeforeDuplicate=matchArchive(world).length,homeConditionBefore=home.players.map(p=>p.condition);
+let duplicateBlocked=false;try{simulateFixtureV2(world,fixture,{competitionId:'league',date:'2026-07-25'})}catch{duplicateBlocked=true}
+assert(duplicateBlocked,'Completed fixture could be simulated twice');
+assert(world.standings[home.id].played===playedBeforeDuplicate,'Duplicate fixture attempt changed standings');
+assert(matchArchive(world).length===archiveBeforeDuplicate,'Duplicate fixture attempt changed season archive');
+assert(home.players.every((p,i)=>p.condition===homeConditionBefore[i]),'Duplicate fixture attempt changed player condition');
+console.log(`[smoke-match-causality] ${home.name} ${state.home.score}-${state.away.score} ${away.name} · ledger goals=${goals.length} shots=${shots.length} · standings=OK · archive=OK · duplicate=blocked · penalty accumulation=OK · history roundtrip=OK`);
