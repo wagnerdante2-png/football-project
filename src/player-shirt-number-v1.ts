@@ -1,0 +1,8 @@
+import type { Club, Player, Position } from './engine';
+
+const preferred:Record<Position,number[]>={GK:[1,12,22,23,30,31,40],RB:[2,13,21,24,32],CB:[3,4,5,14,15,25,33,34],LB:[6,16,26,36],DM:[5,6,8,15,18,25],CM:[8,10,14,16,18,20,24,28],AM:[10,8,11,20,21,30],RW:[7,11,17,19,27],LW:[11,7,17,19,27],ST:[9,10,18,19,20,29,30]};
+const hash=(s:string)=>{let h=2166136261;for(const c of s){h^=c.charCodeAt(0);h=Math.imul(h,16777619)}return h>>>0};
+function explicit(p:Player):number|undefined{const x=p as Player&{shirtNumber?:number;squadNumber?:number;jerseyNumber?:number};for(const n of[x.shirtNumber,x.squadNumber,x.jerseyNumber])if(Number.isInteger(n)&&Number(n)>0&&Number(n)<100)return Number(n)}
+export function clubShirtNumbers(club:Club):Map<string,number>{const out=new Map<string,number>(),used=new Set<number>();for(const p of club.players){const n=explicit(p);if(n&&!used.has(n)){out.set(p.id,n);used.add(n)}}for(const p of club.players.filter(x=>!out.has(x.id))){const candidates=[...preferred[p.position],...Array.from({length:99},(_,i)=>i+1)];const offset=hash(`${club.id}:${p.id}`)%Math.min(5,preferred[p.position].length);const ordered=[...candidates.slice(offset),...candidates.slice(0,offset)];const n=ordered.find(x=>!used.has(x))??Math.max(1,...used)+1;out.set(p.id,n);used.add(n)}return out}
+export function shirtNumber(club:Club,player:Player){return clubShirtNumbers(club).get(player.id)??1}
+export function playerMatchLabel(player:Player){const p=player as Player&{nickname?:string;shortName?:string};const nick=(p.nickname??p.shortName)?.trim();if(nick)return nick;const parts=player.name.trim().split(/\s+/);return parts.at(-1)??player.name}
