@@ -1,0 +1,12 @@
+.md-live-pitch{--md-flow-x:50%;--md-flow-y:50%}
+.md-live-pitch::marker{display:none}
+.md-continuity-trail{position:absolute;z-index:4;height:2px;transform-origin:0 50%;pointer-events:none;background:linear-gradient(90deg,rgba(255,255,255,.04),rgba(255,255,255,.22),rgba(255,255,255,0));filter:blur(.1px);animation:md-continuity-trail 760ms ease-out both}
+@keyframes md-continuity-trail{0%{opacity:0;scale:.72 1}22%{opacity:.56}100%{opacity:0;scale:1 1}}
+.md-live-pitch.md-continuity-beat::before{filter:brightness(1.03)}
+.md-live-player{will-change:left,top,transform}
+.md-ball{will-change:left,top,transform;box-shadow:0 0 0 2px rgba(0,0,0,.4),0 3px 8px rgba(0,0,0,.4),0 0 18px rgba(255,255,255,.12)}
+.md-live-player.actor::after{content:"";position:absolute;inset:-7px;border-radius:50%;border:1px solid rgba(255,255,255,.18);animation:md-actor-breathe 850ms ease-out both;pointer-events:none}
+@keyframes md-actor-breathe{0%{transform:scale(.72);opacity:0}35%{opacity:.55}100%{transform:scale(1.28);opacity:0}}
+.md-live-player.near-ball{transition:filter .18s ease,box-shadow .18s ease}
+.md-live-player.near-ball:not(.actor){box-shadow:0 0 0 2px rgba(255,255,255,.08),0 5px 12px rgba(0,0,0,.28)}
+@media(prefers-reduced-motion:reduce){.md-continuity-trail{display:none}.md-live-player.actor::after{animation:none;display:none}}
