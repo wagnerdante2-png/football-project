@@ -1,5 +1,6 @@
 import type { Position, Tactics, World } from './engine';
 import { managerProfile, setManagerCreationProfile, type ManagerAxis } from './manager-interactions';
+import { worldRandom } from './world-core-v2';
 
 export type ManagerGender='male'|'female'|'nonbinary'|'unspecified';
 export type EducationLevel='none'|'basic'|'secondary'|'technical'|'bachelor'|'postgraduate'|'masters'|'doctorate';
@@ -54,7 +55,7 @@ function reputationFromBackground(input:Pick<ManagerCharacter,'playingLevel'|'pl
 
 export type ManagerCreationInput=Omit<ManagerCharacter,'id'|'knowledge'|'reputation'|'experienceYears'|'careerPoints'|'history'> & {id?:string};
 export function createManagerCharacter(world:World,input:ManagerCreationInput,userControlled=true):ManagerCharacter{
-  const id=input.id??`manager-character-${Math.floor(Math.random()*1e9)}`;const experienceYears=input.playingCareer.reduce((s,e)=>s+Math.max(0,e.endYear-e.startYear),0)+input.staffCareer.reduce((s,e)=>s+Math.max(0,e.endYear-e.startYear),0);
+  const id=input.id??`manager-character-${Math.floor(worldRandom(world,'humanLife','manager-character-id')*1e9)}`;const experienceYears=input.playingCareer.reduce((s,e)=>s+Math.max(0,e.endYear-e.startYear),0)+input.staffCareer.reduce((s,e)=>s+Math.max(0,e.endYear-e.startYear),0);
   const knowledge=baseKnowledge({...input,education:input.education});const reputation=reputationFromBackground({...input,education:input.education});
   const character:ManagerCharacter={...input,id,knowledge,reputation,experienceYears,careerPoints:0,history:[{date:`${world.season}-07-25`,type:'careerStart',summary:`Início da carreira como treinador no clube ${input.currentClubId}.`}]} as ManagerCharacter;
   const s=managerCharacterState(world);s.characters.set(id,character);if(userControlled)s.userManagerId=id;
