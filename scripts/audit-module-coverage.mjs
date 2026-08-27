@@ -108,3 +108,9 @@ console.log(`\nDesktop entry exists: ${fs.existsSync(path.join(root,desktopMain)
 const report={generatedAt:new Date().toISOString(),sourceModules:srcSet.size,entrypoints:entries,reachable:[...reachable].sort(),unreachable,roots,actionable,engineLike,uiLike,diagnostics,legacy,gated,manual,supportOnly: supportOnly.sort(),other,referencedOnlyByUnreachable};
 fs.mkdirSync(path.join(root,'tmp'),{recursive:true});
 fs.writeFileSync(path.join(root,'tmp/module-coverage-audit.json'),JSON.stringify(report,null,2));
+
+// Runtime/domain/UI modules must never silently fall out of the active graph.
+// Diagnostics, explicitly superseded code, deliberately gated runtimes and manual
+// import utilities remain allowed only through the classified sets above.
+if(actionable.length)throw new Error(`Disconnected active module candidates: ${actionable.join(', ')}`);
+if(other.length)throw new Error(`Unclassified unreachable modules require review: ${other.join(', ')}`);
