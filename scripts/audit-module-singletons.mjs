@@ -25,11 +25,34 @@ for(const [key,{file,text}] of byModule){if(!active.has(key))continue;const sour
 }
 candidates.sort((a,b)=>(b.mutations-a.mutations)||(Number(b.suspicious)-Number(a.suspicious))||a.file.localeCompare(b.file)||a.line-b.line);
 const highRisk=candidates.filter(x=>x.mutations>0&&x.suspicious);
+
+// Explicitly reviewed module-scope mutables. These are UI-session state or static data arrays
+// populated during module initialization; none stores per-career simulation state. Any new
+// high-risk singleton must be reviewed and added here with a rationale, otherwise CI fails.
+const reviewedHighRisk=new Map([
+  ['engine-ui-bridge-v1:activeSystem','UI-only active panel selector; simulation state remains keyed by World.'],
+  ['media-hub-v7:activeTab','UI-only selected media tab.'],
+  ['game-ui-v2:rosterReport','UI hydration/report cache; canonical roster state lives in World-bound engines.'],
+  ['club-governance:last','Static surname source array populated during module initialization, not career state.'],
+  ['domestic-club-runtime-bridge-v1:last','Static name/source array populated during module initialization.'],
+  ['engine:lastNames','Static generated-player surname source array.'],
+  ['football-school-v1:lastBR','Static Brazilian surname source array.'],
+  ['manager-ai-characters:last','Static AI-manager surname source array.'],
+  ['player-generation-v2:lastBR','Static generated-player surname source array.'],
+  ['real-world-v1:LAST','Static real-world fallback surname source array.'],
+  ['staff:lastNames','Static staff surname source array.'],
+  ['technical-staff:last','Static technical-staff surname source array.']
+]);
+const keyOf=x=>`${x.module}:${x.name}`;
+const unreviewedHighRisk=highRisk.filter(x=>!reviewedHighRisk.has(keyOf(x)));
+
 console.log('=== TOUCHLINE MODULE SINGLETON STATE INVENTORY ===');
 console.log(`Active reachable modules: ${active.size}`);
 console.log(`Module-scope mutable candidates: ${candidates.length}`);
 console.log(`High-risk mutable singleton candidates: ${highRisk.length}`);
-for(const x of highRisk.slice(0,80))console.log(`  HIGH ${x.file}:${x.line} ${x.name} kind=${x.kind} let=${x.isLet} mutations=${x.mutations}`);
+console.log(`Unreviewed high-risk singleton candidates: ${unreviewedHighRisk.length}`);
+for(const x of highRisk.slice(0,80))console.log(`  ${reviewedHighRisk.has(keyOf(x))?'REVIEWED':'HIGH'} ${x.file}:${x.line} ${x.name} kind=${x.kind} let=${x.isLet} mutations=${x.mutations}${reviewedHighRisk.has(keyOf(x))?` | ${reviewedHighRisk.get(keyOf(x))}`:''}`);
 for(const x of candidates.filter(x=>!highRisk.includes(x)).slice(0,80))console.log(`  INFO ${x.file}:${x.line} ${x.name} kind=${x.kind} let=${x.isLet} mutations=${x.mutations}`);
 fs.mkdirSync(path.join(root,'tmp'),{recursive:true});
-fs.writeFileSync(path.join(root,'tmp/module-singletons-audit.json'),JSON.stringify({generatedAt:new Date().toISOString(),activeReachableCount:active.size,candidates,highRisk},null,2));
+fs.writeFileSync(path.join(root,'tmp/module-singletons-audit.json'),JSON.stringify({generatedAt:new Date().toISOString(),activeReachableCount:active.size,candidates,highRisk:highRisk.map(x=>({...x,reviewed:reviewedHighRisk.has(keyOf(x)),rationale:reviewedHighRisk.get(keyOf(x))})),unreviewedHighRisk},null,2));
+if(unreviewedHighRisk.length)throw new Error(`Unreviewed mutable module singletons: ${unreviewedHighRisk.map(x=>`${x.file}:${x.line} ${x.name}`).join(', ')}`);
