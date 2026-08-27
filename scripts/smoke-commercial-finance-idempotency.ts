@@ -1,0 +1,22 @@
+import { createBrazilRealWorld2026 } from '../src/real-world-v1';
+import { economyState } from '../src/economy';
+import { matchdayCommercialHistory, recordHomeMatchCommercial } from '../src/club-commercial-finance';
+
+const world=createBrazilRealWorld2026();
+const club=world.clubs[0];
+if(!club)throw new Error('No club available for commercial-finance smoke');
+const finance=economyState(world).finances.get(club.id);
+if(!finance)throw new Error('Club finance state missing');
+const date='2026-08-27';
+const before=finance.balance;
+const first=recordHomeMatchCommercial(world,club.id,date);
+const afterFirst=finance.balance;
+const second=recordHomeMatchCommercial(world,club.id,date);
+const afterSecond=finance.balance;
+const history=matchdayCommercialHistory(world,club.id).filter(x=>x.date===date);
+const credited=afterFirst-before;
+if(Math.abs(credited-first.totalRevenue)>.001)throw new Error(`First matchday credit mismatch: delta=${credited}, revenue=${first.totalRevenue}`);
+if(afterSecond!==afterFirst)throw new Error(`Duplicate matchday credited twice: first=${afterFirst}, second=${afterSecond}`);
+if(history.length!==1)throw new Error(`Duplicate matchday history entries: ${history.length}`);
+if(second.totalRevenue!==first.totalRevenue)throw new Error('Idempotent replay returned a different matchday record');
+console.log(`[smoke-commercial-idempotency] ${club.name} · revenue=${Math.round(first.totalRevenue)} · duplicateDelta=${Math.round(afterSecond-afterFirst)} · history=${history.length} · OK`);
