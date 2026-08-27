@@ -1,0 +1,44 @@
+/* THE TOUCHLINE · lightweight game-feel layer
+   Motion communicates context changes without adding rendering dependencies. */
+:root{
+  --tl-motion-fast:120ms;
+  --tl-motion-base:180ms;
+  --tl-motion-slow:260ms;
+  --tl-motion-ease:cubic-bezier(.22,.8,.32,1);
+}
+
+.tl-view-enter{animation:tl-view-enter var(--tl-motion-base) var(--tl-motion-ease) both;}
+.tl-view-enter>[data-motion-item]{animation:tl-item-enter var(--tl-motion-base) var(--tl-motion-ease) both;animation-delay:calc(var(--motion-index,0)*28ms);}
+@keyframes tl-view-enter{from{opacity:.18;transform:translate3d(10px,0,0)}to{opacity:1;transform:none}}
+@keyframes tl-item-enter{from{opacity:.25;transform:translate3d(0,6px,0)}to{opacity:1;transform:none}}
+
+.game-sidebar button,.v2-topbar button,button,.v2-card,[class*="card"]{transition:transform var(--tl-motion-fast) var(--tl-motion-ease),box-shadow var(--tl-motion-fast) ease,border-color var(--tl-motion-fast) ease,background-color var(--tl-motion-fast) ease,opacity var(--tl-motion-fast) ease;}
+.game-sidebar button:active,.v2-topbar button:active,button:active{transform:scale(.985)}
+.game-sidebar button:hover{transform:translate3d(2px,0,0)}
+
+.tl-dialog-enter{animation:tl-dialog-enter var(--tl-motion-base) var(--tl-motion-ease) both;transform-origin:50% 45%;}
+@keyframes tl-dialog-enter{from{opacity:0;transform:scale(.982) translateY(4px)}to{opacity:1;transform:none}}
+
+.tl-date-pulse{animation:tl-date-pulse 420ms var(--tl-motion-ease);}
+@keyframes tl-date-pulse{0%{opacity:.45;transform:translateY(2px)}45%{opacity:1;transform:translateY(-1px)}100%{transform:none}}
+
+.tl-advance-layer{position:absolute;inset:0;z-index:90;display:grid;place-items:center;background:rgba(7,10,15,.72);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity var(--tl-motion-fast) ease;}
+.tl-advance-layer.is-visible{opacity:1;pointer-events:auto;}
+.tl-advance-panel{width:min(410px,calc(100% - 42px));padding:24px 26px 20px;border:1px solid rgba(255,255,255,.10);background:rgba(13,18,26,.96);box-shadow:0 18px 55px rgba(0,0,0,.34);transform:translateY(6px);transition:transform var(--tl-motion-base) var(--tl-motion-ease);}
+.tl-advance-layer.is-visible .tl-advance-panel{transform:none}
+.tl-advance-kicker{display:block;font-size:10px;letter-spacing:.18em;opacity:.55;margin-bottom:9px;text-transform:uppercase}
+.tl-advance-title{font-size:18px;font-weight:750;letter-spacing:.01em}
+.tl-advance-status{display:block;margin-top:7px;font-size:12px;opacity:.68;min-height:18px}
+.tl-advance-track{height:2px;margin-top:18px;background:rgba(255,255,255,.08);overflow:hidden}
+.tl-advance-track i{display:block;width:34%;height:100%;background:currentColor;animation:tl-progress 900ms ease-in-out infinite;}
+@keyframes tl-progress{0%{transform:translateX(-120%)}100%{transform:translateX(390%)}}
+
+.tl-career-toast{position:fixed;right:22px;bottom:22px;z-index:130;max-width:360px;padding:13px 16px;border:1px solid rgba(255,255,255,.12);background:rgba(12,16,23,.96);box-shadow:0 14px 40px rgba(0,0,0,.3);animation:tl-toast-in var(--tl-motion-slow) var(--tl-motion-ease) both;}
+.tl-career-toast b{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase}.tl-career-toast span{display:block;margin-top:4px;font-size:12px;opacity:.72}
+@keyframes tl-toast-in{from{opacity:0;transform:translate3d(14px,8px,0)}to{opacity:1;transform:none}}
+.tl-career-toast.is-leaving{opacity:0;transform:translateY(5px);transition:all var(--tl-motion-base) ease}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .tl-advance-layer{backdrop-filter:none}
+}
