@@ -1,5 +1,8 @@
-type HumanFeedItem={speakerId:string;role:string;topic:string;text:string;voiceSignature:string};
-const feed=()=>(((globalThis as any).__touchlineHumanDialogueFeed??[]) as HumanFeedItem[]);
+import type { World } from './engine';
+import { humanDialogueFeed, type HumanDialogueFeedItem } from './human-voice-state-v1';
+
+function world(){return (window as Window&{__touchlineWorld?:World}).__touchlineWorld}
+function feed(){const w=world();return w?humanDialogueFeed(w):[] as HumanDialogueFeedItem[]}
 function renderHumanVoice(panel:HTMLElement){panel.querySelector('.v2-human-dialogue')?.remove();const item=feed().at(-1);if(!item)return;const block=document.createElement('blockquote');block.className='v2-human-dialogue';block.innerHTML=`<small>CONVERSA HUMANA · ${escapeHtml(item.role.toUpperCase())}</small><p>${escapeHtml(item.text)}</p><footer><b>${escapeHtml(item.speakerId)}</b><span>${escapeHtml(item.voiceSignature)}</span></footer>`;const meta=panel.querySelector('.v2-message-meta');panel.insertBefore(block,meta??null)}
 function escapeHtml(value:unknown){return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!))}
 function bindInbox(){
