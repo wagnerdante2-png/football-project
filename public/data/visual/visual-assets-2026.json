@@ -1,6 +1,6 @@
 {
   "version": 4,
-  "generatedAt": "2026-08-27T12:52:01.732Z",
+  "generatedAt": "2026-08-27T13:03:01.442Z",
   "sources": {
     "structured": [
       "OpenFootball CC0",
@@ -248,10 +248,10 @@
     {
       "name": "SE Palmeiras",
       "wikidataId": "Q80964",
-      "primaryColor": "#006437",
-      "secondaryColor": "#f3f5f4",
-      "accentColor": "#f3f5f4",
-      "kitSource": "derived-from-crest",
+      "primaryColor": "hsl(141 58% 34%)",
+      "secondaryColor": "hsl(278 58% 42%)",
+      "accentColor": "hsl(211 72% 58%)",
+      "kitSource": "procedural",
       "crest": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/1/10/Palmeiras_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
         "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Palmeiras_logo.svg/500px-Palmeiras_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -271,12 +271,7 @@
         "sourcePage": "https://commons.wikimedia.org/wiki/File:Est%C3%A1dio_Palestra_It%C3%A1lia.JPG",
         "freeToRedistribute": true
       },
-      "sourceConfidence": 96,
-      "paletteProvenance": {
-        "source": "verified-free-crest",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Palmeiras_logo.svg",
-        "method": "dominant-svg-colors"
-      }
+      "sourceConfidence": 96
     },
     {
       "name": "Botafogo FR",
@@ -706,10 +701,10 @@
   ],
   "identitySanitization": {
     "rejectedAmbiguousClubMatches": 0,
-    "generatedAt": "2026-08-27T12:52:01.866Z"
+    "generatedAt": "2026-08-27T13:03:01.580Z"
   },
   "colorEnrichment": {
-    "derivedFromVerifiedCrests": 4,
-    "generatedAt": "2026-08-27T12:52:02.227Z"
+    "derivedFromVerifiedCrests": 3,
+    "generatedAt": "2026-08-27T13:03:02.009Z"
   }
 }
