@@ -39,15 +39,34 @@ const unexpectedLegacy=legacyImports.filter(name=>!allowedActiveLegacy.has(name)
 const files=[];
 function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){const p=path.join(dir,e.name);if(e.isDirectory())walk(p);else if(/\.tsx?$/.test(e.name)&&!e.name.endsWith('.d.ts'))files.push(p)}}
 walk(srcRoot);
+const byModule=new Map();
+for(const file of files){
+  const rel=path.relative(srcRoot,file).replaceAll('\\','/');
+  const key=rel.replace(/\.(ts|tsx)$/,'');
+  byModule.set(key,{file,text:fs.readFileSync(file,'utf8')});
+}
+function resolveLocal(fromKey,spec){
+  if(!spec.startsWith('.'))return null;
+  const base=path.posix.normalize(path.posix.join(path.posix.dirname(fromKey),spec));
+  if(byModule.has(base))return base;
+  if(byModule.has(`${base}/index`))return `${base}/index`;
+  return null;
+}
+function localImports(key){const node=byModule.get(key);if(!node)return[];const specs=[];for(const m of node.text.matchAll(/(?:from\s+|import\s*)['"]([^'"]+)['"]/g))specs.push(m[1]);return specs.map(s=>resolveLocal(key,s)).filter(Boolean)}
+function reachable(start){const seen=new Set(),stack=[start];while(stack.length){const key=stack.pop();if(!key||seen.has(key)||!byModule.has(key))continue;seen.add(key);for(const dep of localImports(key))stack.push(dep)}return seen}
+const dailyReachable=reachable('daily-simulation');
+
 const rng=[];
 const snapshots=new Set(),restores=new Set();
-for(const file of files){
-  const text=fs.readFileSync(file,'utf8');
-  const rel=path.relative(root,file).replaceAll('\\','/');
+const persistentModules=[];
+for(const [key,{text}] of byModule){
   const randomCount=(text.match(/Math\.random\s*\(/g)||[]).length;
-  if(randomCount)rng.push({file:rel,count:randomCount});
-  for(const m of text.matchAll(/export\s+function\s+snapshot([A-Z][A-Za-z0-9_]*)\s*\(/g))snapshots.add(m[1]);
-  for(const m of text.matchAll(/export\s+function\s+restore([A-Z][A-Za-z0-9_]*)\s*\(/g))restores.add(m[1]);
+  if(randomCount)rng.push({file:`src/${key}${byModule.get(key).file.endsWith('.tsx')?'.tsx':'.ts'}`,count:randomCount});
+  const snap=[...text.matchAll(/export\s+function\s+(snapshot[A-Z][A-Za-z0-9_]*)\s*\(/g)].map(m=>m[1]);
+  const restore=[...text.matchAll(/export\s+function\s+(restore[A-Z][A-Za-z0-9_]*)\s*\(/g)].map(m=>m[1]);
+  for(const name of snap)snapshots.add(name.slice('snapshot'.length));
+  for(const name of restore)restores.add(name.slice('restore'.length));
+  if(snap.length&&restore.length)persistentModules.push({module:key,snapshotFunctions:snap,restoreFunctions:restore,reachableFromDaily:dailyReachable.has(key)});
 }
 rng.sort((a,b)=>b.count-a.count||a.file.localeCompare(b.file));
 const rngCalls=rng.reduce((a,x)=>a+x.count,0);
@@ -55,22 +74,13 @@ const maxDirectRandomCalls=55;
 const snapshotWithoutRestore=[...snapshots].filter(x=>!restores.has(x)).sort();
 const restoreWithoutSnapshot=[...restores].filter(x=>!snapshots.has(x)).sort();
 
-// A daily engine that owns snapshot+restore state must participate in at least one canonical save path.
-// This guards against consequences that work during a session but silently disappear after reload.
-const saveHosts=['save-game.ts','world-save-schema-v2.ts','save-beta-ui-v1.ts'].map(name=>fs.readFileSync(path.join(srcRoot,name),'utf8')).join('\n');
-const dailyModules=[...daily.matchAll(/from\s+['"]\.\/([^'"]+)['"]/g)].map(m=>m[1]);
-const persistentDailyModules=[];
-for(const moduleName of [...new Set(dailyModules)]){
-  const candidates=[path.join(srcRoot,`${moduleName}.ts`),path.join(srcRoot,`${moduleName}.tsx`)];
-  const file=candidates.find(fs.existsSync);if(!file)continue;
-  const text=fs.readFileSync(file,'utf8');
-  const snap=[...text.matchAll(/export\s+function\s+(snapshot[A-Z][A-Za-z0-9_]*)\s*\(/g)].map(m=>m[1]);
-  const restore=[...text.matchAll(/export\s+function\s+(restore[A-Z][A-Za-z0-9_]*)\s*\(/g)].map(m=>m[1]);
-  if(!snap.length||!restore.length)continue;
-  const persisted=snap.some(name=>saveHosts.includes(name));
-  persistentDailyModules.push({module:moduleName,snapshotFunctions:snap,restoreFunctions:restore,persisted});
-}
-const unpersistedDailyModules=persistentDailyModules.filter(x=>!x.persisted);
+// Any stateful engine reachable through the daily ecosystem must participate in a canonical save surface.
+// Unlike the old direct-import check, this follows bridges/runtimes transitively so nested consequence engines cannot hide.
+const saveHostNames=['save-game.ts','world-save-schema-v2.ts','save-beta-ui-v1.ts'];
+const saveHosts=saveHostNames.map(name=>fs.readFileSync(path.join(srcRoot,name),'utf8')).join('\n');
+for(const x of persistentModules)x.persisted=x.snapshotFunctions.some(name=>saveHosts.includes(name))||x.restoreFunctions.some(name=>saveHosts.includes(name));
+const transitivePersistentModules=persistentModules.filter(x=>x.reachableFromDaily).sort((a,b)=>a.module.localeCompare(b.module));
+const unpersistedTransitiveModules=transitivePersistentModules.filter(x=>!x.persisted);
 
 console.log('=== TOUCHLINE ECOSYSTEM INTEGRATION AUDIT ===');
 console.log(`advanceOneDay tick calls: ${tickCalls.length}`);
@@ -84,10 +94,10 @@ console.log(`Snapshot families without matching restore name: ${snapshotWithoutR
 for(const x of snapshotWithoutRestore)console.log(`  snapshot${x}`);
 console.log(`Restore families without matching snapshot name: ${restoreWithoutSnapshot.length}`);
 for(const x of restoreWithoutSnapshot)console.log(`  restore${x}`);
-console.log(`Daily stateful modules with snapshot/restore: ${persistentDailyModules.length}`);
-for(const x of persistentDailyModules)console.log(`  ${x.module}: ${x.persisted?'PERSISTED':'MISSING SAVE PATH'} | ${x.snapshotFunctions.join(', ')}`);
+console.log(`Transitive daily stateful modules with snapshot/restore: ${transitivePersistentModules.length}`);
+for(const x of transitivePersistentModules)console.log(`  ${x.module}: ${x.persisted?'PERSISTED':'MISSING SAVE PATH'} | ${x.snapshotFunctions.join(', ')}`);
 
-const report={generatedAt:new Date().toISOString(),tickCalls,repeated:repeated.map(([name,count])=>({name,count,rationale:allowedRepeatedTicks.get(name)})),unexpectedRepeated:unexpectedRepeated.map(([name,count])=>({name,count})),staleAllowlist:staleAllowlist.map(([name,rationale])=>({name,rationale})),legacyImports,unexpectedLegacy,rng,rngCalls,maxDirectRandomCalls,snapshotWithoutRestore,restoreWithoutSnapshot,persistentDailyModules,unpersistedDailyModules};
+const report={generatedAt:new Date().toISOString(),tickCalls,repeated:repeated.map(([name,count])=>({name,count,rationale:allowedRepeatedTicks.get(name)})),unexpectedRepeated:unexpectedRepeated.map(([name,count])=>({name,count})),staleAllowlist:staleAllowlist.map(([name,rationale])=>({name,rationale})),legacyImports,unexpectedLegacy,rng,rngCalls,maxDirectRandomCalls,snapshotWithoutRestore,restoreWithoutSnapshot,transitivePersistentModules,unpersistedTransitiveModules};
 fs.mkdirSync(path.join(root,'tmp'),{recursive:true});
 fs.writeFileSync(path.join(root,'tmp/ecosystem-integration-audit.json'),JSON.stringify(report,null,2));
 
@@ -95,4 +105,4 @@ if(unexpectedRepeated.length)throw new Error(`Unregistered repeated daily ticks:
 if(unexpectedLegacy.length)throw new Error(`Unreviewed legacy-named runtime imports in daily simulation: ${unexpectedLegacy.join(', ')}`);
 if(staleAllowlist.length)throw new Error(`Daily tick phase allowlist is stale: ${staleAllowlist.map(([name])=>name).join(', ')}`);
 if(rngCalls>maxDirectRandomCalls)throw new Error(`Direct Math.random() debt regressed: ${rngCalls} calls exceeds ceiling ${maxDirectRandomCalls}. Use worldRandom/deterministicRandom for new simulation randomness.`);
-if(unpersistedDailyModules.length)throw new Error(`Daily stateful engines missing from save paths: ${unpersistedDailyModules.map(x=>x.module).join(', ')}`);
+if(unpersistedTransitiveModules.length)throw new Error(`Transitive daily stateful engines missing from save paths: ${unpersistedTransitiveModules.map(x=>x.module).join(', ')}`);
