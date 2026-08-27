@@ -36,6 +36,8 @@ jobs:
         run: npm run smoke:match
       - name: Smoke match causal integrity
         run: npm run smoke:match-causality
+      - name: Smoke match history save roundtrip
+        run: npm run smoke:save-match-history
       - name: Smoke isolated match context
         run: npm run smoke:context
       - name: Smoke commercial matchday idempotency
