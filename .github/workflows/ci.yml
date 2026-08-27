@@ -30,6 +30,8 @@ jobs:
         run: npm run audit:ecosystem
       - name: Audit browser-global state inventory
         run: node scripts/audit-global-state.mjs
+      - name: Audit module singleton state inventory
+        run: node scripts/audit-module-singletons.mjs
       - name: Smoke daily simulation runtime
         run: npm run smoke:advance
       - name: Smoke completed season lifecycle
