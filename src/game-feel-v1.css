@@ -7,6 +7,19 @@
   --tl-motion-ease:cubic-bezier(.22,.8,.32,1);
 }
 
+/* Boot, login and manager creation should feel like entering a game, not opening forms. */
+.v2-boot,.v2-login,.v2-creator{animation:tl-shell-enter 320ms var(--tl-motion-ease) both;}
+.v2-login-copy,.v2-login-card,.v2-creator>aside,.v2-creator>main{animation:tl-shell-panel-enter 360ms var(--tl-motion-ease) both;}
+.v2-login-card,.v2-creator>main{animation-delay:55ms;}
+.v2-creator-stage>*{animation:tl-creator-step-enter 260ms var(--tl-motion-ease) both;}
+.v2-creator-stage>*:nth-child(2){animation-delay:38ms;}
+.v2-creator footer>div>i{transition:width var(--tl-motion-slow) var(--tl-motion-ease);}
+.v2-creator aside li{transition:opacity var(--tl-motion-base) ease,transform var(--tl-motion-base) var(--tl-motion-ease),background-color var(--tl-motion-fast) ease;}
+.v2-creator aside li.active{transform:translateX(3px);}
+@keyframes tl-shell-enter{from{opacity:.2}to{opacity:1}}
+@keyframes tl-shell-panel-enter{from{opacity:0;transform:translate3d(0,8px,0)}to{opacity:1;transform:none}}
+@keyframes tl-creator-step-enter{from{opacity:.1;transform:translate3d(8px,0,0)}to{opacity:1;transform:none}}
+
 .tl-view-enter{animation:tl-view-enter var(--tl-motion-base) var(--tl-motion-ease) both;}
 .tl-view-enter>[data-motion-item]{animation:tl-item-enter var(--tl-motion-base) var(--tl-motion-ease) both;animation-delay:calc(var(--motion-index,0)*28ms);}
 @keyframes tl-view-enter{from{opacity:.18;transform:translate3d(10px,0,0)}to{opacity:1;transform:none}}
@@ -15,6 +28,11 @@
 .game-sidebar button,.v2-topbar button,button,.v2-card,[class*="card"]{transition:transform var(--tl-motion-fast) var(--tl-motion-ease),box-shadow var(--tl-motion-fast) ease,border-color var(--tl-motion-fast) ease,background-color var(--tl-motion-fast) ease,opacity var(--tl-motion-fast) ease;}
 .game-sidebar button:active,.v2-topbar button:active,button:active{transform:scale(.985)}
 .game-sidebar button:hover{transform:translate3d(2px,0,0)}
+.game-sidebar nav button{position:relative;overflow:hidden;}
+.game-sidebar nav button::after{content:"";position:absolute;left:0;top:18%;bottom:18%;width:2px;background:currentColor;transform:scaleY(0);opacity:0;transition:transform var(--tl-motion-base) var(--tl-motion-ease),opacity var(--tl-motion-fast) ease;transform-origin:center;}
+.game-sidebar nav button.active::after{transform:scaleY(1);opacity:.72;}
+.game-sidebar nav button.active i{animation:tl-nav-icon 240ms var(--tl-motion-ease);}
+@keyframes tl-nav-icon{0%{transform:scale(.86);opacity:.5}100%{transform:none;opacity:1}}
 
 .tl-dialog-enter{animation:tl-dialog-enter var(--tl-motion-base) var(--tl-motion-ease) both;transform-origin:50% 45%;}
 @keyframes tl-dialog-enter{from{opacity:0;transform:scale(.982) translateY(4px)}to{opacity:1;transform:none}}
