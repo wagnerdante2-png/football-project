@@ -20,6 +20,12 @@ const careerMomentTypes=new Set<WorldEvent['type']>([
 const interactionOpenTypes=new Set<WorldEvent['type']>([
   'ManagerInteractionOpened','ManagerInterviewOpened','TeamTalkOpened','ManagerContractNegotiationStarted','NegotiationStarted'
 ]);
+const decisionOutcomeTypes=new Set<WorldEvent['type']>([
+  'ManagerInteractionResolved','ManagerInteractionExpired','ManagerInterviewResolved','ManagerInterviewExpired',
+  'TeamTalkDelivered','TeamMeetingHeld','ManagerContractCountered','ManagerContractNegotiationAgreed','ManagerContractNegotiationCollapsed',
+  'RecruitmentApproved','RecruitmentRejected','NegotiationUpdated','NegotiationEnded','PromiseMade','PromiseKept','PromiseBroken',
+  'PlayerManagerRelationshipChanged','ManagerRelationshipChanged','BoardPressureChanged'
+]);
 
 function animateView(){
   if(reduceMotion)return;
@@ -174,6 +180,29 @@ function showInteractionScene(event:WorldEvent){
   window.setTimeout(()=>{node.classList.add('is-leaving');window.setTimeout(()=>node.remove(),220)},1050);
 }
 
+function decisionOutcomeLabel(event:WorldEvent):{label:string;tone:'positive'|'neutral'|'negative'}{
+  if(['PromiseKept','RecruitmentApproved','ManagerContractNegotiationAgreed','TeamTalkDelivered'].includes(event.type))return{label:'CONSEQUÊNCIA POSITIVA',tone:'positive'};
+  if(['PromiseBroken','RecruitmentRejected','ManagerContractNegotiationCollapsed','ManagerInteractionExpired','ManagerInterviewExpired'].includes(event.type))return{label:'CONSEQUÊNCIA',tone:'negative'};
+  if(['ManagerInteractionResolved','ManagerInterviewResolved','TeamMeetingHeld','PlayerManagerRelationshipChanged','ManagerRelationshipChanged'].includes(event.type))return{label:'RELAÇÃO ATUALIZADA',tone:'neutral'};
+  if(['BoardPressureChanged'].includes(event.type))return{label:'PRESSÃO DA DIRETORIA',tone:'neutral'};
+  return{label:'DECISÃO REGISTRADA',tone:'neutral'};
+}
+
+function showDecisionOutcome(world:World,event:WorldEvent){
+  if(!decisionOutcomeTypes.has(event.type))return;
+  const managerClub=managedClubId(world);
+  const related=!managerClub||event.clubIds.length===0||event.clubIds.includes(managerClub)||event.playerIds.some(id=>world.clubs.find(c=>c.id===managerClub)?.players.some(p=>p.id===id));
+  if(!related)return;
+  document.querySelector('.tl-decision-outcome')?.remove();
+  const {label,tone}=decisionOutcomeLabel(event);
+  const node=document.createElement('div');
+  node.className=`tl-decision-outcome tone-${tone}`;
+  node.innerHTML=`<span>${label}</span><b>${event.summary}</b>`;
+  document.body.appendChild(node);
+  requestAnimationFrame(()=>node.classList.add('is-visible'));
+  window.setTimeout(()=>{node.classList.add('is-leaving');window.setTimeout(()=>node.remove(),240)},2100);
+}
+
 function clubName(world:World,id:string|undefined){return world.clubs.find(club=>club.id===id)?.name??id??''}
 function managedClubId(world:World){return userManager(world)?.currentClubId}
 function showMatchdayMoment(world:World,event:WorldEvent){
@@ -213,7 +242,7 @@ function wireCareerMoments(){
   const world=currentWorld();
   if(!world||wiredWorlds.has(world))return;
   wiredWorlds.add(world);
-  onWorldEvent(world,'*',event=>{showInteractionScene(event);showMatchdayMoment(world,event);showCareerMoment(event)});
+  onWorldEvent(world,'*',event=>{showInteractionScene(event);showDecisionOutcome(world,event);showMatchdayMoment(world,event);showCareerMoment(event)});
 }
 
 function bind(){
