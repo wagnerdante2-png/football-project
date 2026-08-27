@@ -1,5 +1,6 @@
 import type { World } from './engine';
 import { onWorldEvent, type WorldEvent } from './event-bus';
+import { userManager } from './manager-character';
 
 const reduceMotion=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches??false;
 let advanceLayer:HTMLElement|undefined;
@@ -122,12 +123,46 @@ function showCareerMoment(event:WorldEvent){
   window.setTimeout(close,event.importance>=5?4400:3200);
 }
 
+function clubName(world:World,id:string|undefined){return world.clubs.find(club=>club.id===id)?.name??id??''}
+function managedClubId(world:World){return userManager(world)?.currentClubId}
+function showMatchdayMoment(world:World,event:WorldEvent){
+  const managerClubId=managedClubId(world);
+  if(!managerClubId)return;
+  if(event.type==='MatchDayStarted'){
+    document.querySelector('.tl-matchday-moment')?.remove();
+    const round=Number(event.payload.round??world.round);
+    const fixture=world.fixtures.find(f=>f.round===round&&!f.played&&(f.home===managerClubId||f.away===managerClubId));
+    if(!fixture)return;
+    const node=document.createElement('div');
+    node.className='tl-matchday-moment is-pregame';
+    node.innerHTML=`<div class="tl-matchday-copy"><span>DIA DE JOGO · RODADA ${round}</span><div class="tl-matchday-pair"><b>${clubName(world,fixture.home)}</b><i>×</i><b>${clubName(world,fixture.away)}</b></div><small>${fixture.home===managerClubId?'Em casa':'Fora de casa'} · o vestiário está pronto</small></div>`;
+    document.body.appendChild(node);
+    requestAnimationFrame(()=>node.classList.add('is-visible'));
+    window.setTimeout(()=>{node.classList.add('is-leaving');window.setTimeout(()=>node.remove(),260)},1800);
+    return;
+  }
+  if(event.type==='MatchCompleted'&&event.clubIds.includes(managerClubId)){
+    document.querySelector('.tl-matchday-moment')?.remove();
+    const homeId=event.clubIds[0],awayId=event.clubIds[1];
+    const homeGoals=Number(event.payload.homeGoals??0),awayGoals=Number(event.payload.awayGoals??0);
+    const managerGoals=managerClubId===homeId?homeGoals:awayGoals;
+    const opponentGoals=managerClubId===homeId?awayGoals:homeGoals;
+    const result=managerGoals>opponentGoals?'VITÓRIA':managerGoals<opponentGoals?'DERROTA':'EMPATE';
+    const node=document.createElement('div');
+    node.className=`tl-matchday-moment is-result result-${result.toLowerCase()}`;
+    node.innerHTML=`<div class="tl-matchday-copy"><span>APITO FINAL · ${result}</span><div class="tl-matchday-pair"><b>${clubName(world,homeId)}</b><strong>${homeGoals}–${awayGoals}</strong><b>${clubName(world,awayId)}</b></div><small>O resultado já está repercutindo no restante da carreira.</small></div>`;
+    document.body.appendChild(node);
+    requestAnimationFrame(()=>node.classList.add('is-visible'));
+    window.setTimeout(()=>{node.classList.add('is-leaving');window.setTimeout(()=>node.remove(),260)},2300);
+  }
+}
+
 function currentWorld():World|undefined{return (window as Window&{__touchlineWorld?:World}).__touchlineWorld}
 function wireCareerMoments(){
   const world=currentWorld();
   if(!world||wiredWorlds.has(world))return;
   wiredWorlds.add(world);
-  onWorldEvent(world,'*',event=>showCareerMoment(event));
+  onWorldEvent(world,'*',event=>{showMatchdayMoment(world,event);showCareerMoment(event)});
 }
 
 function bind(){
