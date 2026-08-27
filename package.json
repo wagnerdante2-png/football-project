@@ -11,6 +11,7 @@
     "smoke:advance": "tsx scripts/smoke-advance-day.ts",
     "smoke:season": "tsx scripts/smoke-season-transition.ts",
     "smoke:match": "tsx scripts/smoke-match-integration.ts",
+    "smoke:match-causality": "tsx scripts/smoke-match-causality.ts",
     "smoke:context": "tsx scripts/smoke-match-context.ts",
     "profile:match": "tsx scripts/profile-active-match-distribution.ts",
     "smoke:foundation": "tsx scripts/smoke-world-foundation.ts",
