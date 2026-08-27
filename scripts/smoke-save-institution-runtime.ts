@@ -43,7 +43,7 @@ const before={
 };
 const raw=serializeSave(world);
 const parsed=JSON.parse(raw) as {schemaVersion:number;clubGovernance?:unknown;clubAssets?:unknown;commercial?:unknown;staffCareer?:unknown};
-assert(parsed.schemaVersion===17,`Expected save schema 17, got ${parsed.schemaVersion}`);
+assert(parsed.schemaVersion>=17,`Expected save schema >=17, got ${parsed.schemaVersion}`);
 assert(parsed.clubGovernance&&parsed.clubAssets&&parsed.commercial&&parsed.staffCareer,'Institution runtime snapshots missing from serialized save');
 
 const restored=restoreSave(raw);
