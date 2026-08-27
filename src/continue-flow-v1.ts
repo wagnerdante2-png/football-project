@@ -15,7 +15,7 @@ function relevantAttention(w:World,from:number){
  const manager=userManager(w),clubId=manager?.currentClubId;
  const events=worldCore(w).events.slice(from);
  return events.find(e=>{
-   const related=!clubId||e.scope==='world'||e.scope==='competition'||e.entityIds.includes(clubId)||e.clubIds?.includes?.(clubId);
+   const related=!clubId||e.scope==='world'||e.scope==='competition'||e.entityIds.includes(clubId);
    return related&&(e.importance>=3||decisionTypes.has(e.type));
  });
 }
