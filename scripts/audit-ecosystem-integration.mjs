@@ -55,6 +55,23 @@ const maxDirectRandomCalls=55;
 const snapshotWithoutRestore=[...snapshots].filter(x=>!restores.has(x)).sort();
 const restoreWithoutSnapshot=[...restores].filter(x=>!snapshots.has(x)).sort();
 
+// A daily engine that owns snapshot+restore state must participate in at least one canonical save path.
+// This guards against consequences that work during a session but silently disappear after reload.
+const saveHosts=['save-game.ts','world-save-schema-v2.ts','save-beta-ui-v1.ts'].map(name=>fs.readFileSync(path.join(srcRoot,name),'utf8')).join('\n');
+const dailyModules=[...daily.matchAll(/from\s+['"]\.\/([^'"]+)['"]/g)].map(m=>m[1]);
+const persistentDailyModules=[];
+for(const moduleName of [...new Set(dailyModules)]){
+  const candidates=[path.join(srcRoot,`${moduleName}.ts`),path.join(srcRoot,`${moduleName}.tsx`)];
+  const file=candidates.find(fs.existsSync);if(!file)continue;
+  const text=fs.readFileSync(file,'utf8');
+  const snap=[...text.matchAll(/export\s+function\s+(snapshot[A-Z][A-Za-z0-9_]*)\s*\(/g)].map(m=>m[1]);
+  const restore=[...text.matchAll(/export\s+function\s+(restore[A-Z][A-Za-z0-9_]*)\s*\(/g)].map(m=>m[1]);
+  if(!snap.length||!restore.length)continue;
+  const persisted=snap.some(name=>saveHosts.includes(name));
+  persistentDailyModules.push({module:moduleName,snapshotFunctions:snap,restoreFunctions:restore,persisted});
+}
+const unpersistedDailyModules=persistentDailyModules.filter(x=>!x.persisted);
+
 console.log('=== TOUCHLINE ECOSYSTEM INTEGRATION AUDIT ===');
 console.log(`advanceOneDay tick calls: ${tickCalls.length}`);
 console.log(`Repeated tick functions: ${repeated.length}`);
@@ -67,8 +84,10 @@ console.log(`Snapshot families without matching restore name: ${snapshotWithoutR
 for(const x of snapshotWithoutRestore)console.log(`  snapshot${x}`);
 console.log(`Restore families without matching snapshot name: ${restoreWithoutSnapshot.length}`);
 for(const x of restoreWithoutSnapshot)console.log(`  restore${x}`);
+console.log(`Daily stateful modules with snapshot/restore: ${persistentDailyModules.length}`);
+for(const x of persistentDailyModules)console.log(`  ${x.module}: ${x.persisted?'PERSISTED':'MISSING SAVE PATH'} | ${x.snapshotFunctions.join(', ')}`);
 
-const report={generatedAt:new Date().toISOString(),tickCalls,repeated:repeated.map(([name,count])=>({name,count,rationale:allowedRepeatedTicks.get(name)})),unexpectedRepeated:unexpectedRepeated.map(([name,count])=>({name,count})),staleAllowlist:staleAllowlist.map(([name,rationale])=>({name,rationale})),legacyImports,unexpectedLegacy,rng,rngCalls,maxDirectRandomCalls,snapshotWithoutRestore,restoreWithoutSnapshot};
+const report={generatedAt:new Date().toISOString(),tickCalls,repeated:repeated.map(([name,count])=>({name,count,rationale:allowedRepeatedTicks.get(name)})),unexpectedRepeated:unexpectedRepeated.map(([name,count])=>({name,count})),staleAllowlist:staleAllowlist.map(([name,rationale])=>({name,rationale})),legacyImports,unexpectedLegacy,rng,rngCalls,maxDirectRandomCalls,snapshotWithoutRestore,restoreWithoutSnapshot,persistentDailyModules,unpersistedDailyModules};
 fs.mkdirSync(path.join(root,'tmp'),{recursive:true});
 fs.writeFileSync(path.join(root,'tmp/ecosystem-integration-audit.json'),JSON.stringify(report,null,2));
 
@@ -76,3 +95,4 @@ if(unexpectedRepeated.length)throw new Error(`Unregistered repeated daily ticks:
 if(unexpectedLegacy.length)throw new Error(`Unreviewed legacy-named runtime imports in daily simulation: ${unexpectedLegacy.join(', ')}`);
 if(staleAllowlist.length)throw new Error(`Daily tick phase allowlist is stale: ${staleAllowlist.map(([name])=>name).join(', ')}`);
 if(rngCalls>maxDirectRandomCalls)throw new Error(`Direct Math.random() debt regressed: ${rngCalls} calls exceeds ceiling ${maxDirectRandomCalls}. Use worldRandom/deterministicRandom for new simulation randomness.`);
+if(unpersistedDailyModules.length)throw new Error(`Daily stateful engines missing from save paths: ${unpersistedDailyModules.map(x=>x.module).join(', ')}`);
