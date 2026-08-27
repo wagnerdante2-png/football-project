@@ -29,6 +29,7 @@
     "test:e2e:stress": "node scripts/e2e-stress.mjs",
     "test:e2e:ui-bridge": "node scripts/e2e-ui-event-bridge.mjs",
     "audit:coverage": "node scripts/audit-module-coverage.mjs",
+    "audit:ecosystem": "node scripts/audit-ecosystem-integration.mjs",
     "sync:data": "node scripts/sync-openfootball-data.mjs",
     "sync:data:global": "node scripts/sync-openfootball-global.mjs",
     "sync:people": "node scripts/sync-people-2026.mjs",

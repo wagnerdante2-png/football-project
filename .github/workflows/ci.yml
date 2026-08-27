@@ -26,6 +26,8 @@ jobs:
       - run: npm run build
       - name: Audit active module coverage
         run: npm run audit:coverage
+      - name: Audit ecosystem integration contracts
+        run: npm run audit:ecosystem
       - name: Smoke daily simulation runtime
         run: npm run smoke:advance
       - name: Smoke completed season lifecycle
@@ -34,6 +36,8 @@ jobs:
         run: npm run smoke:match
       - name: Smoke isolated match context
         run: npm run smoke:context
+      - name: Smoke commercial matchday idempotency
+        run: npm run smoke:commercial-idempotency
       - name: Profile active match distribution
         run: npm run profile:match
       - name: Smoke safe world football foundation
