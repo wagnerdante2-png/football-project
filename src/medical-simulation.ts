@@ -7,6 +7,7 @@ import { personalAvailability, personalPerformanceFactor } from './human-life';
 import { dressingRoomPerformanceFactor } from './dressing-room';
 import { trainingPerformanceFactor } from './training-engine';
 import { managerRelationshipPerformanceFactor } from './manager-performance';
+import { enrichRoundWithSetPieces } from './match-setpieces-v1';
 
 type RemovedPersonal={clubId:string;players:Player[]};
 const clamp=(v:number,min:number,max:number)=>Math.max(min,Math.min(max,v));
@@ -38,6 +39,8 @@ export function playCurrentRoundWithMedical(world:World,date?:string,competition
 
 /** Fast statistical round for calendar progression. Keeps medical/personal context without blocking the UI with 10 physical simulations. */
 export function playCurrentRoundFastWithMedical(world:World):void{
+  const round=world.round;
   withMedicalContext(world,()=>playCurrentRound(world));
+  enrichRoundWithSetPieces(world,round);
   tickRecovery(world);
 }
