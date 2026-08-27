@@ -46,6 +46,8 @@ jobs:
         run: npm run smoke:save-institution
       - name: Smoke human voice and real-person save roundtrip
         run: npm run smoke:save-human-state
+      - name: Smoke cross-world identity isolation
+        run: npm run smoke:world-isolation
       - name: Smoke isolated match context
         run: npm run smoke:context
       - name: Smoke commercial matchday idempotency
