@@ -37,6 +37,24 @@
 .tl-dialog-enter{animation:tl-dialog-enter var(--tl-motion-base) var(--tl-motion-ease) both;transform-origin:50% 45%;}
 @keyframes tl-dialog-enter{from{opacity:0;transform:scale(.982) translateY(4px)}to{opacity:1;transform:none}}
 
+/* Human decisions get a subtle scene language without replacing the actual interaction UI. */
+.tl-human-interaction{position:relative;isolation:isolate;overflow:hidden;}
+.tl-human-interaction::before{content:attr(data-tl-human-interaction);position:absolute;right:14px;top:10px;z-index:3;font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;opacity:.28;pointer-events:none;}
+.tl-human-interaction::after{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:currentColor;opacity:.22;transform-origin:top;animation:tl-interaction-edge 420ms var(--tl-motion-ease) both;pointer-events:none;}
+.tl-human-interaction button,.tl-human-interaction [role="button"]{transition:transform var(--tl-motion-fast) var(--tl-motion-ease),background-color var(--tl-motion-fast) ease,border-color var(--tl-motion-fast) ease,opacity var(--tl-motion-fast) ease;}
+.tl-human-interaction button:hover,.tl-human-interaction [role="button"]:hover{transform:translateY(-1px)}
+.tl-human-interaction button:active,.tl-human-interaction [role="button"]:active{transform:translateY(0) scale(.99)}
+@keyframes tl-interaction-edge{from{transform:scaleY(0);opacity:0}to{transform:scaleY(1);opacity:.22}}
+
+.tl-interaction-scene{position:fixed;inset:0;z-index:142;display:grid;place-items:center;background:rgba(5,8,12,.38);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity var(--tl-motion-fast) ease;}
+.tl-interaction-scene.is-visible{opacity:1}
+.tl-interaction-scene.is-leaving{opacity:0}
+.tl-interaction-scene>div{width:min(620px,calc(100% - 64px));padding:22px 26px;border-left:2px solid rgba(255,255,255,.2);background:linear-gradient(90deg,rgba(12,16,23,.94),rgba(12,16,23,.72));box-shadow:0 20px 60px rgba(0,0,0,.22);transform:translateX(-10px);transition:transform var(--tl-motion-base) var(--tl-motion-ease);}
+.tl-interaction-scene.is-visible>div{transform:none}
+.tl-interaction-scene span{display:block;font-size:9px;letter-spacing:.22em;text-transform:uppercase;opacity:.5;margin-bottom:7px}
+.tl-interaction-scene b{display:block;font-size:clamp(18px,2.3vw,28px);font-weight:760;letter-spacing:-.015em}
+.tl-interaction-scene small{display:block;margin-top:7px;font-size:11px;line-height:1.45;opacity:.55;max-width:68ch}
+
 .tl-date-pulse{animation:tl-date-pulse 420ms var(--tl-motion-ease);}
 @keyframes tl-date-pulse{0%{opacity:.45;transform:translateY(2px)}45%{opacity:1;transform:translateY(-1px)}100%{transform:none}}
 
@@ -84,8 +102,8 @@
 .tl-matchday-moment.result-vitória .tl-matchday-copy{box-shadow:inset 0 2px 0 rgba(255,255,255,.22)}
 .tl-matchday-moment.result-derrota .tl-matchday-copy{box-shadow:inset 0 2px 0 rgba(255,255,255,.08)}
 
-@media (max-width:700px){.tl-matchday-pair{gap:10px}.tl-matchday-pair b{font-size:18px}.tl-matchday-copy{padding-inline:16px}}
+@media (max-width:700px){.tl-matchday-pair{gap:10px}.tl-matchday-pair b{font-size:18px}.tl-matchday-copy{padding-inline:16px}.tl-interaction-scene>div{width:calc(100% - 36px);padding:18px 20px}}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
-  .tl-advance-layer,.tl-career-moment,.tl-matchday-moment{backdrop-filter:none}
+  .tl-advance-layer,.tl-career-moment,.tl-matchday-moment,.tl-interaction-scene{backdrop-filter:none}
 }
