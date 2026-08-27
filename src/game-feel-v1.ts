@@ -1,11 +1,20 @@
+import type { World } from './engine';
+import { onWorldEvent, type WorldEvent } from './event-bus';
+
 const reduceMotion=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches??false;
 let advanceLayer:HTMLElement|undefined;
 let advanceStartedAt=0;
 let advanceTimer:number|undefined;
 let statusTimer:number|undefined;
+const wiredWorlds=new WeakSet<World>();
 
 const motionSelectors='section,article,.v2-card,[class*="card"],table,.panel,[class*="panel"]';
 const dialogSelectors='dialog,[role="dialog"],.modal,[class*="modal"],.overlay [class*="panel"]';
+const careerMomentTypes=new Set<WorldEvent['type']>([
+  'ManagerJobOffer','ManagerHired','ManagerSacked','ManagerResigned','ManagerContractRenewed',
+  'ManagerLicenceUpgraded','SeasonEnded','SeasonStarted','DressingRoomCrisis','PlayerInjured',
+  'RecruitmentApproved','NegotiationLeaked','ClubOwnershipChanged','FacilityProjectCompleted'
+]);
 
 function animateView(){
   if(reduceMotion)return;
@@ -89,6 +98,38 @@ function toast(title:string,message:string){
   window.setTimeout(()=>node.remove(),2900);
 }
 
+function careerMomentTitle(event:WorldEvent):string{
+  const labels:Partial<Record<WorldEvent['type'],string>>={
+    ManagerJobOffer:'PROPOSTA DE EMPREGO',ManagerHired:'NOVO CAPÍTULO',ManagerSacked:'FIM DE CICLO',ManagerResigned:'DECISÃO DE CARREIRA',
+    ManagerContractRenewed:'CONFIANÇA RENOVADA',ManagerLicenceUpgraded:'EVOLUÇÃO PROFISSIONAL',SeasonEnded:'FIM DA TEMPORADA',SeasonStarted:'NOVA TEMPORADA',
+    DressingRoomCrisis:'CRISE NO VESTIÁRIO',PlayerInjured:'DEPARTAMENTO MÉDICO',RecruitmentApproved:'NEGÓCIO APROVADO',NegotiationLeaked:'BASTIDORES EXPOSTOS',
+    ClubOwnershipChanged:'MUDANÇA NO CLUBE',FacilityProjectCompleted:'ESTRUTURA ENTREGUE'
+  };
+  return labels[event.type]??'MOMENTO DA CARREIRA';
+}
+
+function showCareerMoment(event:WorldEvent){
+  if(document.querySelector('.tl-career-moment'))return;
+  if(!careerMomentTypes.has(event.type)&&event.importance<5)return;
+  if(event.type==='PlayerInjured'&&event.importance<4)return;
+  const node=document.createElement('div');
+  node.className=`tl-career-moment importance-${event.importance}`;
+  node.innerHTML=`<button class="tl-career-moment-dismiss" aria-label="Fechar">×</button><div class="tl-career-moment-line"></div><div class="tl-career-moment-copy"><span>${careerMomentTitle(event)}</span><h2>${event.summary}</h2><small>${event.date} · importância ${event.importance}/5</small></div>`;
+  const close=()=>{node.classList.add('is-leaving');window.setTimeout(()=>node.remove(),260)};
+  node.querySelector<HTMLButtonElement>('.tl-career-moment-dismiss')?.addEventListener('click',close);
+  document.body.appendChild(node);
+  requestAnimationFrame(()=>node.classList.add('is-visible'));
+  window.setTimeout(close,event.importance>=5?4400:3200);
+}
+
+function currentWorld():World|undefined{return (window as Window&{__touchlineWorld?:World}).__touchlineWorld}
+function wireCareerMoments(){
+  const world=currentWorld();
+  if(!world||wiredWorlds.has(world))return;
+  wiredWorlds.add(world);
+  onWorldEvent(world,'*',event=>showCareerMoment(event));
+}
+
 function bind(){
   document.addEventListener('click',event=>{
     const target=event.target as HTMLElement|null;
@@ -96,8 +137,9 @@ function bind(){
   },true);
 
   window.addEventListener('touchline:view-rendered',()=>requestAnimationFrame(()=>{animateView();animateDialogs()}));
-  window.addEventListener('touchline:save-loaded',()=>toast('Carreira carregada','O mundo foi restaurado e está pronto para continuar.'));
-  window.addEventListener('touchline:world-hydrated',()=>animateView());
+  window.addEventListener('touchline:save-loaded',()=>{wireCareerMoments();toast('Carreira carregada','O mundo foi restaurado e está pronto para continuar.')});
+  window.addEventListener('touchline:world-ready',wireCareerMoments);
+  window.addEventListener('touchline:world-hydrated',()=>{wireCareerMoments();animateView()});
 
   const observer=new MutationObserver(records=>{
     let shouldCheckDialogs=false;
@@ -115,6 +157,7 @@ function bind(){
     if(shouldCheckDialogs)queueMicrotask(()=>animateDialogs());
   });
   observer.observe(document.body,{subtree:true,childList:true,characterData:true});
+  queueMicrotask(wireCareerMoments);
 }
 
 bind();
