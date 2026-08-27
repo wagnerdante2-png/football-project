@@ -50,6 +50,8 @@ for(const file of files){
   for(const m of text.matchAll(/export\s+function\s+restore([A-Z][A-Za-z0-9_]*)\s*\(/g))restores.add(m[1]);
 }
 rng.sort((a,b)=>b.count-a.count||a.file.localeCompare(b.file));
+const rngCalls=rng.reduce((a,x)=>a+x.count,0);
+const maxDirectRandomCalls=55;
 const snapshotWithoutRestore=[...snapshots].filter(x=>!restores.has(x)).sort();
 const restoreWithoutSnapshot=[...restores].filter(x=>!snapshots.has(x)).sort();
 
@@ -59,17 +61,18 @@ console.log(`Repeated tick functions: ${repeated.length}`);
 for(const [name,count] of repeated)console.log(`  ${name} x${count} | ${allowedRepeatedTicks.get(name)??'UNREGISTERED'}`);
 console.log(`Active legacy-named imports: ${legacyImports.length}`);
 for(const name of legacyImports)console.log(`  ${name} | ${allowedActiveLegacy.get(name)??'UNREGISTERED'}`);
-console.log(`Source files using Math.random(): ${rng.length} (${rng.reduce((a,x)=>a+x.count,0)} calls)`);
+console.log(`Source files using Math.random(): ${rng.length} (${rngCalls} calls; ceiling=${maxDirectRandomCalls})`);
 for(const x of rng.slice(0,25))console.log(`  ${x.file}: ${x.count}`);
 console.log(`Snapshot families without matching restore name: ${snapshotWithoutRestore.length}`);
 for(const x of snapshotWithoutRestore)console.log(`  snapshot${x}`);
 console.log(`Restore families without matching snapshot name: ${restoreWithoutSnapshot.length}`);
 for(const x of restoreWithoutSnapshot)console.log(`  restore${x}`);
 
-const report={generatedAt:new Date().toISOString(),tickCalls,repeated:repeated.map(([name,count])=>({name,count,rationale:allowedRepeatedTicks.get(name)})),unexpectedRepeated:unexpectedRepeated.map(([name,count])=>({name,count})),staleAllowlist:staleAllowlist.map(([name,rationale])=>({name,rationale})),legacyImports,unexpectedLegacy,rng,snapshotWithoutRestore,restoreWithoutSnapshot};
+const report={generatedAt:new Date().toISOString(),tickCalls,repeated:repeated.map(([name,count])=>({name,count,rationale:allowedRepeatedTicks.get(name)})),unexpectedRepeated:unexpectedRepeated.map(([name,count])=>({name,count})),staleAllowlist:staleAllowlist.map(([name,rationale])=>({name,rationale})),legacyImports,unexpectedLegacy,rng,rngCalls,maxDirectRandomCalls,snapshotWithoutRestore,restoreWithoutSnapshot};
 fs.mkdirSync(path.join(root,'tmp'),{recursive:true});
 fs.writeFileSync(path.join(root,'tmp/ecosystem-integration-audit.json'),JSON.stringify(report,null,2));
 
 if(unexpectedRepeated.length)throw new Error(`Unregistered repeated daily ticks: ${unexpectedRepeated.map(([name,count])=>`${name} x${count}`).join(', ')}`);
 if(unexpectedLegacy.length)throw new Error(`Unreviewed legacy-named runtime imports in daily simulation: ${unexpectedLegacy.join(', ')}`);
 if(staleAllowlist.length)throw new Error(`Daily tick phase allowlist is stale: ${staleAllowlist.map(([name])=>name).join(', ')}`);
+if(rngCalls>maxDirectRandomCalls)throw new Error(`Direct Math.random() debt regressed: ${rngCalls} calls exceeds ceiling ${maxDirectRandomCalls}. Use worldRandom/deterministicRandom for new simulation randomness.`);
