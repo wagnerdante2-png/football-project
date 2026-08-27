@@ -23,6 +23,8 @@ for(const file of files){
   }
 }
 
+// __touchlineWorld is the sole browser-global bridge allowed to identify the active World for UI/runtime adapters.
+// Gameplay state, histories, queues, counters and memories must remain World-scoped instead of hiding on window/globalThis.
 const gameplayGlobalRefs=refs.filter(x=>x.keys.some(k=>k!=='__touchlineWorld'));
 const worldBridgeRefs=refs.filter(x=>x.keys.includes('__touchlineWorld'));
 const rawGlobalThisRefs=refs.filter(x=>x.usesGlobalThis);
@@ -40,3 +42,5 @@ for(const x of refs)console.log(`  ${x.file}:${x.line} ${x.writesGlobal?'WRITE':
 const report={generatedAt:new Date().toISOString(),refs,worldBridgeRefs,gameplayGlobalRefs,rawGlobalThisRefs,globalWrites};
 fs.mkdirSync(path.join(root,'tmp'),{recursive:true});
 fs.writeFileSync(path.join(root,'tmp/global-state-audit.json'),JSON.stringify(report,null,2));
+
+if(gameplayGlobalRefs.length)throw new Error(`Hidden Touchline browser-global state is forbidden. Review: ${gameplayGlobalRefs.map(x=>`${x.file}:${x.line} ${x.keys.join(',')}`).join(' | ')}`);
