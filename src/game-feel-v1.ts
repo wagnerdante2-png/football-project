@@ -11,10 +11,14 @@ const wiredWorlds=new WeakSet<World>();
 
 const motionSelectors='section,article,.v2-card,[class*="card"],table,.panel,[class*="panel"]';
 const dialogSelectors='dialog,[role="dialog"],.modal,[class*="modal"],.overlay [class*="panel"]';
+const interactionSelectors=`${dialogSelectors},[class*="dialogue"],[class*="conversation"],[class*="interview"],[class*="negotiation"],[class*="team-talk"],[class*="meeting"]`;
 const careerMomentTypes=new Set<WorldEvent['type']>([
   'ManagerJobOffer','ManagerHired','ManagerSacked','ManagerResigned','ManagerContractRenewed',
   'ManagerLicenceUpgraded','SeasonEnded','SeasonStarted','DressingRoomCrisis','PlayerInjured',
   'RecruitmentApproved','NegotiationLeaked','ClubOwnershipChanged','FacilityProjectCompleted'
+]);
+const interactionOpenTypes=new Set<WorldEvent['type']>([
+  'ManagerInteractionOpened','ManagerInterviewOpened','TeamTalkOpened','ManagerContractNegotiationStarted','NegotiationStarted'
 ]);
 
 function animateView(){
@@ -31,7 +35,30 @@ function animateView(){
   window.setTimeout(()=>view.classList.remove('tl-view-enter'),520);
 }
 
+function interactionContext(text:string):string|undefined{
+  const value=text.toLowerCase();
+  if(/coletiva|imprensa|jornalista|press conference/.test(value))return'IMPRENSA';
+  if(/entrevista|interview/.test(value))return'ENTREVISTA';
+  if(/negocia|contrato|proposta/.test(value))return'NEGOCIAÇÃO';
+  if(/vestiário|team talk|palestra/.test(value))return'VESTIÁRIO';
+  if(/diretoria|conselho|board/.test(value))return'DIRETORIA';
+  if(/reunião|meeting/.test(value))return'REUNIÃO';
+  if(/conversa|diálogo|dialogue|jogador/.test(value))return'CONVERSA';
+  return undefined;
+}
+
+function decorateHumanInteractions(root:ParentNode=document){
+  root.querySelectorAll<HTMLElement>(interactionSelectors).forEach(node=>{
+    if(node.dataset.tlHumanInteraction)return;
+    const context=interactionContext(node.textContent??'');
+    if(!context)return;
+    node.dataset.tlHumanInteraction=context;
+    node.classList.add('tl-human-interaction');
+  });
+}
+
 function animateDialogs(root:ParentNode=document){
+  decorateHumanInteractions(root);
   if(reduceMotion)return;
   root.querySelectorAll<HTMLElement>(dialogSelectors).forEach(node=>{
     if(node.dataset.tlMotionBound)return;
@@ -123,6 +150,30 @@ function showCareerMoment(event:WorldEvent){
   window.setTimeout(close,event.importance>=5?4400:3200);
 }
 
+function interactionSceneLabel(event:WorldEvent):{kicker:string;title:string}|undefined{
+  const labels:Partial<Record<WorldEvent['type'],{kicker:string;title:string}>>={
+    ManagerInteractionOpened:{kicker:'CONVERSA INDIVIDUAL',title:'Uma resposta pode mudar a relação.'},
+    ManagerInterviewOpened:{kicker:'ENTREVISTA',title:'O ambiente também está avaliando você.'},
+    TeamTalkOpened:{kicker:'VESTIÁRIO',title:'Escolha as palavras antes da bola rolar.'},
+    ManagerContractNegotiationStarted:{kicker:'NEGOCIAÇÃO',title:'Seu próximo passo está na mesa.'},
+    NegotiationStarted:{kicker:'MERCADO',title:'Uma negociação acaba de começar.'}
+  };
+  return labels[event.type];
+}
+
+function showInteractionScene(event:WorldEvent){
+  if(!interactionOpenTypes.has(event.type))return;
+  const label=interactionSceneLabel(event);
+  if(!label)return;
+  document.querySelector('.tl-interaction-scene')?.remove();
+  const node=document.createElement('div');
+  node.className='tl-interaction-scene';
+  node.innerHTML=`<div><span>${label.kicker}</span><b>${label.title}</b><small>${event.summary}</small></div>`;
+  document.body.appendChild(node);
+  requestAnimationFrame(()=>node.classList.add('is-visible'));
+  window.setTimeout(()=>{node.classList.add('is-leaving');window.setTimeout(()=>node.remove(),220)},1050);
+}
+
 function clubName(world:World,id:string|undefined){return world.clubs.find(club=>club.id===id)?.name??id??''}
 function managedClubId(world:World){return userManager(world)?.currentClubId}
 function showMatchdayMoment(world:World,event:WorldEvent){
@@ -162,7 +213,7 @@ function wireCareerMoments(){
   const world=currentWorld();
   if(!world||wiredWorlds.has(world))return;
   wiredWorlds.add(world);
-  onWorldEvent(world,'*',event=>{showMatchdayMoment(world,event);showCareerMoment(event)});
+  onWorldEvent(world,'*',event=>{showInteractionScene(event);showMatchdayMoment(world,event);showCareerMoment(event)});
 }
 
 function bind(){
@@ -192,7 +243,7 @@ function bind(){
     if(shouldCheckDialogs)queueMicrotask(()=>animateDialogs());
   });
   observer.observe(document.body,{subtree:true,childList:true,characterData:true});
-  queueMicrotask(wireCareerMoments);
+  queueMicrotask(()=>{wireCareerMoments();decorateHumanInteractions()});
 }
 
 bind();
