@@ -1,4 +1,4 @@
 Portable demo build trigger
-2026-08-27T21:18-03:00
-HEAD-before-trigger: e86d3a0309fe355460185dd8af7b10268956d0c4
-Purpose: package playable Continue -> day advance -> managed match -> Match Center flow
+2026-08-27T21:25-03:00
+HEAD-before-trigger: ef8e963745ab66b288b47fc708414cce62918e60
+Purpose: deterministic one-click Continue -> one day -> managed match -> Match Center 2D autoplay
