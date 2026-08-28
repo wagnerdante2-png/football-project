@@ -5,7 +5,11 @@ import { ensureAIManagerCharacters } from '../src/manager-ai-characters';
 import { advanceOneDay, dailyCalendar } from '../src/daily-simulation';
 import { worldCore } from '../src/world-core-v2';
 
-const MAX_DAY_MS=5000;
+const MAX_QUIET_DAY_MS=5000;
+// A managed matchday deliberately resolves one full 0.25 s physical V2 match in addition
+// to the background world. Keep a separate hard budget so richer match fidelity does not
+// silently weaken the ordinary-calendar performance guard.
+const MAX_PHYSICAL_MATCH_DAY_MS=9000;
 const MAX_BOOTSTRAP_MS=5000;
 const DAYS=3;
 const world=createBrazilRealWorld2026();
@@ -23,8 +27,9 @@ for(let i=0;i<DAYS;i++){
   const t0=performance.now();
   const result=advanceOneDay(world);
   const elapsed=performance.now()-t0;
-  console.log(`[smoke] day ${i+1} ${result.date} -> ${worldCore(world).date} · ${elapsed.toFixed(1)}ms · events=${worldCore(world).events.length}`);
-  if(!Number.isFinite(elapsed)||elapsed>MAX_DAY_MS)throw new Error(`Daily runtime exceeded ${MAX_DAY_MS}ms: ${elapsed.toFixed(1)}ms on ${result.date}`);
+  const budget=result.matchDay?MAX_PHYSICAL_MATCH_DAY_MS:MAX_QUIET_DAY_MS;
+  console.log(`[smoke] day ${i+1} ${result.date} -> ${worldCore(world).date} · ${elapsed.toFixed(1)}ms · budget=${budget}ms · events=${worldCore(world).events.length}`);
+  if(!Number.isFinite(elapsed)||elapsed>budget)throw new Error(`Daily runtime exceeded ${budget}ms: ${elapsed.toFixed(1)}ms on ${result.date}${result.matchDay?' (physical matchday)':''}`);
 }
 if(dailyCalendar(world).daysAdvanced!==DAYS)throw new Error(`Expected ${DAYS} advanced days, got ${dailyCalendar(world).daysAdvanced}`);
 console.log('[smoke] daily runtime OK');
