@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-26T10:27:02.207Z",
+  "generatedAt": "2026-08-30T10:40:23.126Z",
   "license": "CC0-1.0",
   "repos": [
     {
@@ -48,8 +48,8 @@
     {
       "repo": "openfootball/deutschland",
       "branch": "master",
-      "commit": "2714bc079f29e17a8a2e5b26c948adb690fd6b07",
-      "files": 78
+      "commit": "589172812e3efbe26e0362c737ada173d0435b9f",
+      "files": 106
     },
     {
       "repo": "openfootball/espana",
@@ -8420,6 +8420,230 @@
     {
       "repo": "openfootball/deutschland",
       "branch": "master",
+      "path": "openliga/2020-21_de.1.txt",
+      "sha": "d59679519c938c1646c69d17f818eb3d55b18212",
+      "bytes": 57909,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/deutschland",
+      "branch": "master",
+      "path": "openliga/2020-21_de.2.txt",
+      "sha": "8e8837c0597b4b449f89d17358474abec7b68ee7",
+      "bytes": 54818,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/deutschland",
+      "branch": "master",
+      "path": "openliga/2020-21_de.3.txt",
+      "sha": "634d103c6815d50fb14e60bd4e65583f940cc565",
+      "bytes": 63976,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/deutschland",
+      "branch": "master",
+      "path": "openliga/2020-21_de.cup.txt",
+      "sha": "d77b038f807f7b9a972040b838ab3f32a91763ea",
+      "bytes": 9305,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/deutschland",
+      "branch": "master",
+      "path": "openliga/2021-22_de.1.txt",
+      "sha": "33ba7ce8cff283550a765ee87ac4407817ea9a7e",
+      "bytes": 56869,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/deutschland",
+      "branch": "master",
+      "path": "openliga/2021-22_de.2.txt",
+      "sha": "4196b873ee8f48346d7080e286cdac94bd8679ba",
+      "bytes": 54274,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/deutschland",
+      "branch": "master",
+      "path": "openliga/2021-22_de.3.txt",
+      "sha": "b8cb38a3801d80c7a2bbfa65251aa821c7a645c8",
+      "bytes": 35976,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/deutschland",
+      "branch": "master",
+      "path": "openliga/2021-22_de.cup.txt",
+      "sha": "2f924eafcf472f6bc93cd2f0d72c2133179e7b62",
+      "bytes": 13073,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/deutschland",
+      "branch": "master",
+      "path": "openliga/2022-23_de.1.txt",
+      "sha": "547db6252b8da59d914915f52376b60845edc89b",
+      "bytes": 58807,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/deutschland",
+      "branch": "master",
+      "path": "openliga/2022-23_de.2.txt",
+      "sha": "a867a863137669b57a22d22e0fb8398a9eea3fa3",
+      "bytes": 55767,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/deutschland",
+      "branch": "master",
+      "path": "openliga/2022-23_de.3.txt",
+      "sha": "b5399379a2c211821830a10cf52bfbaec3177432",
+      "bytes": 19588,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/deutschland",
+      "branch": "master",
+      "path": "openliga/2022-23_de.cup.txt",
+      "sha": "cac2cc4395ee82690a68cdbc5c5b41163eec02fd",
+      "bytes": 13357,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/deutschland",
+      "branch": "master",
+      "path": "openliga/2023-24_de.1.txt",
+      "sha": "6f337ef72eed35a557307520f74bc3c1ea4d94ec",
+      "bytes": 57087,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/deutschland",
+      "branch": "master",
+      "path": "openliga/2023-24_de.2.txt",
+      "sha": "e908174ad751bf821ccfa5fd8e699ce3e82df9a5",
+      "bytes": 47316,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/deutschland",
+      "branch": "master",
+      "path": "openliga/2023-24_de.3.txt",
+      "sha": "34e09de099fd1e1b3795deee65d7600f25f0e291",
+      "bytes": 46295,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/deutschland",
+      "branch": "master",
+      "path": "openliga/2023-24_de.cup.txt",
+      "sha": "3d290e08737134a79f1ec7bece444d2a3d096128",
+      "bytes": 14856,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/deutschland",
+      "branch": "master",
+      "path": "openliga/2024-25_de.1.txt",
+      "sha": "69e811814958dc277193da8be094d25c851cd7dd",
+      "bytes": 56312,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/deutschland",
+      "branch": "master",
+      "path": "openliga/2024-25_de.2.txt",
+      "sha": "3c475e4133a3a29bec47cb260cc379912e878661",
+      "bytes": 36236,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/deutschland",
+      "branch": "master",
+      "path": "openliga/2024-25_de.3.txt",
+      "sha": "a37c0376dc4cf14bd511a6cf7754baeba63f696f",
+      "bytes": 31691,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/deutschland",
+      "branch": "master",
+      "path": "openliga/2024-25_de.cup.txt",
+      "sha": "273e4cd98ec0c6acefdb2d3cd6acf4031be2d94d",
+      "bytes": 11783,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/deutschland",
+      "branch": "master",
+      "path": "openliga/2025-26_de.1.txt",
+      "sha": "09c1b4190a45d8dc189a1f7b0aa04087292d6b62",
+      "bytes": 58446,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/deutschland",
+      "branch": "master",
+      "path": "openliga/2025-26_de.2.txt",
+      "sha": "f8effb05e1160cf78567915a80ea1dd12f9278cb",
+      "bytes": 51133,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/deutschland",
+      "branch": "master",
+      "path": "openliga/2025-26_de.3.txt",
+      "sha": "21df625a23a3912d98e412751021f1eeb7314167",
+      "bytes": 50549,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/deutschland",
+      "branch": "master",
+      "path": "openliga/2025-26_de.cup.txt",
+      "sha": "d905d666721470a45f74987cfc8f02c11b9e6074",
+      "bytes": 12313,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/deutschland",
+      "branch": "master",
+      "path": "openliga/2026-27_de.1.txt",
+      "sha": "27b8a1c15977aab4b9cee6c64473e3a8b49a51af",
+      "bytes": 17241,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/deutschland",
+      "branch": "master",
+      "path": "openliga/2026-27_de.2.txt",
+      "sha": "2f3ab65af766b11cf85149ba86fd5b6dba19c068",
+      "bytes": 19626,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/deutschland",
+      "branch": "master",
+      "path": "openliga/2026-27_de.3.txt",
+      "sha": "2aa67f9588aece7149d1003acedc420e5df2e749",
+      "bytes": 24545,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/deutschland",
+      "branch": "master",
+      "path": "openliga/2026-27_de.cup.txt",
+      "sha": "38a91716ae5ed6714354f9871abda5ac880e7913",
+      "bytes": 7524,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/deutschland",
+      "branch": "master",
       "path": "rsssf/duit2025.txt",
       "sha": "3b9692a5af8c838e9eadc56fd1fcbc922dcbefdf",
       "bytes": 14492,
@@ -11867,12 +12091,12 @@
     }
   ],
   "counts": {
-    "files": 1472,
-    "bytes": 24595006,
+    "files": 1500,
+    "bytes": 25631678,
     "playersFiles": 184,
     "clubFiles": 101,
     "stadiumFiles": 36,
     "leagueFiles": 152,
-    "tournamentFiles": 999
+    "tournamentFiles": 1027
   }
 }
