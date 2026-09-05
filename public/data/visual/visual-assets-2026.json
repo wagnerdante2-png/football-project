@@ -1,6 +1,6 @@
 {
   "version": 4,
-  "generatedAt": "2026-08-29T11:48:01.476Z",
+  "generatedAt": "2026-09-05T09:10:01.725Z",
   "sources": {
     "structured": [
       "OpenFootball CC0",
@@ -15,7 +15,7 @@
     "clubCrests": 9,
     "stadiumImages": 13,
     "playerTargets": 20,
-    "playerPortraits": 15,
+    "playerPortraits": 14,
     "activeRosterPlayerTargets": 20
   },
   "clubs": [
@@ -28,7 +28,7 @@
       "kitSource": "derived-from-crest",
       "crest": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/S%C3%A3o_Paulo_Futebol_Clube_logo_%282022%29.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/S%C3%A3o_Paulo_Futebol_Clube_logo_%282022%29.svg/500px-S%C3%A3o_Paulo_Futebol_Clube_logo_%282022%29.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/S%C3%A3o_Paulo_Futebol_Clube_logo_%282022%29.svg/500px-S%C3%A3o_Paulo_Futebol_Clube_logo_%282022%29.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "source": "Wikimedia Commons",
         "license": "Public domain",
         "attribution": "São Paulo FC\n",
@@ -53,7 +53,7 @@
       "stadiumName": "Estádio Adelmar da Costa Carvalho",
       "stadiumImage": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Est%C3%A1dio_Ilha_do_Retiro_-_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Est%C3%A1dio_Ilha_do_Retiro_-_2.jpg/960px-Est%C3%A1dio_Ilha_do_Retiro_-_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Est%C3%A1dio_Ilha_do_Retiro_-_2.jpg/960px-Est%C3%A1dio_Ilha_do_Retiro_-_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "source": "Wikimedia Commons",
         "license": "CC BY",
         "attribution": "Andre Oliveira",
@@ -71,7 +71,7 @@
       "kitSource": "derived-from-crest",
       "crest": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/9/90/Cruzeiro_Esporte_Clube_%28logo%29.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Cruzeiro_Esporte_Clube_%28logo%29.svg/500px-Cruzeiro_Esporte_Clube_%28logo%29.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Cruzeiro_Esporte_Clube_%28logo%29.svg/500px-Cruzeiro_Esporte_Clube_%28logo%29.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "source": "Wikimedia Commons",
         "license": "Public domain",
         "attribution": "Cruzeiro Esporte Clube",
@@ -81,7 +81,7 @@
       "stadiumName": "Estádio Governador Magalhães Pinto",
       "stadiumImage": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/8/82/Mineir%C3%A3o_A%C3%A9rea.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Mineir%C3%A3o_A%C3%A9rea.jpg/960px-Mineir%C3%A3o_A%C3%A9rea.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Mineir%C3%A3o_A%C3%A9rea.jpg/960px-Mineir%C3%A3o_A%C3%A9rea.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "source": "Wikimedia Commons",
         "license": "CC BY",
         "attribution": "Rodrigo Lima/Portal da Copa",
@@ -120,7 +120,7 @@
       "kitSource": "procedural",
       "crest": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/2/27/Clube_Atl%C3%A9tico_Mineiro_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Clube_Atl%C3%A9tico_Mineiro_logo.svg/500px-Clube_Atl%C3%A9tico_Mineiro_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Clube_Atl%C3%A9tico_Mineiro_logo.svg/500px-Clube_Atl%C3%A9tico_Mineiro_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "source": "Wikimedia Commons",
         "license": "Public domain",
         "attribution": "Clube Atlético Mineiro",
@@ -130,7 +130,7 @@
       "stadiumName": "Estádio Governador Magalhães Pinto",
       "stadiumImage": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/8/82/Mineir%C3%A3o_A%C3%A9rea.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Mineir%C3%A3o_A%C3%A9rea.jpg/960px-Mineir%C3%A3o_A%C3%A9rea.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Mineir%C3%A3o_A%C3%A9rea.jpg/960px-Mineir%C3%A3o_A%C3%A9rea.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "source": "Wikimedia Commons",
         "license": "CC BY",
         "attribution": "Rodrigo Lima/Portal da Copa",
@@ -166,7 +166,7 @@
       "stadiumName": "Estádio Jornalista Mário Filho",
       "stadiumImage": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Maracana_2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Maracana_2022.jpg/960px-Maracana_2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Maracana_2022.jpg/960px-Maracana_2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "source": "Wikimedia Commons",
         "license": "CC BY-SA",
         "attribution": "Arne Müseler",
@@ -185,7 +185,7 @@
       "stadiumName": "Estádio Alfredo Jaconi",
       "stadiumImage": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/8/82/EstadioAlfredoJaconi22.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/EstadioAlfredoJaconi22.jpg/960px-EstadioAlfredoJaconi22.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/EstadioAlfredoJaconi22.jpg/960px-EstadioAlfredoJaconi22.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "source": "Wikimedia Commons",
         "license": "Public domain",
         "attribution": "Tetraktys",
@@ -223,7 +223,7 @@
       "stadiumName": "Estádio Jornalista Mário Filho",
       "stadiumImage": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Maracana_2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Maracana_2022.jpg/960px-Maracana_2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Maracana_2022.jpg/960px-Maracana_2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "source": "Wikimedia Commons",
         "license": "CC BY-SA",
         "attribution": "Arne Müseler",
@@ -243,13 +243,13 @@
     {
       "name": "SE Palmeiras",
       "wikidataId": "Q80964",
-      "primaryColor": "#006437",
-      "secondaryColor": "#f3f5f4",
-      "accentColor": "#f3f5f4",
-      "kitSource": "derived-from-crest",
+      "primaryColor": "hsl(141 58% 34%)",
+      "secondaryColor": "hsl(278 58% 42%)",
+      "accentColor": "hsl(211 72% 58%)",
+      "kitSource": "procedural",
       "crest": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/1/10/Palmeiras_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Palmeiras_logo.svg/500px-Palmeiras_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Palmeiras_logo.svg/500px-Palmeiras_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "source": "Wikimedia Commons",
         "license": "Public domain",
         "attribution": "Sociedade Esportiva Palmeiras",
@@ -266,12 +266,7 @@
         "sourcePage": "https://commons.wikimedia.org/wiki/File:Est%C3%A1dio_Palestra_It%C3%A1lia.JPG",
         "freeToRedistribute": true
       },
-      "sourceConfidence": 96,
-      "paletteProvenance": {
-        "source": "verified-free-crest",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Palmeiras_logo.svg",
-        "method": "dominant-svg-colors"
-      }
+      "sourceConfidence": 96
     },
     {
       "name": "Botafogo FR",
@@ -282,7 +277,7 @@
       "kitSource": "procedural",
       "crest": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/5/52/Botafogo_de_Futebol_e_Regatas_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Botafogo_de_Futebol_e_Regatas_logo.svg/500px-Botafogo_de_Futebol_e_Regatas_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Botafogo_de_Futebol_e_Regatas_logo.svg/500px-Botafogo_de_Futebol_e_Regatas_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "source": "Wikimedia Commons",
         "license": "Public domain",
         "attribution": "Botafogo de Futebol e Regatas",
@@ -302,7 +297,7 @@
       "stadiumName": "Estádio Vasco da Gama",
       "stadiumImage": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Est%C3%A1dio_de_S%C3%A3o_Janu%C3%A1rio_by_Diego_Baravelli.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Est%C3%A1dio_de_S%C3%A3o_Janu%C3%A1rio_by_Diego_Baravelli.jpg/960px-Est%C3%A1dio_de_S%C3%A3o_Janu%C3%A1rio_by_Diego_Baravelli.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Est%C3%A1dio_de_S%C3%A3o_Janu%C3%A1rio_by_Diego_Baravelli.jpg/960px-Est%C3%A1dio_de_S%C3%A3o_Janu%C3%A1rio_by_Diego_Baravelli.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "source": "Wikimedia Commons",
         "license": "CC BY-SA",
         "attribution": "Diego Baravelli",
@@ -330,7 +325,7 @@
       "stadiumName": "Estádio Urbano Caldeira",
       "stadiumImage": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/4/47/Vila_Belmiro_pre-match_Santos_vs_Gr%C3%AAmio_2021.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Vila_Belmiro_pre-match_Santos_vs_Gr%C3%AAmio_2021.jpg/960px-Vila_Belmiro_pre-match_Santos_vs_Gr%C3%AAmio_2021.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Vila_Belmiro_pre-match_Santos_vs_Gr%C3%AAmio_2021.jpg/960px-Vila_Belmiro_pre-match_Santos_vs_Gr%C3%AAmio_2021.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "source": "Wikimedia Commons",
         "license": "CC BY-SA",
         "attribution": "BrazilianDude70",
@@ -356,7 +351,7 @@
       "kitSource": "procedural",
       "crest": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Corinthians23022007_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Corinthians23022007_%28cropped%29.jpg/500px-Corinthians23022007_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Corinthians23022007_%28cropped%29.jpg/500px-Corinthians23022007_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "source": "Wikimedia Commons",
         "license": "CC BY",
         "attribution": "Antonio Cruz/ABr",
@@ -366,7 +361,7 @@
       "stadiumName": "Estádio do Pacaembu",
       "stadiumImage": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Estadio_Municipal_do_Pacaemb%C3%BA._-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Estadio_Municipal_do_Pacaemb%C3%BA._-_panoramio.jpg/960px-Estadio_Municipal_do_Pacaemb%C3%BA._-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Estadio_Municipal_do_Pacaemb%C3%BA._-_panoramio.jpg/960px-Estadio_Municipal_do_Pacaemb%C3%BA._-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "source": "Wikimedia Commons",
         "license": "CC BY-SA",
         "attribution": "joao batista Shimoto",
@@ -385,7 +380,7 @@
       "stadiumName": "Estádio Nabi Abi Chedid",
       "stadiumImage": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/3/37/Est%C3%A1dio_Nabi_Abi_Chedid.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Est%C3%A1dio_Nabi_Abi_Chedid.jpg/960px-Est%C3%A1dio_Nabi_Abi_Chedid.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Est%C3%A1dio_Nabi_Abi_Chedid.jpg/960px-Est%C3%A1dio_Nabi_Abi_Chedid.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "source": "Wikimedia Commons",
         "license": "CC BY",
         "attribution": "Renato Patinhas",
@@ -447,7 +442,7 @@
       "wikidataId": "Q312886",
       "portrait": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/2/26/2020-03-10_Fu%C3%9Fball%2C_M%C3%A4nner%2C_UEFA_Champions_League_Achtelfinale%2C_RB_Leipzig_-_Tottenham_Hotspur_1DX_3703_by_Stepro.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/2020-03-10_Fu%C3%9Fball%2C_M%C3%A4nner%2C_UEFA_Champions_League_Achtelfinale%2C_RB_Leipzig_-_Tottenham_Hotspur_1DX_3703_by_Stepro.jpg/330px-2020-03-10_Fu%C3%9Fball%2C_M%C3%A4nner%2C_UEFA_Champions_League_Achtelfinale%2C_RB_Leipzig_-_Tottenham_Hotspur_1DX_3703_by_Stepro.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/2020-03-10_Fu%C3%9Fball%2C_M%C3%A4nner%2C_UEFA_Champions_League_Achtelfinale%2C_RB_Leipzig_-_Tottenham_Hotspur_1DX_3703_by_Stepro.jpg/330px-2020-03-10_Fu%C3%9Fball%2C_M%C3%A4nner%2C_UEFA_Champions_League_Achtelfinale%2C_RB_Leipzig_-_Tottenham_Hotspur_1DX_3703_by_Stepro.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "source": "Wikimedia Commons",
         "license": "CC BY-SA",
         "attribution": "Steffen Prößdorf",
@@ -463,7 +458,7 @@
       "wikidataId": "Q1341709",
       "portrait": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/0/00/DuduPalmeiras2018.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/DuduPalmeiras2018.jpg/330px-DuduPalmeiras2018.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/DuduPalmeiras2018.jpg/330px-DuduPalmeiras2018.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "source": "Wikimedia Commons",
         "license": "CC BY",
         "attribution": "Renato Gizzi from Guarulhos",
@@ -508,7 +503,7 @@
       "wikidataId": "Q4022527",
       "portrait": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/8/80/Yannick_Bolasie2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Yannick_Bolasie2.jpg/330px-Yannick_Bolasie2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Yannick_Bolasie2.jpg/330px-Yannick_Bolasie2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "source": "Wikimedia Commons",
         "license": "CC BY-SA",
         "attribution": "Yannick34",
@@ -524,7 +519,7 @@
       "wikidataId": "Q920039",
       "portrait": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/d/da/Cassio-Corinthians-Juventude-jul-2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Cassio-Corinthians-Juventude-jul-2022.jpg/330px-Cassio-Corinthians-Juventude-jul-2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Cassio-Corinthians-Juventude-jul-2022.jpg/330px-Cassio-Corinthians-Juventude-jul-2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "source": "Wikimedia Commons",
         "license": "Public domain",
         "attribution": "SOCCER DIGITAL",
@@ -540,7 +535,7 @@
       "wikidataId": "Q932827",
       "portrait": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Bra-Cos_%2820%29_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Bra-Cos_%2820%29_%28cropped%29.jpg/330px-Bra-Cos_%2820%29_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Bra-Cos_%2820%29_%28cropped%29.jpg/330px-Bra-Cos_%2820%29_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "source": "Wikimedia Commons",
         "license": "CC BY-SA",
         "attribution": "Кирилл Венедиктов",
@@ -585,7 +580,7 @@
       "wikidataId": "Q64606160",
       "portrait": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/8/86/Reinier_2020.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Reinier_2020.png/330px-Reinier_2020.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/Reinier_2020.png/330px-Reinier_2020.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "source": "Wikimedia Commons",
         "license": "CC BY",
         "attribution": "Real Madrid",
@@ -627,42 +622,26 @@
       "sourceConfidence": 96
     },
     {
-      "name": "Breno Lopes",
-      "dateOfBirth": "1996-01-24",
-      "clubName": "Fortaleza EC",
-      "wikidataId": "Q101230488",
-      "portrait": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Breno-lopes-palmeiras-wikipedia-2021_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Breno-lopes-palmeiras-wikipedia-2021_%28cropped%29.jpg/330px-Breno-lopes-palmeiras-wikipedia-2021_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-        "source": "Wikimedia Commons",
-        "license": "CC BY-SA",
-        "attribution": "NullReason",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Breno-lopes-palmeiras-wikipedia-2021_(cropped).jpg",
-        "freeToRedistribute": true
-      },
-      "sourceConfidence": 96
-    },
-    {
       "name": "Thiago Silva",
       "dateOfBirth": "1984-09-22",
       "clubName": "Fluminense FC",
-      "sourceConfidence": 5
+      "wikidataId": "Q210453",
+      "portrait": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/c/c8/20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Thiago_Silva_850_1582.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Thiago_Silva_850_1582.jpg/330px-20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Thiago_Silva_850_1582.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "CC BY-SA",
+        "attribution": "Granada",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Thiago_Silva_850_1582.jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 96
     },
     {
       "name": "Hulk",
       "dateOfBirth": "1986-07-25",
       "clubName": "Fluminense FC",
-      "wikidataId": "Q62786",
-      "portrait": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Bayer-04_-_Zenit_%2814%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Bayer-04_-_Zenit_%2814%29.jpg/330px-Bayer-04_-_Zenit_%2814%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-        "source": "Wikimedia Commons",
-        "license": "CC BY-SA",
-        "attribution": "Вячеслав Евдокимов",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Bayer-04_-_Zenit_(14).jpg",
-        "freeToRedistribute": true
-      },
-      "sourceConfidence": 96
+      "sourceConfidence": 5
     },
     {
       "name": "Jefferson Savarino",
@@ -671,7 +650,7 @@
       "wikidataId": "Q20735677",
       "portrait": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/USAvVEN_2019-06-09_-_Jefferson_Savarino_%2851169633652%29_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/USAvVEN_2019-06-09_-_Jefferson_Savarino_%2851169633652%29_%28cropped%29.jpg/330px-USAvVEN_2019-06-09_-_Jefferson_Savarino_%2851169633652%29_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/USAvVEN_2019-06-09_-_Jefferson_Savarino_%2851169633652%29_%28cropped%29.jpg/330px-USAvVEN_2019-06-09_-_Jefferson_Savarino_%2851169633652%29_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "source": "Wikimedia Commons",
         "license": "CC BY",
         "attribution": "Hayden Schiff from Cincinnati, USA",
@@ -687,7 +666,7 @@
       "wikidataId": "Q15696665",
       "portrait": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Dsc_4650_42558797500_o_%2850121450516%29_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Dsc_4650_42558797500_o_%2850121450516%29_%28cropped%29.jpg/330px-Dsc_4650_42558797500_o_%2850121450516%29_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Dsc_4650_42558797500_o_%2850121450516%29_%28cropped%29.jpg/330px-Dsc_4650_42558797500_o_%2850121450516%29_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
         "source": "Wikimedia Commons",
         "license": "CC BY-SA",
         "attribution": "All-Pro Reels from District of Columbia, USA",
@@ -695,6 +674,13 @@
         "freeToRedistribute": true
       },
       "sourceConfidence": 96
+    },
+    {
+      "name": "Rubén Lezcano",
+      "dateOfBirth": "2004-02-09",
+      "clubName": "Fluminense FC",
+      "wikidataId": "Q124805566",
+      "sourceConfidence": 70
     }
   ],
   "notes": [
@@ -710,10 +696,10 @@
   ],
   "identitySanitization": {
     "rejectedAmbiguousClubMatches": 0,
-    "generatedAt": "2026-08-29T11:48:01.611Z"
+    "generatedAt": "2026-09-05T09:10:01.862Z"
   },
   "colorEnrichment": {
-    "derivedFromVerifiedCrests": 3,
-    "generatedAt": "2026-08-29T11:48:01.952Z"
+    "derivedFromVerifiedCrests": 2,
+    "generatedAt": "2026-09-05T09:10:02.468Z"
   }
 }
