@@ -53,36 +53,39 @@
 
 ▪ Matchday 4
   Fri Aug 28
-    20:15  Rio Ave FC              v Sporting Clube de Portugal
+    20:15  Rio Ave FC              v Sporting Clube de Portugal  0-4 (0-4)
   Sat Aug 29
-    15:30  FC Alverca              v CD Santa Clara
-           FC Arouca               v CS Marítimo
-    18:00  Académico de Viseu FC   v FC Porto
+    15:30  FC Alverca              v CD Santa Clara           1-1 (0-0)
+           FC Arouca               v CS Marítimo              2-1 (1-1)
+    18:00  Académico de Viseu FC   v FC Porto                 0-3 (0-3)
   Sun Aug 30
-    15:30  CD Nacional             v CF Estrela da Amadora
-    18:00  Casa Pia AC             v Moreirense FC
-    20:30  FC Famalicão            v Gil Vicente FC
+    15:30  CD Nacional             v CF Estrela da Amadora    2-3 (1-1)
+    18:00  Casa Pia AC             v Moreirense FC            0-1 (0-1)
+    20:30  FC Famalicão            v Gil Vicente FC           0-0
   Mon Aug 31
-    20:15  Sport Lisboa e Benfica  v GD Estoril Praia
-           Sporting Clube de Braga v Vitória Guimarães
+    20:15  Sport Lisboa e Benfica  v GD Estoril Praia         2-1 (1-0)
+           Sporting Clube de Braga v Vitória Guimarães        1-0 (0-0)
 
 
 ▪ Matchday 5
+  Fri Sep 4
+    20:15  FC Porto                v Moreirense FC
   Sat Sep 5
-           FC Alverca              v Sporting Clube de Braga
-           CF Estrela da Amadora   v FC Famalicão
-           Sporting Clube de Portugal v CD Nacional
-           FC Porto                v Moreirense FC
-           CD Santa Clara          v Rio Ave FC
-           Gil Vicente FC          v Académico de Viseu FC
+    15:30  CF Estrela da Amadora   v FC Famalicão
+    18:00  FC Alverca              v Sporting Clube de Braga
            CS Marítimo             v Sport Lisboa e Benfica
-           Vitória Guimarães       v Casa Pia AC
+    20:30  Sporting Clube de Portugal v CD Nacional
+  Sun Sep 6
+    15:30  CD Santa Clara          v Rio Ave FC
+    18:00  Vitória Guimarães       v Casa Pia AC
+    20:30  Gil Vicente FC          v Académico de Viseu FC
+  Mon Sep 7
            GD Estoril Praia        v FC Arouca
 
 
 ▪ Matchday 3
   Wed Sep 9
-    20:15  Moreirense FC           v Sport Lisboa e Benfica
+    20:45  Moreirense FC           v Sport Lisboa e Benfica
   Thu Sep 10
     20:15  CF Estrela da Amadora   v Sporting Clube de Braga
 
@@ -101,7 +104,7 @@
 
 
 ▪ Matchday 7
-  Sun Sep 20
+  Sat Sep 19
            CD Nacional             v FC Famalicão
            Gil Vicente FC          v CS Marítimo
            Sporting Clube de Portugal v FC Arouca
