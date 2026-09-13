@@ -64,17 +64,18 @@
 
 ▪ Matchday 5
   Fri Sep 4
-    20:00  Sparta Rotterdam        v PEC Zwolle
+    20:00  Sparta Rotterdam        v PEC Zwolle               2-2 (1-1)
   Sat Sep 5
-    16:30  NEC                     v Feyenoord Rotterdam
-    18:45  FC Utrecht              v Go Ahead Eagles
-    20:00  AFC Ajax                v PSV
-    21:00  Willem II Tilburg       v SBV Excelsior
+    16:30  NEC                     v Feyenoord Rotterdam      1-3 (0-0)
+    20:00  AFC Ajax                v PSV                      1-3 (1-2)
+    21:00  Willem II Tilburg       v SBV Excelsior            0-3 (0-2)
   Sun Sep 6
-    12:15  FC Groningen            v FC Twente '65
-    14:30  SC Heerenveen           v AZ
-           Telstar 1963            v SC Cambuur-Leeuwarden
-    16:45  ADO Den Haag            v Fortuna Sittard
+    12:15  FC Groningen            v FC Twente '65            2-2 (2-2)
+    14:30  SC Heerenveen           v AZ                       2-3 (2-1)
+           Telstar 1963            v SC Cambuur-Leeuwarden    2-2 (0-0)
+    16:45  ADO Den Haag            v Fortuna Sittard          2-3 (0-2)
+  Tue Sep 8
+    14:00  FC Utrecht              v Go Ahead Eagles          [cancelled]
 
 
 ▪ Matchday 3
@@ -94,9 +95,9 @@
     21:00  SC Cambuur-Leeuwarden   v NEC
   Sun Sep 13
     12:15  SBV Excelsior           v FC Utrecht
-    14:30  PSV                     v Sparta Rotterdam
-           SC Heerenveen           v Telstar 1963
+    14:30  SC Heerenveen           v Telstar 1963
     16:45  PEC Zwolle              v Feyenoord Rotterdam
+    20:00  PSV                     v Sparta Rotterdam
 
 
 ▪ Matchday 3
@@ -114,9 +115,9 @@
     21:00  Willem II Tilburg       v Fortuna Sittard
   Sun Sep 20
     12:15  Feyenoord Rotterdam     v FC Utrecht
-    14:30  NEC                     v Go Ahead Eagles
+    14:30  FC Twente '65           v PSV
            AZ                      v Telstar 1963
-    16:45  FC Twente '65           v PSV
+    16:45  NEC                     v Go Ahead Eagles
 
 
 ▪ Matchday 8

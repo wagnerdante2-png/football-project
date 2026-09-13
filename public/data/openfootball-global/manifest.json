@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-06T09:39:05.482Z",
+  "generatedAt": "2026-09-13T10:36:33.493Z",
   "license": "CC0-1.0",
   "repos": [
     {
@@ -24,43 +24,43 @@
     {
       "repo": "openfootball/world",
       "branch": "master",
-      "commit": "3195bc42fe1b7bf4f7bc31e0b89681788b06b601",
-      "files": 146
+      "commit": "4eff3ecf17a23404f492095aaf28fbf45d66861b",
+      "files": 149
     },
     {
       "repo": "openfootball/south-america",
       "branch": "master",
-      "commit": "07bc4224b4f99dc00f088f15d86830769f9cbaf1",
+      "commit": "4371c453d0cb8882b85bbc665ab336561e60e125",
       "files": 60
     },
     {
       "repo": "openfootball/europe",
       "branch": "master",
-      "commit": "7faa522aef63fa9a6fcb9d8189bd8bc52381e967",
+      "commit": "a475af95da7a3b0b811148d9479efc15f4a8fd65",
       "files": 207
     },
     {
       "repo": "openfootball/england",
       "branch": "master",
-      "commit": "0690446f794fde748ea4b994244def699c6a65b2",
+      "commit": "ec25b557eeb0f5cefd233fbeeb43d340ce05142e",
       "files": 213
     },
     {
       "repo": "openfootball/deutschland",
       "branch": "master",
-      "commit": "85e545c71131ee1b873405fe61ce15dc3e6d17ec",
+      "commit": "b3039e75a649a251d75f190eb71a96c5d00576ba",
       "files": 106
     },
     {
       "repo": "openfootball/espana",
       "branch": "master",
-      "commit": "5866c833aa920035a0c915a16c05fbfd9434656b",
+      "commit": "35aa00a19cafa72953cc92ccee060352c9ae6e39",
       "files": 55
     },
     {
       "repo": "openfootball/italy",
       "branch": "master",
-      "commit": "042a98498bd9707f212a47b7e262e607bd2ff003",
+      "commit": "8ba9b3c44145de7a174b0c98bdaf5808798e14ad",
       "files": 56
     },
     {
@@ -3132,6 +3132,30 @@
     {
       "repo": "openfootball/world",
       "branch": "master",
+      "path": "africa/rwanda/2023-24_rw1.txt",
+      "sha": "2b4e83d48f23a74c272ca6e1e361f5dc76b4b8e2",
+      "bytes": 16809,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/world",
+      "branch": "master",
+      "path": "africa/rwanda/2024-25_rw1.txt",
+      "sha": "94bf1e87bdd4134d1a02b478f4970117ec657a49",
+      "bytes": 16446,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/world",
+      "branch": "master",
+      "path": "africa/rwanda/2025-26_rw1.txt",
+      "sha": "49b14842e1f366c72b8241afad276f0a377650a2",
+      "bytes": 24006,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/world",
+      "branch": "master",
       "path": "africa/south-africa/2024-25_za1.txt",
       "sha": "5c9cbd824dd8a824c753e103eb39672d0fff4c37",
       "bytes": 19304,
@@ -4189,8 +4213,8 @@
       "repo": "openfootball/south-america",
       "branch": "master",
       "path": "brazil/2026_br1.txt",
-      "sha": "c5381bf727c9b1ced6d68328a1881c24536958eb",
-      "bytes": 26516,
+      "sha": "fdcf039b4d037d170fa7e5a28c674b275da3775e",
+      "bytes": 26790,
       "license": "CC0-1.0"
     },
     {
@@ -5005,8 +5029,8 @@
       "repo": "openfootball/europe",
       "branch": "master",
       "path": "france/2026-27_fr1.txt",
-      "sha": "c48ae7306cff071f87bdaae09088edc82da88b62",
-      "bytes": 17615,
+      "sha": "65146bff020d8c26365a4e9a9beb25592bd6b709",
+      "bytes": 17969,
       "license": "CC0-1.0"
     },
     {
@@ -5453,8 +5477,8 @@
       "repo": "openfootball/europe",
       "branch": "master",
       "path": "netherlands/2026-27_nl1.txt",
-      "sha": "eee9550219e86af216dc6c06cb062aa541da3a37",
-      "bytes": 17540,
+      "sha": "309eb2bc56e69bed1723eb01bcce5853aa97e626",
+      "bytes": 17749,
       "license": "CC0-1.0"
     },
     {
@@ -5669,8 +5693,8 @@
       "repo": "openfootball/europe",
       "branch": "master",
       "path": "portugal/2026-27_pt1.txt",
-      "sha": "9635892e237ecaf1d7400737507859e65d9534bf",
-      "bytes": 18474,
+      "sha": "4d0078c85a94f1f1683f329d5b4a74bb154bd3c1",
+      "bytes": 18853,
       "license": "CC0-1.0"
     },
     {
@@ -7517,16 +7541,16 @@
       "repo": "openfootball/england",
       "branch": "master",
       "path": "2026-27/1-premierleague.txt",
-      "sha": "dec39f0aa20d4ea5653ecfe4257bc7910c00e0eb",
-      "bytes": 22179,
+      "sha": "75723e627328b7bc218206e786a965cceff39841",
+      "bytes": 22354,
       "license": "CC0-1.0"
     },
     {
       "repo": "openfootball/england",
       "branch": "master",
       "path": "2026-27/2-championship.txt",
-      "sha": "b28f0770c681cf7161024c35c3539fbd849a3c61",
-      "bytes": 32731,
+      "sha": "78e4ddb6aa799a28f80f8b8af120096a13be82b3",
+      "bytes": 33158,
       "license": "CC0-1.0"
     },
     {
@@ -8421,8 +8445,8 @@
       "repo": "openfootball/deutschland",
       "branch": "master",
       "path": "2026-27/1-bundesliga.txt",
-      "sha": "2a2dae81e74d5619967284244fd0a8d9e7ef0f04",
-      "bytes": 17840,
+      "sha": "8dcdaa713f0d2778fbb594e95c2c4cb92555a01c",
+      "bytes": 18015,
       "license": "CC0-1.0"
     },
     {
@@ -8621,32 +8645,32 @@
       "repo": "openfootball/deutschland",
       "branch": "master",
       "path": "openliga/2026-27_de.1.txt",
-      "sha": "262f456cfc167a4ef0b41c5737e3c9d890066728",
-      "bytes": 18656,
+      "sha": "f0b3c7e89f49d3291b7ca696ca1a38ae10c269d8",
+      "bytes": 20111,
       "license": "CC0-1.0"
     },
     {
       "repo": "openfootball/deutschland",
       "branch": "master",
       "path": "openliga/2026-27_de.2.txt",
-      "sha": "bc600549de56c223b0af9fdd5fbea1e4ea0716e9",
-      "bytes": 21330,
+      "sha": "d7a14166f06fcde39c8b2df59ed004ccc14da1d0",
+      "bytes": 22727,
       "license": "CC0-1.0"
     },
     {
       "repo": "openfootball/deutschland",
       "branch": "master",
       "path": "openliga/2026-27_de.3.txt",
-      "sha": "1838ea758dd881b1c8bcb224bbf0f58f0df36a5b",
-      "bytes": 25884,
+      "sha": "f6c20dcde97ba5faa156837d3a40454c6c0c0d77",
+      "bytes": 26197,
       "license": "CC0-1.0"
     },
     {
       "repo": "openfootball/deutschland",
       "branch": "master",
       "path": "openliga/2026-27_de.cup.txt",
-      "sha": "b70cacc166bb3cd668fe0c4343fa10d7616f0fb6",
-      "bytes": 7523,
+      "sha": "f6dca7fe13a5b04855ba1ac913b806f272542c3b",
+      "bytes": 8764,
       "license": "CC0-1.0"
     },
     {
@@ -9109,8 +9133,8 @@
       "repo": "openfootball/espana",
       "branch": "master",
       "path": "2026-27/1-liga.txt",
-      "sha": "935970e7f0896a59c719b2fa08a975a9d843e305",
-      "bytes": 23025,
+      "sha": "d48358e2470961994745340082932cdddbd27c60",
+      "bytes": 23221,
       "license": "CC0-1.0"
     },
     {
@@ -9557,8 +9581,8 @@
       "repo": "openfootball/italy",
       "branch": "master",
       "path": "2026-27/1-seriea.txt",
-      "sha": "32156c09c221a2f53d073c6f6ab73e2833f8121a",
-      "bytes": 20929,
+      "sha": "fb6f6705d6bb2bdb4ea8d769284080dcc8b3e6d3",
+      "bytes": 21362,
       "license": "CC0-1.0"
     },
     {
@@ -12099,12 +12123,12 @@
     }
   ],
   "counts": {
-    "files": 1501,
-    "bytes": 25660476,
+    "files": 1504,
+    "bytes": 25724765,
     "playersFiles": 184,
     "clubFiles": 101,
     "stadiumFiles": 36,
     "leagueFiles": 152,
-    "tournamentFiles": 1028
+    "tournamentFiles": 1031
   }
 }
