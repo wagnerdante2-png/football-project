@@ -1,6 +1,6 @@
 {
   "version": 4,
-  "generatedAt": "2026-09-19T09:36:01.314Z",
+  "generatedAt": "2026-09-26T10:01:01.243Z",
   "sources": {
     "structured": [
       "OpenFootball CC0",
@@ -12,8 +12,8 @@
   },
   "counts": {
     "clubTargets": 20,
-    "clubCrests": 9,
-    "stadiumImages": 13,
+    "clubCrests": 10,
+    "stadiumImages": 14,
     "playerTargets": 20,
     "playerPortraits": 14,
     "activeRosterPlayerTargets": 20
@@ -146,11 +146,36 @@
     },
     {
       "name": "Fortaleza EC",
-      "primaryColor": "hsl(187 58% 34%)",
-      "secondaryColor": "hsl(324 58% 42%)",
-      "accentColor": "hsl(257 72% 58%)",
-      "kitSource": "procedural",
-      "sourceConfidence": 10
+      "wikidataId": "Q188841",
+      "primaryColor": "#e1261d",
+      "secondaryColor": "#2b62a7",
+      "accentColor": "#ba8843",
+      "kitSource": "derived-from-crest",
+      "crest": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Fortaleza_Esporte_Clube_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Fortaleza_Esporte_Clube_logo.svg/500px-Fortaleza_Esporte_Clube_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "Public domain",
+        "attribution": "Fortaleza Esporte Clube",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Fortaleza_Esporte_Clube_logo.svg",
+        "freeToRedistribute": true
+      },
+      "stadiumName": "Estádio Governador Plácido Castelo",
+      "stadiumImage": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Fortaleza_Arena.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Fortaleza_Arena.jpg/960px-Fortaleza_Arena.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "source": "Wikimedia Commons",
+        "license": "CC BY",
+        "attribution": "Fábio Lima/Portal da Copa/Março de 2013",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Fortaleza_Arena.jpg",
+        "freeToRedistribute": true
+      },
+      "sourceConfidence": 96,
+      "paletteProvenance": {
+        "source": "verified-free-crest",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Fortaleza_Esporte_Clube_logo.svg",
+        "method": "dominant-svg-colors"
+      }
     },
     {
       "name": "Fluminense FC",
@@ -706,10 +731,10 @@
   ],
   "identitySanitization": {
     "rejectedAmbiguousClubMatches": 0,
-    "generatedAt": "2026-09-19T09:36:01.445Z"
+    "generatedAt": "2026-09-26T10:01:01.378Z"
   },
   "colorEnrichment": {
-    "derivedFromVerifiedCrests": 4,
-    "generatedAt": "2026-09-19T09:36:01.719Z"
+    "derivedFromVerifiedCrests": 5,
+    "generatedAt": "2026-09-26T10:01:01.675Z"
   }
 }
