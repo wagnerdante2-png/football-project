@@ -1,6 +1,6 @@
 {
   "version": 4,
-  "generatedAt": "2026-10-03T10:32:01.365Z",
+  "generatedAt": "2026-10-10T11:18:01.203Z",
   "sources": {
     "structured": [
       "OpenFootball CC0",
@@ -15,7 +15,7 @@
     "clubCrests": 9,
     "stadiumImages": 13,
     "playerTargets": 20,
-    "playerPortraits": 14,
+    "playerPortraits": 13,
     "activeRosterPlayerTargets": 20
   },
   "clubs": [
@@ -462,6 +462,13 @@
       "sourceConfidence": 96
     },
     {
+      "name": "Néiser Villarreal",
+      "dateOfBirth": "2005-04-24",
+      "clubName": "Cruzeiro EC",
+      "wikidataId": "Q131110894",
+      "sourceConfidence": 70
+    },
+    {
       "name": "Dudu",
       "dateOfBirth": "1992-01-07",
       "clubName": "Cruzeiro EC",
@@ -481,14 +488,14 @@
       "name": "Matheus Cunha Queiroz",
       "dateOfBirth": "2001-05-24",
       "clubName": "Cruzeiro EC",
-      "wikidataId": "Q110882015",
-      "sourceConfidence": 70
+      "sourceConfidence": 5
     },
     {
       "name": "Lucas Villalba",
       "dateOfBirth": "1994-08-18",
       "clubName": "Cruzeiro EC",
-      "sourceConfidence": 5
+      "wikidataId": "Q5981950",
+      "sourceConfidence": 70
     },
     {
       "name": "Gabigol",
@@ -639,26 +646,10 @@
       "sourceConfidence": 70
     },
     {
-      "name": "Breno Lopes",
-      "dateOfBirth": "1996-01-24",
-      "clubName": "Fortaleza EC",
-      "sourceConfidence": 5
-    },
-    {
       "name": "Thiago Silva",
       "dateOfBirth": "1984-09-22",
       "clubName": "Fluminense FC",
-      "wikidataId": "Q210453",
-      "portrait": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/c/c8/20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Thiago_Silva_850_1582.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Thiago_Silva_850_1582.jpg/330px-20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Thiago_Silva_850_1582.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-        "source": "Wikimedia Commons",
-        "license": "CC BY-SA",
-        "attribution": "Granada",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:20180610_FIFA_Friendly_Match_Austria_vs._Brazil_Thiago_Silva_850_1582.jpg",
-        "freeToRedistribute": true
-      },
-      "sourceConfidence": 96
+      "sourceConfidence": 5
     },
     {
       "name": "Hulk",
@@ -706,10 +697,10 @@
   ],
   "identitySanitization": {
     "rejectedAmbiguousClubMatches": 0,
-    "generatedAt": "2026-10-03T10:32:01.504Z"
+    "generatedAt": "2026-10-10T11:18:01.316Z"
   },
   "colorEnrichment": {
     "derivedFromVerifiedCrests": 4,
-    "generatedAt": "2026-10-03T10:32:01.916Z"
+    "generatedAt": "2026-10-10T11:18:01.524Z"
   }
 }
