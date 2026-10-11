@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-27T10:44:14.328Z",
+  "generatedAt": "2026-10-11T11:35:39.204Z",
   "license": "CC0-1.0",
   "repos": [
     {
@@ -36,8 +36,8 @@
     {
       "repo": "openfootball/europe",
       "branch": "master",
-      "commit": "e16fa332068b639c4210d57319df459b190470dd",
-      "files": 207
+      "commit": "0bf83f88e8feb22904c5f9d93c6407574c1347e0",
+      "files": 212
     },
     {
       "repo": "openfootball/england",
@@ -4884,6 +4884,14 @@
     {
       "repo": "openfootball/europe",
       "branch": "master",
+      "path": "czech-republic/2026-27_cz1.txt",
+      "sha": "003dab1b459b8aa9f0468b9e1b3b36299c2f6ed3",
+      "bytes": 18968,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/europe",
+      "branch": "master",
       "path": "denmark/2023-24_dk1.txt",
       "sha": "70bb4c62ff52f82157a4af5513021e32d3c0701d",
       "bytes": 16940,
@@ -5287,6 +5295,14 @@
       "path": "greece/2025-26_gr1.txt",
       "sha": "bf6fd96997a51eedd61e6c238d40cfc85a283251",
       "bytes": 11948,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/europe",
+      "branch": "master",
+      "path": "greece/2026-27_gr1.txt",
+      "sha": "887c592e263406efc12eae97a5c808422957c09c",
+      "bytes": 11449,
       "license": "CC0-1.0"
     },
     {
@@ -6028,6 +6044,14 @@
     {
       "repo": "openfootball/europe",
       "branch": "master",
+      "path": "scotland/2026-27_sco1.txt",
+      "sha": "60b4918c6ee436fae3716ebe50dbcbc6b9cb84fb",
+      "bytes": 12952,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/europe",
+      "branch": "master",
       "path": "serbia/2023-24_rs1.txt",
       "sha": "85dd4ffdadf5b73c7aac792803387a2191625b25",
       "bytes": 24809,
@@ -6220,6 +6244,14 @@
     {
       "repo": "openfootball/europe",
       "branch": "master",
+      "path": "switzerland/2026-27_ch1.txt",
+      "sha": "d0234e0d4356fa92adcf6b2fdc728014ce081136",
+      "bytes": 12444,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/europe",
+      "branch": "master",
       "path": "turkey/2018-19_tr1.txt",
       "sha": "e2fccfab752e9d0ee6e068c8b8c1a756b4b0fcae",
       "bytes": 25224,
@@ -6279,6 +6311,14 @@
       "path": "turkey/2025-26_tr1.txt",
       "sha": "0d6393ab9b793bb450c729b6fa8fbb600d3762d3",
       "bytes": 19968,
+      "license": "CC0-1.0"
+    },
+    {
+      "repo": "openfootball/europe",
+      "branch": "master",
+      "path": "turkey/2026-27_tr1.txt",
+      "sha": "8596a2f7d0b4d8830225d9a1c8f44abe26e2b5a5",
+      "bytes": 17420,
       "license": "CC0-1.0"
     },
     {
@@ -12291,12 +12331,12 @@
     }
   ],
   "counts": {
-    "files": 1525,
-    "bytes": 26167498,
+    "files": 1530,
+    "bytes": 26240731,
     "playersFiles": 184,
     "clubFiles": 101,
     "stadiumFiles": 36,
     "leagueFiles": 152,
-    "tournamentFiles": 1052
+    "tournamentFiles": 1057
   }
 }
