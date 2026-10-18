@@ -1,6 +1,6 @@
 {
   "version": 6,
-  "generatedAt": "2026-10-17T09:26:16.324Z",
+  "generatedAt": "2026-10-18T11:19:21.759Z",
   "season": 2026,
   "source": {
     "name": "Wikidata",
@@ -22,7 +22,7 @@
     "clubsWithPlayers": 11,
     "players": 59,
     "playersWithSpecificPosition": 44,
-    "playersWithRoleGroup": 56,
+    "playersWithRoleGroup": 57,
     "positionsFromWikidata": 15,
     "positionsFromOpenFootball": 29,
     "playersWithNationality": 59,
@@ -57,7 +57,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -86,7 +86,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -140,7 +140,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -168,7 +168,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -197,7 +197,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -214,6 +214,8 @@
           "dateOfBirth": "2005-04-24",
           "nationality": "Colômbia",
           "heightCm": 186,
+          "roleGroup": "forward",
+          "roleGroupSource": "Wikidata P413",
           "clubId": "cruzeiro-ec",
           "clubName": "Cruzeiro EC",
           "clubWikidataId": "Q188277",
@@ -222,13 +224,14 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
             "heightStatement": "P2048",
             "temporalRule": "preferred-rank-or-started-2024+",
-            "rawPositionLabel": "extremo"
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "avançado"
           }
         },
         {
@@ -247,7 +250,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -275,7 +278,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -304,7 +307,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -333,7 +336,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -362,7 +365,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -391,7 +394,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -434,7 +437,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -463,7 +466,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -492,7 +495,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -519,7 +522,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -545,7 +548,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -585,7 +588,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -627,7 +630,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -656,7 +659,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -685,7 +688,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -712,7 +715,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -740,7 +743,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -783,7 +786,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -826,7 +829,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -855,7 +858,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -884,7 +887,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -913,7 +916,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -942,7 +945,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -969,7 +972,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -997,7 +1000,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1026,7 +1029,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1055,7 +1058,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1080,7 +1083,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1107,7 +1110,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1134,7 +1137,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1176,7 +1179,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1203,7 +1206,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1231,7 +1234,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1260,7 +1263,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1289,7 +1292,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1332,7 +1335,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1359,7 +1362,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1385,7 +1388,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1409,7 +1412,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1436,7 +1439,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1465,7 +1468,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1508,7 +1511,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1537,7 +1540,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1566,7 +1569,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1609,7 +1612,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1638,7 +1641,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1667,7 +1670,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1694,7 +1697,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1722,7 +1725,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1751,7 +1754,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1780,7 +1783,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1809,7 +1812,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1838,7 +1841,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-17",
+            "snapshotDate": "2026-10-18",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
