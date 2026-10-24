@@ -1,6 +1,6 @@
 {
   "version": 6,
-  "generatedAt": "2026-10-18T11:19:21.759Z",
+  "generatedAt": "2026-10-24T09:38:21.687Z",
   "season": 2026,
   "source": {
     "name": "Wikidata",
@@ -18,15 +18,15 @@
     "Club identities come from the already-verified visual manifest; no second playable-club registry is maintained."
   ],
   "counts": {
-    "clubs": 14,
-    "clubsWithPlayers": 11,
-    "players": 59,
-    "playersWithSpecificPosition": 44,
-    "playersWithRoleGroup": 57,
-    "positionsFromWikidata": 15,
-    "positionsFromOpenFootball": 29,
-    "playersWithNationality": 59,
-    "playersWithHeight": 59
+    "clubs": 16,
+    "clubsWithPlayers": 12,
+    "players": 68,
+    "playersWithSpecificPosition": 48,
+    "playersWithRoleGroup": 66,
+    "positionsFromWikidata": 17,
+    "positionsFromOpenFootball": 31,
+    "playersWithNationality": 68,
+    "playersWithHeight": 68
   },
   "rosters": [
     {
@@ -57,7 +57,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -86,7 +86,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -125,6 +125,32 @@
       "wikidataId": "Q188277",
       "players": [
         {
+          "wikidataId": "Q131110894",
+          "name": "Néiser Villarreal",
+          "dateOfBirth": "2005-04-24",
+          "nationality": "Colômbia",
+          "heightCm": 186,
+          "roleGroup": "forward",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "cruzeiro-ec",
+          "clubName": "Cruzeiro EC",
+          "clubWikidataId": "Q188277",
+          "membershipStart": "2026-01-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-10-24",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "avançado"
+          }
+        },
+        {
           "wikidataId": "Q1341709",
           "name": "Dudu",
           "dateOfBirth": "1992-01-07",
@@ -140,7 +166,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -168,7 +194,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -197,7 +223,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -206,32 +232,6 @@
             "positionSource": "Wikidata P413 specific role",
             "roleGroupSource": "Wikidata P413 broad role",
             "rawPositionLabel": "zagueiro"
-          }
-        },
-        {
-          "wikidataId": "Q131110894",
-          "name": "Néiser Villarreal",
-          "dateOfBirth": "2005-04-24",
-          "nationality": "Colômbia",
-          "heightCm": 186,
-          "roleGroup": "forward",
-          "roleGroupSource": "Wikidata P413",
-          "clubId": "cruzeiro-ec",
-          "clubName": "Cruzeiro EC",
-          "clubWikidataId": "Q188277",
-          "membershipStart": "2026-01-01",
-          "membershipRank": "NormalRank",
-          "provenance": {
-            "source": "Wikidata",
-            "license": "CC0",
-            "snapshotDate": "2026-10-18",
-            "clubStatement": "P54",
-            "genderStatement": "P21",
-            "nationalityStatement": "P27",
-            "heightStatement": "P2048",
-            "temporalRule": "preferred-rank-or-started-2024+",
-            "roleGroupSource": "Wikidata P413 broad role",
-            "rawPositionLabel": "avançado"
           }
         },
         {
@@ -250,7 +250,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -278,7 +278,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -307,7 +307,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -336,7 +336,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -365,7 +365,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -394,7 +394,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -437,7 +437,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -466,7 +466,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -495,7 +495,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -522,7 +522,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -548,7 +548,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -588,7 +588,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -630,7 +630,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -659,7 +659,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -688,7 +688,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -715,7 +715,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -743,7 +743,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -786,7 +786,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -800,6 +800,19 @@
       ],
       "count": 1,
       "positionedPlayers": 1
+    },
+    {
+      "club": {
+        "id": "ec-vitoria",
+        "name": "EC Vitória",
+        "wikidataId": "Q274465"
+      },
+      "id": "ec-vitoria",
+      "name": "EC Vitória",
+      "wikidataId": "Q274465",
+      "players": [],
+      "count": 0,
+      "positionedPlayers": 0
     },
     {
       "club": {
@@ -829,7 +842,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -858,7 +871,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -887,7 +900,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -916,7 +929,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -945,7 +958,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -972,7 +985,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1000,7 +1013,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1029,7 +1042,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1058,7 +1071,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1083,7 +1096,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1110,7 +1123,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1137,7 +1150,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1150,6 +1163,185 @@
       ],
       "count": 12,
       "positionedPlayers": 9
+    },
+    {
+      "club": {
+        "id": "se-palmeiras",
+        "name": "SE Palmeiras",
+        "wikidataId": "Q80964"
+      },
+      "id": "se-palmeiras",
+      "name": "SE Palmeiras",
+      "wikidataId": "Q80964",
+      "players": [
+        {
+          "wikidataId": "Q132307478",
+          "name": "Allan",
+          "dateOfBirth": "2004-04-19",
+          "nationality": "Brasil",
+          "heightCm": 175,
+          "roleGroup": "midfielder",
+          "position": "AM",
+          "positionSource": "Wikidata specific label",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "se-palmeiras",
+          "clubName": "SE Palmeiras",
+          "clubWikidataId": "Q80964",
+          "membershipStart": "2025-01-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-10-24",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "Wikidata P413 specific role",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "attacking midfielder"
+          }
+        },
+        {
+          "wikidataId": "Q110160871",
+          "name": "Ramón Sosa",
+          "dateOfBirth": "1999-08-31",
+          "nationality": "Paraguai",
+          "heightCm": 178,
+          "roleGroup": "midfielder",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "se-palmeiras",
+          "clubName": "SE Palmeiras",
+          "clubWikidataId": "Q80964",
+          "membershipStart": "2025-01-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-10-24",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "Meio-campista"
+          }
+        },
+        {
+          "wikidataId": "Q17619350",
+          "name": "Andreas Pereira",
+          "dateOfBirth": "1996-01-01",
+          "nationality": "Brasil",
+          "heightCm": 177,
+          "roleGroup": "midfielder",
+          "position": "CM",
+          "positionSource": "OpenFootball specific role",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "se-palmeiras",
+          "clubName": "SE Palmeiras",
+          "clubWikidataId": "Q80964",
+          "membershipStart": "2025-01-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-10-24",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB specific role",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "Meio-campista"
+          }
+        },
+        {
+          "wikidataId": "Q65378670",
+          "name": "Jhon Arias",
+          "dateOfBirth": "1997-09-21",
+          "nationality": "Colômbia",
+          "heightCm": 168,
+          "roleGroup": "midfielder",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "se-palmeiras",
+          "clubName": "SE Palmeiras",
+          "clubWikidataId": "Q80964",
+          "membershipStart": "2026-01-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-10-24",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "Meio-campista"
+          }
+        },
+        {
+          "wikidataId": "Q119152074",
+          "name": "Riquelme Fillipi",
+          "dateOfBirth": "2006-09-15",
+          "nationality": "Brasil",
+          "heightCm": 175,
+          "roleGroup": "forward",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "se-palmeiras",
+          "clubName": "SE Palmeiras",
+          "clubWikidataId": "Q80964",
+          "membershipStart": "2024-01-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-10-24",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "avançado"
+          }
+        },
+        {
+          "wikidataId": "Q111016177",
+          "name": "Vitor Roque",
+          "dateOfBirth": "2005-02-28",
+          "nationality": "Brasil",
+          "heightCm": 172,
+          "roleGroup": "forward",
+          "position": "ST",
+          "positionSource": "OpenFootball specific role",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "se-palmeiras",
+          "clubName": "SE Palmeiras",
+          "clubWikidataId": "Q80964",
+          "membershipStart": "2025-02-28",
+          "membershipRank": "PreferredRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-10-24",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB specific role",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "avançado"
+          }
+        }
+      ],
+      "count": 6,
+      "positionedPlayers": 3
     },
     {
       "club": {
@@ -1179,7 +1371,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1206,7 +1398,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1234,7 +1426,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1263,7 +1455,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1292,7 +1484,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1305,6 +1497,187 @@
         }
       ],
       "count": 5,
+      "positionedPlayers": 4
+    },
+    {
+      "club": {
+        "id": "cr-vasco-da-gama",
+        "name": "CR Vasco da Gama",
+        "wikidataId": "Q5014111"
+      },
+      "id": "cr-vasco-da-gama",
+      "name": "CR Vasco da Gama",
+      "wikidataId": "Q5014111",
+      "players": [
+        {
+          "wikidataId": "Q71735316",
+          "name": "Juan Sforza",
+          "dateOfBirth": "2002-02-14",
+          "nationality": "Argentina",
+          "heightCm": 180,
+          "roleGroup": "midfielder",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "cr-vasco-da-gama",
+          "clubName": "CR Vasco da Gama",
+          "clubWikidataId": "Q5014111",
+          "membershipStart": "2024-02-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-10-24",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "Meio-campista"
+          }
+        },
+        {
+          "wikidataId": "Q311872",
+          "name": "Philippe Coutinho",
+          "dateOfBirth": "1992-06-12",
+          "nationality": "Portugal",
+          "heightCm": 172,
+          "roleGroup": "midfielder",
+          "position": "CM",
+          "positionSource": "OpenFootball specific role",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "cr-vasco-da-gama",
+          "clubName": "CR Vasco da Gama",
+          "clubWikidataId": "Q5014111",
+          "membershipStart": "2025-07-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-10-24",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB specific role",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "winger"
+          }
+        },
+        {
+          "wikidataId": "Q108532924",
+          "name": "Nuno Moreira",
+          "dateOfBirth": "1999-06-16",
+          "nationality": "Portugal",
+          "heightCm": 175,
+          "roleGroup": "forward",
+          "position": "ST",
+          "positionSource": "OpenFootball specific role",
+          "roleGroupSource": "OpenFootball CC0",
+          "clubId": "cr-vasco-da-gama",
+          "clubName": "CR Vasco da Gama",
+          "clubWikidataId": "Q5014111",
+          "membershipStart": "2025-01-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-10-24",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB specific role",
+            "roleGroupSource": "OpenFootball exact name+DOB broad role"
+          }
+        },
+        {
+          "wikidataId": "Q26838147",
+          "name": "Carlos Cuesta",
+          "dateOfBirth": "1999-03-09",
+          "nationality": "Colômbia",
+          "heightCm": 178,
+          "roleGroup": "defender",
+          "position": "CB",
+          "positionSource": "Wikidata specific label",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "cr-vasco-da-gama",
+          "clubName": "CR Vasco da Gama",
+          "clubWikidataId": "Q5014111",
+          "membershipStart": "2025-01-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-10-24",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "Wikidata P413 specific role",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "zagueiro"
+          }
+        },
+        {
+          "wikidataId": "Q42227698",
+          "name": "Benjamín Garré",
+          "dateOfBirth": "2000-07-11",
+          "nationality": "Argentina",
+          "heightCm": 172,
+          "roleGroup": "midfielder",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "cr-vasco-da-gama",
+          "clubName": "CR Vasco da Gama",
+          "clubWikidataId": "Q5014111",
+          "membershipStart": "2025-01-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-10-24",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "wing half"
+          }
+        },
+        {
+          "wikidataId": "Q16021107",
+          "name": "Maxime Dominguez",
+          "dateOfBirth": "1996-02-01",
+          "nationality": "Suíça",
+          "heightCm": 166,
+          "roleGroup": "midfielder",
+          "position": "CM",
+          "positionSource": "OpenFootball specific role",
+          "roleGroupSource": "Wikidata P413",
+          "clubId": "cr-vasco-da-gama",
+          "clubName": "CR Vasco da Gama",
+          "clubWikidataId": "Q5014111",
+          "membershipStart": "2024-01-01",
+          "membershipRank": "NormalRank",
+          "provenance": {
+            "source": "Wikidata",
+            "license": "CC0",
+            "snapshotDate": "2026-10-24",
+            "clubStatement": "P54",
+            "genderStatement": "P21",
+            "nationalityStatement": "P27",
+            "heightStatement": "P2048",
+            "temporalRule": "preferred-rank-or-started-2024+",
+            "positionSource": "OpenFootball exact name+DOB specific role",
+            "roleGroupSource": "Wikidata P413 broad role",
+            "rawPositionLabel": "Meio-campista"
+          }
+        }
+      ],
+      "count": 6,
       "positionedPlayers": 4
     },
     {
@@ -1335,7 +1708,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1362,7 +1735,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1388,7 +1761,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1412,7 +1785,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1439,7 +1812,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1468,7 +1841,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1481,107 +1854,6 @@
         }
       ],
       "count": 6,
-      "positionedPlayers": 3
-    },
-    {
-      "club": {
-        "id": "ec-bahia",
-        "name": "EC Bahia",
-        "wikidataId": "Q198032"
-      },
-      "id": "ec-bahia",
-      "name": "EC Bahia",
-      "wikidataId": "Q198032",
-      "players": [
-        {
-          "wikidataId": "Q4025436",
-          "name": "Everton Ribeiro",
-          "dateOfBirth": "1989-04-10",
-          "nationality": "Brasil",
-          "heightCm": 174,
-          "roleGroup": "midfielder",
-          "position": "CM",
-          "positionSource": "OpenFootball specific role",
-          "roleGroupSource": "Wikidata P413",
-          "clubId": "ec-bahia",
-          "clubName": "EC Bahia",
-          "clubWikidataId": "Q198032",
-          "membershipStart": "2024-01-01",
-          "membershipRank": "PreferredRank",
-          "provenance": {
-            "source": "Wikidata",
-            "license": "CC0",
-            "snapshotDate": "2026-10-18",
-            "clubStatement": "P54",
-            "genderStatement": "P21",
-            "nationalityStatement": "P27",
-            "heightStatement": "P2048",
-            "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "OpenFootball exact name+DOB specific role",
-            "roleGroupSource": "Wikidata P413 broad role",
-            "rawPositionLabel": "Meio-campista"
-          }
-        },
-        {
-          "wikidataId": "Q112877211",
-          "name": "Alejo Véliz",
-          "dateOfBirth": "2003-09-19",
-          "nationality": "Argentina",
-          "heightCm": 187,
-          "roleGroup": "forward",
-          "position": "ST",
-          "positionSource": "OpenFootball specific role",
-          "roleGroupSource": "Wikidata P413",
-          "clubId": "ec-bahia",
-          "clubName": "EC Bahia",
-          "clubWikidataId": "Q198032",
-          "membershipStart": "2026-07-01",
-          "membershipRank": "PreferredRank",
-          "provenance": {
-            "source": "Wikidata",
-            "license": "CC0",
-            "snapshotDate": "2026-10-18",
-            "clubStatement": "P54",
-            "genderStatement": "P21",
-            "nationalityStatement": "P27",
-            "heightStatement": "P2048",
-            "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "OpenFootball exact name+DOB specific role",
-            "roleGroupSource": "Wikidata P413 broad role",
-            "rawPositionLabel": "avançado"
-          }
-        },
-        {
-          "wikidataId": "Q2502118",
-          "name": "Santiago Arias",
-          "dateOfBirth": "1992-01-13",
-          "nationality": "Colômbia",
-          "heightCm": 175,
-          "roleGroup": "defender",
-          "position": "CB",
-          "positionSource": "OpenFootball specific role",
-          "roleGroupSource": "Wikidata P413",
-          "clubId": "ec-bahia",
-          "clubName": "EC Bahia",
-          "clubWikidataId": "Q198032",
-          "membershipStart": "2024-01-01",
-          "membershipRank": "NormalRank",
-          "provenance": {
-            "source": "Wikidata",
-            "license": "CC0",
-            "snapshotDate": "2026-10-18",
-            "clubStatement": "P54",
-            "genderStatement": "P21",
-            "nationalityStatement": "P27",
-            "heightStatement": "P2048",
-            "temporalRule": "preferred-rank-or-started-2024+",
-            "positionSource": "OpenFootball exact name+DOB specific role",
-            "roleGroupSource": "Wikidata P413 broad role",
-            "rawPositionLabel": "Lateral (futebol)"
-          }
-        }
-      ],
-      "count": 3,
       "positionedPlayers": 3
     },
     {
@@ -1612,7 +1884,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1641,7 +1913,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1670,7 +1942,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1697,7 +1969,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1725,7 +1997,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1754,7 +2026,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1783,7 +2055,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1812,7 +2084,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
@@ -1841,7 +2113,7 @@
           "provenance": {
             "source": "Wikidata",
             "license": "CC0",
-            "snapshotDate": "2026-10-18",
+            "snapshotDate": "2026-10-24",
             "clubStatement": "P54",
             "genderStatement": "P21",
             "nationalityStatement": "P27",
