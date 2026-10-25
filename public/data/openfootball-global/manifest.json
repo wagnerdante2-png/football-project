@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-11T11:35:39.204Z",
+  "generatedAt": "2026-10-25T10:07:59.173Z",
   "license": "CC0-1.0",
   "repos": [
     {
@@ -30,19 +30,19 @@
     {
       "repo": "openfootball/south-america",
       "branch": "master",
-      "commit": "119fa1724b2079a1072a0cb0ca0ccac26d92fd34",
+      "commit": "f51b2dcf5e0fab9f0abd5206ab8c24a413e67277",
       "files": 60
     },
     {
       "repo": "openfootball/europe",
       "branch": "master",
-      "commit": "0bf83f88e8feb22904c5f9d93c6407574c1347e0",
+      "commit": "63df627f3c87ce71708f016522ea236cf74332c3",
       "files": 212
     },
     {
       "repo": "openfootball/england",
       "branch": "master",
-      "commit": "b17e8f01707d83d2ce1790c14d4a5eeb35987825",
+      "commit": "9ee7a0c351805c99cc334478a9bf04b7d0432fec",
       "files": 213
     },
     {
@@ -54,7 +54,7 @@
     {
       "repo": "openfootball/espana",
       "branch": "master",
-      "commit": "09afd6cd836ee72f69a50e82d8727bcc39a8b8dc",
+      "commit": "80035a93dd4920985af52aa097a54a6fb888563b",
       "files": 55
     },
     {
@@ -72,7 +72,7 @@
     {
       "repo": "openfootball/worldcup",
       "branch": "master",
-      "commit": "19155966c56fca7fe987174f2506e5a874281313",
+      "commit": "25260b1d629c74ade80b5724b0b7e21cd1104458",
       "files": 179
     },
     {
@@ -4461,8 +4461,8 @@
       "repo": "openfootball/south-america",
       "branch": "master",
       "path": "copa-libertadores/2015_copal.txt",
-      "sha": "34fd788d8b85e23b082ea3efe728d9cf576517a0",
-      "bytes": 11987,
+      "sha": "9fc2bddb9e3c8b80289d8b1dd92a48ccc8a7adf5",
+      "bytes": 11976,
       "license": "CC0-1.0"
     },
     {
@@ -4477,7 +4477,7 @@
       "repo": "openfootball/south-america",
       "branch": "master",
       "path": "copa-libertadores/2016_copal.txt",
-      "sha": "aadb8a31654585bd3cd4aa55536dcf87cfd1e1ae",
+      "sha": "5789ade22a6edfb64c32e086adcee2e2ef0f8410",
       "bytes": 11951,
       "license": "CC0-1.0"
     },
@@ -4525,7 +4525,7 @@
       "repo": "openfootball/south-america",
       "branch": "master",
       "path": "copa-libertadores/2019_copal.txt",
-      "sha": "5cc27ec3706c1fd9063e0d1f3321b0111abde17c",
+      "sha": "06147e621a1b4dd9594d53ec8ebf0669b9447562",
       "bytes": 13305,
       "license": "CC0-1.0"
     },
@@ -4605,8 +4605,8 @@
       "repo": "openfootball/south-america",
       "branch": "master",
       "path": "copa-libertadores/2024_copal.txt",
-      "sha": "d6ae8f03a8f9dd36797c62a9a70d0f110e5a0134",
-      "bytes": 13102,
+      "sha": "ec83603c71ce88cf4994bab9040e18ba14f643b2",
+      "bytes": 13157,
       "license": "CC0-1.0"
     },
     {
@@ -4621,8 +4621,8 @@
       "repo": "openfootball/south-america",
       "branch": "master",
       "path": "copa-libertadores/2025_copal.txt",
-      "sha": "e08fa52652078beace0546b1450a139fa03ffa9a",
-      "bytes": 13171,
+      "sha": "e368ff228dd7b65964b54647d34d74cdef6d9b84",
+      "bytes": 13176,
       "license": "CC0-1.0"
     },
     {
@@ -4637,8 +4637,8 @@
       "repo": "openfootball/south-america",
       "branch": "master",
       "path": "copa-libertadores/2026_copal.txt",
-      "sha": "47596eaeb0049a96bfe84a23dd79b31a55a4c079",
-      "bytes": 12170,
+      "sha": "0447985a34f8b5a179fb3bddd5ded8316a54e7ec",
+      "bytes": 12175,
       "license": "CC0-1.0"
     },
     {
@@ -5173,8 +5173,8 @@
       "repo": "openfootball/europe",
       "branch": "master",
       "path": "france/2024-25_frcup.txt",
-      "sha": "95507e6b34516f2da2ec7376b7113b4577925017",
-      "bytes": 15714,
+      "sha": "430d69abaf48321ea9bfe83b5d1129e6ef197514",
+      "bytes": 15716,
       "license": "CC0-1.0"
     },
     {
@@ -7301,8 +7301,8 @@
       "repo": "openfootball/england",
       "branch": "master",
       "path": "2020-21/eflcup.txt",
-      "sha": "1cf977a2fd9a627b1823e0ffe1c430919dc581b3",
-      "bytes": 7304,
+      "sha": "e0bb4d671331657b14eba1af85e9b4ecedf54d93",
+      "bytes": 7321,
       "license": "CC0-1.0"
     },
     {
@@ -9077,8 +9077,8 @@
       "repo": "openfootball/espana",
       "branch": "master",
       "path": "2021-22/cup.txt",
-      "sha": "281949aecc0b9ed7b74c759670c04420ad3b1592",
-      "bytes": 8380,
+      "sha": "568f94cbff976cc4652b8b754be27053b89687d3",
+      "bytes": 8406,
       "license": "CC0-1.0"
     },
     {
@@ -9101,8 +9101,8 @@
       "repo": "openfootball/espana",
       "branch": "master",
       "path": "2022-23/cup.txt",
-      "sha": "9e817dffb057bc1126159681abb3b3a02bc9259f",
-      "bytes": 8451,
+      "sha": "db9db8d1301f8cb78dd48a5c3fbc026d3712fcfd",
+      "bytes": 8472,
       "license": "CC0-1.0"
     },
     {
@@ -9125,7 +9125,7 @@
       "repo": "openfootball/espana",
       "branch": "master",
       "path": "2023-24/cup.txt",
-      "sha": "1f8a3a2e7fbccdd22bd53f32a03ab9fd78e2981b",
+      "sha": "537c8a76c2f610ca574dfd0fb60ed36f78f8396a",
       "bytes": 8444,
       "license": "CC0-1.0"
     },
@@ -10949,8 +10949,8 @@
       "repo": "openfootball/worldcup",
       "branch": "master",
       "path": "more/1986_full.txt",
-      "sha": "983e329b6691288f0112b5f64c14ef06ba2d431a",
-      "bytes": 38948,
+      "sha": "1db024e4170966f18d9db779cdaed7ab36b441ae",
+      "bytes": 38958,
       "license": "CC0-1.0"
     },
     {
@@ -10973,8 +10973,8 @@
       "repo": "openfootball/worldcup",
       "branch": "master",
       "path": "more/1990_full.txt",
-      "sha": "160ce6489c1069b5425409934a8a839d669e2593",
-      "bytes": 39191,
+      "sha": "4810dab618b81632517364c922517da5e3cda6c4",
+      "bytes": 39221,
       "license": "CC0-1.0"
     },
     {
@@ -10997,8 +10997,8 @@
       "repo": "openfootball/worldcup",
       "branch": "master",
       "path": "more/1994_full.txt",
-      "sha": "b97530b7d665f2e74df988e8151dd0d6c6329639",
-      "bytes": 40443,
+      "sha": "207b83d1b768a39c22d0a55d1ac508b8e2e8b5f2",
+      "bytes": 40514,
       "license": "CC0-1.0"
     },
     {
@@ -11021,8 +11021,8 @@
       "repo": "openfootball/worldcup",
       "branch": "master",
       "path": "more/1998_full.txt",
-      "sha": "e999d6d9d8d906832571e9cba1c484ec64685f86",
-      "bytes": 51205,
+      "sha": "84ea90c791d0531b289e972069deea28c0783177",
+      "bytes": 51247,
       "license": "CC0-1.0"
     },
     {
@@ -11045,8 +11045,8 @@
       "repo": "openfootball/worldcup",
       "branch": "master",
       "path": "more/2002_full.txt",
-      "sha": "53c7859b929f49d32211b3be8c5c8f5c0ab69a28",
-      "bytes": 50062,
+      "sha": "29e36ca2c9d76d84ba108e0b8ec10fc325b3a168",
+      "bytes": 50121,
       "license": "CC0-1.0"
     },
     {
@@ -11069,8 +11069,8 @@
       "repo": "openfootball/worldcup",
       "branch": "master",
       "path": "more/2006_full.txt",
-      "sha": "d2dee13381eb9f23def898bf0e91c8c71c38fc9f",
-      "bytes": 51352,
+      "sha": "293d5051e029c340f888c88055f80f8e414b8651",
+      "bytes": 51530,
       "license": "CC0-1.0"
     },
     {
@@ -11093,8 +11093,8 @@
       "repo": "openfootball/worldcup",
       "branch": "master",
       "path": "more/2010_full.txt",
-      "sha": "c6a4a7d8d5d09d88cb5d69d5fd8b9d6fdec43cc1",
-      "bytes": 50613,
+      "sha": "7ec51b374b778ed969b0e295fdd90deb37d87ea2",
+      "bytes": 50693,
       "license": "CC0-1.0"
     },
     {
@@ -11117,8 +11117,8 @@
       "repo": "openfootball/worldcup",
       "branch": "master",
       "path": "more/2014_full.txt",
-      "sha": "0531f9605f682659f0621e5cecb7c77bb85b6ef0",
-      "bytes": 51447,
+      "sha": "b8f635a14d4a333e3d8d8c5f5842627a4e05d883",
+      "bytes": 51477,
       "license": "CC0-1.0"
     },
     {
@@ -12332,7 +12332,7 @@
   ],
   "counts": {
     "files": 1530,
-    "bytes": 26240731,
+    "bytes": 26241351,
     "playersFiles": 184,
     "clubFiles": 101,
     "stadiumFiles": 36,
