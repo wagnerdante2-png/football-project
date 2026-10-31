@@ -1,6 +1,6 @@
 {
   "version": 4,
-  "generatedAt": "2026-10-24T09:38:01.321Z",
+  "generatedAt": "2026-10-31T11:03:01.066Z",
   "sources": {
     "structured": [
       "OpenFootball CC0",
@@ -15,7 +15,7 @@
     "clubCrests": 11,
     "stadiumImages": 14,
     "playerTargets": 20,
-    "playerPortraits": 13,
+    "playerPortraits": 11,
     "activeRosterPlayerTargets": 20
   },
   "clubs": [
@@ -147,10 +147,10 @@
     {
       "name": "Fortaleza EC",
       "wikidataId": "Q188841",
-      "primaryColor": "hsl(187 58% 34%)",
-      "secondaryColor": "hsl(324 58% 42%)",
-      "accentColor": "hsl(257 72% 58%)",
-      "kitSource": "procedural",
+      "primaryColor": "#e1261d",
+      "secondaryColor": "#2b62a7",
+      "accentColor": "#ba8843",
+      "kitSource": "derived-from-crest",
       "crest": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Fortaleza_Esporte_Clube_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
         "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Fortaleza_Esporte_Clube_logo.svg/500px-Fortaleza_Esporte_Clube_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -170,7 +170,12 @@
         "sourcePage": "https://commons.wikimedia.org/wiki/File:Fortaleza_Arena.jpg",
         "freeToRedistribute": true
       },
-      "sourceConfidence": 96
+      "sourceConfidence": 96,
+      "paletteProvenance": {
+        "source": "verified-free-crest",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Fortaleza_Esporte_Clube_logo.svg",
+        "method": "dominant-svg-colors"
+      }
     },
     {
       "name": "Fluminense FC",
@@ -269,10 +274,10 @@
     {
       "name": "SE Palmeiras",
       "wikidataId": "Q80964",
-      "primaryColor": "hsl(141 58% 34%)",
-      "secondaryColor": "hsl(278 58% 42%)",
-      "accentColor": "hsl(211 72% 58%)",
-      "kitSource": "procedural",
+      "primaryColor": "#006437",
+      "secondaryColor": "#f3f5f4",
+      "accentColor": "#f3f5f4",
+      "kitSource": "derived-from-crest",
       "crest": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/1/10/Palmeiras_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
         "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Palmeiras_logo.svg/500px-Palmeiras_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -292,7 +297,12 @@
         "sourcePage": "https://commons.wikimedia.org/wiki/File:Est%C3%A1dio_Palestra_It%C3%A1lia.JPG",
         "freeToRedistribute": true
       },
-      "sourceConfidence": 96
+      "sourceConfidence": 96,
+      "paletteProvenance": {
+        "source": "verified-free-crest",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Palmeiras_logo.svg",
+        "method": "dominant-svg-colors"
+      }
     },
     {
       "name": "Botafogo FR",
@@ -465,17 +475,7 @@
       "name": "Lucas Moura",
       "dateOfBirth": "1992-08-13",
       "clubName": "São Paulo FC",
-      "wikidataId": "Q312886",
-      "portrait": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/2/26/2020-03-10_Fu%C3%9Fball%2C_M%C3%A4nner%2C_UEFA_Champions_League_Achtelfinale%2C_RB_Leipzig_-_Tottenham_Hotspur_1DX_3703_by_Stepro.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/2020-03-10_Fu%C3%9Fball%2C_M%C3%A4nner%2C_UEFA_Champions_League_Achtelfinale%2C_RB_Leipzig_-_Tottenham_Hotspur_1DX_3703_by_Stepro.jpg/330px-2020-03-10_Fu%C3%9Fball%2C_M%C3%A4nner%2C_UEFA_Champions_League_Achtelfinale%2C_RB_Leipzig_-_Tottenham_Hotspur_1DX_3703_by_Stepro.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-        "source": "Wikimedia Commons",
-        "license": "CC BY-SA",
-        "attribution": "Steffen Prößdorf",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:2020-03-10_Fu%C3%9Fball,_M%C3%A4nner,_UEFA_Champions_League_Achtelfinale,_RB_Leipzig_-_Tottenham_Hotspur_1DX_3703_by_Stepro.jpg",
-        "freeToRedistribute": true
-      },
-      "sourceConfidence": 96
+      "sourceConfidence": 10
     },
     {
       "name": "Dudu",
@@ -504,14 +504,14 @@
       "name": "Lucas Villalba",
       "dateOfBirth": "1994-08-18",
       "clubName": "Cruzeiro EC",
-      "sourceConfidence": 5
+      "wikidataId": "Q5981950",
+      "sourceConfidence": 70
     },
     {
       "name": "Néiser Villarreal",
       "dateOfBirth": "2005-04-24",
       "clubName": "Cruzeiro EC",
-      "wikidataId": "Q131110894",
-      "sourceConfidence": 70
+      "sourceConfidence": 5
     },
     {
       "name": "Gabigol",
@@ -687,17 +687,7 @@
       "name": "Hulk",
       "dateOfBirth": "1986-07-25",
       "clubName": "Fluminense FC",
-      "wikidataId": "Q62786",
-      "portrait": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Bayer-04_-_Zenit_%2814%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Bayer-04_-_Zenit_%2814%29.jpg/330px-Bayer-04_-_Zenit_%2814%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-        "source": "Wikimedia Commons",
-        "license": "CC BY-SA",
-        "attribution": "Вячеслав Евдокимов",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Bayer-04_-_Zenit_(14).jpg",
-        "freeToRedistribute": true
-      },
-      "sourceConfidence": 96
+      "sourceConfidence": 10
     }
   ],
   "notes": [
@@ -713,10 +703,10 @@
   ],
   "identitySanitization": {
     "rejectedAmbiguousClubMatches": 1,
-    "generatedAt": "2026-10-24T09:38:01.454Z"
+    "generatedAt": "2026-10-31T11:03:01.206Z"
   },
   "colorEnrichment": {
-    "derivedFromVerifiedCrests": 3,
-    "generatedAt": "2026-10-24T09:38:01.840Z"
+    "derivedFromVerifiedCrests": 5,
+    "generatedAt": "2026-10-31T11:03:01.819Z"
   }
 }
